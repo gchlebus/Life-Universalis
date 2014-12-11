@@ -19,6 +19,15 @@
     <Filter Include="Building">
       <UniqueIdentifier>{ac131379-0544-4090-afc4-7e7062f4b45a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Updateable">
+      <UniqueIdentifier>{4a174e26-aea6-47b4-bc1b-67ccc83959df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel">
+      <UniqueIdentifier>{0581d714-037d-4173-a0b9-be3ddea3e765}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Timer">
+      <UniqueIdentifier>{81e884eb-79b6-4232-a96e-30ce8de17beb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -26,6 +35,12 @@
     </ClCompile>
     <ClCompile Include="Human.cpp">
       <Filter>Human</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Kernel\Timer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +52,15 @@
     </ClInclude>
     <ClInclude Include="GlobalHeaders.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Updateable.h">
+      <Filter>Updateable</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Kernel\Timer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

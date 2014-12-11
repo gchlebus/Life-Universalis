@@ -61,12 +61,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Human.cpp" />
+    <ClCompile Include="Kernel.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GlobalHeaders.h" />
     <ClInclude Include="Human.h" />
+    <ClInclude Include="Kernel.h" />
     <ClInclude Include="LifeUniversalis.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Updateable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

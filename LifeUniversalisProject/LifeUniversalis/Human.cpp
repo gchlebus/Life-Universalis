@@ -8,3 +8,7 @@ Human::Human()
 	education = 0.0f;
 	return;
 }
+
+void Human::update()
+{
+}

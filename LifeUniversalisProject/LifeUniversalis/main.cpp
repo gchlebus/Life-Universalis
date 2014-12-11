@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
+	Kernel::init();
 	Human *human = new Human();
 	cout << "Human stats:\n\tHunger: " << human->hunger
 					<< "\n\tHealth: " << human->health
