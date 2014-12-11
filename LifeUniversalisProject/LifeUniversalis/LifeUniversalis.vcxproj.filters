@@ -13,10 +13,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Human">
+      <UniqueIdentifier>{a7713a6a-6e34-4909-bcc4-f641f41d377d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Building">
+      <UniqueIdentifier>{ac131379-0544-4090-afc4-7e7062f4b45a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Human.cpp">
+      <Filter>Human</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Human.h">
+      <Filter>Human</Filter>
+    </ClInclude>
+    <ClInclude Include="LifeUniversalis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalHeaders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
