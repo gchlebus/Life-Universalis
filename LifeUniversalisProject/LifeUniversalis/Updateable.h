@@ -4,5 +4,5 @@
 class Updateable
 {
 public:
-	void update();
+	virtual void update(double ms) = 0;
 };

@@ -6,9 +6,9 @@ class Human : public Updateable
 {
 public:
 	Human();
-	void update();
+	void update(double ms);
 //protected:
-	float hunger;
+	float satiety;
 	float health;
 	float entertainment;
 	float education;

@@ -9,7 +9,7 @@ int main()
 {
 	Kernel::init();
 	Human *human = new Human();
-	cout << "Human stats:\n\tHunger: " << human->hunger
+	cout << "Human stats:\n\tsatiety: " << human->satiety
 					<< "\n\tHealth: " << human->health
 					<< "\n\tEntertainment: " << human->entertainment
 					<< "\n\tEducation: " << human->education;
