@@ -62,5 +62,8 @@
     <ClInclude Include="Timer.h">
       <Filter>Kernel\Timer</Filter>
     </ClInclude>
+    <ClInclude Include="LifeUniversalisSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

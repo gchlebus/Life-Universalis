@@ -1,8 +1,9 @@
 #pragma once
+#include "LifeUniversalisSystem.h"
 #include "GlobalHeaders.h"
 #include "Updateable.h"
 
-class Human : public Updateable
+class LIFEUNIVERSALIS_EXPORT Human : public Updateable
 {
 public:
 	Human();
