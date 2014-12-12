@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C++ Express 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LifeUniversalis", "LifeUniversalis\LifeUniversalis.vcxproj", "{22132635-8AEE-416C-8CF4-AD66B40416A7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LifeUniversalisTest", "LifeUniversalisTest\LifeUniversalisTest.vcxproj", "{633CE5F8-D231-4D49-8A0F-2C634EB263B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{22132635-8AEE-416C-8CF4-AD66B40416A7}.Debug|Win32.Build.0 = Debug|Win32
 		{22132635-8AEE-416C-8CF4-AD66B40416A7}.Release|Win32.ActiveCfg = Release|Win32
 		{22132635-8AEE-416C-8CF4-AD66B40416A7}.Release|Win32.Build.0 = Release|Win32
+		{633CE5F8-D231-4D49-8A0F-2C634EB263B6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{633CE5F8-D231-4D49-8A0F-2C634EB263B6}.Debug|Win32.Build.0 = Debug|Win32
+		{633CE5F8-D231-4D49-8A0F-2C634EB263B6}.Release|Win32.ActiveCfg = Release|Win32
+		{633CE5F8-D231-4D49-8A0F-2C634EB263B6}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
