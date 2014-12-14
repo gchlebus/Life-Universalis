@@ -1,10 +1,18 @@
 #pragma once
 #include "GlobalHeaders.h"
+#include <boost/timer/timer.hpp>
 
-class Timer
+class LIFEUNIVERSALIS_EXPORT Timer
 {
 public:
+	Timer();
+	~Timer();
+	void tick();
+	double getLastDelta();
+	double getCurrent();
+	double getAbsolute();
 protected:
-	long int lastTime;
-	long int deltaTime;
+	double startTime;
+	double lastDelta;
+	boost::timer::cpu_timer *boostTimer;
 };

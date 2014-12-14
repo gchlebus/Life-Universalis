@@ -2,10 +2,13 @@
 #include "GlobalHeaders.h"
 
 class Timer;
+class Settings;
 
-class Kernel
+class LIFEUNIVERSALIS_EXPORT Kernel
 {
 public:
-	static bool init();
-	static Timer *timer;
+	Kernel();
+	bool init();
+	Timer *timer;
+	Settings *settings;
 };

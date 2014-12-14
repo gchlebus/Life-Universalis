@@ -28,6 +28,12 @@
     <Filter Include="Kernel\Timer">
       <UniqueIdentifier>{81e884eb-79b6-4232-a96e-30ce8de17beb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Kernel\Utils">
+      <UniqueIdentifier>{511ee34f-3329-4e84-99b2-adbd4e2274cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Settings">
+      <UniqueIdentifier>{6bd4f9dd-f144-4c17-8ed0-042898c16d29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -41,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Kernel\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Kernel\Settings</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="LifeUniversalisSystem.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.h">
+      <Filter>Kernel\Settings</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
