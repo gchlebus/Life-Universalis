@@ -12,8 +12,8 @@ Human::Human()
 
 void Human::update(const float deltaTime)
 {
+	setHealth(_health - deltaTime * getSatietyModifiedHealthMultiplier());
 	setSatiety(_satiety - deltaTime * _satietyMultiplier);
-	setHealth(_health - deltaTime * _healthMultiplier);
 	setEntertainment(_entertainment - deltaTime * _entertainmentMultiplier);
 	setEducation(_education - deltaTime * _educationMultiplier);
 }
@@ -76,6 +76,11 @@ void Human::setEducationMultiplier(const float educationMultiplayer)
 const float Human::getEducation() const
 {
 	return _education;
+}
+
+float Human::getSatietyModifiedHealthMultiplier()
+{
+	return (2.f - _satiety) * _healthMultiplier;
 }
 
 float Human::clip(float val, float lower, float upper)

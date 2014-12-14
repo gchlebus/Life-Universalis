@@ -1,4 +1,5 @@
 #pragma once
+#include "LifeUniversalisSystem.h"
 #include "GlobalHeaders.h"
 #include "Updateable.h"
 
@@ -11,26 +12,28 @@ public:
 	
 	void setSatiety(const float satiety);
 	//! \param satietyMultiplier - inverted number of game time hours needed 
-	//! to drop satiety from 1 to 0.
+	//!        to drop satiety from 1 to 0.
 	void setSatietyMultiplier(const float satietyMultiplier);
 	const float getSatiety() const;
 	void setHealth(const float health);
 	//! \param healthMultiplier - inverted number of game time hours needed 
-	//! to drop health from 1 to 0.
+	//!        to drop health from 1 to 0, assuming that satiety is 1. 
+	//!        When satiety is 0, health drops two times faster.
 	void setHealthMultiplier(const float healthMultiplier);
 	const float getHealth() const;
 	void setEntertainment(const float entertainment);
 	//! \param entertainmentMultiplier - inverted number of game time hours 
-	//! needed to drop entertainment from 1 to 0.
+	//!        needed to drop entertainment from 1 to 0.
 	void setEntertainmentMultiplier(const float entertainmentMultiplier);
 	const float getEntertainment() const;
 	void setEducation(const float education);
 	//! \param educationMultiplier - inverted number of game time hours needed 
-	//! to drop education from 1 to 0.
+	//!        to drop education from 1 to 0.
 	void setEducationMultiplier(const float educationMultiplier);
 	const float getEducation() const;
 
 private:
+	float getSatietyModifiedHealthMultiplier();
 	float clip(float val, float lower, float upper);
 
 	float _satiety;
