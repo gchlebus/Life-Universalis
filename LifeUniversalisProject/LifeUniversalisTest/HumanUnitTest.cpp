@@ -12,12 +12,22 @@ protected:
 		human.setEducation(val);
 	}
 
+	void setAllHumanMultiplayers(float val)
+	{
+		human.setSatietyMultiplier(val);
+		human.setHealthMultiplier(val);
+		human.setEntertainmentMultiplier(val);
+		human.setEducationMultiplier(val);
+	}
+
 	void allHumanParametersEqual(float refVal)
 	{
-		ASSERT_FLOAT_EQ(refVal, human.getSatiety());
-		ASSERT_FLOAT_EQ(refVal, human.getHealth());
-		ASSERT_FLOAT_EQ(refVal, human.getEntertainment());
-		ASSERT_FLOAT_EQ(refVal, human.getEducation());
+		double epsilon = 1e-7;
+
+		EXPECT_NEAR(refVal, human.getSatiety(), epsilon);
+		EXPECT_NEAR(refVal, human.getHealth(), epsilon);
+		EXPECT_NEAR(refVal, human.getEntertainment(), epsilon);
+		EXPECT_NEAR(refVal, human.getEducation(), epsilon);
 	}
 
 	Human human;
@@ -44,4 +54,23 @@ TEST_F(HumanTest, SetterFunctions_ParameterGreaterThanOne)
 {
 	setAllHumanParametersTo(1.1f);
 	allHumanParametersEqual(1.0f);
+}
+
+TEST_F(HumanTest, ParametersDrop)
+{
+	float parametersTime = 100;
+	setAllHumanMultiplayers(1 / parametersTime);
+	setAllHumanParametersTo(1.f);
+
+	human.update(parametersTime/4);
+	allHumanParametersEqual(0.75f);
+
+	human.update(parametersTime/2);
+	allHumanParametersEqual(0.25f);
+
+	human.update(0);
+	allHumanParametersEqual(0.25f);
+
+	human.update(parametersTime/4);
+	allHumanParametersEqual(0.f);
 }
