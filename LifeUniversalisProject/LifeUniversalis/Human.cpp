@@ -1,13 +1,60 @@
 #include "Human.h"
 
+#include <algorithm>
+
 Human::Human()
 {
-	satiety = 0.0f;
-	health = 0.0f;
-	entertainment = 0.0f;
-	education = 0.0f;
+	_satiety = 0.0f;
+	_health = 0.0f;
+	_entertainment = 0.0f;
+	_education = 0.0f;
 }
 
 void Human::update(double ms)
 {
+}
+
+void Human::setSatiety(const float satiety)
+{
+	_satiety = clip(satiety, 0.f, 1.f);
+}
+
+const float Human::getSatiety() const
+{
+	return _satiety;
+}
+
+void Human::setHealth(const float health)
+{
+	_health = clip(health, 0.f, 1.f);
+}
+
+const float Human::getHealth() const
+{
+	return _health;
+}
+
+void Human::setEntertainment(const float entertainment)
+{
+	_entertainment = clip(entertainment, 0.f, 1.f);
+}
+
+const float Human::getEntertainment() const
+{
+	return _entertainment;
+}
+
+void Human::setEducation(const float education)
+{
+	_education = clip(education, 0.f, 1.f);
+}
+
+const float Human::getEducation() const
+{
+	return _education;
+}
+
+float Human::clip(float val, float lower, float upper)
+{
+	return std::min(upper, std::max(lower, val));
 }

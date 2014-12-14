@@ -9,10 +9,10 @@ int main()
 {
 	Kernel::init();
 	Human *human = new Human();
-	cout << "Human stats:\n\tsatiety: " << human->satiety
-					<< "\n\tHealth: " << human->health
-					<< "\n\tEntertainment: " << human->entertainment
-					<< "\n\tEducation: " << human->education;
+	cout << "Human stats:\n\tsatiety: " << human->getSatiety()
+					<< "\n\tHealth: " << human->getHealth()
+					<< "\n\tEntertainment: " << human->getEntertainment()
+					<< "\n\tEducation: " << human->getEducation();
 
 	system("pause");
 	return 0;
