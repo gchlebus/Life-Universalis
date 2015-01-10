@@ -34,6 +34,9 @@
     <Filter Include="Kernel\Settings">
       <UniqueIdentifier>{6bd4f9dd-f144-4c17-8ed0-042898c16d29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{95821855-b894-4d79-b6cd-b5b0fe3787ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -50,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="Settings.cpp">
       <Filter>Kernel\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="Settings.h">
       <Filter>Kernel\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

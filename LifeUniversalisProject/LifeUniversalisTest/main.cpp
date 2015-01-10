@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 
 	gKernel = new Kernel();
 	gKernel->timer->tick();
+
 	for(int i = 0; i < 15; i++)
 	{
 		_sleep(100);

@@ -52,6 +52,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(BOOST_DIR)</AdditionalIncludeDirectories>
+      <OpenMPSupport>false</OpenMPSupport>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -74,6 +75,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="Kernel.cpp" />
     <ClCompile Include="main.cpp" />
@@ -81,6 +83,7 @@
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GlobalHeaders.h" />
     <ClInclude Include="Human.h" />
     <ClInclude Include="Kernel.h" />
