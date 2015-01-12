@@ -7,6 +7,9 @@ class LIFEUNIVERSALIS_EXPORT Settings
 public:
 	Settings(void);
 	~Settings(void);
+	//Frame settings
+	double fixedFrameTime;
+	bool fixedTimestep;
 
 	//Global settings
 	float timeRatio;

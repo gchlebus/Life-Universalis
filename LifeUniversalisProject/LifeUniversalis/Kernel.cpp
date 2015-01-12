@@ -14,6 +14,7 @@ bool Kernel::init()
 {
 	timer = new Timer();
 	settings = new Settings();
+	timer->tick();
 
 	return true;
 }

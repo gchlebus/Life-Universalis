@@ -1,8 +1,7 @@
 #pragma once
 #include "GlobalHeaders.h"
-
-class Timer;
-class Settings;
+#include "Timer.h"
+#include "Settings.h"
 
 class LIFEUNIVERSALIS_EXPORT Kernel
 {

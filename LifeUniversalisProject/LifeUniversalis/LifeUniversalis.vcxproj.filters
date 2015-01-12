@@ -22,20 +22,20 @@
     <Filter Include="Updateable">
       <UniqueIdentifier>{4a174e26-aea6-47b4-bc1b-67ccc83959df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Kernel">
+    <Filter Include="GameEngine">
+      <UniqueIdentifier>{f2f76bfe-e7af-411a-9f23-c8032fed5fcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Kernel">
       <UniqueIdentifier>{0581d714-037d-4173-a0b9-be3ddea3e765}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Kernel\Timer">
+    <Filter Include="GameEngine\Kernel\Timer">
       <UniqueIdentifier>{81e884eb-79b6-4232-a96e-30ce8de17beb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Kernel\Utils">
+    <Filter Include="GameEngine\Kernel\Utils">
       <UniqueIdentifier>{511ee34f-3329-4e84-99b2-adbd4e2274cc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Kernel\Settings">
+    <Filter Include="GameEngine\Kernel\Settings">
       <UniqueIdentifier>{6bd4f9dd-f144-4c17-8ed0-042898c16d29}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game">
-      <UniqueIdentifier>{95821855-b894-4d79-b6cd-b5b0fe3787ab}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,16 +46,16 @@
       <Filter>Human</Filter>
     </ClCompile>
     <ClCompile Include="Kernel.cpp">
-      <Filter>Kernel</Filter>
+      <Filter>GameEngine\Kernel</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Kernel\Timer</Filter>
+      <Filter>GameEngine\Kernel\Timer</Filter>
     </ClCompile>
     <ClCompile Include="Settings.cpp">
-      <Filter>Kernel\Settings</Filter>
+      <Filter>GameEngine\Kernel\Settings</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Game</Filter>
+    <ClCompile Include="GameEngine.cpp">
+      <Filter>GameEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -72,19 +72,19 @@
       <Filter>Updateable</Filter>
     </ClInclude>
     <ClInclude Include="Kernel.h">
-      <Filter>Kernel</Filter>
+      <Filter>GameEngine\Kernel</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Kernel\Timer</Filter>
+      <Filter>GameEngine\Kernel\Timer</Filter>
     </ClInclude>
     <ClInclude Include="LifeUniversalisSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Settings.h">
-      <Filter>Kernel\Settings</Filter>
+      <Filter>GameEngine\Kernel\Settings</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Game</Filter>
+    <ClInclude Include="GameEngine.h">
+      <Filter>GameEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

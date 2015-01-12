@@ -3,6 +3,9 @@
 
 Settings::Settings(void)
 {
+	fixedFrameTime = 0.033;
+	fixedTimestep = true;
+
 	timeRatio = 60.0f;
 
 	humanMultiplierSatiety			= 1.0f / 24.0f;
