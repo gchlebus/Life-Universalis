@@ -37,6 +37,15 @@
     <Filter Include="GameEngine\Kernel\Settings">
       <UniqueIdentifier>{6bd4f9dd-f144-4c17-8ed0-042898c16d29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\Scene">
+      <UniqueIdentifier>{3160a003-e5f6-4f4e-80f0-d3ca8d0121cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Scene\GameObject">
+      <UniqueIdentifier>{2bdb6bd1-c323-4a14-a35c-f5888023726b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Scene\GameObject\GameObjectComponent">
+      <UniqueIdentifier>{2e8d5eb1-c80f-4a7b-8644-9072696838f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -56,6 +65,12 @@
     </ClCompile>
     <ClCompile Include="GameEngine.cpp">
       <Filter>GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>GameEngine\Scene\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectComponent.cpp">
+      <Filter>GameEngine\Scene\GameObject\GameObjectComponent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +100,12 @@
     </ClInclude>
     <ClInclude Include="GameEngine.h">
       <Filter>GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>GameEngine\Scene\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectComponent.h">
+      <Filter>GameEngine\Scene\GameObject\GameObjectComponent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
