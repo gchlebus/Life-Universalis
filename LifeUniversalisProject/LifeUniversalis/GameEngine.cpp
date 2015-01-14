@@ -26,12 +26,18 @@ void GameEngine::gameLoop()
 {
 	while(true)
 	{
+		double lastTick = kernel->timer->getLastDelta();
+		double currentTime = kernel->timer->getCurrent();
+		int timeToWait = T_uS(kernel->settings->fixedFrameTime - currentTime);
 		if(kernel->settings->fixedTimestep)
 		{
-			boost::this_thread::sleep(boost::posix_time::milliseconds(kernel->settings->fixedFrameTime * 1000.0));
-			//mainLoopThread.sleep(boost::posix_time::milliseconds(kernel->settings->fixedFrameTime * 1000.0));
+			if(timeToWait > 0)
+			{
+				std::cout << "I'm waiting...";
+				boost::this_thread::sleep(boost::posix_time::microseconds(timeToWait));
+			}
 		}
-		std::cout << "Dupa - it's a one game tick\n";
+		std::cout << "Dupa - it's a one game-tick\n\tTime needed to wait: " << timeToWait << "\n\tLastDeltaTime: " << lastTick << "\n";
 		kernel->timer->tick();
 	}
 }

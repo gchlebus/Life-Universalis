@@ -3,7 +3,7 @@
 
 Settings::Settings(void)
 {
-	fixedFrameTime = 0.033;
+	fixedFrameTime = 500;
 	fixedTimestep = true;
 
 	timeRatio = 60.0f;
