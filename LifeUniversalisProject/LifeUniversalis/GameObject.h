@@ -1,11 +1,12 @@
 #pragma once
+#include "LifeUniversalisSystem.h"
 
 #include <vector>
 #include <string>
 
 class GameObjectComponent;
 
-class GameObject
+class LIFEUNIVERSALIS_EXPORT GameObject
 {
 public:
 	~GameObject();

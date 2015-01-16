@@ -91,6 +91,7 @@ bool GameObject::deleteComponent(const std::string &componentName)
 	{
 		comp->onDelete();
 		delete comp;
+		wasDeleted = true;
 	}
 
 	return wasDeleted;

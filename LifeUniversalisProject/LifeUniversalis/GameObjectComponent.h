@@ -1,13 +1,15 @@
 #pragma once
+#include "LifeUniversalisSystem.h"
 
 #include <string>
 
 class GameObject;
 
-class GameObjectComponent
+class LIFEUNIVERSALIS_EXPORT GameObjectComponent
 {
 public:
-	GameObjectComponent(GameObject *parent = nullptr);
+	GameObjectComponent(const std::string &name, GameObject *parent = nullptr);
+	virtual ~GameObjectComponent();
 	
 	void attachToParent(GameObject *parent);
 	void detachFromParent();
@@ -21,5 +23,7 @@ public:
 
 protected:
 	GameObject *_parent;
+
+private:
 	const std::string _name;
 };
