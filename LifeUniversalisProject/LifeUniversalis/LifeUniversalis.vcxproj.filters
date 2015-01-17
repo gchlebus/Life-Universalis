@@ -72,6 +72,9 @@
     <ClCompile Include="GameObjectComponent.cpp">
       <Filter>GameEngine\Scene\GameObject\GameObjectComponent</Filter>
     </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>GameEngine\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Human.h">
@@ -106,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="GameObjectComponent.h">
       <Filter>GameEngine\Scene\GameObject\GameObjectComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>GameEngine\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

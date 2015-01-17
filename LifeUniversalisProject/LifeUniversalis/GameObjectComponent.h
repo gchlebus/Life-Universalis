@@ -1,7 +1,5 @@
 #pragma once
-#include "LifeUniversalisSystem.h"
-
-#include <string>
+#include "GlobalHeaders.h"
 
 class GameObject;
 

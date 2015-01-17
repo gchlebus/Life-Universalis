@@ -97,6 +97,16 @@ bool GameObject::deleteComponent(const std::string &componentName)
 	return wasDeleted;
 }
 
+const std::string GameObject::getName()
+{
+	return _name;
+}
+
+void GameObject::setName(std::string newName)
+{
+	_name = newName;
+}
+
 bool GameObject::_getComponentIndex(const std::string &componentName, size_t &idx) const
 {
 	bool wasFound = false;

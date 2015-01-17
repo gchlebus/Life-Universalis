@@ -1,8 +1,5 @@
 #pragma once
-#include "LifeUniversalisSystem.h"
-
-#include <vector>
-#include <string>
+#include "GlobalHeaders.h"
 
 class GameObjectComponent;
 
@@ -26,10 +23,17 @@ public:
 	//! \return True if component was deleted, false otherwise.
 	bool deleteComponent(const std::string &componentName);
 
+	//! \return name of the object
+	const std::string getName();
+
+	//! \sets name for this object
+	void setName(std::string newName);
+
 private:
 	//! Gets component index in internal component vector.
 	//! \return True if idx is valid, false otherwise.
 	bool _getComponentIndex(const std::string &componentName, size_t &idx) const;
 
 	std::vector<GameObjectComponent*> _components;
+	std::string _name;
 };
