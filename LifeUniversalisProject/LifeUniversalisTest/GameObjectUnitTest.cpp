@@ -70,4 +70,5 @@ TEST_F(GameObjectTest, DeleteComponentTest)
 	EXPECT_CALL(*component, onDetachFromParent()).Times(1);
 	EXPECT_CALL(*component, onDelete()).Times(1);
 	ASSERT_TRUE(gameObject.deleteComponent(component->getName()));
+	ASSERT_FALSE(gameObject.deleteComponent("ComponentThatNotExists"));
 }
