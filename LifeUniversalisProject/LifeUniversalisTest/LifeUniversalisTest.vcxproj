@@ -83,7 +83,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameObjectUnitTest.cpp" />
-    <ClCompile Include="HumanUnitTest.cpp" />
+    <ClCompile Include="HumanParametersComponentUnitTest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

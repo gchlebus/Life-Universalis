@@ -80,7 +80,7 @@
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectComponent.cpp" />
-    <ClCompile Include="Human.cpp" />
+    <ClCompile Include="HumanParametersComponent.cpp" />
     <ClCompile Include="Kernel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -92,7 +92,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectComponent.h" />
     <ClInclude Include="GlobalHeaders.h" />
-    <ClInclude Include="Human.h" />
+    <ClInclude Include="HumanParametersComponent.h" />
     <ClInclude Include="Kernel.h" />
     <ClInclude Include="LifeUniversalis.h" />
     <ClInclude Include="LifeUniversalisSystem.h" />

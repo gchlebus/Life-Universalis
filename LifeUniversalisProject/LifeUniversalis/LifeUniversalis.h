@@ -4,6 +4,3 @@
 #include "Settings.h"
 #include "Kernel.h"
 #include "GameEngine.h"
-
-
-#include "Human.h"

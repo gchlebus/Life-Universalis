@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Human">
-      <UniqueIdentifier>{a7713a6a-6e34-4909-bcc4-f641f41d377d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Building">
       <UniqueIdentifier>{ac131379-0544-4090-afc4-7e7062f4b45a}</UniqueIdentifier>
     </Filter>
@@ -46,13 +43,16 @@
     <Filter Include="GameEngine\Scene\GameObject\GameObjectComponent">
       <UniqueIdentifier>{2e8d5eb1-c80f-4a7b-8644-9072696838f5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{8ac618f7-775c-473d-b35e-57ad5165edb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameObjectComponents">
+      <UniqueIdentifier>{4007e1b1-f180-4a41-968c-21fc5a6d98e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Human.cpp">
-      <Filter>Human</Filter>
     </ClCompile>
     <ClCompile Include="Kernel.cpp">
       <Filter>GameEngine\Kernel</Filter>
@@ -75,11 +75,11 @@
     <ClCompile Include="Scene.cpp">
       <Filter>GameEngine\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="HumanParametersComponent.cpp">
+      <Filter>Game\GameObjectComponents</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Human.h">
-      <Filter>Human</Filter>
-    </ClInclude>
     <ClInclude Include="LifeUniversalis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -112,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>GameEngine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="HumanParametersComponent.h">
+      <Filter>Game\GameObjectComponents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
