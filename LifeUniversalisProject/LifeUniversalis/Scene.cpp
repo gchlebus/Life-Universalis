@@ -1,6 +1,6 @@
 #include "Scene.h"
 #include "GameEngine.h"
-
+#include "GameObject.h"
 
 void Scene::addObject(GameObject* objectToAdd)
 {
@@ -9,16 +9,47 @@ void Scene::addObject(GameObject* objectToAdd)
 
 void Scene::removeObject(GameObject* objectToRemove)
 {
-	//_gameObject.find(
+	for(int i = 0; i < _gameObjects.size(); i++)
+	{
+		if(_gameObjects[i] == objectToRemove)
+		{
+			_gameObjects.erase(_gameObjects.begin() + i);
+			return;
+		}
+	}
 }
 
 const std::vector<GameObject*> &Scene::getObjects()
 {
-	std::vector<GameObject*> retVal;
-	return retVal;
+	return _gameObjects;
 }
 
-std::vector<GameObject*> Scene::findObjects(std::string namesToFind)
+std::vector<GameObject*> Scene::findObjects(std::string nameToFind)
 {
+	std::vector<GameObject*> retVal;
+	for(int i = 0; i < _gameObjects.size(); i++)
+	{
+		if(_gameObjects[i]->getName() == nameToFind)
+		{
+			retVal.push_back(_gameObjects[i]);
+		}
+	}
 	return _gameObjects;
+}
+
+std::vector<GameObject*> Scene::findObjects(std::vector<std::string> componentNamesToFind)
+{
+	std::vector<GameObject*> retVal;
+	for(int i = 0; i < _gameObjects.size(); i++)
+	{
+		for(int k = 0; k < componentNamesToFind.size(); k++)
+		{
+			if(_gameObjects[i]->findComponent(componentNamesToFind[k]) != 0)
+			{
+				retVal.push_back(_gameObjects[i]);
+				break;
+			}
+		}
+	}
+	return retVal;
 }

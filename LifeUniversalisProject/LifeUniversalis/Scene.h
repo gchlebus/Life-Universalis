@@ -6,8 +6,6 @@ class GameObject;
 class LIFEUNIVERSALIS_EXPORT Scene
 {
 public:
-	Scene();
-	~Scene();
 
 	//! \Adds an object to scene
 	void addObject(GameObject* objectToAdd);
@@ -19,7 +17,10 @@ public:
 	const std::vector<GameObject*> &getObjects();
 
 	//! \returns vector of objects with given name
-	std::vector<GameObject*> findObjects(std::string namesToFind);
+	std::vector<GameObject*> findObjects(std::string nameToFind);
+
+	//! \returns vector of objects with given component names
+	std::vector<GameObject*> findObjects(std::vector<std::string> componentNamesToFind);
 protected:
 	std::vector<GameObject*> _gameObjects;
 };
