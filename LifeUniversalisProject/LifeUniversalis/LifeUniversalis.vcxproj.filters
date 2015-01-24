@@ -49,6 +49,15 @@
     <Filter Include="Game\GameObjectComponents">
       <UniqueIdentifier>{4007e1b1-f180-4a41-968c-21fc5a6d98e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\GameObjectComponents\Human">
+      <UniqueIdentifier>{56034991-6459-4c2a-8556-dc69b2d242ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameObjectComponents\Human\LifeParamters">
+      <UniqueIdentifier>{e5537728-9e8d-414e-9c2c-ab9f740f2502}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameObjectComponents\Human\AI">
+      <UniqueIdentifier>{2a0e8b83-d3b1-41e8-bcf5-ddaea300e69e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -76,7 +85,10 @@
       <Filter>GameEngine\Scene</Filter>
     </ClCompile>
     <ClCompile Include="HumanParametersComponent.cpp">
-      <Filter>Game\GameObjectComponents</Filter>
+      <Filter>Game\GameObjectComponents\Human\LifeParamters</Filter>
+    </ClCompile>
+    <ClCompile Include="HumanAIComponent.cpp">
+      <Filter>Game\GameObjectComponents\Human\AI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,7 +126,10 @@
       <Filter>GameEngine\Scene</Filter>
     </ClInclude>
     <ClInclude Include="HumanParametersComponent.h">
-      <Filter>Game\GameObjectComponents</Filter>
+      <Filter>Game\GameObjectComponents\Human\LifeParamters</Filter>
+    </ClInclude>
+    <ClInclude Include="HumanAIComponent.h">
+      <Filter>Game\GameObjectComponents\Human\AI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
