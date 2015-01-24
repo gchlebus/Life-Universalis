@@ -77,10 +77,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BuildingManagerEntity.cpp" />
+    <ClCompile Include="BuildingTestComponent.cpp" />
+    <ClCompile Include="DayTimeEntity.cpp" />
     <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="GameEnvironment.cpp" />
+    <ClCompile Include="GameEnvironmentEntity.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectComponent.cpp" />
     <ClCompile Include="HumanAIComponent.cpp" />
+    <ClCompile Include="HumanManagerEntity.cpp" />
     <ClCompile Include="HumanParametersComponent.cpp" />
     <ClCompile Include="Kernel.cpp" />
     <ClCompile Include="main.cpp" />
@@ -89,12 +95,18 @@
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BuildingManagerEntity.h" />
+    <ClInclude Include="BuildingTestComponent.h" />
+    <ClInclude Include="DayTimeEntity.h" />
     <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="GameEnvironment.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectComponent.h" />
     <ClInclude Include="GlobalHeaders.h" />
     <ClInclude Include="HumanAIComponent.h" />
+    <ClInclude Include="HumanManagerEntity.h" />
     <ClInclude Include="HumanParametersComponent.h" />
+    <ClInclude Include="GameEnvironmentEntity.h" />
     <ClInclude Include="Kernel.h" />
     <ClInclude Include="LifeUniversalis.h" />
     <ClInclude Include="LifeUniversalisSystem.h" />

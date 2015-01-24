@@ -3,6 +3,7 @@
 
 class Kernel;
 class Scene;
+class GameEnvironment;
 
 class LIFEUNIVERSALIS_EXPORT GameEngine
 {
@@ -18,6 +19,8 @@ public:
 
 	Kernel* kernel;
 	Scene* currentScene;
+	GameEnvironment* currentEnvironment;
+
 
 protected:
 	boost::thread mainLoopThread;

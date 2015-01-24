@@ -58,6 +58,33 @@
     <Filter Include="Game\GameObjectComponents\Human\AI">
       <UniqueIdentifier>{2a0e8b83-d3b1-41e8-bcf5-ddaea300e69e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\GameObjectComponents\Building">
+      <UniqueIdentifier>{3c0664e9-52ef-4b13-b096-96f6be0ca138}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameObjectComponents\Building\Test">
+      <UniqueIdentifier>{305417ba-3dab-4bf2-b574-7f1f1f46a1c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Scene\GameEnvironment">
+      <UniqueIdentifier>{9ba4eaba-43cd-4634-bc85-e54df1fdaf5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\Scene\GameEnvironment\GameEnvironmentEntity">
+      <UniqueIdentifier>{aa5aff72-b090-46ae-ace4-3da95c3b642d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameEnvironment">
+      <UniqueIdentifier>{5a97125e-d903-419e-ba93-e64957b79638}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameEnvironment\Managers">
+      <UniqueIdentifier>{2760110b-9cf4-4cd2-bb19-71d68c5c3471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameEnvironment\Managers\BuildingManager">
+      <UniqueIdentifier>{31b6378c-9888-4057-b540-5523ddbd76ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameEnvironment\DayTime">
+      <UniqueIdentifier>{136fdad2-7b07-4b0c-9eb2-3918976219c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameEnvironment\Managers\HumanManager">
+      <UniqueIdentifier>{8ec40691-5655-4a8a-84d2-84a3221a6b4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -89,6 +116,24 @@
     </ClCompile>
     <ClCompile Include="HumanAIComponent.cpp">
       <Filter>Game\GameObjectComponents\Human\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingTestComponent.cpp">
+      <Filter>Game\GameObjectComponents\Building\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEnvironment.cpp">
+      <Filter>GameEngine\Scene\GameEnvironment</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEnvironmentEntity.cpp">
+      <Filter>GameEngine\Scene\GameEnvironment\GameEnvironmentEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingManagerEntity.cpp">
+      <Filter>Game\GameEnvironment\Managers\BuildingManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DayTimeEntity.cpp">
+      <Filter>Game\GameEnvironment\DayTime</Filter>
+    </ClCompile>
+    <ClCompile Include="HumanManagerEntity.cpp">
+      <Filter>Game\GameEnvironment\Managers\HumanManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +175,24 @@
     </ClInclude>
     <ClInclude Include="HumanAIComponent.h">
       <Filter>Game\GameObjectComponents\Human\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingTestComponent.h">
+      <Filter>Game\GameObjectComponents\Building\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEnvironmentEntity.h">
+      <Filter>GameEngine\Scene\GameEnvironment\GameEnvironmentEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEnvironment.h">
+      <Filter>GameEngine\Scene\GameEnvironment</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildingManagerEntity.h">
+      <Filter>Game\GameEnvironment\Managers\BuildingManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DayTimeEntity.h">
+      <Filter>Game\GameEnvironment\DayTime</Filter>
+    </ClInclude>
+    <ClInclude Include="HumanManagerEntity.h">
+      <Filter>Game\GameEnvironment\Managers\HumanManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

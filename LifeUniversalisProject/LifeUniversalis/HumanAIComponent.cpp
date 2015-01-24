@@ -5,7 +5,6 @@ HumanAIComponent::HumanAIComponent(GameObject *parent) : GameObjectComponent("Hu
 {
 }
 
-
 HumanAIComponent::~HumanAIComponent(void)
 {
 }
