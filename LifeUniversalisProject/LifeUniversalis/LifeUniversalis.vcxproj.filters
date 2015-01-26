@@ -52,6 +52,9 @@
     <Filter Include="Game\GameObjectComponents\Human">
       <UniqueIdentifier>{56034991-6459-4c2a-8556-dc69b2d242ae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Transform">
+      <UniqueIdentifier>{141d1d03-0534-4dce-9d63-8ca5e305d856}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Game\GameObjectComponents\Human\LifeParamters">
       <UniqueIdentifier>{e5537728-9e8d-414e-9c2c-ab9f740f2502}</UniqueIdentifier>
     </Filter>
@@ -117,6 +120,9 @@
     <ClCompile Include="HumanAIComponent.cpp">
       <Filter>Game\GameObjectComponents\Human\AI</Filter>
     </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Game\Transform</Filter>
+    </ClCompile>
     <ClCompile Include="BuildingTestComponent.cpp">
       <Filter>Game\GameObjectComponents\Building\Test</Filter>
     </ClCompile>
@@ -175,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="HumanAIComponent.h">
       <Filter>Game\GameObjectComponents\Human\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Game\Transform</Filter>
     </ClInclude>
     <ClInclude Include="BuildingTestComponent.h">
       <Filter>Game\GameObjectComponents\Building\Test</Filter>

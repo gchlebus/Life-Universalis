@@ -13,6 +13,6 @@ int main(int argc, char *argv[])
 {
 	GameEngine::engine()->run();
 	GameEngine::engine()->tempJoin();
-	//::testing::InitGoogleMock(&argc, argv);
+	::testing::InitGoogleMock(&argc, argv);
 	return RUN_ALL_TESTS();
 }
