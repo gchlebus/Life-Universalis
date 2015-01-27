@@ -54,6 +54,8 @@
       <AdditionalIncludeDirectories>$(BOOST_DIR);$(EIGEN_DIR);</AdditionalIncludeDirectories>
       <OpenMPSupport>false</OpenMPSupport>
       <AdditionalOptions>/D"LIFEUNIVERSALISEXPORTS" %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4251</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -68,6 +70,8 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>$(BOOST_DIR);$(EIGEN_DIR);</AdditionalIncludeDirectories>
       <AdditionalOptions>/D"LIFEUNIVERSALISEXPORTS" %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4251</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
