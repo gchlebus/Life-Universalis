@@ -5,10 +5,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include <boost\thread.hpp>
-#include <boost\algorithm\clamp.hpp>
-#include <Eigen\Core>
-#include <Eigen\Geometry>
+#include <boost/thread.hpp>
+#include <boost/algorithm/clamp.hpp>
+#include <Eigen/Core>
+#include <Eigen/Geometry>
 
 typedef Eigen::Vector2f Vector2;
 typedef Eigen::Vector3f Vector3;

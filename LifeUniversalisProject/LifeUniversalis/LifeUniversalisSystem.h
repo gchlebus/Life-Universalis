@@ -1,7 +1,11 @@
 #pragma once
 
-#ifdef LIFEUNIVERSALISEXPORTS
-  #define LIFEUNIVERSALIS_EXPORT __declspec(dllexport)
+#ifdef _WIN32
+  #ifdef LIFEUNIVERSALISEXPORTS
+    #define LIFEUNIVERSALIS_EXPORT __declspec(dllexport)
+  #else
+    #define LIFEUNIVERSALIS_EXPORT __declspec(dllimport)
+  #endif
 #else
-  #define LIFEUNIVERSALIS_EXPORT __declspec(dllimport)
+  #define LIFEUNIVERSALIS_EXPORT
 #endif
