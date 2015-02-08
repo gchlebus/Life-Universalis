@@ -1,10 +1,10 @@
-#include <gtest\gtest.h>
+#include <gtest/gtest.h>
 #include <cmath>
 
-#include "..\LifeUniversalis\HumanParametersComponent.h"
-#include "..\LifeUniversalis\GameEngine.h"
-#include "..\LifeUniversalis\Kernel.h"
-#include "..\LifeUniversalis\Settings.h"
+#include "../LifeUniversalis/HumanParametersComponent.h"
+#include "../LifeUniversalis/GameEngine.h"
+#include "../LifeUniversalis/Kernel.h"
+#include "../LifeUniversalis/Settings.h"
 
 
 class HumanParametersComponentTest : public ::testing::Test

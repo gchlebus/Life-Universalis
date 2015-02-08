@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\LifeUniversalis\GameObjectComponent.h"
+#include "../LifeUniversalis/GameObjectComponent.h"
 
 #include <gmock/gmock.h>
 

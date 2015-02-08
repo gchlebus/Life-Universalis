@@ -1,6 +1,6 @@
-#include "..\LifeUniversalis\Transform.h"
+#include "../LifeUniversalis/Transform.h"
 
-#include <gtest\gtest.h>
+#include <gtest/gtest.h>
 
 TEST(TransformTest, ConstructorTest_LocalPositionZero)
 {
