@@ -1,13 +1,5 @@
-cmake_minimum_required(VERSION 2.6)
-
-project(LifeUniversalis)
-
-set(EIGEN_INCLUDE_DIRS "usr/local/include" CACHE PATH "eigen include dirs")
-
-find_package(Boost 1.57.0 COMPONENTS thread timer system date_time)
-
 include_directories(${Boost_INCLUDE_DIRS})
-include_directories(${EIGEN_INCLUDE_DIRS})
+include_directories(${Eigen_INCLUDE_DIRS})
 
 #define groups
 source_group(Game\\GameEnvironment\\DayTime DayTimeEntity.*)
