@@ -27,6 +27,7 @@ void HumanManagerEntity::onUpdate()
 
 void HumanManagerEntity::onStop()
 {
+    std::cout << "COMMITTEST";
 }
 
 GameObject* HumanManagerEntity::create()
