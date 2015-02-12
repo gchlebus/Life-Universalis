@@ -107,6 +107,16 @@ void GameObject::setName(std::string newName)
 	_name = newName;
 }
 
+Transform& GameObject::getTransform()
+{
+  return _transform;
+}
+
+const Transform& GameObject::getTransform() const
+{
+  return _transform;
+}
+
 bool GameObject::_getComponentIndex(const std::string &componentName, size_t &idx) const
 {
 	bool wasFound = false;

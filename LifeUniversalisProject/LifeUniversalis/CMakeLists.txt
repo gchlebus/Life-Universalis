@@ -8,7 +8,7 @@ source_group(Game\\GameEnvironment\\Managers\\HumanManager HumanManagerEntity.*)
 source_group(Game\\GameObjectComponents\\Building\\Test BuildingTestComponent.*)
 source_group(Game\\GameObjectComponents\\Human\\AI\\HumanAIComponent HumanAIComponent.*)
 source_group(Game\\GameObjectComponents\\Human\\LifeParameters HumanParametersComponent.*)
-source_group(Game\\Transform Transform.*)
+source_group(Game\\GameObjectComponents\\Human\\Motion MotionComponent.*)
 
 source_group(GameEngine\\Kernel\\Settings Settings.*)
 source_group(GameEngine\\Kernel\\Timer Timer.*)
@@ -17,6 +17,7 @@ source_group(GameEngine\\Scene\\GameEnvironment\\GameEnvironmentEntity GameEnvir
 source_group(GameEngine\\Scene\\GameEnvironment GameEnvironment.*)
 source_group(GameEngine\\Scene\\GameObject\\GameObjectComponent GameObjectComponent.*)
 source_group(GameEngine\\Scene\\GameObject GameObject.*)
+source_group(GameEngine\\Scene\\GameObject\\Transform Transform.*)
 source_group(GameEngine\\Scene Scene.*)
 source_group(GameEngine GameEngine.*)
 

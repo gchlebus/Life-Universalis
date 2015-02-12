@@ -1,5 +1,6 @@
 #pragma once
 #include "GlobalHeaders.h"
+#include "Transform.h"
 
 class GameObjectComponent;
 
@@ -28,6 +29,10 @@ public:
 
 	//! \sets name for this object
 	void setName(std::string newName);
+  
+  //! \return GameObject's transform.
+  Transform& getTransform();
+  const Transform& getTransform() const;
 
 private:
 	//! Gets component index in internal component vector.
@@ -36,4 +41,5 @@ private:
 
 	std::vector<GameObjectComponent*> _components;
 	std::string _name;
+  Transform _transform;
 };
