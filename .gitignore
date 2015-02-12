@@ -212,3 +212,6 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+# Mac OS X files
+*.DS_Store
