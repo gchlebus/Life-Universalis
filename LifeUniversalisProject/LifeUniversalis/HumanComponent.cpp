@@ -1,10 +1,10 @@
-#include "HumanParametersComponent.h"
+#include "HumanComponent.h"
 #include "GameEngine.h"
 #include "Kernel.h"
 #include "Settings.h"
 
-HumanParametersComponent::HumanParametersComponent()
-	: GameObjectComponent("HumanParametersComponent")
+HumanComponent::HumanComponent()
+	: GameObjectComponent("HumanComponent")
 {
 	_satiety = 0.0f;
 	_health = 0.0f;
@@ -13,12 +13,12 @@ HumanParametersComponent::HumanParametersComponent()
 	_settings = GameEngine::engine()->kernel->settings;
 }
 
-void HumanParametersComponent::onStart()
+void HumanComponent::onStart()
 {
 
 }
 
-void HumanParametersComponent::onUpdate()
+void HumanComponent::onUpdate()
 {
 	float gameTimeDelta = _settings->fixedFrameTime * _settings->timeRatio; // in ms
 	gameTimeDelta /= 1000 * 60; //in h
@@ -28,62 +28,62 @@ void HumanParametersComponent::onUpdate()
 	setEducation(_education - gameTimeDelta * _settings->humanMultiplierEducation);
 }
 
-void HumanParametersComponent::onAttachToParent()
+void HumanComponent::onAttachToParent()
 {
 
 }
 
-void HumanParametersComponent::onDetachFromParent()
+void HumanComponent::onDetachFromParent()
 {
 
 }
 
-void HumanParametersComponent::onDelete()
+void HumanComponent::onDelete()
 {
 
 }
 
-void HumanParametersComponent::setSatiety(const float satiety)
+void HumanComponent::setSatiety(const float satiety)
 {
 	_satiety = boost::algorithm::clamp(satiety, 0.f, 1.f);
 }
 
-const float HumanParametersComponent::getSatiety() const
+const float HumanComponent::getSatiety() const
 {
 	return _satiety;
 }
 
-void HumanParametersComponent::setHealth(const float health)
+void HumanComponent::setHealth(const float health)
 {
 	_health = boost::algorithm::clamp(health, 0.f, 1.f);
 }
 
-const float HumanParametersComponent::getHealth() const
+const float HumanComponent::getHealth() const
 {
 	return _health;
 }
 
-void HumanParametersComponent::setEntertainment(const float entertainment)
+void HumanComponent::setEntertainment(const float entertainment)
 {
 	_entertainment = boost::algorithm::clamp(entertainment, 0.f, 1.f);
 }
 
-const float HumanParametersComponent::getEntertainment() const
+const float HumanComponent::getEntertainment() const
 {
 	return _entertainment;
 }
 
-void HumanParametersComponent::setEducation(const float education)
+void HumanComponent::setEducation(const float education)
 {
 	_education = boost::algorithm::clamp(education, 0.f, 1.f);
 }
 
-const float HumanParametersComponent::getEducation() const
+const float HumanComponent::getEducation() const
 {
 	return _education;
 }
 
-float HumanParametersComponent::_getSatietyModifiedHealthMultiplier()
+float HumanComponent::_getSatietyModifiedHealthMultiplier()
 {
 	return (2.f - _satiety) * _settings->humanMultiplierHealth;
 }

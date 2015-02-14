@@ -1,5 +1,5 @@
 //
-//  BuildingComponent.h
+//  HumanAISeekJobComponent.h
 //  LifeUniversalis
 //
 //  Created by Pawel Sulik on 14.02.15.
@@ -11,14 +11,13 @@
 #include "GlobalHeaders.h"
 #include "GameObjectComponent.h"
 
-class GameObject;
-class Workplace;
+class HumanComponent;
 
-class BuildingComponent : public GameObjectComponent
+class HumanAISeekJobComponent : public GameObjectComponent
 {
 public:
-    BuildingComponent();
-    ~BuildingComponent();
+    HumanAISeekJobComponent();
+    ~HumanAISeekJobComponent();
     
     void onStart();
     void onUpdate();
@@ -26,7 +25,8 @@ public:
     void onDetachFromParent();
     void onDelete();
     
-    std::vector<Workplace*> workplaces;
+protected:
     
-    
+    HumanComponent* _human;
 };
+

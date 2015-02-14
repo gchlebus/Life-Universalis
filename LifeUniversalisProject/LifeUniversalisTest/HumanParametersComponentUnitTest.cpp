@@ -1,13 +1,13 @@
 #include <gtest/gtest.h>
 #include <cmath>
 
-#include "../LifeUniversalis/HumanParametersComponent.h"
+#include "../LifeUniversalis/HumanComponent.h"
 #include "../LifeUniversalis/GameEngine.h"
 #include "../LifeUniversalis/Kernel.h"
 #include "../LifeUniversalis/Settings.h"
 
 
-class HumanParametersComponentTest : public ::testing::Test
+class HumanComponentTest : public ::testing::Test
 {
 protected:
 	void SetUp()
@@ -40,39 +40,39 @@ protected:
 		return static_cast<unsigned int>(ceil(parameterTime / settings->fixedFrameTime));
 	}
 
-	HumanParametersComponent component;
+	HumanComponent component;
 	Settings *settings;
 };
 
-TEST_F(HumanParametersComponentTest, NameTest)
+TEST_F(HumanComponentTest, NameTest)
 {	
-	ASSERT_EQ("HumanParametersComponent", component.getName());
+	ASSERT_EQ("HumanComponent", component.getName());
 }
 
-TEST_F(HumanParametersComponentTest, ConstructorTest_AllParametersZero)
+TEST_F(HumanComponentTest, ConstructorTest_AllParametersZero)
 {
 	allParametersEqual(0.f);
 }
 
-TEST_F(HumanParametersComponentTest, Setters_OnSetValuesInValidRange_RetrievedValuesAreTheSame)
+TEST_F(HumanComponentTest, Setters_OnSetValuesInValidRange_RetrievedValuesAreTheSame)
 {
 	setAllParametersTo(0.5f);
 	allParametersEqual(0.5f);
 }
 
-TEST_F(HumanParametersComponentTest, Setters_OnSetValuesLessThanZero_RetrievedValuesAreZero)
+TEST_F(HumanComponentTest, Setters_OnSetValuesLessThanZero_RetrievedValuesAreZero)
 {
 	setAllParametersTo(-0.1f);
 	allParametersEqual(0.f);
 }
 
-TEST_F(HumanParametersComponentTest, Setters_OnSetValuesGreaterThanOne_RetrievedValuesAreOne)
+TEST_F(HumanComponentTest, Setters_OnSetValuesGreaterThanOne_RetrievedValuesAreOne)
 {
 	setAllParametersTo(1.1f);
 	allParametersEqual(1.0f);
 }
 
-TEST_F(HumanParametersComponentTest, EducationDropInTime)
+TEST_F(HumanComponentTest, EducationDropInTime)
 {
 	const unsigned int iterations = getParameterIterations(settings->humanMultiplierEducation);
 
@@ -84,7 +84,7 @@ TEST_F(HumanParametersComponentTest, EducationDropInTime)
 	ASSERT_NEAR(0.5f, component.getEducation(), 1e-3);
 }
 
-TEST_F(HumanParametersComponentTest, EntertainmentDropInTime)
+TEST_F(HumanComponentTest, EntertainmentDropInTime)
 {
 	const unsigned int iterations = getParameterIterations(settings->humanMultiplierEntertainment);
 
@@ -96,7 +96,7 @@ TEST_F(HumanParametersComponentTest, EntertainmentDropInTime)
 	ASSERT_NEAR(0.5f, component.getEntertainment(), 1e-3);
 }
 
-TEST_F(HumanParametersComponentTest, SatietyDropInTime)
+TEST_F(HumanComponentTest, SatietyDropInTime)
 {
 	const unsigned int iterations = getParameterIterations(settings->humanMultiplierSatiety);
 
@@ -108,7 +108,7 @@ TEST_F(HumanParametersComponentTest, SatietyDropInTime)
 	ASSERT_NEAR(0.5f, component.getSatiety(), 1e-3);
 }
 
-TEST_F(HumanParametersComponentTest, HealthDropInTime)
+TEST_F(HumanComponentTest, HealthDropInTime)
 {
 	const unsigned int iterations = getParameterIterations(settings->humanMultiplierHealth);
 

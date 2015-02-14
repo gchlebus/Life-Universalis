@@ -1,6 +1,6 @@
 #include "BuildingManagerEntity.h"
 #include "GameObject.h"
-#include "BuildingTestComponent.h"
+#include "BuildingComponent.h"
 
 #include "GameEngine.h"
 #include "Scene.h"
@@ -33,7 +33,7 @@ GameObject* BuildingManagerEntity::create()
 {
 	GameObject* retVal = new GameObject();
 	retVal->setName("TestBuilding");
-	retVal->addComponent(new BuildingTestComponent());
+	retVal->addComponent(new BuildingComponent());
 	return retVal;
 }
 
@@ -54,4 +54,20 @@ void BuildingManagerEntity::remove(GameObject* building)
 			return;
 		}
 	}
+}
+
+std::vector<GameObject*> BuildingManagerEntity::getBuildings()
+{
+    return _buildings;
+}
+
+std::vector<Workplace*> BuildingManagerEntity::getWorkplaces()
+{
+    std::vector<Workplace*> retVal;
+    for(auto building : _buildings)
+    {
+        BuildingComponent *currComp = (BuildingComponent*)building->findComponent("BuildingComponent");
+        retVal.insert(retVal.begin(), currComp->workplaces.begin(), currComp->workplaces.end());
+    }
+    return retVal;
 }

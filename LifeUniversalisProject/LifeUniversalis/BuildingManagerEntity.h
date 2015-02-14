@@ -4,6 +4,7 @@
 #include "GameEnvironmentEntity.h"
 
 class GameObject;
+class Workplace;
 
 class BuildingManagerEntity : public GameEnvironmentEntity
 {
@@ -20,6 +21,7 @@ public:
 	void remove(GameObject* building);
 
 	std::vector<GameObject*> getBuildings();
+    std::vector<Workplace*> getWorkplaces();
 protected:
 	std::vector<GameObject*> _buildings;
 };

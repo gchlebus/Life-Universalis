@@ -1,9 +1,17 @@
+//
+//  HumanAIComponent.cpp
+//  LifeUniversalis
+//
+//  Created by Pawel Sulik on 14.02.15.
+//
+//
+
 #pragma once
 
 #include "GlobalHeaders.h"
 #include "GameObjectComponent.h"
 
-class HumanParametersComponent;
+class HumanComponent;
 
 class HumanAIComponent : public GameObjectComponent
 {
@@ -19,6 +27,6 @@ public:
 
 protected:
 
-	HumanParametersComponent* _humanParameters;
+	HumanComponent* _human;
 };
 

@@ -5,11 +5,11 @@
 
 class Settings;
 
-class LIFEUNIVERSALIS_EXPORT HumanParametersComponent
+class LIFEUNIVERSALIS_EXPORT HumanComponent
 	: public GameObjectComponent
 {
 public:
-	HumanParametersComponent();
+	HumanComponent();
 
 	void onStart();
 	void onUpdate();
