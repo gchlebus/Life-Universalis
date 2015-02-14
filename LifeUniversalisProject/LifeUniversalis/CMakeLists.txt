@@ -9,6 +9,7 @@ source_group(Game\\GameObjectComponents\\Building\\Test BuildingTestComponent.*)
 source_group(Game\\GameObjectComponents\\Building BuildingComponent.*)
 source_group(Game\\GameObjectComponents\\Building\\Workplace Workplace.*)
 source_group(Game\\GameObjectComponents\\Human\\AI\\HumanAIComponent HumanAIComponent.*)
+source_group(Game\\GameObjectComponents\\Human\\AI\\HumanAISeekJobComponent HumanAISeekJobComponent.*)
 source_group(Game\\GameObjectComponents\\Human\\LifeParameters HumanComponent.*)
 source_group(Game\\GameObjectComponents\\Human\\Motion MotionComponent.*)
 
