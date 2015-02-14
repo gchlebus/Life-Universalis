@@ -8,7 +8,7 @@
 
 #include "BuildingComponent.h"
 
-BuildingComponent::BuildingComponent() : GameObjectComponent("BuildingComponent", nullptr)
+BuildingComponent::BuildingComponent() : GameObjectComponent("BuildingComponent")
 {
     
 }
