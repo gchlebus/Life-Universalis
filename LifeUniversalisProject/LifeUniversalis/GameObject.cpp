@@ -25,7 +25,8 @@ void GameObject::update()
 {
 	for (size_t i = 0; i < _components.size(); ++i)
 	{
-		_components[i]->onUpdate();
+        
+		_components[i]->update();
 	}
 }
 

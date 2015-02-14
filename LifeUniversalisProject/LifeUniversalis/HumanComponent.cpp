@@ -19,6 +19,9 @@ void HumanComponent::onStart()
 
 }
 
+void HumanComponent::onBeforeFirstUpdate()
+{
+}
 void HumanComponent::onUpdate()
 {
 	float gameTimeDelta = _settings->fixedFrameTime * _settings->timeRatio; // in ms

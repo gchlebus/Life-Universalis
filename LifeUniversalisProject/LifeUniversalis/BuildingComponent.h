@@ -21,6 +21,7 @@ public:
     ~BuildingComponent();
     
     void onStart();
+    void onBeforeFirstUpdate();
     void onUpdate();
     void onAttachToParent();
     void onDetachFromParent();

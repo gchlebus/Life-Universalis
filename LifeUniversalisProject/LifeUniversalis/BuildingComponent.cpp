@@ -21,6 +21,9 @@ void BuildingComponent::onStart()
 {
     
 }
+void BuildingComponent::onBeforeFirstUpdate()
+{
+}
 void BuildingComponent::onUpdate()
 {
     

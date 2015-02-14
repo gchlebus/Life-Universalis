@@ -21,8 +21,12 @@ HumanAIComponent::~HumanAIComponent(void)
 
 void HumanAIComponent::onStart()
 {
+    
 }
 
+void HumanAIComponent::onBeforeFirstUpdate()
+{
+}
 void HumanAIComponent::onUpdate()
 {
 }

@@ -20,6 +20,7 @@ public:
     ~HumanAISeekJobComponent();
     
     void onStart();
+    void onBeforeFirstUpdate();
     void onUpdate();
     void onAttachToParent();
     void onDetachFromParent();

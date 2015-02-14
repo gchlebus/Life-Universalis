@@ -4,7 +4,7 @@
 GameObjectComponent::GameObjectComponent(const std::string &name)
 	: _name(name)
 {
-  
+    _firstUpdate = true;
 }
 
 GameObjectComponent::~GameObjectComponent()
@@ -36,4 +36,14 @@ void GameObjectComponent::setEnabled(bool enabled)
 bool GameObjectComponent::isEnabled()
 {
     return _enabled;
+}
+
+void GameObjectComponent::update()
+{
+    if(_firstUpdate)
+    {
+        onBeforeFirstUpdate();
+        _firstUpdate = false;
+    }
+    onUpdate();
 }

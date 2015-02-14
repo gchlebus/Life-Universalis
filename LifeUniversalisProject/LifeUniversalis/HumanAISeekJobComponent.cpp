@@ -22,6 +22,9 @@ void HumanAISeekJobComponent::onStart()
 {
 }
 
+void HumanAISeekJobComponent::onBeforeFirstUpdate()
+{
+}
 void HumanAISeekJobComponent::onUpdate()
 {
 }

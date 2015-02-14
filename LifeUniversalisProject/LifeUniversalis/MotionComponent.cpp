@@ -15,6 +15,9 @@ void MotionComponent::onStart()
   _dayTime = static_cast<DayTimeEntity*>(GameEngine::engine()->currentEnvironment->findEntity("DayTime"));
 }
 
+void MotionComponent::onBeforeFirstUpdate()
+{
+}
 void MotionComponent::onUpdate()
 {
   if (_isAtTargetPosition())
@@ -36,6 +39,14 @@ void MotionComponent::onDetachFromParent()
 void MotionComponent::onDelete()
 {
   
+}
+void MotionComponent::onEnabled()
+{
+    
+}
+void MotionComponent::onDisabled()
+{
+    
 }
 
 void MotionComponent::setTargetPosition(const Vector3 &targetPosition)

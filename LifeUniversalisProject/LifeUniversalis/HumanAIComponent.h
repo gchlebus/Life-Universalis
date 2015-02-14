@@ -12,6 +12,7 @@
 #include "GameObjectComponent.h"
 
 class HumanComponent;
+class HumanAISeekJobComponent;
 
 class HumanAIComponent : public GameObjectComponent
 {
@@ -19,8 +20,9 @@ public:
 	HumanAIComponent();
 	~HumanAIComponent(void);
 
-	void onStart();
-	void onUpdate();
+    void onStart();
+    void onBeforeFirstUpdate();
+    void onUpdate();
 	void onAttachToParent();
 	void onDetachFromParent();
     void onDelete();
@@ -30,5 +32,7 @@ public:
 protected:
 
 	HumanComponent* _human;
+    
+    HumanAISeekJobComponent* _aiSeekJob;
 };
 

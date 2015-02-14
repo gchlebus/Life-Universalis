@@ -12,7 +12,8 @@ class LIFEUNIVERSALIS_EXPORT HumanComponent
 public:
 	HumanComponent();
 
-	void onStart();
+    void onStart();
+    void onBeforeFirstUpdate();
 	void onUpdate();
 	void onAttachToParent();
 	void onDetachFromParent();
