@@ -3,8 +3,8 @@
 #include "Kernel.h"
 #include "Settings.h"
 
-HumanParametersComponent::HumanParametersComponent(GameObject *parent)
-	: GameObjectComponent("HumanParametersComponent", parent)
+HumanParametersComponent::HumanParametersComponent()
+	: GameObjectComponent("HumanParametersComponent")
 {
 	_satiety = 0.0f;
 	_health = 0.0f;

@@ -3,14 +3,13 @@
 #include "GlobalHeaders.h"
 #include "GameObjectComponent.h"
 
-class GameObject;
 class Settings;
 
 class LIFEUNIVERSALIS_EXPORT HumanParametersComponent
 	: public GameObjectComponent
 {
 public:
-	HumanParametersComponent(GameObject *parent = nullptr);
+	HumanParametersComponent();
 
 	void onStart();
 	void onUpdate();

@@ -6,7 +6,7 @@ GameObject::~GameObject()
 	for (size_t i = 0; i < _components.size(); ++i)
 	{
 		_components[i]->onDetachFromParent();
-		_components[i]->detachFromParent();
+		_components[i]->setParent(nullptr);
 		_components[i]->onDelete();
 		delete _components[i];
 	}
@@ -37,7 +37,7 @@ bool GameObject::addComponent(GameObjectComponent *component)
 	if (!findComponent(name))
 	{
 		_components.push_back(component);
-		component->attachToParent(this);
+		component->setParent(this);
 		component->onAttachToParent();
 		wasAdded = true;
 	}
@@ -75,7 +75,7 @@ GameObjectComponent* GameObject::removeComponent(const std::string &componentNam
 	{
 		comp = _components[idx];
 		comp->onDetachFromParent();
-		comp->detachFromParent();
+    comp->setParent(nullptr);
 		_components.erase(_components.begin() + idx);
 	}
 

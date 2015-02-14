@@ -8,7 +8,7 @@ class HumanParametersComponent;
 class HumanAIComponent : public GameObjectComponent
 {
 public:
-	HumanAIComponent(GameObject *parent = nullptr);
+	HumanAIComponent();
 	~HumanAIComponent(void);
 
 	void onStart();

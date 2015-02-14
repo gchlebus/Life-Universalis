@@ -8,7 +8,7 @@ class GameObject;
 class BuildingTestComponent : public GameObjectComponent
 {
 public:
-	BuildingTestComponent(GameObject* parent = nullptr);
+	BuildingTestComponent();
 	~BuildingTestComponent();
 
 	void onStart();

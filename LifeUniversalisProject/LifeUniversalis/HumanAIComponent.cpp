@@ -1,7 +1,8 @@
 #include "HumanAIComponent.h"
 
 
-HumanAIComponent::HumanAIComponent(GameObject *parent) : GameObjectComponent("HumanAIComponent", parent)
+HumanAIComponent::HumanAIComponent()
+  : GameObjectComponent("HumanAIComponent")
 {
 }
 

@@ -2,14 +2,16 @@
 
 #include "GlobalHeaders.h"
 #include "GameObjectComponent.h"
+#include "GameEnvironment.h"
 
 class GameObject;
+class DayTimeEntity;
 
 class LIFEUNIVERSALIS_EXPORT MotionComponent
   : public GameObjectComponent
 {
 public:
-  MotionComponent(GameObject *parent = nullptr);
+  MotionComponent();
   
   void onStart();
   void onUpdate();
@@ -27,6 +29,9 @@ private:
   void _move();
   
   Vector3 _targetPosition;
-  //! Distance units / game time second.
+  
+  //! Distance units / game time minute.
   float _speed;
+  
+  DayTimeEntity *_dayTime;
 };

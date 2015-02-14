@@ -1,9 +1,10 @@
 #include "GameObjectComponent.h"
+#include "GameObject.h"
 
-GameObjectComponent::GameObjectComponent(const std::string &name, GameObject *parent)
+GameObjectComponent::GameObjectComponent(const std::string &name)
 	: _name(name)
 {
-	attachToParent(parent);
+  
 }
 
 GameObjectComponent::~GameObjectComponent()
@@ -11,14 +12,9 @@ GameObjectComponent::~GameObjectComponent()
 
 }
 
-void GameObjectComponent::attachToParent(GameObject *parent)
+void GameObjectComponent::setParent(GameObject *parent)
 {
-	_parent = parent;
-}
-
-void GameObjectComponent::detachFromParent()
-{
-	_parent = nullptr;
+  _parent = parent;
 }
 
 const std::string& GameObjectComponent::getName() const

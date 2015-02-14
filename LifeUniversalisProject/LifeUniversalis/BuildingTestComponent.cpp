@@ -1,7 +1,8 @@
 #include "BuildingTestComponent.h"
 
 
-BuildingTestComponent::BuildingTestComponent(GameObject* parent) : GameObjectComponent("BuildingTestComponent", parent)
+BuildingTestComponent::BuildingTestComponent()
+  : GameObjectComponent("BuildingTestComponent")
 {
 }
 

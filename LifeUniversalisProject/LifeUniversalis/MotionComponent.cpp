@@ -1,18 +1,18 @@
 #include "MotionComponent.h"
 #include "GameObject.h"
 #include "GameEngine.h"
-#include "Kernel.h"
-#include "Timer.h"
+#include "DayTimeEntity.h"
 
-MotionComponent::MotionComponent(GameObject *parent)
-  : GameObjectComponent("MotionComponent", parent)
+MotionComponent::MotionComponent()
+  : GameObjectComponent("MotionComponent")
+  , _dayTime(nullptr)
 {
   
 }
 
 void MotionComponent::onStart()
 {
-  
+  _dayTime = static_cast<DayTimeEntity*>(GameEngine::engine()->currentEnvironment->findEntity("DayTime"));
 }
 
 void MotionComponent::onUpdate()
@@ -69,7 +69,7 @@ void MotionComponent::_move()
   Vector3 vec = _targetPosition - worldPos;
   vec.normalize();
   
-  float lastDelta = static_cast<float>(GameEngine::engine()->kernel->timer->getLastDelta());
+  //float lastDelta = static_cast<float>(GameEngine::engine()->kernel->timer->getLastDelta());
   
-  _parent->getTransform().setWorldPosition(worldPos + _speed*T_S(lastDelta)*vec);
+  //_parent->getTransform().setWorldPosition(worldPos + _speed*T_S(lastDelta)*vec);
 }
