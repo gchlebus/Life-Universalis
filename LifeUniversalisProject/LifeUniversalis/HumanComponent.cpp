@@ -11,6 +11,7 @@ HumanComponent::HumanComponent()
 	_entertainment = 0.0f;
 	_education = 0.0f;
 	_settings = GameEngine::engine()->kernel->settings;
+    _workplace = nullptr;
 }
 
 void HumanComponent::onStart()
@@ -41,6 +42,14 @@ void HumanComponent::onDetachFromParent()
 void HumanComponent::onDelete()
 {
 
+}
+void HumanComponent::onEnabled()
+{
+    
+}
+void HumanComponent::onDisabled()
+{
+    
 }
 
 void HumanComponent::setSatiety(const float satiety)

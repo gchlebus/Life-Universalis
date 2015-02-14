@@ -37,3 +37,11 @@ void HumanAISeekJobComponent::onDetachFromParent()
 void HumanAISeekJobComponent::onDelete()
 {
 }
+void HumanAISeekJobComponent::onEnabled()
+{
+    
+}
+void HumanAISeekJobComponent::onDisabled()
+{
+    
+}

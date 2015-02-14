@@ -4,6 +4,7 @@
 #include "GameObjectComponent.h"
 
 class Settings;
+class Workplace;
 
 class LIFEUNIVERSALIS_EXPORT HumanComponent
 	: public GameObjectComponent
@@ -15,7 +16,9 @@ public:
 	void onUpdate();
 	void onAttachToParent();
 	void onDetachFromParent();
-	void onDelete();
+    void onDelete();
+    void onEnabled();
+    void onDisabled();
 
 	void setSatiety(const float satiety);
 	const float getSatiety() const;
@@ -34,4 +37,6 @@ private:
 	float _entertainment;
 	float _education;
 	Settings *_settings;
+    Workplace *_workplace;
+    
 };

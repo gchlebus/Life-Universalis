@@ -37,3 +37,11 @@ void BuildingComponent::onDelete()
 {
     
 }
+void BuildingComponent::onEnabled()
+{
+    
+}
+void BuildingComponent::onDisabled()
+{
+    
+}

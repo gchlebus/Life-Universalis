@@ -14,10 +14,26 @@ GameObjectComponent::~GameObjectComponent()
 
 void GameObjectComponent::setParent(GameObject *parent)
 {
-  _parent = parent;
+    _parent = parent;
 }
 
 const std::string& GameObjectComponent::getName() const
 {
 	return _name;
+}
+
+void GameObjectComponent::setEnabled(bool enabled)
+{
+    if(enabled == _enabled)
+        return;
+    _enabled = enabled;
+    if(enabled)
+        onEnabled();
+    else
+        onDisabled();
+}
+
+bool GameObjectComponent::isEnabled()
+{
+    return _enabled;
 }

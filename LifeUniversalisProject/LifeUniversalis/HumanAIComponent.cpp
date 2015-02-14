@@ -38,3 +38,11 @@ void HumanAIComponent::onDetachFromParent()
 void HumanAIComponent::onDelete()
 {
 }
+void HumanAIComponent::onEnabled()
+{
+    
+}
+void HumanAIComponent::onDisabled()
+{
+    
+}

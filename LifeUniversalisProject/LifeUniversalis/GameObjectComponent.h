@@ -10,6 +10,8 @@ public:
 	virtual ~GameObjectComponent();
 	
 	void setParent(GameObject *parent);
+    void setEnabled(bool enabled);
+    bool isEnabled();
 	const std::string& getName() const;
 
 	virtual void onStart() = 0;
@@ -17,9 +19,12 @@ public:
 	virtual void onAttachToParent() = 0;
 	virtual void onDetachFromParent() = 0;
 	virtual void onDelete() = 0;
+    virtual void onEnabled() = 0;
+    virtual void onDisabled() = 0;
 
 protected:
 	GameObject *_parent;
+    bool _enabled;
 
 private:
 	const std::string _name;

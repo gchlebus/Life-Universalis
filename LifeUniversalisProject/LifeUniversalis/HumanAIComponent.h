@@ -23,7 +23,9 @@ public:
 	void onUpdate();
 	void onAttachToParent();
 	void onDetachFromParent();
-	void onDelete();
+    void onDelete();
+    void onEnabled();
+    void onDisabled();
 
 protected:
 

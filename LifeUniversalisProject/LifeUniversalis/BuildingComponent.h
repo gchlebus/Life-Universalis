@@ -25,6 +25,8 @@ public:
     void onAttachToParent();
     void onDetachFromParent();
     void onDelete();
+    void onEnabled();
+    void onDisabled();
     
     std::vector<Workplace*> workplaces;
     
