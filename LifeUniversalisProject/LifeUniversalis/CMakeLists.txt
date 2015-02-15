@@ -27,5 +27,5 @@ source_group(GameEngine GameEngine.*)
 #gather all *.h and *.cpp files
 file(GLOB SRC *.h *.cpp)
 
-add_library(LifeUniversalis SHARED ${SRC})
+add_library(LifeUniversalis STATIC ${SRC})
 target_link_libraries(LifeUniversalis ${Boost_LIBRARIES})

@@ -22,13 +22,16 @@ void MotionComponent::onUpdate()
 {
   if (_isAtTargetPosition())
   {
+    _computeDistanceVector();
+    _alignForwardVectorWithDistanceVector();
     _move();
   }
 }
 
 void MotionComponent::onAttachToParent()
 {
-  _targetPosition = _parent->getTransform().getWorldPosition();
+  _parentTransform = &_parent->getTransform();
+  _targetPosition = _parentTransform->getWorldPosition();
 }
 
 void MotionComponent::onDetachFromParent()
@@ -71,16 +74,43 @@ float MotionComponent::getSpeed() const
 
 bool MotionComponent::_isAtTargetPosition()
 {
-  return _parent->getTransform().getWorldPosition() == _targetPosition;
+  return _parentTransform->getWorldPosition() == _targetPosition;
+}
+
+void MotionComponent::_computeDistanceVector()
+{
+  _distanceVector = _targetPosition - _parentTransform->getWorldPosition();
+}
+
+void MotionComponent::_alignForwardVectorWithDistanceVector()
+{
+  if (_shouldAlignForwardVector())
+  {
+    Vector3 forward = _parentTransform->getForwardVersor();
+    Vector3 newForward = _distanceVector.normalized();
+    float angle = acos(forward.dot(newForward));
+    Vector3 axis = forward.cross(newForward).normalized();
+    _parentTransform->rotate(axis, angle);
+  }
+}
+
+bool MotionComponent::_shouldAlignForwardVector()
+{
+  return _distanceVector.dot(_parentTransform->getForwardVersor()) < 0.999;
 }
 
 void MotionComponent::_move()
 {
-  Vector3 worldPos = _parent->getTransform().getWorldPosition();
-  Vector3 vec = _targetPosition - worldPos;
-  vec.normalize();
+  float deltaTime = static_cast<float>(_dayTime->getLastDelta().time);
+  Vector3 motionVector = _speed * deltaTime * _distanceVector.normalized();
   
-  //float lastDelta = static_cast<float>(GameEngine::engine()->kernel->timer->getLastDelta());
-  
-  //_parent->getTransform().setWorldPosition(worldPos + _speed*T_S(lastDelta)*vec);
+  if (_distanceVector.norm() < motionVector.norm())
+  {
+    _parentTransform->setWorldPosition(_targetPosition);
+  }
+  else
+  {
+    Vector3 worldPos = _parentTransform->getWorldPosition();
+    _parentTransform->setWorldPosition(worldPos + motionVector);
+  }
 }
