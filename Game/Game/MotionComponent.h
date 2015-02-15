@@ -1,14 +1,10 @@
 #pragma once
 
-#include "GlobalHeaders.h"
-#include "GameObjectComponent.h"
-#include "GameEnvironment.h"
+#include <GameEngine.h>
 
-class GameObject;
 class DayTimeEntity;
-class Transform;
 
-class LIFEUNIVERSALIS_EXPORT MotionComponent
+class MotionComponent
   : public GameObjectComponent
 {
 public:

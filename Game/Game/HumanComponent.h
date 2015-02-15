@@ -1,12 +1,10 @@
 #pragma once
 
-#include "GlobalHeaders.h"
-#include "GameObjectComponent.h"
+#include <GameEngine.h>
 
-class Settings;
 class Workplace;
 
-class LIFEUNIVERSALIS_EXPORT HumanComponent
+class HumanComponent
 	: public GameObjectComponent
 {
 public:

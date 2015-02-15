@@ -1,9 +1,6 @@
 #pragma once
 
-#include "GlobalHeaders.h"
-#include "GameObjectComponent.h"
-
-class GameObject;
+#include <GameEngine.h>
 
 class BuildingTestComponent : public GameObjectComponent
 {

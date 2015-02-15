@@ -1,9 +1,5 @@
 #include "HumanManagerEntity.h"
-#include "GameObject.h"
 #include "BuildingTestComponent.h"
-
-#include "GameEngine.h"
-#include "Scene.h"
 
 
 HumanManagerEntity::HumanManagerEntity() : GameEnvironmentEntity("HumanManager")

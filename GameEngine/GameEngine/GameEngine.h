@@ -1,9 +1,15 @@
 #pragma once
-#include "GlobalHeaders.h"
 
-class Kernel;
-class Scene;
-class GameEnvironment;
+#include "GlobalHeaders.h"
+#include "GameEnvironment.h"
+#include "GameEnvironmentEntity.h"
+#include "GameObject.h"
+#include "GameObjectComponent.h"
+#include "Kernel.h"
+#include "Scene.h"
+#include "Settings.h"
+#include "Timer.h"
+#include "Transform.h"
 
 class GAMEENGINE_EXPORT GameEngine
 {

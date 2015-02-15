@@ -1,9 +1,7 @@
 #pragma once
 
-#include "GlobalHeaders.h"
-#include "GameEnvironmentEntity.h"
+#include <GameEngine.h>
 
-class GameObject;
 class Workplace;
 
 class BuildingManagerEntity : public GameEnvironmentEntity

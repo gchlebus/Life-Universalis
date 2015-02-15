@@ -1,7 +1,4 @@
 #include "HumanComponent.h"
-#include "GameEngine.h"
-#include "Kernel.h"
-#include "Settings.h"
 
 HumanComponent::HumanComponent()
 	: GameObjectComponent("HumanComponent")

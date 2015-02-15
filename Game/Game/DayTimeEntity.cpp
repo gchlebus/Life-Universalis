@@ -1,6 +1,4 @@
 #include "DayTimeEntity.h"
-#include "LifeUniversalis.h"
-
 
 DayTimeEntity::DayTimeEntity() : GameEnvironmentEntity("DayTime")
 {

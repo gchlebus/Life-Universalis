@@ -1,6 +1,4 @@
 #include "MotionComponent.h"
-#include "GameObject.h"
-#include "GameEngine.h"
 #include "DayTimeEntity.h"
 
 MotionComponent::MotionComponent()

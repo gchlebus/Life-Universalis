@@ -8,10 +8,8 @@
 
 #pragma once
 
-#include "GlobalHeaders.h"
-#include "GameObjectComponent.h"
+#include <GameEngine.h>
 
-class GameObject;
 class Workplace;
 
 class BuildingComponent : public GameObjectComponent

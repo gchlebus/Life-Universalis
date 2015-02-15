@@ -112,20 +112,6 @@ void GameEngine::gameLoop()
 
 void GameEngine::run()
 {
-	//temporary scene initailization
-	//It produces memory leak!!! Just for test use!!!
-	{
-		currentEnvironment = new GameEnvironment();
-		//currentEnvironment->addEntity(new DayTimeEntity());
-		//currentEnvironment->addEntity(new BuildingManagerEntity());
-		//currentEnvironment->addEntity(new HumanManagerEntity());
-
-		currentScene = new Scene();
-	
-		for(int i = 0; i < 100000; i++)
-			currentScene->addObject(new GameObject());
-
-	}
 	mainLoopThread = boost::thread(&GameEngine::gameLoop, this);
 }
 

@@ -8,8 +8,7 @@
 
 #pragma once
 
-#include "GlobalHeaders.h"
-#include "GameObjectComponent.h"
+#include <GameEngine.h>
 
 class HumanComponent;
 class HumanAISeekJobComponent;

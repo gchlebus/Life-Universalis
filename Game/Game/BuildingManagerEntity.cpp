@@ -1,10 +1,5 @@
 #include "BuildingManagerEntity.h"
-#include "GameObject.h"
 #include "BuildingComponent.h"
-
-#include "GameEngine.h"
-#include "Scene.h"
-
 
 BuildingManagerEntity::BuildingManagerEntity() : GameEnvironmentEntity("BuildingManager")
 {
