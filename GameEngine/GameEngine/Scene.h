@@ -3,7 +3,7 @@
 
 class GameObject;
 
-class LIFEUNIVERSALIS_EXPORT Scene
+class GAMEENGINE_EXPORT Scene
 {
 public:
 

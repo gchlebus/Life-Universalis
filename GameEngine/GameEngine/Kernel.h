@@ -3,7 +3,7 @@
 #include "Timer.h"
 #include "Settings.h"
 
-class LIFEUNIVERSALIS_EXPORT Kernel
+class GAMEENGINE_EXPORT Kernel
 {
 public:
 	Kernel();

@@ -1,7 +1,7 @@
 #pragma once
 #include "GlobalHeaders.h"
 
-class LIFEUNIVERSALIS_EXPORT GameEnvironmentEntity
+class GAMEENGINE_EXPORT GameEnvironmentEntity
 {
 public:
 	GameEnvironmentEntity(const std::string &name);

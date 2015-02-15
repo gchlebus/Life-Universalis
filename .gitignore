@@ -215,3 +215,7 @@ FakesAssemblies/
 
 # Mac OS X files
 *.DS_Store
+
+# Xcode filed
+xcuserdata/
+project.xcworkspace/

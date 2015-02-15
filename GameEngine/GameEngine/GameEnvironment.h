@@ -3,7 +3,7 @@
 
 class GameEnvironmentEntity;
 
-class LIFEUNIVERSALIS_EXPORT GameEnvironment
+class GAMEENGINE_EXPORT GameEnvironment
 {
 public:
 	GameEnvironment();

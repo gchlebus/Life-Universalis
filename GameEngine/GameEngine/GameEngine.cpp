@@ -9,9 +9,9 @@
 
 
 
-#include "DayTimeEntity.h"
-#include "BuildingManagerEntity.h"
-#include "HumanManagerEntity.h"
+//#include "DayTimeEntity.h"
+//#include "BuildingManagerEntity.h"
+//#include "HumanManagerEntity.h"
 
 GameEngine* GameEngine::globalPtr = 0;
 
@@ -116,9 +116,9 @@ void GameEngine::run()
 	//It produces memory leak!!! Just for test use!!!
 	{
 		currentEnvironment = new GameEnvironment();
-		currentEnvironment->addEntity(new DayTimeEntity());
-		currentEnvironment->addEntity(new BuildingManagerEntity());
-		currentEnvironment->addEntity(new HumanManagerEntity());
+		//currentEnvironment->addEntity(new DayTimeEntity());
+		//currentEnvironment->addEntity(new BuildingManagerEntity());
+		//currentEnvironment->addEntity(new HumanManagerEntity());
 
 		currentScene = new Scene();
 	

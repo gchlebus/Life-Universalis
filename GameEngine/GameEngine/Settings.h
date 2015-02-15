@@ -2,7 +2,7 @@
 #include "GlobalHeaders.h"
 
 
-class LIFEUNIVERSALIS_EXPORT Settings
+class GAMEENGINE_EXPORT Settings
 {
 public:
 	Settings(void);

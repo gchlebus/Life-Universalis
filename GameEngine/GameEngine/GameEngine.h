@@ -5,7 +5,7 @@ class Kernel;
 class Scene;
 class GameEnvironment;
 
-class LIFEUNIVERSALIS_EXPORT GameEngine
+class GAMEENGINE_EXPORT GameEngine
 {
 public:
 	GameEngine();

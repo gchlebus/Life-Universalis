@@ -5,7 +5,7 @@
 #define RAD_TO_DEG(rad) (float)((rad)*(180)/(M_PI))
 #define DEG_TO_RAD(deg) (float)((deg)*(M_PI)/(180))
 
-class LIFEUNIVERSALIS_EXPORT Transform
+class GAMEENGINE_EXPORT Transform
 {
 public:
 	//! Default c'tor. Sets local position to (0, 0, 0), local Euler angles to (0, 0, 0) and 

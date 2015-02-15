@@ -7,7 +7,7 @@
 #define T_uS(t) (t)*1000.0
 #define T_NS(t) (t)*1000.0*1000.0
 
-class LIFEUNIVERSALIS_EXPORT Timer
+class GAMEENGINE_EXPORT Timer
 {
 public:
 	Timer();

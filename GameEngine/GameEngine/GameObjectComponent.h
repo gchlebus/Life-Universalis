@@ -3,7 +3,7 @@
 
 class GameObject;
 
-class LIFEUNIVERSALIS_EXPORT GameObjectComponent
+class GAMEENGINE_EXPORT GameObjectComponent
 {
 public:
 	GameObjectComponent(const std::string &name);

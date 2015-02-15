@@ -4,7 +4,7 @@
 
 class GameObjectComponent;
 
-class LIFEUNIVERSALIS_EXPORT GameObject
+class GAMEENGINE_EXPORT GameObject
 {
 public:
 	~GameObject();
