@@ -19,6 +19,26 @@
 		08129F1B1A91466000849B4E /* MotionComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F0E1A91466000849B4E /* MotionComponent.cpp */; };
 		08129F1C1A91466000849B4E /* Workplace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F101A91466000849B4E /* Workplace.cpp */; };
 		08129F201A91484B00849B4E /* libGameEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08129F1F1A91484B00849B4E /* libGameEngine.a */; };
+		088759831A9290C1008786DA /* BuildingComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129EFD1A91466000849B4E /* BuildingComponent.cpp */; };
+		088759841A9290C1008786DA /* BuildingComponent.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129EFE1A91466000849B4E /* BuildingComponent.h */; };
+		088759851A9290C1008786DA /* BuildingManagerEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129EFF1A91466000849B4E /* BuildingManagerEntity.cpp */; };
+		088759861A9290C1008786DA /* BuildingManagerEntity.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129F001A91466000849B4E /* BuildingManagerEntity.h */; };
+		088759871A9290C1008786DA /* BuildingTestComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F011A91466000849B4E /* BuildingTestComponent.cpp */; };
+		088759881A9290C1008786DA /* BuildingTestComponent.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129F021A91466000849B4E /* BuildingTestComponent.h */; };
+		088759891A9290C1008786DA /* DayTimeEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F031A91466000849B4E /* DayTimeEntity.cpp */; };
+		0887598A1A9290C1008786DA /* DayTimeEntity.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129F041A91466000849B4E /* DayTimeEntity.h */; };
+		0887598B1A9290C1008786DA /* HumanAIComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F051A91466000849B4E /* HumanAIComponent.cpp */; };
+		0887598C1A9290C1008786DA /* HumanAIComponent.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129F061A91466000849B4E /* HumanAIComponent.h */; };
+		0887598D1A9290C1008786DA /* HumanAISeekJobComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F071A91466000849B4E /* HumanAISeekJobComponent.cpp */; };
+		0887598E1A9290C1008786DA /* HumanAISeekJobComponent.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129F081A91466000849B4E /* HumanAISeekJobComponent.h */; };
+		0887598F1A9290C1008786DA /* HumanComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F091A91466000849B4E /* HumanComponent.cpp */; };
+		088759901A9290C1008786DA /* HumanComponent.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129F0A1A91466000849B4E /* HumanComponent.h */; };
+		088759911A9290C1008786DA /* HumanManagerEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F0B1A91466000849B4E /* HumanManagerEntity.cpp */; };
+		088759921A9290C1008786DA /* HumanManagerEntity.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129F0C1A91466000849B4E /* HumanManagerEntity.h */; };
+		088759931A9290C1008786DA /* MotionComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F0E1A91466000849B4E /* MotionComponent.cpp */; };
+		088759941A9290C1008786DA /* MotionComponent.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129F0F1A91466000849B4E /* MotionComponent.h */; };
+		088759951A9290C1008786DA /* Workplace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F101A91466000849B4E /* Workplace.cpp */; };
+		088759961A9290C1008786DA /* Workplace.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129F111A91466000849B4E /* Workplace.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +77,7 @@
 		08129F101A91466000849B4E /* Workplace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Workplace.cpp; sourceTree = "<group>"; };
 		08129F111A91466000849B4E /* Workplace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workplace.h; sourceTree = "<group>"; };
 		08129F1F1A91484B00849B4E /* libGameEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGameEngine.a; path = ../DerivedData/LifeUniversalis/Build/Products/Debug/libGameEngine.a; sourceTree = "<group>"; };
+		088759761A928F26008786DA /* libGameLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGameLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +86,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				08129F201A91484B00849B4E /* libGameEngine.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		088759731A928F26008786DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				08129EF21A9145FF00849B4E /* Game */,
+				088759761A928F26008786DA /* libGameLib.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,6 +147,16 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		088759741A928F26008786DA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		08129EF11A9145FF00849B4E /* Game */ = {
 			isa = PBXNativeTarget;
@@ -136,6 +175,23 @@
 			productReference = 08129EF21A9145FF00849B4E /* Game */;
 			productType = "com.apple.product-type.tool";
 		};
+		088759751A928F26008786DA /* GameLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 088759801A928F26008786DA /* Build configuration list for PBXNativeTarget "GameLib" */;
+			buildPhases = (
+				088759721A928F26008786DA /* Sources */,
+				088759731A928F26008786DA /* Frameworks */,
+				088759741A928F26008786DA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GameLib;
+			productName = GameLib;
+			productReference = 088759761A928F26008786DA /* libGameLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -146,6 +202,9 @@
 				ORGANIZATIONNAME = "Chlebus, Grzegorz";
 				TargetAttributes = {
 					08129EF11A9145FF00849B4E = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					088759751A928F26008786DA = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
@@ -163,6 +222,7 @@
 			projectRoot = "";
 			targets = (
 				08129EF11A9145FF00849B4E /* Game */,
+				088759751A928F26008786DA /* GameLib */,
 			);
 		};
 /* End PBXProject section */
@@ -183,6 +243,33 @@
 				08129F1B1A91466000849B4E /* MotionComponent.cpp in Sources */,
 				08129F121A91466000849B4E /* BuildingComponent.cpp in Sources */,
 				08129F141A91466000849B4E /* BuildingTestComponent.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		088759721A928F26008786DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				088759831A9290C1008786DA /* BuildingComponent.cpp in Sources */,
+				088759841A9290C1008786DA /* BuildingComponent.h in Sources */,
+				088759851A9290C1008786DA /* BuildingManagerEntity.cpp in Sources */,
+				088759861A9290C1008786DA /* BuildingManagerEntity.h in Sources */,
+				088759871A9290C1008786DA /* BuildingTestComponent.cpp in Sources */,
+				088759881A9290C1008786DA /* BuildingTestComponent.h in Sources */,
+				088759891A9290C1008786DA /* DayTimeEntity.cpp in Sources */,
+				0887598A1A9290C1008786DA /* DayTimeEntity.h in Sources */,
+				0887598B1A9290C1008786DA /* HumanAIComponent.cpp in Sources */,
+				0887598C1A9290C1008786DA /* HumanAIComponent.h in Sources */,
+				0887598D1A9290C1008786DA /* HumanAISeekJobComponent.cpp in Sources */,
+				0887598E1A9290C1008786DA /* HumanAISeekJobComponent.h in Sources */,
+				0887598F1A9290C1008786DA /* HumanComponent.cpp in Sources */,
+				088759901A9290C1008786DA /* HumanComponent.h in Sources */,
+				088759911A9290C1008786DA /* HumanManagerEntity.cpp in Sources */,
+				088759921A9290C1008786DA /* HumanManagerEntity.h in Sources */,
+				088759931A9290C1008786DA /* MotionComponent.cpp in Sources */,
+				088759941A9290C1008786DA /* MotionComponent.h in Sources */,
+				088759951A9290C1008786DA /* Workplace.cpp in Sources */,
+				088759961A9290C1008786DA /* Workplace.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +398,32 @@
 			};
 			name = Release;
 		};
+		0887597E1A928F26008786DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0887597F1A928F26008786DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -331,6 +444,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		088759801A928F26008786DA /* Build configuration list for PBXNativeTarget "GameLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0887597E1A928F26008786DA /* Debug */,
+				0887597F1A928F26008786DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

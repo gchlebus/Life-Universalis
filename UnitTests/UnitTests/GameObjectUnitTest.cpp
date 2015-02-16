@@ -1,7 +1,7 @@
-#include "../LifeUniversalis/GameObject.h"
 #include "GameObjectComponentMock.h"
 
 #include <gtest/gtest.h>
+#include <GameEngine.h>
 
 class GameObjectTest : public ::testing::Test
 {

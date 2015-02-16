@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0887596C1A928D81008786DA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759651A928D81008786DA /* main.cpp */; };
+		0887596D1A928D81008786DA /* GameObjectUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759691A928D81008786DA /* GameObjectUnitTest.cpp */; };
+		0887596E1A928D81008786DA /* HumanParametersComponentUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0887596A1A928D81008786DA /* HumanParametersComponentUnitTest.cpp */; };
+		0887596F1A928D81008786DA /* TransformUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0887596B1A928D81008786DA /* TransformUnitTest.cpp */; };
+		088759711A928DDF008786DA /* libGameEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 088759701A928DDF008786DA /* libGameEngine.a */; };
+		088759821A928F3C008786DA /* libGameLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 088759811A928F3C008786DA /* libGameLib.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0887594A1A928C8F008786DA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0887594C1A928C8F008786DA /* UnitTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UnitTests; sourceTree = BUILT_PRODUCTS_DIR; };
+		088759651A928D81008786DA /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		088759671A928D81008786DA /* GameObjectComponentMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectComponentMock.h; sourceTree = "<group>"; };
+		088759691A928D81008786DA /* GameObjectUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectUnitTest.cpp; sourceTree = "<group>"; };
+		0887596A1A928D81008786DA /* HumanParametersComponentUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanParametersComponentUnitTest.cpp; sourceTree = "<group>"; };
+		0887596B1A928D81008786DA /* TransformUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransformUnitTest.cpp; sourceTree = "<group>"; };
+		088759701A928DDF008786DA /* libGameEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGameEngine.a; path = ../DerivedData/LifeUniversalis/Build/Products/Debug/libGameEngine.a; sourceTree = "<group>"; };
+		088759811A928F3C008786DA /* libGameLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGameLib.a; path = ../Game/build/Debug/libGameLib.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		088759491A928C8F008786DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				088759821A928F3C008786DA /* libGameLib.a in Frameworks */,
+				088759711A928DDF008786DA /* libGameEngine.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		088759431A928C8F008786DA = {
+			isa = PBXGroup;
+			children = (
+				088759811A928F3C008786DA /* libGameLib.a */,
+				088759701A928DDF008786DA /* libGameEngine.a */,
+				088759651A928D81008786DA /* main.cpp */,
+				088759661A928D81008786DA /* Mocks */,
+				088759681A928D81008786DA /* UnitTests */,
+				0887594D1A928C8F008786DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0887594D1A928C8F008786DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0887594C1A928C8F008786DA /* UnitTests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		088759661A928D81008786DA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				088759671A928D81008786DA /* GameObjectComponentMock.h */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		088759681A928D81008786DA /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				088759691A928D81008786DA /* GameObjectUnitTest.cpp */,
+				0887596A1A928D81008786DA /* HumanParametersComponentUnitTest.cpp */,
+				0887596B1A928D81008786DA /* TransformUnitTest.cpp */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0887594B1A928C8F008786DA /* UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 088759531A928C8F008786DA /* Build configuration list for PBXNativeTarget "UnitTests" */;
+			buildPhases = (
+				088759481A928C8F008786DA /* Sources */,
+				088759491A928C8F008786DA /* Frameworks */,
+				0887594A1A928C8F008786DA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnitTests;
+			productName = UnitTests;
+			productReference = 0887594C1A928C8F008786DA /* UnitTests */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		088759441A928C8F008786DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Chlebus, Grzegorz";
+				TargetAttributes = {
+					0887594B1A928C8F008786DA = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 088759471A928C8F008786DA /* Build configuration list for PBXProject "UnitTests" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 088759431A928C8F008786DA;
+			productRefGroup = 0887594D1A928C8F008786DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0887594B1A928C8F008786DA /* UnitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		088759481A928C8F008786DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0887596E1A928D81008786DA /* HumanParametersComponentUnitTest.cpp in Sources */,
+				0887596D1A928D81008786DA /* GameObjectUnitTest.cpp in Sources */,
+				0887596F1A928D81008786DA /* TransformUnitTest.cpp in Sources */,
+				0887596C1A928D81008786DA /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		088759511A928C8F008786DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../Game/Game,
+					../GameEngine/GameEngine,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-isystem/usr/local/include",
+				);
+				OTHER_LDFLAGS = (
+					/usr/local/lib/libboost_chrono.dylib,
+					/usr/local/lib/libboost_thread.dylib,
+					/usr/local/lib/libboost_date_time.dylib,
+					/usr/local/lib/libboost_system.dylib,
+					/usr/local/lib/libboost_timer.dylib,
+					/usr/local/lib/libgmock.dylib,
+					/usr/local/lib/libgtest.dylib,
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		088759521A928C8F008786DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../Game/Game,
+					../GameEngine/GameEngine,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-isystem/usr/local/include",
+				);
+				OTHER_LDFLAGS = (
+					/usr/local/lib/libboost_chrono.dylib,
+					/usr/local/lib/libboost_thread.dylib,
+					/usr/local/lib/libboost_date_time.dylib,
+					/usr/local/lib/libboost_system.dylib,
+					/usr/local/lib/libboost_timer.dylib,
+					/usr/local/lib/libgmock.dylib,
+					/usr/local/lib/libgtest.dylib,
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		088759541A928C8F008786DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		088759551A928C8F008786DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		088759471A928C8F008786DA /* Build configuration list for PBXProject "UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				088759511A928C8F008786DA /* Debug */,
+				088759521A928C8F008786DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		088759531A928C8F008786DA /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				088759541A928C8F008786DA /* Debug */,
+				088759551A928C8F008786DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 088759441A928C8F008786DA /* Project object */;
+}

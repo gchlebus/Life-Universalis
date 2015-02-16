@@ -7,4 +7,7 @@
    <FileRef
       location = "group:GameEngine/GameEngine.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:UnitTests/UnitTests.xcodeproj">
+   </FileRef>
 </Workspace>

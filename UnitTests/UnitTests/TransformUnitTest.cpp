@@ -1,6 +1,6 @@
-#include "../LifeUniversalis/Transform.h"
-
 #include <gtest/gtest.h>
+
+#include <GameEngine.h>
 
 TEST(TransformTest, ConstructorTest_LocalPositionZero)
 {

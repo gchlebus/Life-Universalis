@@ -218,5 +218,6 @@ FakesAssemblies/
 
 # Xcode files
 xcuserdata/
+xcshareddata/
 project.xcworkspace/
 DerivedData/

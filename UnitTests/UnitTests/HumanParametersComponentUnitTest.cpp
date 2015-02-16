@@ -1,11 +1,8 @@
 #include <gtest/gtest.h>
 #include <cmath>
 
-#include "../LifeUniversalis/HumanComponent.h"
-#include "../LifeUniversalis/GameEngine.h"
-#include "../LifeUniversalis/Kernel.h"
-#include "../LifeUniversalis/Settings.h"
-
+#include <HumanComponent.h>
+#include <GameEngine.h>
 
 class HumanComponentTest : public ::testing::Test
 {
