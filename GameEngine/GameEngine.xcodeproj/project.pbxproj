@@ -87,30 +87,102 @@
 		08129EBC1A913C2400849B4E /* GameEngine */ = {
 			isa = PBXGroup;
 			children = (
+				D551EAB71A92AC7B0058B9A2 /* GameEnvironment */,
+				D551EAB61A92AC700058B9A2 /* Scene */,
+				D551EAB31A92AC3A0058B9A2 /* Kernel */,
 				08129EBD1A913C2400849B4E /* GameEngine.cpp */,
 				08129EBE1A913C2400849B4E /* GameEngine.h */,
 				08129EBF1A913C2400849B4E /* GameEngineSystem.h */,
-				08129EC01A913C2400849B4E /* GameEnvironment.cpp */,
-				08129EC11A913C2400849B4E /* GameEnvironment.h */,
-				08129EC21A913C2400849B4E /* GameEnvironmentEntity.cpp */,
-				08129EC31A913C2400849B4E /* GameEnvironmentEntity.h */,
-				08129EC41A913C2400849B4E /* GameObject.cpp */,
-				08129EC51A913C2400849B4E /* GameObject.h */,
-				08129EC61A913C2400849B4E /* GameObjectComponent.cpp */,
-				08129EC71A913C2400849B4E /* GameObjectComponent.h */,
 				08129EC81A913C2400849B4E /* GlobalHeaders.h */,
+			);
+			path = GameEngine;
+			sourceTree = "<group>";
+		};
+		D551EAB31A92AC3A0058B9A2 /* Kernel */ = {
+			isa = PBXGroup;
+			children = (
+				D551EAB51A92AC580058B9A2 /* Timer */,
+				D551EAB41A92AC490058B9A2 /* Settings */,
 				08129EC91A913C2400849B4E /* Kernel.cpp */,
 				08129ECA1A913C2400849B4E /* Kernel.h */,
-				08129ECB1A913C2400849B4E /* Scene.cpp */,
-				08129ECC1A913C2400849B4E /* Scene.h */,
+			);
+			name = Kernel;
+			sourceTree = "<group>";
+		};
+		D551EAB41A92AC490058B9A2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
 				08129ECD1A913C2400849B4E /* Settings.cpp */,
 				08129ECE1A913C2400849B4E /* Settings.h */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		D551EAB51A92AC580058B9A2 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
 				08129ECF1A913C2400849B4E /* Timer.cpp */,
 				08129ED01A913C2400849B4E /* Timer.h */,
+			);
+			name = Timer;
+			sourceTree = "<group>";
+		};
+		D551EAB61A92AC700058B9A2 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				D551EAB91A92ACAD0058B9A2 /* GameObject */,
+				08129ECB1A913C2400849B4E /* Scene.cpp */,
+				08129ECC1A913C2400849B4E /* Scene.h */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		D551EAB71A92AC7B0058B9A2 /* GameEnvironment */ = {
+			isa = PBXGroup;
+			children = (
+				D551EAB81A92AC940058B9A2 /* GameEnvironmentEntity */,
+				08129EC01A913C2400849B4E /* GameEnvironment.cpp */,
+				08129EC11A913C2400849B4E /* GameEnvironment.h */,
+			);
+			name = GameEnvironment;
+			sourceTree = "<group>";
+		};
+		D551EAB81A92AC940058B9A2 /* GameEnvironmentEntity */ = {
+			isa = PBXGroup;
+			children = (
+				08129EC21A913C2400849B4E /* GameEnvironmentEntity.cpp */,
+				08129EC31A913C2400849B4E /* GameEnvironmentEntity.h */,
+			);
+			name = GameEnvironmentEntity;
+			sourceTree = "<group>";
+		};
+		D551EAB91A92ACAD0058B9A2 /* GameObject */ = {
+			isa = PBXGroup;
+			children = (
+				D551EABB1A92ACCB0058B9A2 /* Transform */,
+				D551EABA1A92ACBC0058B9A2 /* GameObjectComponent */,
+				08129EC41A913C2400849B4E /* GameObject.cpp */,
+				08129EC51A913C2400849B4E /* GameObject.h */,
+			);
+			name = GameObject;
+			sourceTree = "<group>";
+		};
+		D551EABA1A92ACBC0058B9A2 /* GameObjectComponent */ = {
+			isa = PBXGroup;
+			children = (
+				08129EC61A913C2400849B4E /* GameObjectComponent.cpp */,
+				08129EC71A913C2400849B4E /* GameObjectComponent.h */,
+			);
+			name = GameObjectComponent;
+			sourceTree = "<group>";
+		};
+		D551EABB1A92ACCB0058B9A2 /* Transform */ = {
+			isa = PBXGroup;
+			children = (
 				08129ED11A913C2400849B4E /* Transform.cpp */,
 				08129ED21A913C2400849B4E /* Transform.h */,
 			);
-			path = GameEngine;
+			name = Transform;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

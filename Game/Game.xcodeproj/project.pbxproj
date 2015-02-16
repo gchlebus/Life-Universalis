@@ -122,25 +122,7 @@
 			children = (
 				D551EAA71A92A7980058B9A2 /* EnvironmentEntities */,
 				D551EAA61A92A78B0058B9A2 /* Components */,
-				08129EFF1A91466000849B4E /* BuildingManagerEntity.cpp */,
-				08129F001A91466000849B4E /* BuildingManagerEntity.h */,
-				08129F011A91466000849B4E /* BuildingTestComponent.cpp */,
-				08129F021A91466000849B4E /* BuildingTestComponent.h */,
-				08129F031A91466000849B4E /* DayTimeEntity.cpp */,
-				08129F041A91466000849B4E /* DayTimeEntity.h */,
-				08129F051A91466000849B4E /* HumanAIComponent.cpp */,
-				08129F061A91466000849B4E /* HumanAIComponent.h */,
-				08129F071A91466000849B4E /* HumanAISeekJobComponent.cpp */,
-				08129F081A91466000849B4E /* HumanAISeekJobComponent.h */,
-				08129F091A91466000849B4E /* HumanComponent.cpp */,
-				08129F0A1A91466000849B4E /* HumanComponent.h */,
-				08129F0B1A91466000849B4E /* HumanManagerEntity.cpp */,
-				08129F0C1A91466000849B4E /* HumanManagerEntity.h */,
 				08129F0D1A91466000849B4E /* main.cpp */,
-				08129F0E1A91466000849B4E /* MotionComponent.cpp */,
-				08129F0F1A91466000849B4E /* MotionComponent.h */,
-				08129F101A91466000849B4E /* Workplace.cpp */,
-				08129F111A91466000849B4E /* Workplace.h */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -148,6 +130,8 @@
 		D551EAA61A92A78B0058B9A2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D551EAAF1A92ABFA0058B9A2 /* MotionComponent */,
+				D551EAAB1A92ABB50058B9A2 /* Human */,
 				D551EAA81A92A7A10058B9A2 /* Building */,
 			);
 			name = Components;
@@ -156,6 +140,9 @@
 		D551EAA71A92A7980058B9A2 /* EnvironmentEntities */ = {
 			isa = PBXGroup;
 			children = (
+				D551EAAE1A92ABEA0058B9A2 /* HumanManager */,
+				D551EAAA1A92AB8F0058B9A2 /* DayTime */,
+				D551EAA91A92AB530058B9A2 /* BuildingManager */,
 			);
 			name = EnvironmentEntities;
 			sourceTree = "<group>";
@@ -163,10 +150,87 @@
 		D551EAA81A92A7A10058B9A2 /* Building */ = {
 			isa = PBXGroup;
 			children = (
+				D551EAB11A92AC100058B9A2 /* Workplace */,
+				08129F011A91466000849B4E /* BuildingTestComponent.cpp */,
+				08129F021A91466000849B4E /* BuildingTestComponent.h */,
 				08129EFD1A91466000849B4E /* BuildingComponent.cpp */,
 				08129EFE1A91466000849B4E /* BuildingComponent.h */,
 			);
 			name = Building;
+			sourceTree = "<group>";
+		};
+		D551EAA91A92AB530058B9A2 /* BuildingManager */ = {
+			isa = PBXGroup;
+			children = (
+				08129EFF1A91466000849B4E /* BuildingManagerEntity.cpp */,
+				08129F001A91466000849B4E /* BuildingManagerEntity.h */,
+			);
+			name = BuildingManager;
+			sourceTree = "<group>";
+		};
+		D551EAAA1A92AB8F0058B9A2 /* DayTime */ = {
+			isa = PBXGroup;
+			children = (
+				08129F031A91466000849B4E /* DayTimeEntity.cpp */,
+				08129F041A91466000849B4E /* DayTimeEntity.h */,
+			);
+			name = DayTime;
+			sourceTree = "<group>";
+		};
+		D551EAAB1A92ABB50058B9A2 /* Human */ = {
+			isa = PBXGroup;
+			children = (
+				D551EAAC1A92ABC20058B9A2 /* AI */,
+				08129F091A91466000849B4E /* HumanComponent.cpp */,
+				08129F0A1A91466000849B4E /* HumanComponent.h */,
+			);
+			name = Human;
+			sourceTree = "<group>";
+		};
+		D551EAAC1A92ABC20058B9A2 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				D551EAB21A92AC1A0058B9A2 /* SeekJob */,
+				08129F051A91466000849B4E /* HumanAIComponent.cpp */,
+				08129F061A91466000849B4E /* HumanAIComponent.h */,
+			);
+			name = AI;
+			sourceTree = "<group>";
+		};
+		D551EAAE1A92ABEA0058B9A2 /* HumanManager */ = {
+			isa = PBXGroup;
+			children = (
+				08129F0B1A91466000849B4E /* HumanManagerEntity.cpp */,
+				08129F0C1A91466000849B4E /* HumanManagerEntity.h */,
+			);
+			name = HumanManager;
+			sourceTree = "<group>";
+		};
+		D551EAAF1A92ABFA0058B9A2 /* MotionComponent */ = {
+			isa = PBXGroup;
+			children = (
+				08129F0E1A91466000849B4E /* MotionComponent.cpp */,
+				08129F0F1A91466000849B4E /* MotionComponent.h */,
+			);
+			name = MotionComponent;
+			sourceTree = "<group>";
+		};
+		D551EAB11A92AC100058B9A2 /* Workplace */ = {
+			isa = PBXGroup;
+			children = (
+				08129F101A91466000849B4E /* Workplace.cpp */,
+				08129F111A91466000849B4E /* Workplace.h */,
+			);
+			name = Workplace;
+			sourceTree = "<group>";
+		};
+		D551EAB21A92AC1A0058B9A2 /* SeekJob */ = {
+			isa = PBXGroup;
+			children = (
+				08129F071A91466000849B4E /* HumanAISeekJobComponent.cpp */,
+				08129F081A91466000849B4E /* HumanAISeekJobComponent.h */,
+			);
+			name = SeekJob;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
