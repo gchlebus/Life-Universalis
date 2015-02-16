@@ -120,8 +120,8 @@
 		08129EFC1A91466000849B4E /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				08129EFD1A91466000849B4E /* BuildingComponent.cpp */,
-				08129EFE1A91466000849B4E /* BuildingComponent.h */,
+				D551EAA71A92A7980058B9A2 /* EnvironmentEntities */,
+				D551EAA61A92A78B0058B9A2 /* Components */,
 				08129EFF1A91466000849B4E /* BuildingManagerEntity.cpp */,
 				08129F001A91466000849B4E /* BuildingManagerEntity.h */,
 				08129F011A91466000849B4E /* BuildingTestComponent.cpp */,
@@ -143,6 +143,30 @@
 				08129F111A91466000849B4E /* Workplace.h */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		D551EAA61A92A78B0058B9A2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D551EAA81A92A7A10058B9A2 /* Building */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		D551EAA71A92A7980058B9A2 /* EnvironmentEntities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = EnvironmentEntities;
+			sourceTree = "<group>";
+		};
+		D551EAA81A92A7A10058B9A2 /* Building */ = {
+			isa = PBXGroup;
+			children = (
+				08129EFD1A91466000849B4E /* BuildingComponent.cpp */,
+				08129EFE1A91466000849B4E /* BuildingComponent.h */,
+			);
+			name = Building;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +476,7 @@
 				0887597F1A928F26008786DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
