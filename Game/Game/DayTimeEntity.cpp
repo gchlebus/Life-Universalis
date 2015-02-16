@@ -12,6 +12,7 @@ void DayTimeEntity::onStart()
 {
 	gameDate = GameDate();
 	delta = GameDate();
+    
 }
 
 void DayTimeEntity::onUpdate()
