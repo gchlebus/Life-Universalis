@@ -39,6 +39,9 @@
 		088759941A9290C1008786DA /* MotionComponent.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129F0F1A91466000849B4E /* MotionComponent.h */; };
 		088759951A9290C1008786DA /* Workplace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F101A91466000849B4E /* Workplace.cpp */; };
 		088759961A9290C1008786DA /* Workplace.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129F111A91466000849B4E /* Workplace.h */; };
+		088759CD1A940ACD008786DA /* MotionComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759CC1A940ACD008786DA /* MotionComponent.cpp */; };
+		088759CE1A940ACD008786DA /* MotionComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759CC1A940ACD008786DA /* MotionComponent.cpp */; };
+		088759D01A940ADE008786DA /* MotionComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 088759CF1A940ADE008786DA /* MotionComponent.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +81,8 @@
 		08129F111A91466000849B4E /* Workplace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workplace.h; sourceTree = "<group>"; };
 		08129F1F1A91484B00849B4E /* libGameEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGameEngine.a; path = ../DerivedData/LifeUniversalis/Build/Products/Debug/libGameEngine.a; sourceTree = "<group>"; };
 		088759761A928F26008786DA /* libGameLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGameLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		088759CC1A940ACD008786DA /* MotionComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MotionComponent.cpp; sourceTree = "<group>"; };
+		088759CF1A940ADE008786DA /* MotionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionComponent.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +130,15 @@
 				08129F0D1A91466000849B4E /* main.cpp */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		088759D11A940AE2008786DA /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				088759CF1A940ADE008786DA /* MotionComponent.h */,
+				088759CC1A940ACD008786DA /* MotionComponent.cpp */,
+			);
+			name = Motion;
 			sourceTree = "<group>";
 		};
 		D551EAA61A92A78B0058B9A2 /* Components */ = {
@@ -180,6 +194,7 @@
 		D551EAAB1A92ABB50058B9A2 /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				088759D11A940AE2008786DA /* Motion */,
 				D551EAAC1A92ABC20058B9A2 /* AI */,
 				08129F091A91466000849B4E /* HumanComponent.cpp */,
 				08129F0A1A91466000849B4E /* HumanComponent.h */,
@@ -240,6 +255,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				088759D01A940ADE008786DA /* MotionComponent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +345,7 @@
 				08129F181A91466000849B4E /* HumanComponent.cpp in Sources */,
 				08129F131A91466000849B4E /* BuildingManagerEntity.cpp in Sources */,
 				08129F1B1A91466000849B4E /* MotionComponent.cpp in Sources */,
+				088759CD1A940ACD008786DA /* MotionComponent.cpp in Sources */,
 				08129F121A91466000849B4E /* BuildingComponent.cpp in Sources */,
 				08129F141A91466000849B4E /* BuildingTestComponent.cpp in Sources */,
 			);
@@ -341,6 +358,7 @@
 				088759831A9290C1008786DA /* BuildingComponent.cpp in Sources */,
 				088759841A9290C1008786DA /* BuildingComponent.h in Sources */,
 				088759851A9290C1008786DA /* BuildingManagerEntity.cpp in Sources */,
+				088759CE1A940ACD008786DA /* MotionComponent.cpp in Sources */,
 				088759861A9290C1008786DA /* BuildingManagerEntity.h in Sources */,
 				088759871A9290C1008786DA /* BuildingTestComponent.cpp in Sources */,
 				088759881A9290C1008786DA /* BuildingTestComponent.h in Sources */,

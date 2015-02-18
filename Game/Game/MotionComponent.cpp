@@ -15,10 +15,12 @@ void MotionComponent::onStart()
 
 void MotionComponent::onBeforeFirstUpdate()
 {
+  
 }
+
 void MotionComponent::onUpdate()
 {
-  if (_isAtTargetPosition())
+  if ((_speed > 0) && (!_isAtTargetPosition()))
   {
     _computeDistanceVector();
     _alignForwardVectorWithDistanceVector();
@@ -62,7 +64,7 @@ const Vector3& MotionComponent::getTargetPosition() const
 
 void MotionComponent::setSpeed(const float speed)
 {
-  _speed = speed;
+  _speed = std::max(speed, 0.f);
 }
 
 float MotionComponent::getSpeed() const
@@ -94,7 +96,7 @@ void MotionComponent::_alignForwardVectorWithDistanceVector()
 
 bool MotionComponent::_shouldAlignForwardVector()
 {
-  return _distanceVector.dot(_parentTransform->getForwardVersor()) < 0.999;
+  return _distanceVector.normalized().dot(_parentTransform->getForwardVersor()) < 0.999;
 }
 
 void MotionComponent::_move()
