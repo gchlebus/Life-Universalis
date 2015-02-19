@@ -47,3 +47,13 @@ void GameObjectComponent::update()
     }
     onUpdate();
 }
+
+void GameObjectComponent::onStart()                     {}
+void GameObjectComponent::onUpdate()                    {}
+void GameObjectComponent::onBeforeFirstUpdate()         {}
+void GameObjectComponent::onAttachToParent()            {}
+void GameObjectComponent::onDetachFromParent()          {}
+void GameObjectComponent::onParentChangedComponents()   {}
+void GameObjectComponent::onDelete()                    {}
+void GameObjectComponent::onEnabled()                   {}
+void GameObjectComponent::onDisabled()                  {}

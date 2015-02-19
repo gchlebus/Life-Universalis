@@ -15,14 +15,15 @@ public:
     bool isEnabled();
 	const std::string& getName() const;
 
-	virtual void onStart() = 0;
-	virtual void onUpdate() = 0;
-    virtual void onBeforeFirstUpdate() = 0;
-	virtual void onAttachToParent() = 0;
-	virtual void onDetachFromParent() = 0;
-	virtual void onDelete() = 0;
-    virtual void onEnabled() = 0;
-    virtual void onDisabled() = 0;
+    virtual void onStart();
+    virtual void onUpdate();
+    virtual void onBeforeFirstUpdate();
+    virtual void onAttachToParent();
+    virtual void onDetachFromParent();
+    virtual void onParentChangedComponents();
+    virtual void onDelete();
+    virtual void onEnabled();
+    virtual void onDisabled();
 
 protected:
 	GameObject *_parent;

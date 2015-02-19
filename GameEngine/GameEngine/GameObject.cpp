@@ -40,7 +40,10 @@ bool GameObject::addComponent(GameObjectComponent *component)
 		_components.push_back(component);
 		component->setParent(this);
 		component->onAttachToParent();
-		wasAdded = true;
+        wasAdded = true;
+        
+        for(GameObjectComponent* comp : _components)
+            comp->onParentChangedComponents();
 	}
 
 	return wasAdded;
@@ -103,7 +106,11 @@ GameObjectComponent* GameObject::removeComponent(const std::string &componentNam
 		comp->onDetachFromParent();
         comp->setParent(nullptr);
 		_components.erase(_components.begin() + idx);
+        
+        for(GameObjectComponent* comp : _components)
+            comp->onParentChangedComponents();
 	}
+    
 
 	return comp;
 }

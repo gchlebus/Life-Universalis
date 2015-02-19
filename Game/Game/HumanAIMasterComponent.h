@@ -28,8 +28,8 @@ public:
     void onDelete();
     void onEnabled();
     void onDisabled();
-
-    void addNeed(HumanAINeedComponent* need);
+    void onParentChangedComponents();
+    
 protected:
 
 	HumanComponent* _human;

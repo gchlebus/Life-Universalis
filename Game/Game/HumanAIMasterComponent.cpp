@@ -50,6 +50,18 @@ void HumanAIMasterComponent::onUpdate()
     }
 }
 
+void HumanAIMasterComponent::onParentChangedComponents()
+{
+    _needs.clear();
+    std::vector<GameObjectComponent*> temp = _parent->findComponentsContainingString("HumanAINeed");
+    _needs.reserve(temp.size());
+    
+    for(GameObjectComponent *comp : temp)
+    {
+        _needs.push_back((HumanAINeedComponent*)comp);
+    }
+}
+
 void HumanAIMasterComponent::onAttachToParent()
 {
 }
