@@ -39,7 +39,7 @@ void HumanAIMasterComponent::onUpdate()
         {
             need->updatePriority();
             need->setEnabled(false);
-            if(need->getPriority() >= highestPriority)
+            if(need->getPriority() > highestPriority)
             {
                 highestNeed = need;
                 highestPriority = need->getPriority();
