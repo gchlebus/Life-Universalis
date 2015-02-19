@@ -49,7 +49,6 @@ void HumanAIMasterComponent::onUpdate()
         _currentNeed->setEnabled(true);
     }
 }
-
 void HumanAIMasterComponent::onParentChangedComponents()
 {
     _needs.clear();
