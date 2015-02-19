@@ -234,7 +234,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "Chlebus, Grzegorz";
+				ORGANIZATIONNAME = LifeUniversalis;
 				TargetAttributes = {
 					08129E571A913AF100849B4E = {
 						CreatedOnToolsVersion = 6.1.1;

@@ -14,9 +14,13 @@ public:
 	//! \return True if component was added, false otherwise.
 	bool addComponent(GameObjectComponent *component);
     
-	//! \return Pointer to found component, null if component was not found.
-	GameObjectComponent* findComponent(const std::string &componentName);
-	const GameObjectComponent* findComponent(const std::string &componentName) const;
+    //! \return Pointer to found component, null if component was not found.
+    GameObjectComponent* findComponent(const std::string &componentName);
+    const GameObjectComponent* findComponent(const std::string &componentName) const;
+    
+    //! \return Vector with pointers to found component, vector is 0-sized if no components were found.
+    std::vector<GameObjectComponent*> findComponentsContainingString(const std::string &componentName);
+    std::vector<const GameObjectComponent*> findComponentsContainingString(const std::string &componentName) const;
 	
 	//! \return Pointer to removed component, null if component was not found.
 	GameObjectComponent* removeComponent(const std::string &componentName);

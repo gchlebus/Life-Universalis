@@ -67,6 +67,31 @@ const GameObjectComponent* GameObject::findComponent(const std::string &componen
 	return comp;
 }
 
+std::vector<const GameObjectComponent*> GameObject::findComponentsContainingString(const std::string &componentName) const
+{
+    std::vector<const GameObjectComponent*> retVal;
+    
+    for(GameObjectComponent* comp : _components)
+    {
+        if(comp->getName().find(componentName) != std::string::npos)
+            retVal.push_back(comp);
+    }
+    return retVal;
+}
+std::vector<GameObjectComponent*> GameObject::findComponentsContainingString(const std::string &componentName)
+{
+    std::vector<GameObjectComponent*> retVal;
+    std::vector<const GameObjectComponent*> temp;
+    
+    const GameObject *thisInstance = this;
+    temp = thisInstance->findComponentsContainingString(componentName);
+    for(const GameObjectComponent *comp : temp)
+    {
+        retVal.push_back(const_cast<GameObjectComponent*>(comp));
+    }
+    return retVal;
+}
+
 GameObjectComponent* GameObject::removeComponent(const std::string &componentName)
 {
 	GameObjectComponent *comp = nullptr;
@@ -76,7 +101,7 @@ GameObjectComponent* GameObject::removeComponent(const std::string &componentNam
 	{
 		comp = _components[idx];
 		comp->onDetachFromParent();
-    comp->setParent(nullptr);
+        comp->setParent(nullptr);
 		_components.erase(_components.begin() + idx);
 	}
 

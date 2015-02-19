@@ -11,13 +11,14 @@
 #include <GameEngine.h>
 
 class HumanComponent;
+class HumanAINeedComponent;
 class HumanAISeekJobComponent;
 
-class HumanAIComponent : public GameObjectComponent
+class HumanAIMasterComponent : public GameObjectComponent
 {
 public:
-	HumanAIComponent();
-	~HumanAIComponent(void);
+	HumanAIMasterComponent();
+	~HumanAIMasterComponent(void);
 
     void onStart();
     void onBeforeFirstUpdate();
@@ -28,10 +29,12 @@ public:
     void onEnabled();
     void onDisabled();
 
+    void addNeed(HumanAINeedComponent* need);
 protected:
 
 	HumanComponent* _human;
     
-    HumanAISeekJobComponent* _aiSeekJob;
+    std::vector<HumanAINeedComponent*> _needs;
+    HumanAINeedComponent* _currentNeed;
 };
 

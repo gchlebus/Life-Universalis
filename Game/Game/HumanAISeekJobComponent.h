@@ -31,4 +31,3 @@ protected:
     
     HumanComponent* _human;
 };
-
