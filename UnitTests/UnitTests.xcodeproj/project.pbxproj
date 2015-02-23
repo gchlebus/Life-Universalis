@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		087655B21A9BEF2600A9222B /* ProductUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087655B11A9BEF2600A9222B /* ProductUnitTest.cpp */; };
 		0887596C1A928D81008786DA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759651A928D81008786DA /* main.cpp */; };
 		0887596D1A928D81008786DA /* GameObjectUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759691A928D81008786DA /* GameObjectUnitTest.cpp */; };
 		0887596E1A928D81008786DA /* HumanParametersComponentUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0887596A1A928D81008786DA /* HumanParametersComponentUnitTest.cpp */; };
@@ -30,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		087655B11A9BEF2600A9222B /* ProductUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProductUnitTest.cpp; sourceTree = "<group>"; };
 		0887594C1A928C8F008786DA /* UnitTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UnitTests; sourceTree = BUILT_PRODUCTS_DIR; };
 		088759651A928D81008786DA /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		088759671A928D81008786DA /* GameObjectComponentMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectComponentMock.h; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				0887596A1A928D81008786DA /* HumanParametersComponentUnitTest.cpp */,
 				0887596B1A928D81008786DA /* TransformUnitTest.cpp */,
 				088759991A92925A008786DA /* MotionComponentUnitTest.cpp */,
+				087655B11A9BEF2600A9222B /* ProductUnitTest.cpp */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				087655B21A9BEF2600A9222B /* ProductUnitTest.cpp in Sources */,
 				0887596E1A928D81008786DA /* HumanParametersComponentUnitTest.cpp in Sources */,
 				0887596D1A928D81008786DA /* GameObjectUnitTest.cpp in Sources */,
 				0887596F1A928D81008786DA /* TransformUnitTest.cpp in Sources */,

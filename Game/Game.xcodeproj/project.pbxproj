@@ -18,6 +18,9 @@
 		08129F1A1A91466000849B4E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F0D1A91466000849B4E /* main.cpp */; };
 		08129F1C1A91466000849B4E /* Workplace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129F101A91466000849B4E /* Workplace.cpp */; };
 		08129F201A91484B00849B4E /* libGameEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08129F1F1A91484B00849B4E /* libGameEngine.a */; };
+		087655AD1A9BE5E400A9222B /* Product.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087655AB1A9BE5E400A9222B /* Product.cpp */; };
+		087655AE1A9BE5E400A9222B /* Product.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087655AB1A9BE5E400A9222B /* Product.cpp */; };
+		087655AF1A9BE5E400A9222B /* Product.h in Headers */ = {isa = PBXBuildFile; fileRef = 087655AC1A9BE5E400A9222B /* Product.h */; };
 		088759831A9290C1008786DA /* BuildingComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129EFD1A91466000849B4E /* BuildingComponent.cpp */; };
 		088759841A9290C1008786DA /* BuildingComponent.h in Sources */ = {isa = PBXBuildFile; fileRef = 08129EFE1A91466000849B4E /* BuildingComponent.h */; };
 		088759851A9290C1008786DA /* BuildingManagerEntity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129EFF1A91466000849B4E /* BuildingManagerEntity.cpp */; };
@@ -77,6 +80,8 @@
 		08129F101A91466000849B4E /* Workplace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Workplace.cpp; sourceTree = "<group>"; };
 		08129F111A91466000849B4E /* Workplace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workplace.h; sourceTree = "<group>"; };
 		08129F1F1A91484B00849B4E /* libGameEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGameEngine.a; path = ../DerivedData/LifeUniversalis/Build/Products/Debug/libGameEngine.a; sourceTree = "<group>"; };
+		087655AB1A9BE5E400A9222B /* Product.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Product.cpp; sourceTree = "<group>"; };
+		087655AC1A9BE5E400A9222B /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		088759761A928F26008786DA /* libGameLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGameLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		088759CC1A940ACD008786DA /* MotionComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MotionComponent.cpp; sourceTree = "<group>"; };
 		088759CF1A940ADE008786DA /* MotionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionComponent.h; sourceTree = "<group>"; };
@@ -133,6 +138,15 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		087655B01A9BE5EA00A9222B /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				087655AB1A9BE5E400A9222B /* Product.cpp */,
+				087655AC1A9BE5E400A9222B /* Product.h */,
+			);
+			name = Product;
+			sourceTree = "<group>";
+		};
 		088759D11A940AE2008786DA /* Motion */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +178,7 @@
 		D551EAA81A92A7A10058B9A2 /* Building */ = {
 			isa = PBXGroup;
 			children = (
+				087655B01A9BE5EA00A9222B /* Product */,
 				D551EAB11A92AC100058B9A2 /* Workplace */,
 				08129F011A91466000849B4E /* BuildingTestComponent.cpp */,
 				08129F021A91466000849B4E /* BuildingTestComponent.h */,
@@ -266,6 +281,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				087655AF1A9BE5E400A9222B /* Product.h in Headers */,
 				088759D01A940ADE008786DA /* MotionComponent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +368,7 @@
 				08129F1A1A91466000849B4E /* main.cpp in Sources */,
 				08129F171A91466000849B4E /* HumanAISeekJobComponent.cpp in Sources */,
 				08129F1C1A91466000849B4E /* Workplace.cpp in Sources */,
+				087655AD1A9BE5E400A9222B /* Product.cpp in Sources */,
 				D58A0EEB1A967D0600700467 /* HumanAITestNeedComponent.cpp in Sources */,
 				D58A0EE71A967BF900700467 /* HumanAINeedComponent.cpp in Sources */,
 				08129F161A91466000849B4E /* HumanAIMasterComponent.cpp in Sources */,
@@ -380,6 +397,7 @@
 				0887598C1A9290C1008786DA /* HumanAIMasterComponent.h in Sources */,
 				0887598D1A9290C1008786DA /* HumanAISeekJobComponent.cpp in Sources */,
 				0887598E1A9290C1008786DA /* HumanAISeekJobComponent.h in Sources */,
+				087655AE1A9BE5E400A9222B /* Product.cpp in Sources */,
 				0887598F1A9290C1008786DA /* HumanComponent.cpp in Sources */,
 				088759901A9290C1008786DA /* HumanComponent.h in Sources */,
 				088759911A9290C1008786DA /* HumanManagerEntity.cpp in Sources */,
