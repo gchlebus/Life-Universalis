@@ -1,8 +1,8 @@
 #include "GameObjectComponent.h"
 #include "GameObject.h"
 
-GameObjectComponent::GameObjectComponent(const std::string &name)
-	: _name(name)
+GameObjectComponent::GameObjectComponent(const std::string &componentName)
+	: _componentName(componentName)
 {
     _firstUpdate = true;
 }
@@ -17,9 +17,9 @@ void GameObjectComponent::setParent(GameObject *parent)
     _parent = parent;
 }
 
-const std::string& GameObjectComponent::getName() const
+const std::string& GameObjectComponent::getComponentName() const
 {
-	return _name;
+	return _componentName;
 }
 
 void GameObjectComponent::setEnabled(bool enabled)

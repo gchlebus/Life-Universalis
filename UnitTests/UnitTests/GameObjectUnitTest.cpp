@@ -49,7 +49,7 @@ TEST_F(GameObjectTest, FindComponentTest)
 {
 	GameObjectComponentMock *component = new GameObjectComponentMock();
 	gameObject.addComponent(component);
-	ASSERT_EQ(component, gameObject.findComponent(component->getName()));
+	ASSERT_EQ(component, gameObject.findComponent(component->getComponentName()));
 	ASSERT_EQ(nullptr, gameObject.findComponent("ComponentThatNotExists"));
 }
 
@@ -58,7 +58,7 @@ TEST_F(GameObjectTest, RemoveComponentTest)
 	GameObjectComponentMock *component = new GameObjectComponentMock();
 	gameObject.addComponent(component);
 	EXPECT_CALL(*component, onDetachFromParent()).Times(1);
-	ASSERT_EQ(component, gameObject.removeComponent(component->getName()));
+	ASSERT_EQ(component, gameObject.removeComponent(component->getComponentName()));
 	ASSERT_EQ(nullptr, gameObject.removeComponent("ComponentThatNotExists"));
 	delete component;
 }
@@ -69,6 +69,6 @@ TEST_F(GameObjectTest, DeleteComponentTest)
 	gameObject.addComponent(component);
 	EXPECT_CALL(*component, onDetachFromParent()).Times(1);
 	EXPECT_CALL(*component, onDelete()).Times(1);
-	ASSERT_TRUE(gameObject.deleteComponent(component->getName()));
+	ASSERT_TRUE(gameObject.deleteComponent(component->getComponentName()));
 	ASSERT_FALSE(gameObject.deleteComponent("ComponentThatNotExists"));
 }

@@ -34,7 +34,7 @@ bool GameObject::addComponent(GameObjectComponent *component)
 {
 	bool wasAdded = false;
 
-	const std::string &name = component->getName();
+	const std::string &name = component->getComponentName();
 	if (!findComponent(name))
 	{
 		_components.push_back(component);
@@ -76,7 +76,7 @@ std::vector<const GameObjectComponent*> GameObject::findComponentsContainingStri
     
     for(GameObjectComponent* comp : _components)
     {
-        if(comp->getName().find(componentName) != std::string::npos)
+        if(comp->getComponentName().find(componentName) != std::string::npos)
             retVal.push_back(comp);
     }
     return retVal;
@@ -157,7 +157,7 @@ bool GameObject::_getComponentIndex(const std::string &componentName, size_t &id
 	for (size_t i = 0; i < _components.size(); ++i)
 	{
 		const GameObjectComponent *comp = _components[i];
-		if (comp->getName() == componentName)
+		if (comp->getComponentName() == componentName)
 		{
 			wasFound = true;
 			idx = i;
