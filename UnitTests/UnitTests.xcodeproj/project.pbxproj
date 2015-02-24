@@ -10,7 +10,6 @@
 		087655B21A9BEF2600A9222B /* ProductUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 087655B11A9BEF2600A9222B /* ProductUnitTest.cpp */; };
 		0887596C1A928D81008786DA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759651A928D81008786DA /* main.cpp */; };
 		0887596D1A928D81008786DA /* GameObjectUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759691A928D81008786DA /* GameObjectUnitTest.cpp */; };
-		0887596E1A928D81008786DA /* HumanParametersComponentUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0887596A1A928D81008786DA /* HumanParametersComponentUnitTest.cpp */; };
 		0887596F1A928D81008786DA /* TransformUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0887596B1A928D81008786DA /* TransformUnitTest.cpp */; };
 		088759711A928DDF008786DA /* libGameEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 088759701A928DDF008786DA /* libGameEngine.a */; };
 		088759981A929238008786DA /* libGameLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 088759971A929238008786DA /* libGameLib.a */; };
@@ -36,7 +35,6 @@
 		088759651A928D81008786DA /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		088759671A928D81008786DA /* GameObjectComponentMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectComponentMock.h; sourceTree = "<group>"; };
 		088759691A928D81008786DA /* GameObjectUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectUnitTest.cpp; sourceTree = "<group>"; };
-		0887596A1A928D81008786DA /* HumanParametersComponentUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanParametersComponentUnitTest.cpp; sourceTree = "<group>"; };
 		0887596B1A928D81008786DA /* TransformUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransformUnitTest.cpp; sourceTree = "<group>"; };
 		088759701A928DDF008786DA /* libGameEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGameEngine.a; path = ../DerivedData/LifeUniversalis/Build/Products/Debug/libGameEngine.a; sourceTree = "<group>"; };
 		088759971A929238008786DA /* libGameLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGameLib.a; path = "../../Library/Developer/Xcode/DerivedData/LifeUniversalis-hewpfvqrfjyhtnfyctvtyrtsyitk/Build/Products/Debug/libGameLib.a"; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				088759691A928D81008786DA /* GameObjectUnitTest.cpp */,
-				0887596A1A928D81008786DA /* HumanParametersComponentUnitTest.cpp */,
 				0887596B1A928D81008786DA /* TransformUnitTest.cpp */,
 				088759991A92925A008786DA /* MotionComponentUnitTest.cpp */,
 				087655B11A9BEF2600A9222B /* ProductUnitTest.cpp */,
@@ -165,7 +162,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				087655B21A9BEF2600A9222B /* ProductUnitTest.cpp in Sources */,
-				0887596E1A928D81008786DA /* HumanParametersComponentUnitTest.cpp in Sources */,
 				0887596D1A928D81008786DA /* GameObjectUnitTest.cpp in Sources */,
 				0887596F1A928D81008786DA /* TransformUnitTest.cpp in Sources */,
 				088759AA1A93FBE2008786DA /* TestGameEngine.cpp in Sources */,

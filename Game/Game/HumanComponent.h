@@ -5,37 +5,29 @@
 class Workplace;
 
 class HumanComponent
-	: public GameObjectComponent
+: public GameObjectComponent
 {
 public:
-	HumanComponent();
-
-    void onStart();
-    void onBeforeFirstUpdate();
-	void onUpdate();
-	void onAttachToParent();
-	void onDetachFromParent();
-    void onDelete();
-    void onEnabled();
-    void onDisabled();
-
-	void setSatiety(const float satiety);
-	const float getSatiety() const;
-	void setHealth(const float health);
-	const float getHealth() const;
-	void setEntertainment(const float entertainment);
-	const float getEntertainment() const;
-	void setEducation(const float education);
-	const float getEducation() const;
-
+  HumanComponent(const std::string& name, unsigned int age);
+  
+  const std::string& getName() const;
+  
+  unsigned int getAge() const;
+  
+  int getMoney() const;
+  void addMoney(int amount);
+  void deductMoney(int amount);
+  
+  const GameObject* getHome() const;
+  void setHome(GameObject* home);
+  
+  const Workplace* getWorkplace() const;
+  void setWorkplace(Workplace* workplace);
+  
 private:
-	float _getSatietyModifiedHealthMultiplier();
-
-	float _satiety;
-	float _health;
-	float _entertainment;
-	float _education;
-	Settings *_settings;
-    Workplace *_workplace;
-    
+  std::string _name;
+  unsigned int _age;
+  int _money;
+  GameObject* _home;
+  Workplace* _workplace;
 };

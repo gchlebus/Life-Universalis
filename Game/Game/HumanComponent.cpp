@@ -1,98 +1,57 @@
 #include "HumanComponent.h"
 
-HumanComponent::HumanComponent()
-	: GameObjectComponent("HumanComponent")
+HumanComponent::HumanComponent(const std::string& name, unsigned int age)
+: GameObjectComponent("HumanComponent")
+, _name(name)
+, _age(age)
+, _money(0)
+, _home(nullptr)
+, _workplace(nullptr)
 {
-	_satiety = 0.0f;
-	_health = 0.0f;
-	_entertainment = 0.0f;
-	_education = 0.0f;
-	_settings = GameEngine::engine()->kernel->settings;
-    _workplace = nullptr;
+  
 }
 
-void HumanComponent::onStart()
+const std::string& HumanComponent::getName() const
 {
-
+  return _name;
 }
 
-void HumanComponent::onBeforeFirstUpdate()
+unsigned int HumanComponent::getAge() const
 {
-}
-void HumanComponent::onUpdate()
-{
-	float gameTimeDelta = _settings->fixedFrameTime * _settings->timeRatio; // in ms
-	gameTimeDelta /= 1000 * 60; //in h
-	setHealth(_health - gameTimeDelta * _getSatietyModifiedHealthMultiplier());
-	setSatiety(_satiety - gameTimeDelta * _settings->humanMultiplierSatiety);
-	setEntertainment(_entertainment - gameTimeDelta * _settings->humanMultiplierEntertainment);
-	setEducation(_education - gameTimeDelta * _settings->humanMultiplierEducation);
+  return _age;
 }
 
-void HumanComponent::onAttachToParent()
+int HumanComponent::getMoney() const
 {
-
+  return _money;
 }
 
-void HumanComponent::onDetachFromParent()
+void HumanComponent::addMoney(int amount)
 {
-
+  _money += amount;
 }
 
-void HumanComponent::onDelete()
+void HumanComponent::deductMoney(int amount)
 {
-
-}
-void HumanComponent::onEnabled()
-{
-    
-}
-void HumanComponent::onDisabled()
-{
-    
+  _money -= amount;
 }
 
-void HumanComponent::setSatiety(const float satiety)
+const GameObject* HumanComponent::getHome() const
 {
-	_satiety = boost::algorithm::clamp(satiety, 0.f, 1.f);
+  return _home;
 }
 
-const float HumanComponent::getSatiety() const
+void HumanComponent::setHome(GameObject* home)
 {
-	return _satiety;
+  _home = home;
 }
 
-void HumanComponent::setHealth(const float health)
+const Workplace* HumanComponent::getWorkplace() const
 {
-	_health = boost::algorithm::clamp(health, 0.f, 1.f);
+  return _workplace;
 }
 
-const float HumanComponent::getHealth() const
+void HumanComponent::setWorkplace(Workplace* workplace)
 {
-	return _health;
-}
-
-void HumanComponent::setEntertainment(const float entertainment)
-{
-	_entertainment = boost::algorithm::clamp(entertainment, 0.f, 1.f);
-}
-
-const float HumanComponent::getEntertainment() const
-{
-	return _entertainment;
-}
-
-void HumanComponent::setEducation(const float education)
-{
-	_education = boost::algorithm::clamp(education, 0.f, 1.f);
-}
-
-const float HumanComponent::getEducation() const
-{
-	return _education;
-}
-
-float HumanComponent::_getSatietyModifiedHealthMultiplier()
-{
-	return (2.f - _satiety) * _settings->humanMultiplierHealth;
+  _workplace = workplace;
 }
