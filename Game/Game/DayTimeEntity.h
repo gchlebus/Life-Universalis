@@ -40,8 +40,6 @@ struct GameDate
 		timeStamp -= (double)minute;
 		second = timeStamp * 60.0;
     }
-    
-    
     bool operator<(GameDate &a)
     {
         return this->time < a.time;
