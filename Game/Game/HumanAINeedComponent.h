@@ -11,7 +11,8 @@
 #include <GameEngine.h>
 
 class HumanComponent;
-class Product;
+
+class Service;
 
 class HumanAINeedComponent : public GameObjectComponent
 {
@@ -25,8 +26,8 @@ public:
     float getProgress();
     
     virtual void updatePriority() = 0;
-    
-    virtual float valueImpact(Product *product);
+
+    virtual float valueImpact(Service* product);
     
     bool canBeCancelled();
 protected:

@@ -7,7 +7,7 @@
 //
 
 #include "HumanAINeedComponent.h"
-#include "Product.h"
+#include "Service.h"
 
 HumanAINeedComponent::HumanAINeedComponent(const std::string &name) : GameObjectComponent("HumanAINeed" + name)
 {
@@ -35,7 +35,7 @@ float HumanAINeedComponent::getProgress()
     return _progress;
 }
 
-float HumanAINeedComponent::valueImpact(Product *product)
+float HumanAINeedComponent::valueImpact(Service* product)
 {
     if(product == nullptr)
     {

@@ -1,17 +1,18 @@
 #include <gtest/gtest.h>
-#include <Product.h>
+#include "Service.h"
 
 class ProductTest : public testing::Test
 {
 protected:
   ProductTest() : p("") { }
-  Product p;
+
+    Service p;
 };
 
 TEST_F(ProductTest, ProductName)
 {
   std::string name = "Prod";
-  Product prod(name);
+Service prod(name);
   
   ASSERT_EQ(name, prod.getName());
 }

@@ -1,17 +1,17 @@
-#include "Product.h"
+#include "Service.h"
 
-Product::Product(const std::string& name)
+Service::Service(const std::string& name)
 : _name(name)
 {
   
 }
 
-const std::string& Product::getName() const
+const std::string& Service::getName() const
 {
   return _name;
 }
 
-void Product::addAttribute(const std::string &attrName, float value)
+void Service::addAttribute(const std::string& attrName, float value)
 {
   if (_isAttributePresent(attrName))
   {
@@ -23,12 +23,12 @@ void Product::addAttribute(const std::string &attrName, float value)
   }
 }
 
-const AttributeMap& Product::getAttributeMap() const
+const AttributeMap& Service::getAttributeMap() const
 {
   return _attributeMap;
 }
 
-float Product::getAttributeValue(const std::string& attrName) const
+float Service::getAttributeValue(const std::string& attrName) const
 {
   float val = 0;
   
@@ -40,7 +40,7 @@ float Product::getAttributeValue(const std::string& attrName) const
   return val;
 }
 
-bool Product::_isAttributePresent(const std::string& attrName) const
+bool Service::_isAttributePresent(const std::string& attrName) const
 {
   return _attributeMap.find(attrName) != _attributeMap.end();
 }

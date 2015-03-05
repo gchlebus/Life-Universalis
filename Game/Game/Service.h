@@ -5,10 +5,10 @@
 
 typedef std::map<std::string, float> AttributeMap;
 
-class Product
+class Service
 {
 public:
-  Product(const std::string& name);
+    Service(const std::string& name);
   
   const std::string& getName() const;
   void addAttribute(const std::string& attrName, float value);
