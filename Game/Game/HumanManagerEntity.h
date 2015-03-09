@@ -1,6 +1,7 @@
 #pragma once
 
 #include <GameEngine.h>
+#include "EnvironmentEntitiesNames.h"
 
 class HumanManagerEntity : public GameEnvironmentEntity
 {

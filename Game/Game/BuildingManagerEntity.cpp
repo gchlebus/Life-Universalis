@@ -1,7 +1,10 @@
+
+
 #include "BuildingManagerEntity.h"
 #include "BuildingComponent.h"
+#include "Workplace.h"
 
-BuildingManagerEntity::BuildingManagerEntity() : GameEnvironmentEntity("BuildingManager")
+BuildingManagerEntity::BuildingManagerEntity() : GameEnvironmentEntity(EN_BUILDING_MGR)
 {
 }
 
@@ -18,6 +21,7 @@ void BuildingManagerEntity::onStart()
 void BuildingManagerEntity::onUpdate()
 {
 	std::cout << "BuildingManager sie kurwa update'uje!!!!!!!!!!\n";
+    
 }
 
 void BuildingManagerEntity::onStop()
@@ -56,13 +60,20 @@ std::vector<GameObject*> BuildingManagerEntity::getBuildings()
     return _buildings;
 }
 
-std::vector<Workplace*> BuildingManagerEntity::getWorkplaces()
+std::vector<Workplace*> BuildingManagerEntity::getWorkplaces(bool onlyOffers)
 {
     std::vector<Workplace*> retVal;
     for(auto building : _buildings)
     {
         BuildingComponent *currComp = (BuildingComponent*)building->findComponent("BuildingComponent");
-        retVal.insert(retVal.begin(), currComp->workplaces.begin(), currComp->workplaces.end());
+        if(onlyOffers)
+        {
+            for(auto workplace : currComp->workplaces)
+                if(workplace->isOffer)
+                    retVal.push_back(workplace);
+        }
+        else
+            retVal.insert(retVal.begin(), currComp->workplaces.begin(), currComp->workplaces.end());
     }
     return retVal;
 }

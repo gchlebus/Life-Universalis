@@ -1,6 +1,6 @@
 #include "DayTimeEntity.h"
 
-DayTimeEntity::DayTimeEntity() : GameEnvironmentEntity("DayTime")
+DayTimeEntity::DayTimeEntity() : GameEnvironmentEntity(EN_DAYTIME)
 {
 }
 

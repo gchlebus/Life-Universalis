@@ -1,8 +1,13 @@
 #include "HumanManagerEntity.h"
-#include "BuildingTestComponent.h"
+//#include "BuildingTestComponent.h"
+
+#include "HumanIncludes.h"
 
 
-HumanManagerEntity::HumanManagerEntity() : GameEnvironmentEntity("HumanManager")
+#include "DayTimeEntity.h"
+
+
+HumanManagerEntity::HumanManagerEntity() : GameEnvironmentEntity(EN_HUMAN_MGR)
 {
 }
 
@@ -19,17 +24,38 @@ void HumanManagerEntity::onStart()
 void HumanManagerEntity::onUpdate()
 {
 	std::cout << "HumanManager sie kurwa update'uje!!!!!!!!!!\n";
+    
+    
+    DayTimeEntity *dt = (DayTimeEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
+    
+    if(dt->getCurrentGameDate().minute == 5)
+    {
+        std::cout << "\n\n\n\n\n\n\n\n\n\n\n";
+        
+        for(auto human : this->getHumans())
+        {
+            HumanComponent *comp = (HumanComponent*)human->findComponent("HumanComponent");
+            std::cout << comp->getHumanName() << " is ";
+            if(comp->getWorkplace() == nullptr)
+                std::cout << "fucking unemployed!!!\n";
+            else
+                std::cout << "a happy slave!\n";
+        }
+    }
 }
 
 void HumanManagerEntity::onStop()
 {
-    std::cout << "COMMITTEST";
 }
 
 GameObject* HumanManagerEntity::create()
 {
 	GameObject* retVal = new GameObject();
 	retVal->setName("Human");
+    retVal->addComponent(new HumanComponent("Ryszard", 18));
+    retVal->addComponent(new HumanAIMasterComponent());
+    retVal->addComponent(new HumanAISeekJobComponent());
+    retVal->addComponent(new HumanAITestNeedComponent());
 	//retVal->addComponent(new BuildingTestComponent());
 	return retVal;
 }
@@ -51,4 +77,9 @@ void HumanManagerEntity::remove(GameObject* human)
 			return;
 		}
 	}
+}
+
+std::vector<GameObject*> HumanManagerEntity::getHumans()
+{
+    return _humans;
 }

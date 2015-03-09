@@ -11,6 +11,7 @@
 #include <GameEngine.h>
 
 class Workplace;
+class Service;
 
 class BuildingComponent : public GameObjectComponent
 {
@@ -28,6 +29,6 @@ public:
     void onDisabled();
     
     std::vector<Workplace*> workplaces;
-    
+    Service *service;
     
 };

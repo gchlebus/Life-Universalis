@@ -20,7 +20,7 @@ public:
     virtual void onBeforeFirstUpdate();
     virtual void onAttachToParent();
     virtual void onDetachFromParent();
-    virtual void onParentChangedComponents();
+    virtual void onParentChangedComponents(); //It probably would be better if this method became a pointer to the new added OR removed component.
     virtual void onDelete();
     virtual void onEnabled();
     virtual void onDisabled();

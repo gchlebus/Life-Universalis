@@ -1,6 +1,7 @@
 #pragma once
 
 #include <GameEngine.h>
+#include "EnvironmentEntitiesNames.h"
 
 //Timestamp is the number of minutes IN GAME
 struct GameDate

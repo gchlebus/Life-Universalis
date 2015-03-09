@@ -10,7 +10,7 @@
 
 
 HumanAITestNeedComponent::HumanAITestNeedComponent()
-: HumanAINeedComponent("HumanAITestNeedComponent")
+: HumanAINeedComponent("Test")
 {
 }
 

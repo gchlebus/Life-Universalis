@@ -7,10 +7,11 @@
 //
 
 #include "BuildingComponent.h"
+#include "Service.h"
 
 BuildingComponent::BuildingComponent() : GameObjectComponent("BuildingComponent")
 {
-    
+    service = new Service("ServiceName");
 }
 BuildingComponent::~BuildingComponent()
 {

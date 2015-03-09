@@ -11,7 +11,7 @@ HumanComponent::HumanComponent(const std::string& name, unsigned int age)
   
 }
 
-const std::string& HumanComponent::getName() const
+const std::string& HumanComponent::getHumanName() const
 {
   return _name;
 }

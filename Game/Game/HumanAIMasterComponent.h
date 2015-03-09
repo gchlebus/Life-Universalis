@@ -36,5 +36,6 @@ protected:
     
     std::vector<HumanAINeedComponent*> _needs;
     HumanAINeedComponent* _currentNeed;
+    HumanAISeekJobComponent* _seekJob;
 };
 

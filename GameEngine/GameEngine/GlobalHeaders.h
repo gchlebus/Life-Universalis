@@ -4,6 +4,8 @@
 
 #include <vector>
 #include <string>
+#include <map>
+#include <set>
 #include <algorithm>
 #include <boost/thread.hpp>
 #include <boost/algorithm/clamp.hpp>

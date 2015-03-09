@@ -85,6 +85,8 @@
 		088759761A928F26008786DA /* libGameLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGameLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		088759CC1A940ACD008786DA /* MotionComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MotionComponent.cpp; sourceTree = "<group>"; };
 		088759CF1A940ADE008786DA /* MotionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionComponent.h; sourceTree = "<group>"; };
+		D570076D1AAE299D00A270D5 /* HumanIncludes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HumanIncludes.h; sourceTree = "<group>"; };
+		D570076E1AAE2C6A00A270D5 /* EnvironmentEntitiesNames.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnvironmentEntitiesNames.h; sourceTree = "<group>"; };
 		D58A0EE51A967BF900700467 /* HumanAINeedComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanAINeedComponent.cpp; sourceTree = "<group>"; };
 		D58A0EE61A967BF900700467 /* HumanAINeedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanAINeedComponent.h; sourceTree = "<group>"; };
 		D58A0EE91A967D0600700467 /* HumanAITestNeedComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanAITestNeedComponent.cpp; sourceTree = "<group>"; };
@@ -168,9 +170,10 @@
 		D551EAA71A92A7980058B9A2 /* EnvironmentEntities */ = {
 			isa = PBXGroup;
 			children = (
-				D551EAAE1A92ABEA0058B9A2 /* HumanManager */,
 				D551EAAA1A92AB8F0058B9A2 /* DayTime */,
+				D551EAAE1A92ABEA0058B9A2 /* HumanManager */,
 				D551EAA91A92AB530058B9A2 /* BuildingManager */,
+				D570076E1AAE2C6A00A270D5 /* EnvironmentEntitiesNames.h */,
 			);
 			name = EnvironmentEntities;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 		D551EAAB1A92ABB50058B9A2 /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				D570076D1AAE299D00A270D5 /* HumanIncludes.h */,
 				088759D11A940AE2008786DA /* Motion */,
 				D551EAAC1A92ABC20058B9A2 /* AI */,
 				087655CB1A9D336E00A9222B /* HumanComponent.cpp */,

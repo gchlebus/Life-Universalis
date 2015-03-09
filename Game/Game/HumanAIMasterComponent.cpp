@@ -9,6 +9,8 @@
 
 #include "HumanAIMasterComponent.h"
 #include "HumanAINeedComponent.h"
+#include "HumanAISeekJobComponent.h"
+#include "HumanComponent.h"
 
 
 HumanAIMasterComponent::HumanAIMasterComponent()
@@ -30,6 +32,8 @@ void HumanAIMasterComponent::onBeforeFirstUpdate()
 }
 void HumanAIMasterComponent::onUpdate()
 {
+    //If unemployed seek for new job
+    _seekJob->setEnabled(_human->getWorkplace() == nullptr);
     //Search for best activity right now
     if(_currentNeed == nullptr || _currentNeed->canBeCancelled())
     {
@@ -45,8 +49,11 @@ void HumanAIMasterComponent::onUpdate()
                 highestPriority = need->getPriority();
             }
         }
-        _currentNeed = highestNeed;
-        _currentNeed->setEnabled(true);
+        if(highestNeed != nullptr)
+        {
+            _currentNeed = highestNeed;
+            _currentNeed->setEnabled(true);
+        }
     }
 }
 void HumanAIMasterComponent::onParentChangedComponents()
@@ -59,6 +66,8 @@ void HumanAIMasterComponent::onParentChangedComponents()
     {
         _needs.push_back((HumanAINeedComponent*)comp);
     }
+    _seekJob = (HumanAISeekJobComponent*)_parent->findComponent("HumanAISeekJobComponent");
+    _human = (HumanComponent*)_parent->findComponent("HumanComponent");
 }
 
 void HumanAIMasterComponent::onAttachToParent()

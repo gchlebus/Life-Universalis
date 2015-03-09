@@ -1,6 +1,7 @@
 #pragma once
 
 #include <GameEngine.h>
+#include "EnvironmentEntitiesNames.h"
 
 class Workplace;
 
@@ -19,7 +20,7 @@ public:
 	void remove(GameObject* building);
 
 	std::vector<GameObject*> getBuildings();
-    std::vector<Workplace*> getWorkplaces();
+    std::vector<Workplace*> getWorkplaces(bool onlyOffers = true);
 protected:
 	std::vector<GameObject*> _buildings;
 };
