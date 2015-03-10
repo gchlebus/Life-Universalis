@@ -3,6 +3,8 @@
 #include <GameEngine.h>
 
 class Workplace;
+class HumanAIMasterComponent;
+class MotionComponent;
 
 class HumanComponent : public GameObjectComponent
 {
@@ -22,6 +24,12 @@ public:
 
     const Workplace* getWorkplace() const;
     void setWorkplace(Workplace* workplace);
+    
+    
+    void onParentChangedComponents();
+    
+    HumanAIMasterComponent* humanAIMaster;
+    MotionComponent* humanMotion;
 
 private:
     std::string _name;

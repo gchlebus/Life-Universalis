@@ -10,6 +10,7 @@ public:
 	virtual ~GameObjectComponent();
 	
 	void setParent(GameObject *parent);
+    GameObject* getParent();
     void setEnabled(bool enabled);
     void update();
     bool isEnabled();

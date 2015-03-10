@@ -29,7 +29,10 @@ public:
 
     virtual float valueImpact(Service* product);
     
+    virtual std::string getNeedName() = 0;
+    
     bool canBeCancelled();
+    
 protected:
     float _priority;
     float _progress;

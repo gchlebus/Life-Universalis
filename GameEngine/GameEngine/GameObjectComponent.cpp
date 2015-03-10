@@ -17,6 +17,11 @@ void GameObjectComponent::setParent(GameObject *parent)
     _parent = parent;
 }
 
+GameObject* GameObjectComponent::getParent()
+{
+    return _parent;
+}
+
 const std::string& GameObjectComponent::getComponentName() const
 {
 	return _componentName;

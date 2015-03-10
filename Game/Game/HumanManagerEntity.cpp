@@ -37,7 +37,7 @@ void HumanManagerEntity::onUpdate()
             HumanComponent *comp = (HumanComponent*)human->findComponent("HumanComponent");
             std::cout << comp->getHumanName() << " is ";
             if(comp->getWorkplace() == nullptr)
-                std::cout << "fucking unemployed!!!\n";
+                std::cout << "unemployed!!!\n";
             else
                 std::cout << "a happy slave!\n";
         }

@@ -30,5 +30,7 @@ public:
     
     void updatePriority();
     
+    std::string getNeedName();
+    
 protected:
 };

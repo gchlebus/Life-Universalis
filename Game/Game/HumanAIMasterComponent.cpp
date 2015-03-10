@@ -34,6 +34,7 @@ void HumanAIMasterComponent::onUpdate()
 {
     //If unemployed seek for new job
     _seekJob->setEnabled(_human->getWorkplace() == nullptr);
+    
     //Search for best activity right now
     if(_currentNeed == nullptr || _currentNeed->canBeCancelled())
     {
@@ -42,15 +43,15 @@ void HumanAIMasterComponent::onUpdate()
         for(HumanAINeedComponent *need : _needs)
         {
             need->updatePriority();
-            need->setEnabled(false);
             if(need->getPriority() > highestPriority)
             {
                 highestNeed = need;
                 highestPriority = need->getPriority();
             }
         }
-        if(highestNeed != nullptr)
+        if(highestNeed != nullptr && _currentNeed != highestNeed)
         {
+            _currentNeed->setEnabled(false);
             _currentNeed = highestNeed;
             _currentNeed->setEnabled(true);
         }
@@ -64,7 +65,10 @@ void HumanAIMasterComponent::onParentChangedComponents()
     
     for(GameObjectComponent *comp : temp)
     {
-        _needs.push_back((HumanAINeedComponent*)comp);
+        HumanAINeedComponent *need = (HumanAINeedComponent*)comp;
+        if(need != _currentNeed)
+            need->setEnabled(false);
+        _needs.push_back(need);
     }
     _seekJob = (HumanAISeekJobComponent*)_parent->findComponent("HumanAISeekJobComponent");
     _human = (HumanComponent*)_parent->findComponent("HumanComponent");

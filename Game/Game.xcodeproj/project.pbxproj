@@ -140,13 +140,13 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
-		087655B01A9BE5EA00A9222B /* Product */ = {
+		087655B01A9BE5EA00A9222B /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				087655AB1A9BE5E400A9222B /* Service.cpp */,
 				087655AC1A9BE5E400A9222B /* Service.h */,
 			);
-			name = Product;
+			name = Service;
 			sourceTree = "<group>";
 		};
 		088759D11A940AE2008786DA /* Motion */ = {
@@ -181,7 +181,7 @@
 		D551EAA81A92A7A10058B9A2 /* Building */ = {
 			isa = PBXGroup;
 			children = (
-				087655B01A9BE5EA00A9222B /* Product */,
+				087655B01A9BE5EA00A9222B /* Service */,
 				D551EAB11A92AC100058B9A2 /* Workplace */,
 				08129F011A91466000849B4E /* BuildingTestComponent.cpp */,
 				08129F021A91466000849B4E /* BuildingTestComponent.h */,

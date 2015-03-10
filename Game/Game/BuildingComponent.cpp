@@ -11,7 +11,7 @@
 
 BuildingComponent::BuildingComponent() : GameObjectComponent("BuildingComponent")
 {
-    service = new Service("ServiceName");
+    service = new Service("ServiceName", this);
 }
 BuildingComponent::~BuildingComponent()
 {
