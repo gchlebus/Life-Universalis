@@ -20,7 +20,7 @@ public:
 	void remove(GameObject* building);
 
 	std::vector<GameObject*> getBuildings();
-    std::vector<Workplace*> getWorkplaces(bool onlyOffers = true);
+    std::vector<Workplace*> getWorkplaces(bool onlyOffers);
 protected:
 	std::vector<GameObject*> _buildings;
 };
