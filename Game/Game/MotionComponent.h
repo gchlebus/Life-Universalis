@@ -33,6 +33,8 @@ private:
 
     Vector3 _targetPosition;
     Vector3 _distanceVector;
+    
+    bool _isMoving;
 
     //! Distance units / game time minute.
     float _speed;

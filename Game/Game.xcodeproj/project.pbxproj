@@ -44,6 +44,7 @@
 		088759D01A940ADE008786DA /* MotionComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 088759CF1A940ADE008786DA /* MotionComponent.h */; };
 		D58A0EE71A967BF900700467 /* HumanAINeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D58A0EE51A967BF900700467 /* HumanAINeedComponent.cpp */; };
 		D58A0EEB1A967D0600700467 /* HumanAITestNeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D58A0EE91A967D0600700467 /* HumanAITestNeedComponent.cpp */; };
+		D5B69CAB1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5B69CA91AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -91,6 +92,8 @@
 		D58A0EE61A967BF900700467 /* HumanAINeedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanAINeedComponent.h; sourceTree = "<group>"; };
 		D58A0EE91A967D0600700467 /* HumanAITestNeedComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanAITestNeedComponent.cpp; sourceTree = "<group>"; };
 		D58A0EEA1A967D0600700467 /* HumanAITestNeedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanAITestNeedComponent.h; sourceTree = "<group>"; };
+		D5B69CA91AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanAIWorkNeedComponent.cpp; sourceTree = "<group>"; };
+		D5B69CAA1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanAIWorkNeedComponent.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +265,7 @@
 		D58A0EE41A967BC400700467 /* HumanNeed */ = {
 			isa = PBXGroup;
 			children = (
+				D5B69CA81AAF877F009E5F7B /* WorkNeed */,
 				D58A0EE81A967CE900700467 /* TestNeed */,
 				D58A0EE51A967BF900700467 /* HumanAINeedComponent.cpp */,
 				D58A0EE61A967BF900700467 /* HumanAINeedComponent.h */,
@@ -276,6 +280,15 @@
 				D58A0EEA1A967D0600700467 /* HumanAITestNeedComponent.h */,
 			);
 			name = TestNeed;
+			sourceTree = "<group>";
+		};
+		D5B69CA81AAF877F009E5F7B /* WorkNeed */ = {
+			isa = PBXGroup;
+			children = (
+				D5B69CA91AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp */,
+				D5B69CAA1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.h */,
+			);
+			name = WorkNeed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +385,7 @@
 				08129F151A91466000849B4E /* DayTimeEntity.cpp in Sources */,
 				08129F1A1A91466000849B4E /* main.cpp in Sources */,
 				087655CD1A9D336E00A9222B /* HumanComponent.cpp in Sources */,
+				D5B69CAB1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp in Sources */,
 				08129F171A91466000849B4E /* HumanAISeekJobComponent.cpp in Sources */,
 				08129F1C1A91466000849B4E /* Workplace.cpp in Sources */,
 				087655AD1A9BE5E400A9222B /* Service.cpp in Sources */,

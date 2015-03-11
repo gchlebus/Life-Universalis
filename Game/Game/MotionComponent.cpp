@@ -5,22 +5,22 @@ MotionComponent::MotionComponent()
     : GameObjectComponent("MotionComponent")
     , _dayTime(nullptr)
 {
-  
+    _isMoving = false;
+    _speed = 1.0f;
 }
 
 void MotionComponent::onStart()
 {
-    _dayTime = static_cast<DayTimeEntity*>(GameEngine::engine()->currentEnvironment->findEntity("DayTime"));
 }
 
 void MotionComponent::onBeforeFirstUpdate()
 {
-  
+    _dayTime = static_cast<DayTimeEntity*>(GameEngine::engine()->currentEnvironment->findEntity("DayTime"));
 }
 
 void MotionComponent::onUpdate()
 {
-    if ((_speed > 0) && (!_isAtTargetPosition()))
+    if ((_speed > 0) && _isMoving)
     {
         _computeDistanceVector();
         _alignForwardVectorWithDistanceVector();
@@ -54,6 +54,7 @@ void MotionComponent::onDisabled()
 
 void MotionComponent::setTargetPosition(const Vector3 &targetPosition)
 {
+    _isMoving = true;
     _targetPosition = targetPosition;
 }
 
@@ -107,6 +108,7 @@ void MotionComponent::_move()
     if (_distanceVector.norm() < motionVector.norm())
     {
         _parentTransform->setWorldPosition(_targetPosition);
+        _isMoving = false;
     }
     else
     {

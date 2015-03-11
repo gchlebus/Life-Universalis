@@ -44,7 +44,7 @@ int main()
             Workplace* workplace = new Workplace();
             workplace->parent = buildingComp;
             workplace->isOffer = true;
-            workplace->startHour = 8.0 + w;
+            workplace->startHour = 0.1 + w;
             workplace->salary = 100.0 + w * 100.0;
             buildingComp->workplaces.push_back(workplace);
         }

@@ -14,6 +14,7 @@
 #include "HumanAINeedComponent.h"
 #include "HumanAISeekJobComponent.h"
 #include "HumanAIMasterComponent.h"
+#include "HumanAIWorkNeedComponent.h"
 
 
 

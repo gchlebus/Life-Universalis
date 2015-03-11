@@ -53,10 +53,11 @@ GameObject* HumanManagerEntity::create()
 	GameObject* retVal = new GameObject();
 	retVal->setName("Human");
     retVal->addComponent(new HumanComponent("Ryszard", 18));
+    retVal->addComponent(new MotionComponent());
     retVal->addComponent(new HumanAIMasterComponent());
     retVal->addComponent(new HumanAISeekJobComponent());
     retVal->addComponent(new HumanAITestNeedComponent());
-	//retVal->addComponent(new BuildingTestComponent());
+    retVal->addComponent(new HumanAIWorkNeedComponent());
 	return retVal;
 }
 

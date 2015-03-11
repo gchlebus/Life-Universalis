@@ -22,7 +22,6 @@ bool HumanAINeedComponent::canBeCancelled()
     return _canBeCancelled;
 }
 
-
 float HumanAINeedComponent::getPriority()
 {
     _priority = boost::algorithm::clamp(_priority, 0.0f, 100.0f);
@@ -63,4 +62,9 @@ float HumanAINeedComponent::valueImpact(Service* product)
     }
     
     return weight > 0 ? sum / weight : 0;
+}
+
+void HumanAINeedComponent::onParentChangedComponents()
+{
+    _humanComponent = (HumanComponent*)_parent->findComponent("HumanComponent");
 }

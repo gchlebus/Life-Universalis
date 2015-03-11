@@ -20,6 +20,9 @@ public:
     HumanAINeedComponent(const std::string &name);
     virtual ~HumanAINeedComponent();
     
+    
+    void onParentChangedComponents();
+    
     //This value will be clamped to range 0...100.0
     float getPriority();
     //This value will be clamped to range 0...1.0
@@ -37,4 +40,5 @@ protected:
     float _priority;
     float _progress;
     bool _canBeCancelled;
+    HumanComponent* _humanComponent;
 };
