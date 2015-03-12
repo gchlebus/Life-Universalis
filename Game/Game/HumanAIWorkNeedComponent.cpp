@@ -43,14 +43,18 @@ void HumanAIWorkNeedComponent::updatePriority()
     float timeNeededToTravel = _humanComponent->humanMotion->getSpeed() * (pos - building).norm();
     float timeDiff = minutesLeft - timeNeededToTravel;
     
+//    if(timeDiff >= 0.0 && timeDiff <= 30.0)
+    {
     
+//        std::cout << "Human work stats:\n";
+//        std::cout << "\tMinutes needed to travel to work: " << timeNeededToTravel << "\n";
+//        std::cout << "\tHours to start working: " << minutesLeft / 60.0 << "\n";
+        std::cout << "\tMinutes to start working: " << minutesLeft << "\n";
+        std::cout << "\tI have to hit the road in " << timeDiff << " minutes (if it's minus I'll be so late!)\n";
+        std::cout << "\tComputed priority: " << getPriority() << "\n";
+    }
     
-    std::cout << "Human work stats:\n";
-    std::cout << "\tMinutes needed to travel to work: " << timeNeededToTravel << "\n";
-    std::cout << "\tHours to start working: " << minutesLeft / 60.0 << "\n";
-    std::cout << "\tMinutes to start working: " << minutesLeft << "\n";
-    std::cout << "\tI have to hit the road in " << timeDiff << " minutes (if it's minus I'll be so late!)\n";
-    _priority = 100.0;
+    _priority = (1.0 - (timeDiff / 30.0)) * 100.0;
     _progress = 0.0;
 }
 
