@@ -19,10 +19,10 @@ public:
     void addMoney(int amount);
     void deductMoney(int amount);
 
-    const GameObject* getHome() const;
+    GameObject* getHome() const;
     void setHome(GameObject* home);
 
-    const Workplace* getWorkplace() const;
+    Workplace* getWorkplace() const;
     void setWorkplace(Workplace* workplace);
     
     

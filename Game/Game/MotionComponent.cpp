@@ -7,6 +7,7 @@ MotionComponent::MotionComponent()
 {
     _isMoving = false;
     _speed = 1.0f;
+    _threshold = 2.0f;
 }
 
 void MotionComponent::onStart()
@@ -15,7 +16,7 @@ void MotionComponent::onStart()
 
 void MotionComponent::onBeforeFirstUpdate()
 {
-    _dayTime = static_cast<DayTimeEntity*>(GameEngine::engine()->currentEnvironment->findEntity("DayTime"));
+    _dayTime = (DayTimeEntity*)(GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME));
 }
 
 void MotionComponent::onUpdate()
@@ -73,9 +74,19 @@ float MotionComponent::getSpeed() const
     return _speed;
 }
 
-bool MotionComponent::_isAtTargetPosition()
+void MotionComponent::setThreshold(const float t)
 {
-    return _parentTransform->getWorldPosition() == _targetPosition;
+    _threshold = std::max(t, 0.f);
+}
+
+float MotionComponent::getThreshold() const
+{
+    return _threshold;
+}
+
+bool MotionComponent::isAtTargetPosition()
+{
+    return _distanceVector.norm() <= _threshold;
 }
 
 void MotionComponent::_computeDistanceVector()
@@ -102,7 +113,7 @@ bool MotionComponent::_shouldAlignForwardVector()
 
 void MotionComponent::_move()
 {
-    float deltaTime = static_cast<float>(_dayTime->getLastDelta().time);
+    float deltaTime = (float)_dayTime->getLastDelta().time;
     Vector3 motionVector = _speed * deltaTime * _distanceVector.normalized();
 
     if (_distanceVector.norm() < motionVector.norm())

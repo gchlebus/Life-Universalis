@@ -28,20 +28,20 @@ void HumanManagerEntity::onUpdate()
     
     DayTimeEntity *dt = (DayTimeEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
     
-    if(dt->getCurrentGameDate().minute == 5)
-    {
-        std::cout << "\n\n\n\n\n\n\n\n\n\n\n";
-        
-        for(auto human : this->getHumans())
-        {
-            HumanComponent *comp = (HumanComponent*)human->findComponent("HumanComponent");
-            std::cout << comp->getHumanName() << " is ";
-            if(comp->getWorkplace() == nullptr)
-                std::cout << "unemployed!!!\n";
-            else
-                std::cout << "a happy slave!\n";
-        }
-    }
+//    if(dt->getCurrentGameDate().minute == 5)
+//    {
+//        std::cout << "\n\n\n\n\n\n\n\n\n\n\n";
+//        
+//        for(auto human : this->getHumans())
+//        {
+//            HumanComponent *comp = (HumanComponent*)human->findComponent("HumanComponent");
+//            std::cout << comp->getHumanName() << " is ";
+//            if(comp->getWorkplace() == nullptr)
+//                std::cout << "unemployed!!!\n";
+//            else
+//                std::cout << "a happy slave!\n";
+//        }
+//    }
 }
 
 void HumanManagerEntity::onStop()
@@ -58,6 +58,8 @@ GameObject* HumanManagerEntity::create()
     retVal->addComponent(new HumanAISeekJobComponent());
     retVal->addComponent(new HumanAITestNeedComponent());
     retVal->addComponent(new HumanAIWorkNeedComponent());
+    ((MotionComponent*)retVal->findComponent("MotionComponent"))->setSpeed(20.0f);
+    ((MotionComponent*)retVal->findComponent("MotionComponent"))->setThreshold(50.0f);
 	return retVal;
 }
 

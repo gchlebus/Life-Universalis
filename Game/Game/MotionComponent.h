@@ -23,9 +23,13 @@ public:
     const Vector3& getTargetPosition() const;
     void setSpeed(const float speed);
     float getSpeed() const;
-
+    
+    void setThreshold(const float threshold);
+    float getThreshold() const;
+    
+    bool isAtTargetPosition();
+    
 private:
-    bool _isAtTargetPosition();
     void _computeDistanceVector();
     void _alignForwardVectorWithDistanceVector();
     bool _shouldAlignForwardVector();
@@ -38,6 +42,9 @@ private:
 
     //! Distance units / game time minute.
     float _speed;
+    
+    //! Distance in which the position will be accepted as target reached
+    float _threshold;
 
     DayTimeEntity *_dayTime;
     Transform *_parentTransform;

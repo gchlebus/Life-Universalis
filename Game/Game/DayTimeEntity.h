@@ -68,6 +68,18 @@ struct GameDate
     {
         return this->time > a.time;
     }
+    bool operator>=(GameDate &a)
+    {
+        return this->time >= a.time;
+    }
+    bool operator<=(GameDate &a)
+    {
+        return this->time <= a.time;
+    }
+    bool operator==(GameDate &a)
+    {
+        return this->time == a.time;
+    }
 	int year;
 	int month;
 	int day;

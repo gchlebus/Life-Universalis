@@ -11,6 +11,7 @@
 
 HumanAINeedComponent::HumanAINeedComponent(const std::string &name) : GameObjectComponent("HumanAINeed" + name)
 {
+    _canBeCancelled = true;
 }
 
 HumanAINeedComponent::~HumanAINeedComponent()

@@ -25,8 +25,8 @@ void GameObject::update()
 {
 	for (size_t i = 0; i < _components.size(); ++i)
 	{
-        
-		_components[i]->update();
+        if(_components[i]->isEnabled())
+            _components[i]->update();
 	}
 }
 

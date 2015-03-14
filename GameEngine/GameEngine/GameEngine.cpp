@@ -92,11 +92,11 @@ void GameEngine::gameLoop()
 		{
 			if(timeToWait > 0)
 			{
-				std::cout << "I'm waiting...";
+//				std::cout << "I'm waiting...";
 				boost::this_thread::sleep(boost::posix_time::microseconds(timeToWait));
 			}
 		}
-		std::cout << "Dupa - it's a one game-tick\n\tTime needed to wait: " << (double)timeToWait * 0.001 << "\n\tLastDeltaTime: " << lastTick << "\n\taccumulatedDeltaTimeDifference: " << accumulatedDeltaTime << "\n";
+//		std::cout << "Dupa - it's a one game-tick\n\tTime needed to wait: " << (double)timeToWait * 0.001 << "\n\tLastDeltaTime: " << lastTick << "\n\taccumulatedDeltaTimeDifference: " << accumulatedDeltaTime << "\n";
 		kernel->timer->tick();
 	}
 	

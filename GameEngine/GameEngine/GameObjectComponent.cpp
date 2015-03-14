@@ -5,6 +5,7 @@ GameObjectComponent::GameObjectComponent(const std::string &componentName)
 	: _componentName(componentName)
 {
     _firstUpdate = true;
+    _enabled = true;
 }
 
 GameObjectComponent::~GameObjectComponent()

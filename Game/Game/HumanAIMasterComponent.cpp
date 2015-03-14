@@ -39,7 +39,7 @@ void HumanAIMasterComponent::onUpdate()
     if(_currentNeed == nullptr || _currentNeed->canBeCancelled())
     {
         HumanAINeedComponent *highestNeed = nullptr;
-        float highestPriority = 9999.0f;
+        float highestPriority = 0.0f;
         for(HumanAINeedComponent *need : _needs)
         {
             need->updatePriority();
@@ -51,6 +51,7 @@ void HumanAIMasterComponent::onUpdate()
         }
         if(highestNeed != nullptr && _currentNeed != highestNeed)
         {
+            if(_currentNeed)
             _currentNeed->setEnabled(false);
             _currentNeed = highestNeed;
             _currentNeed->setEnabled(true);

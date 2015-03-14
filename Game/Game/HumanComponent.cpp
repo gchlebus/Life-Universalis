@@ -35,7 +35,7 @@ void HumanComponent::deductMoney(int amount)
     _money -= amount;
 }
 
-const GameObject* HumanComponent::getHome() const
+GameObject* HumanComponent::getHome() const
 {
     return _home;
 }
@@ -45,7 +45,7 @@ void HumanComponent::setHome(GameObject* home)
     _home = home;
 }
 
-const Workplace* HumanComponent::getWorkplace() const
+Workplace* HumanComponent::getWorkplace() const
 {
     return _workplace;
 }

@@ -91,7 +91,7 @@ void HumanAITestNeedComponent::updatePriority()
     double progressModifier = 1.0 / 60.0;// / 24.0;
     _progress -= dt->getLastDelta().time * progressModifier;
     
-    _priority = (1.0 - _progress) * 100.0;
+    _priority = (1.0 - _progress) * 90.0; //It shall never win against work need
 }
 std::string HumanAITestNeedComponent::getNeedName()
 {
