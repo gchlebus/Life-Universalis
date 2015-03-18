@@ -32,7 +32,6 @@ public:
     void onEnabled();
     void onDisabled();
     
-    void updatePriority();
     std::string getNeedName();
     
 protected:
