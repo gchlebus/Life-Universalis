@@ -23,16 +23,22 @@ bool HumanAINeedComponent::canBeCancelled()
     return _canBeCancelled;
 }
 
+void HumanAINeedComponent::updateStats()
+{
+    updateFulfillment();
+    _fulfillment = boost::algorithm::clamp(_fulfillment, 0.0f, 1.0f);
+    updatePriority();
+    _priority = boost::algorithm::clamp(_priority, 0.0f, 100.0f);
+}
+
 float HumanAINeedComponent::getPriority()
 {
-    _priority = boost::algorithm::clamp(_priority, 0.0f, 100.0f);
     return _priority;
 }
 
-float HumanAINeedComponent::getProgress()
+float HumanAINeedComponent::getFulfillment()
 {
-    _progress = boost::algorithm::clamp(_progress, 0.0f, 1.0f);
-    return _progress;
+    return _fulfillment;
 }
 
 float HumanAINeedComponent::valueImpact(Service* product)

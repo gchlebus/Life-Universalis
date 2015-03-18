@@ -91,38 +91,6 @@ std::string HumanAIWorkNeedComponent::getNeedName()
     return "Work";
 }
 
-
-void HumanAIWorkNeedComponent::updatePriority()
-{
-    if(_humanComponent->getWorkplace() == nullptr)
-    {
-        _priority = 0.0;
-        _progress = 0.0;
-        return;
-    }
-    _estimateWorkingDates();
-    _estimateTravelScheduling();
-    
-//    if(timeDiff >= 0.0 && timeDiff <= 30.0)
-//    {
-//    
-//        std::cout << "Human work stats:\n";
-//        std::cout << "\tMinutes needed to travel to work: " << _minutesNeedToTravel << "\n";
-//        std::cout << "\tHours to start working: " << _minutesLeft / 60.0 << "\n";
-//        std::cout << "\tMinutes to start working: " << _minutesLeft << "\n";
-//        std::cout << "\tI have to hit the road in " << _minutesToHitTheRoad << " minutes (if it's minus I'll be so late!)\n";
-//        std::cout << "\tComputed priority: " << getPriority() << "\n";
-//    }
-    
-//    if(_minutesToHitTheRoad <= 0.0)
-//    {
-//        _humanComponent->humanMotion->setTargetPosition(building);
-//    }
-    
-    _priority = (1.0 - ((_minutesToHitTheRoad - 30.0) / 30.0)) * 100.0;
-    _progress = 0.0;
-}
-
 void HumanAIWorkNeedComponent::_estimateWorkingDates()
 {
     GameDate current = _dayTime->getCurrentGameDate();
@@ -152,4 +120,38 @@ void HumanAIWorkNeedComponent::_estimateTravelScheduling()
     _minutesLeft = _nextWorkStart.time - currentTime.time;
     _minutesNeedToTravel = (pos - building).norm() / _humanComponent->humanMotion->getSpeed();
     _minutesToHitTheRoad = _minutesLeft - _minutesNeedToTravel;
+}
+
+void HumanAIWorkNeedComponent::updateFulfillment()
+{
+    _fulfillment = 0.f;
+}
+
+
+void HumanAIWorkNeedComponent::updatePriority()
+{
+    if (_humanComponent->getWorkplace() == nullptr) {
+        _priority = 0.0;
+        return;
+    }
+    _estimateWorkingDates();
+    _estimateTravelScheduling();
+
+//    if(timeDiff >= 0.0 && timeDiff <= 30.0)
+//    {
+//
+//        std::cout << "Human work stats:\n";
+//        std::cout << "\tMinutes needed to travel to work: " << _minutesNeedToTravel << "\n";
+//        std::cout << "\tHours to start working: " << _minutesLeft / 60.0 << "\n";
+//        std::cout << "\tMinutes to start working: " << _minutesLeft << "\n";
+//        std::cout << "\tI have to hit the road in " << _minutesToHitTheRoad << " minutes (if it's minus I'll be so late!)\n";
+//        std::cout << "\tComputed priority: " << getPriority() << "\n";
+//    }
+
+//    if(_minutesToHitTheRoad <= 0.0)
+//    {
+//        _humanComponent->humanMotion->setTargetPosition(building);
+//    }
+
+    _priority = (1.0 - (_minutesToHitTheRoad / 30.0)) * 100.0;
 }

@@ -32,23 +32,24 @@ public:
     void onEnabled();
     void onDisabled();
     
-    void updatePriority() override;
+    void updatePriority();
     std::string getNeedName();
     
 protected:
-    DayTimeEntity *_dayTime;
-    
+    virtual void updateFulfillment() override;
+
+    virtual void updatePriority() override;
     void _estimateWorkingDates();
     void _estimateTravelScheduling();
-    
+
 //    GameDate estimateNextWorkStart();
     HAIWState _currentState;
-    
     float _minutesLeft;
     float _minutesNeedToTravel;
+
     float _minutesToHitTheRoad;
-    
+    DayTimeEntity* _dayTime;
     GameDate _nextWorkStart;
+
     GameDate _nextWorkEnd;
-    
 };

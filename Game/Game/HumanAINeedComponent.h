@@ -19,26 +19,30 @@ class HumanAINeedComponent : public GameObjectComponent
 public:
     HumanAINeedComponent(const std::string &name);
     virtual ~HumanAINeedComponent();
-    
-    
+
     void onParentChangedComponents();
-    
-    //This value will be clamped to range 0...100.0
+
+    // Need priority in range [0, 100].
     float getPriority();
-    //This value will be clamped to range 0...1.0
-    float getProgress();
-    
-    virtual void updatePriority() = 0;
+
+    // Need fulfillment in range [0, 1].
+    float getFulfillment();
+
+    void updateStats();
 
     virtual float valueImpact(Service* product);
-    
+
     virtual std::string getNeedName() = 0;
-    
+
     bool canBeCancelled();
-    
+
 protected:
+    virtual void updateFulfillment() = 0;
+
+    virtual void updatePriority() = 0;
+
     float _priority;
-    float _progress;
+    float _fulfillment;
     bool _canBeCancelled;
     HumanComponent* _humanComponent;
 };

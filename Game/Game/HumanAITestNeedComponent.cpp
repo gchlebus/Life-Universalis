@@ -16,7 +16,7 @@
 HumanAITestNeedComponent::HumanAITestNeedComponent()
 : HumanAINeedComponent("Test")
 {
-    _progress = 1.0;
+    _fulfillment = 1.0;
 }
 
 HumanAITestNeedComponent::~HumanAITestNeedComponent()
@@ -86,17 +86,21 @@ void HumanAITestNeedComponent::onDisabled()
     std::cout << "Test is turned off!\n";
 }
 
-void HumanAITestNeedComponent::updatePriority()
-{
-    DayTimeEntity *dt = (DayTimeEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
-    
-    //Per game-minute
-    double progressModifier = 1.0 / 60.0;// / 24.0;
-    _progress -= dt->getLastDelta().time * progressModifier;
-    
-    _priority = (1.0 - _progress) * 90.0; //It shall never win against work need
-}
 std::string HumanAITestNeedComponent::getNeedName()
 {
     return "Test";
+}
+
+void HumanAITestNeedComponent::updateFulfillment()
+{
+    DayTimeEntity* dt = (DayTimeEntity*) GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
+
+    //Per game-minute
+    double progressModifier = 1.0 / 60.0;// / 24.0;
+    _fulfillment -= dt->getLastDelta().time * progressModifier;
+}
+
+void HumanAITestNeedComponent::updatePriority()
+{
+    _priority = (1.0 - _fulfillment) * 90.0; //It shall never win against work need
 }

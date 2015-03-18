@@ -28,9 +28,10 @@ public:
     void onEnabled();
     void onDisabled();
     
-    void updatePriority();
-    
     std::string getNeedName();
     
 protected:
+    virtual void updateFulfillment() override;
+
+    virtual void updatePriority() override;
 };
