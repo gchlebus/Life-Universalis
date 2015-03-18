@@ -14,6 +14,7 @@ bool Kernel::init()
 {
 	timer = new Timer();
 	settings = new Settings();
+    logger = new CompoundLogger();
 	timer->tick();
 
 	return true;

@@ -8,8 +8,15 @@
 #include "Kernel.h"
 #include "Scene.h"
 #include "Settings.h"
+#include "CompoundLogger.h"
+#include "ConsoleLogger.h"
 #include "Timer.h"
 #include "Transform.h"
+
+#define F(txt) (boost::format(txt))
+#define STR(f) ((f).str())
+#define LOG(text) GameEngine::engine()->kernel->logger->log(text, WL_INFO, __FILE__, __LINE__)
+#define LOGF(f) LOG(STR((f)))
 
 class GAMEENGINE_EXPORT GameEngine
 {

@@ -29,6 +29,8 @@
 		08129EE61A913C2400849B4E /* Timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 08129ED01A913C2400849B4E /* Timer.h */; };
 		08129EE71A913C2400849B4E /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08129ED11A913C2400849B4E /* Transform.cpp */; };
 		08129EE81A913C2400849B4E /* Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 08129ED21A913C2400849B4E /* Transform.h */; };
+		D5A3FDF61AB9F632009EE5E1 /* CompoundLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5A3FDF51AB9F632009EE5E1 /* CompoundLogger.cpp */; };
+		D5A3FDF81AB9FF37009EE5E1 /* ConsoleLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5A3FDF71AB9FF37009EE5E1 /* ConsoleLogger.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,11 @@
 		08129ED01A913C2400849B4E /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		08129ED11A913C2400849B4E /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
 		08129ED21A913C2400849B4E /* Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
+		D5A3FDF11AB9F0F2009EE5E1 /* ILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ILogger.h; sourceTree = "<group>"; };
+		D5A3FDF31AB9F240009EE5E1 /* ConsoleLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleLogger.h; sourceTree = "<group>"; };
+		D5A3FDF41AB9F61C009EE5E1 /* CompoundLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompoundLogger.h; sourceTree = "<group>"; };
+		D5A3FDF51AB9F632009EE5E1 /* CompoundLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CompoundLogger.cpp; sourceTree = "<group>"; };
+		D5A3FDF71AB9FF37009EE5E1 /* ConsoleLogger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConsoleLogger.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +108,7 @@
 		D551EAB31A92AC3A0058B9A2 /* Kernel */ = {
 			isa = PBXGroup;
 			children = (
+				D5A3FDF01AB9F0D8009EE5E1 /* Logger */,
 				D551EAB51A92AC580058B9A2 /* Timer */,
 				D551EAB41A92AC490058B9A2 /* Settings */,
 				08129EC91A913C2400849B4E /* Kernel.cpp */,
@@ -185,6 +193,26 @@
 			name = Transform;
 			sourceTree = "<group>";
 		};
+		D5A3FDF01AB9F0D8009EE5E1 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				D5A3FDF21AB9F217009EE5E1 /* ConsoleLogger */,
+				D5A3FDF11AB9F0F2009EE5E1 /* ILogger.h */,
+				D5A3FDF51AB9F632009EE5E1 /* CompoundLogger.cpp */,
+				D5A3FDF41AB9F61C009EE5E1 /* CompoundLogger.h */,
+			);
+			name = Logger;
+			sourceTree = "<group>";
+		};
+		D5A3FDF21AB9F217009EE5E1 /* ConsoleLogger */ = {
+			isa = PBXGroup;
+			children = (
+				D5A3FDF71AB9FF37009EE5E1 /* ConsoleLogger.cpp */,
+				D5A3FDF31AB9F240009EE5E1 /* ConsoleLogger.h */,
+			);
+			name = ConsoleLogger;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -265,8 +293,10 @@
 			files = (
 				08129EE71A913C2400849B4E /* Transform.cpp in Sources */,
 				08129EDA1A913C2400849B4E /* GameObject.cpp in Sources */,
+				D5A3FDF61AB9F632009EE5E1 /* CompoundLogger.cpp in Sources */,
 				08129EE11A913C2400849B4E /* Scene.cpp in Sources */,
 				08129ED31A913C2400849B4E /* GameEngine.cpp in Sources */,
+				D5A3FDF81AB9FF37009EE5E1 /* ConsoleLogger.cpp in Sources */,
 				08129ED61A913C2400849B4E /* GameEnvironment.cpp in Sources */,
 				08129EDC1A913C2400849B4E /* GameObjectComponent.cpp in Sources */,
 				08129EDF1A913C2400849B4E /* Kernel.cpp in Sources */,

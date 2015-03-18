@@ -11,6 +11,7 @@
 int main()
 {
     GameEngine *e = GameEngine::engine();
+    e->kernel->logger->addLogger(new ConsoleLogger());
     
     HumanManagerEntity* humanMgr        = new HumanManagerEntity();
     BuildingManagerEntity* buildingMgr  = new BuildingManagerEntity();

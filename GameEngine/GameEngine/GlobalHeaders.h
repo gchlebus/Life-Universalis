@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <boost/thread.hpp>
 #include <boost/algorithm/clamp.hpp>
+#include <boost/format.hpp>
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 

@@ -2,6 +2,7 @@
 #include "GlobalHeaders.h"
 #include "Timer.h"
 #include "Settings.h"
+#include "CompoundLogger.h"
 
 class GAMEENGINE_EXPORT Kernel
 {
@@ -10,4 +11,5 @@ public:
 	bool init();
 	Timer *timer;
 	Settings *settings;
+    CompoundLogger *logger;
 };

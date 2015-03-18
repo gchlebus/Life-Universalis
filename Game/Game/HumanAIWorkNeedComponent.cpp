@@ -18,12 +18,12 @@ HumanAIWorkNeedComponent::HumanAIWorkNeedComponent() : HumanAINeedComponent("Wor
 
 void HumanAIWorkNeedComponent::onEnabled()
 {
-    std::cout << "Work is turned on!\n";
+    LOG("Work is turned on!\n");
 }
 
 void HumanAIWorkNeedComponent::onDisabled()
 {
-    std::cout << "Work is turned off!\n";
+    LOG("Work is turned off!");
 }
 
 void HumanAIWorkNeedComponent::onAttachToParent()
@@ -40,14 +40,14 @@ void HumanAIWorkNeedComponent::onUpdate()
     if(_currentState == HAIW_IDLE)
     {
         _estimateTravelScheduling();
-        std::cout << "Mam jeszcze tyle minut: " << _minutesToHitTheRoad << "\n";
+        LOGF(F("Mam jeszcze tyle minut: %1%") % _minutesToHitTheRoad);
         if(_minutesToHitTheRoad <= 15.0f) //15 minutes for margin. It is better to wait than to be late
         {
             _canBeCancelled = false;
             _humanComponent->humanMotion->setTargetPosition(_humanComponent->getWorkplace()->parent->getParent()->getTransform().getWorldPosition());
             _currentState = HAIW_GOING_TO_WORKPLACE;
-            std::cout << "Ide do pracy! Mam jeszcze " << _minutesToHitTheRoad << "\n";
-            std::cout << "Computed priority: " << getPriority() << "\n";
+            LOGF(F("Ide do pracy! Mam jeszcze %1%") % _minutesToHitTheRoad);
+            LOGF(F("Computed priority: %1%") % getPriority());
         }
     }
     else if(_currentState == HAIW_GOING_TO_WORKPLACE)
@@ -56,8 +56,8 @@ void HumanAIWorkNeedComponent::onUpdate()
         if(_humanComponent->humanMotion->isAtTargetPosition())
         {
             _currentState = HAIW_WAITING_FOR_WORK;
-            std::cout << "Czekam na prace!!! Zaczynam za " << _minutesLeft << "\n";
-            std::cout << "Computed priority: " << getPriority() << "\n";
+            LOGF(F("Czekam na prace! Zaczynam za %1%")%_minutesLeft);
+            LOGF(F("Computed priority: %1%") % getPriority());
         }
     }
     else if(_currentState == HAIW_WAITING_FOR_WORK)
@@ -67,8 +67,8 @@ void HumanAIWorkNeedComponent::onUpdate()
         {
             _currentState = HAIW_WORKING;
             _humanComponent->getWorkplace()->startWork();
-            std::cout << "Zaczalem prace!!!\n";
-            std::cout << "Computed priority: " << getPriority() << "\n";
+            LOG("ZACZALEM PRACE!!!");
+            LOGF(F("Computed priority: %1%") % getPriority());
         }
     }
     else if(_currentState == HAIW_WORKING)
@@ -80,8 +80,8 @@ void HumanAIWorkNeedComponent::onUpdate()
             _currentState = HAIW_IDLE;
             _canBeCancelled = true;
             _estimateWorkingDates(); //This is for determining new working dates. It has to be computed to set new priority
-            std::cout << "Skonczylem prace!!!\n";
-            std::cout << "Computed priority: " << getPriority() << "\n";
+            LOG("Skonczylem prace!!!");
+            LOGF(F("Computed priority: %1%") % getPriority());
         }
     }
 }
