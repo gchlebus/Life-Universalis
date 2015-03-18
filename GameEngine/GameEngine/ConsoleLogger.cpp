@@ -6,9 +6,6 @@
 //  Copyright (c) 2015 LifeUniversalis. All rights reserved.
 //
 
-<<<<<<< Updated upstream
-#include <stdio.h>
-=======
 #include "ConsoleLogger.h"
 
 
@@ -20,4 +17,3 @@ void ConsoleLogger::log(std::string txt, WarningLevel lvl, std::string filename,
         std::cout << txt << "\n";
 #endif
 }
->>>>>>> Stashed changes

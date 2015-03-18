@@ -6,13 +6,6 @@
 //  Copyright (c) 2015 LifeUniversalis. All rights reserved.
 //
 
-<<<<<<< Updated upstream
-#ifndef GameEngine_CompoundLogger_h
-#define GameEngine_CompoundLogger_h
-
-
-#endif
-=======
 #pragma once
 #include "GlobalHeaders.h"
 #include "ILogger.h"
@@ -31,4 +24,3 @@ public:
 protected:
     std::vector<ILogger*> _loggers;
 };
->>>>>>> Stashed changes

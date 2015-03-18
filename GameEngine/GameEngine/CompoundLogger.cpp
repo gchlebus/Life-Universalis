@@ -6,9 +6,6 @@
 //  Copyright (c) 2015 LifeUniversalis. All rights reserved.
 //
 
-<<<<<<< Updated upstream
-#include <stdio.h>
-=======
 #include "CompoundLogger.h"
 
 CompoundLogger::~CompoundLogger()
@@ -40,4 +37,3 @@ void CompoundLogger::addLogger(ILogger* logger)
 {
     _loggers.push_back(logger);
 }
->>>>>>> Stashed changes

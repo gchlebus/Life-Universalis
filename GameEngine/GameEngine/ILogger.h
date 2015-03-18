@@ -6,13 +6,6 @@
 //  Copyright (c) 2015 LifeUniversalis. All rights reserved.
 //
 
-<<<<<<< Updated upstream
-#ifndef GameEngine_ILogger_h
-#define GameEngine_ILogger_h
-
-
-#endif
-=======
 #pragma once
 #include "GlobalHeaders.h"
 
@@ -35,4 +28,3 @@ public:
 protected:
     WarningLevel _filter;
 };
->>>>>>> Stashed changes
