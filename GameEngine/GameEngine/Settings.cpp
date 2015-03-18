@@ -3,10 +3,10 @@
 
 Settings::Settings(void)
 {
-	fixedFrameTime = 500;
+	fixedFrameTime = 500.0 / 5.0;
 	fixedTimestep = true;
 
-	timeRatio = 60.0f;
+	timeRatio = 60.0f * 5.0 * 5.0;
 
 	humanMultiplierSatiety			= 1.0f / 24.0f;
 	humanMultiplierEntertainment	= 1.0f / 48.0f;

@@ -78,9 +78,12 @@ void HumanAITestNeedComponent::onDelete()
 }
 void HumanAITestNeedComponent::onEnabled()
 {
+    std::cout << "Test is turned on!\n";
 }
+
 void HumanAITestNeedComponent::onDisabled()
 {
+    std::cout << "Test is turned off!\n";
 }
 
 void HumanAITestNeedComponent::updatePriority()

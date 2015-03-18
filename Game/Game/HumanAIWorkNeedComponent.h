@@ -29,10 +29,10 @@ public:
     void onAttachToParent();
 
     //Just for tests
-//    void onEnabled();
-//    void onDisabled();
+    void onEnabled();
+    void onDisabled();
     
-    void updatePriority();
+    void updatePriority() override;
     std::string getNeedName();
     
 protected:

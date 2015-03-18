@@ -16,15 +16,15 @@ HumanAIWorkNeedComponent::HumanAIWorkNeedComponent() : HumanAINeedComponent("Wor
     _currentState = HAIW_IDLE;
 }
 
-//void HumanAIWorkNeedComponent::onEnabled()
-//{
-//    std::cout << "Work is turned on!\n";
-//}
-//
-//void HumanAIWorkNeedComponent::onDisabled()
-//{
-//    std::cout << "Work is turned off!\n";
-//}
+void HumanAIWorkNeedComponent::onEnabled()
+{
+    std::cout << "Work is turned on!\n";
+}
+
+void HumanAIWorkNeedComponent::onDisabled()
+{
+    std::cout << "Work is turned off!\n";
+}
 
 void HumanAIWorkNeedComponent::onAttachToParent()
 {
@@ -47,6 +47,7 @@ void HumanAIWorkNeedComponent::onUpdate()
             _humanComponent->humanMotion->setTargetPosition(_humanComponent->getWorkplace()->parent->getParent()->getTransform().getWorldPosition());
             _currentState = HAIW_GOING_TO_WORKPLACE;
             std::cout << "Ide do pracy! Mam jeszcze " << _minutesToHitTheRoad << "\n";
+            std::cout << "Computed priority: " << getPriority() << "\n";
         }
     }
     else if(_currentState == HAIW_GOING_TO_WORKPLACE)
@@ -56,6 +57,7 @@ void HumanAIWorkNeedComponent::onUpdate()
         {
             _currentState = HAIW_WAITING_FOR_WORK;
             std::cout << "Czekam na prace!!! Zaczynam za " << _minutesLeft << "\n";
+            std::cout << "Computed priority: " << getPriority() << "\n";
         }
     }
     else if(_currentState == HAIW_WAITING_FOR_WORK)
@@ -66,6 +68,7 @@ void HumanAIWorkNeedComponent::onUpdate()
             _currentState = HAIW_WORKING;
             _humanComponent->getWorkplace()->startWork();
             std::cout << "Zaczalem prace!!!\n";
+            std::cout << "Computed priority: " << getPriority() << "\n";
         }
     }
     else if(_currentState == HAIW_WORKING)
@@ -76,8 +79,9 @@ void HumanAIWorkNeedComponent::onUpdate()
             _humanComponent->getWorkplace()->endWork();
             _currentState = HAIW_IDLE;
             _canBeCancelled = true;
-//            _estimateWorkingDates(); //This is for determining new working dates. It has to be computed to set new priority
+            _estimateWorkingDates(); //This is for determining new working dates. It has to be computed to set new priority
             std::cout << "Skonczylem prace!!!\n";
+            std::cout << "Computed priority: " << getPriority() << "\n";
         }
     }
 }
@@ -115,7 +119,7 @@ void HumanAIWorkNeedComponent::updatePriority()
 //        _humanComponent->humanMotion->setTargetPosition(building);
 //    }
     
-    _priority = (1.0 - (_minutesToHitTheRoad / 30.0)) * 100.0;
+    _priority = (1.0 - ((_minutesToHitTheRoad - 30.0) / 30.0)) * 100.0;
     _progress = 0.0;
 }
 

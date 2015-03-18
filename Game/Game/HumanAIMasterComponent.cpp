@@ -40,9 +40,11 @@ void HumanAIMasterComponent::onUpdate()
     {
         HumanAINeedComponent *highestNeed = nullptr;
         float highestPriority = 0.0f;
+        std::cout << "Checking needs...\n";
         for(HumanAINeedComponent *need : _needs)
         {
             need->updatePriority();
+            std::cout << "\tNeed \"" << need->getNeedName() << """\n\tpriority: " << need->getPriority() << "\nNext\n";
             if(need->getPriority() > highestPriority)
             {
                 highestNeed = need;
@@ -51,6 +53,7 @@ void HumanAIMasterComponent::onUpdate()
         }
         if(highestNeed != nullptr && _currentNeed != highestNeed)
         {
+            std::cout << "Priority winner is: " << highestNeed->getNeedName() << "\nwith priority: " << highestNeed->getPriority() << "\n";
             if(_currentNeed)
             _currentNeed->setEnabled(false);
             _currentNeed = highestNeed;

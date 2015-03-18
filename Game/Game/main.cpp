@@ -27,7 +27,7 @@ int main()
     //121 people, 21 of them are supposed to be unemployed
     //Test is running at 5th game minute, look at console output
     //Test is implemented in HumanManagerEntity
-    int peopleWidth = 11;
+    int peopleWidth = 1;
     for(int i = 0; i < peopleWidth; i++)
     {
         for(int j = 0; j < peopleWidth; j++)
