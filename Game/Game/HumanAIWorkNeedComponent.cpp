@@ -14,6 +14,7 @@
 HumanAIWorkNeedComponent::HumanAIWorkNeedComponent() : HumanAINeedComponent("Work")
 {
     _currentState = HAIW_IDLE;
+    _dayTime = (DayTimeEntity*) GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
 }
 
 void HumanAIWorkNeedComponent::onEnabled()
@@ -28,7 +29,7 @@ void HumanAIWorkNeedComponent::onDisabled()
 
 void HumanAIWorkNeedComponent::onAttachToParent()
 {
-    _dayTime = (DayTimeEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
+
 }
 
 void HumanAIWorkNeedComponent::onUpdate()
