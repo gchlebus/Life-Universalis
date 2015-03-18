@@ -118,9 +118,13 @@ void HumanAIWorkNeedComponent::_estimateTravelScheduling()
     Vector3 pos = _parent->getTransform().getWorldPosition();
     Vector3 building = _humanComponent->getWorkplace()->parent->getParent()->getTransform().getWorldPosition();
     
+    float dist = (pos - building).norm();
+    LOGF(F("\t\tDist: %1%") % dist);
     _minutesLeft = _nextWorkStart.time - currentTime.time;
-    _minutesNeedToTravel = (pos - building).norm() / _humanComponent->humanMotion->getSpeed();
+    _minutesNeedToTravel = dist / _humanComponent->humanMotion->getSpeed();
     _minutesToHitTheRoad = _minutesLeft - _minutesNeedToTravel;
+    
+    LOGF(F("Work starts in %1% minutes") % _minutesLeft);
 }
 
 void HumanAIWorkNeedComponent::updateFulfillment()
@@ -155,4 +159,11 @@ void HumanAIWorkNeedComponent::updatePriority()
 //    }
 
     _priority = (1.0 - (_minutesToHitTheRoad / 30.0)) * 100.0;
+    
+    
+    LOG("Debugging shit:");
+    LOGF(F("\tTravel mins %1%") % _minutesNeedToTravel);
+    LOGF(F("\tMins left %1%") % _minutesLeft);
+    LOGF(F("\tMins to hit the road %1%") % _minutesToHitTheRoad);
+    LOGF(F("\tWork priority is: %1%") % _priority);
 }

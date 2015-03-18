@@ -103,20 +103,34 @@ void MotionComponent::_alignForwardVectorWithDistanceVector()
         float angle = acos(forward.dot(newForward));
         Vector3 axis = forward.cross(newForward).normalized();
         _parentTransform->rotate(axis, angle);
+        LOGF(F("Dist norm %1%") % _distanceVector.norm());
     }
 }
 
 bool MotionComponent::_shouldAlignForwardVector()
 {
-    return _distanceVector.normalized().dot(_parentTransform->getForwardVersor()) < 0.999;
+    if(_distanceVector.norm() > 0.0)
+        return _distanceVector.normalized().dot(_parentTransform->getForwardVersor()) < 0.999;
+    return false;
 }
 
 void MotionComponent::_move()
 {
     float deltaTime = (float)_dayTime->getLastDelta().time;
     Vector3 motionVector = _speed * deltaTime * _distanceVector.normalized();
-
-    if (_distanceVector.norm() < motionVector.norm())
+    
+//    LOGF(F("Dist vec len %1%") % _distanceVector.norm());
+//    LOGF(F("Motion vec len %1%") % motionVector.norm());
+//    
+//    LOGF(F("Dist Vec %1% %2% %3%") % _distanceVector.x() % _distanceVector.y() % _distanceVector.z());
+//    LOGF(F("Motion Vec %1% %2% %3%") % motionVector.x() % motionVector.y() % motionVector.z());
+//    
+//    
+//    Vector3 pos = _parentTransform->getWorldPosition();
+//    LOGF(F("Target Vec %1% %2% %3%") % _targetPosition.x() % _targetPosition.y() % _targetPosition.z());
+//    LOGF(F("Position Vec %1% %2% %3%") % pos.x() % pos.y() % pos.z());
+    
+    if (_distanceVector.norm() <= 0.0001f || _distanceVector.norm() < motionVector.norm())
     {
         _parentTransform->setWorldPosition(_targetPosition);
         _isMoving = false;
