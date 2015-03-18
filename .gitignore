@@ -221,3 +221,6 @@ xcuserdata/
 xcshareddata/
 project.xcworkspace/
 DerivedData/
+
+# AppCode files
+.idea/
