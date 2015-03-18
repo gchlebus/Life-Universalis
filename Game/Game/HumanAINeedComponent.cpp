@@ -9,9 +9,12 @@
 #include "HumanAINeedComponent.h"
 #include "Service.h"
 
-HumanAINeedComponent::HumanAINeedComponent(const std::string &name) : GameObjectComponent("HumanAINeed" + name)
+HumanAINeedComponent::HumanAINeedComponent(const std::string& name)
+    : GameObjectComponent("HumanAINeed" + name), _lastUpdateTime(0.), _canBeCancelled(true)
 {
-    _canBeCancelled = true;
+    GameEnvironmentEntity* e = GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
+    assert(e != nullptr);
+    _dayTime = static_cast<DayTimeEntity*>(e);
 }
 
 HumanAINeedComponent::~HumanAINeedComponent()
@@ -29,6 +32,7 @@ void HumanAINeedComponent::updateStats()
     _fulfillment = boost::algorithm::clamp(_fulfillment, 0.0f, 1.0f);
     updatePriority();
     _priority = boost::algorithm::clamp(_priority, 0.0f, 100.0f);
+    _lastUpdateTime = _dayTime->getCurrentGameDate().time;
 }
 
 float HumanAINeedComponent::getPriority()

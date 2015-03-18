@@ -9,6 +9,7 @@
 #pragma once
 
 #include <GameEngine.h>
+#include "DayTimeEntity.h"
 
 class HumanComponent;
 
@@ -21,28 +22,23 @@ public:
     virtual ~HumanAINeedComponent();
 
     void onParentChangedComponents();
-
     // Need priority in range [0, 100].
     float getPriority();
-
     // Need fulfillment in range [0, 1].
     float getFulfillment();
-
     void updateStats();
-
     virtual float valueImpact(Service* product);
-
     virtual std::string getNeedName() = 0;
-
     bool canBeCancelled();
 
 protected:
     virtual void updateFulfillment() = 0;
-
     virtual void updatePriority() = 0;
 
     float _priority;
     float _fulfillment;
+    double _lastUpdateTime; // in game minutes
     bool _canBeCancelled;
     HumanComponent* _humanComponent;
+    DayTimeEntity* _dayTime;
 };
