@@ -20,7 +20,7 @@ void BuildingManagerEntity::onStart()
 
 void BuildingManagerEntity::onUpdate()
 {
-	std::cout << "BuildingManager sie kurwa update'uje!!!!!!!!!!\n";
+	LOG("BuildingManager sie kurwa update'uje!!!!!!!!!!");
     
 }
 

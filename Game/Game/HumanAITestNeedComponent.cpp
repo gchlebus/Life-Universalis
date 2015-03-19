@@ -78,12 +78,12 @@ void HumanAITestNeedComponent::onDelete()
 }
 void HumanAITestNeedComponent::onEnabled()
 {
-    std::cout << "Test is turned on!\n";
+    LOG("Test is turned on!");
 }
 
 void HumanAITestNeedComponent::onDisabled()
 {
-    std::cout << "Test is turned off!\n";
+    LOG("Test is turned off!");
 }
 
 std::string HumanAITestNeedComponent::getNeedName()

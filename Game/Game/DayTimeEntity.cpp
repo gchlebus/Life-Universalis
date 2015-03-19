@@ -29,26 +29,25 @@ void DayTimeEntity::onUpdate()
 
 	delta = GameDate(gameTimeStamp);
 	gameDate = GameDate(gameDate.time + gameTimeStamp);
-
-	std::cout	<< "\nGameTime:\n"
-				<< "Absolute:"
-
-				<< "\n\tYear: " << gameDate.year
-				<< "\n\tMonth: " << gameDate.month
-				<< "\n\tDay: " << gameDate.day
-				<< "\n\tHour: " << gameDate.hour
-				<< "\n\tMinute: " << gameDate.minute
-				<< "\n\tSecond: " << gameDate.second
-				<< "\n\tTime: " << gameDate.time
-
-				<< "\nDelta:"
-				<< "\n\tYear: " << delta.year
-				<< "\n\tMonth: " << delta.month
-				<< "\n\tDay: " << delta.day
-				<< "\n\tHour: " << delta.hour
-				<< "\n\tMinute: " << delta.minute
-				<< "\n\tSecond: " << delta.second
-				<< "\n\tTime: " << delta.time << "\n";
+    
+    LOG("\nGameTime:");
+    LOGF(F("Absolute:"));
+    LOGF(F("\tYear: %1%") % gameDate.year);
+    LOGF(F("\tMonth: %1%") % gameDate.month);
+    LOGF(F("\tDay: %1%") % gameDate.day);
+    LOGF(F("\tHour: %1%") % gameDate.hour);
+    LOGF(F("\tMinute: %1%") % gameDate.minute);
+    LOGF(F("\tSecond: %1%") % gameDate.second);
+    LOGF(F("\tTime: %1%") % gameDate.time);
+    
+    LOG("Delta:");
+    LOGF(F("\tYear: %1%") % delta.year);
+    LOGF(F("\tMonth: %1%") % delta.month);
+    LOGF(F("\tDay: %1%") % delta.day);
+    LOGF(F("\tHour: %1%") % delta.hour);
+    LOGF(F("\tMinute: %1%") % delta.minute);
+    LOGF(F("\tSecond: %1%") % delta.second);
+    LOGF(F("\tTime: %1%") % delta.time);
 }
 
 void DayTimeEntity::onStop()

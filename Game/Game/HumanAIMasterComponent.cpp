@@ -54,7 +54,7 @@ void HumanAIMasterComponent::onUpdate()
         }
         if(highestNeed != nullptr && _currentNeed != highestNeed)
         {
-            std::cout << "Priority winner is: " << highestNeed->getNeedName() << "\nwith priority: " << highestNeed->getPriority() << "\n";
+            LOGF(F("Priority winner is %1% with highest priority %2%") % highestNeed->getNeedName() % highestNeed->getPriority());
             if(_currentNeed)
             _currentNeed->setEnabled(false);
             _currentNeed = highestNeed;

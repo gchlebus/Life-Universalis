@@ -36,7 +36,7 @@ GameEngine::~GameEngine()
 
 void GameEngine::gameLoop()
 {
-	std::cout << "\n\n\n*******\nStarting game...\n*******\n";
+	LOG("\n\n\n*******\nStarting game...\n*******");
 	//Call start on all objects in current environment
 	if(currentEnvironment != 0)
 	{
@@ -56,7 +56,7 @@ void GameEngine::gameLoop()
 		}
 		//std::cout << "\n\n";
 	}
-	std::cout << "Game started!\n*******\n";
+	LOG("Game started!\n*******");
 
 	kernel->timer->tick();
 	accumulatedDeltaTime = 0;

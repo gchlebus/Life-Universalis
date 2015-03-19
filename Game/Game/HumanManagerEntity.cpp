@@ -23,7 +23,7 @@ void HumanManagerEntity::onStart()
 
 void HumanManagerEntity::onUpdate()
 {
-	std::cout << "HumanManager sie kurwa update'uje!!!!!!!!!!\n";
+	LOG("HumanManager sie kurwa update'uje!!!!!!!!!!");
     
     
     DayTimeEntity *dt = (DayTimeEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
