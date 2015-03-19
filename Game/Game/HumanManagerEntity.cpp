@@ -23,10 +23,10 @@ void HumanManagerEntity::onStart()
 
 void HumanManagerEntity::onUpdate()
 {
-	LOG("HumanManager sie kurwa update'uje!!!!!!!!!!");
+//	LOG("HumanManager sie kurwa update'uje!!!!!!!!!!");
     
     
-    DayTimeEntity *dt = (DayTimeEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
+//    DayTimeEntity *dt = (DayTimeEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
     
 //    if(dt->getCurrentGameDate().minute == 5)
 //    {

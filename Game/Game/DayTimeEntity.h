@@ -101,7 +101,10 @@ public:
 
 	GameDate getCurrentGameDate();
 	GameDate getLastDelta();
+    
+    void showOutputNextFrame() { show = true; }
 protected:
 	GameDate gameDate;
 	GameDate delta;
+    bool show;
 };

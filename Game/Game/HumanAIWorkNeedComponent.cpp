@@ -19,7 +19,7 @@ HumanAIWorkNeedComponent::HumanAIWorkNeedComponent() : HumanAINeedComponent("Wor
 
 void HumanAIWorkNeedComponent::onEnabled()
 {
-    LOG("Work is turned on!\n");
+    LOG("Work is turned on!");
 }
 
 void HumanAIWorkNeedComponent::onDisabled()
@@ -41,6 +41,7 @@ void HumanAIWorkNeedComponent::onUpdate()
     if(_currentState == HAIW_IDLE)
     {
         _estimateTravelScheduling();
+        _dayTime->showOutputNextFrame();
         LOGF(F("Mam jeszcze tyle minut: %1%") % _minutesToHitTheRoad);
         if(_minutesToHitTheRoad <= 15.0f) //15 minutes for margin. It is better to wait than to be late
         {
@@ -57,6 +58,7 @@ void HumanAIWorkNeedComponent::onUpdate()
         if(_humanComponent->humanMotion->isAtTargetPosition())
         {
             _currentState = HAIW_WAITING_FOR_WORK;
+            _dayTime->showOutputNextFrame();
             LOGF(F("Czekam na prace! Zaczynam za %1%")%_minutesLeft);
             LOGF(F("Computed priority: %1%") % getPriority());
         }
@@ -68,6 +70,7 @@ void HumanAIWorkNeedComponent::onUpdate()
         {
             _currentState = HAIW_WORKING;
             _humanComponent->getWorkplace()->startWork();
+            _dayTime->showOutputNextFrame();
             LOG("ZACZALEM PRACE!!!");
             LOGF(F("Computed priority: %1%") % getPriority());
         }
@@ -81,6 +84,7 @@ void HumanAIWorkNeedComponent::onUpdate()
             _currentState = HAIW_IDLE;
             _canBeCancelled = true;
             _estimateWorkingDates(); //This is for determining new working dates. It has to be computed to set new priority
+            _dayTime->showOutputNextFrame();
             LOG("Skonczylem prace!!!");
             LOGF(F("Computed priority: %1%") % getPriority());
         }
@@ -119,11 +123,13 @@ void HumanAIWorkNeedComponent::_estimateTravelScheduling()
     Vector3 building = _humanComponent->getWorkplace()->parent->getParent()->getTransform().getWorldPosition();
     
     float dist = (pos - building).norm();
+    _dayTime->showOutputNextFrame();
     LOGF(F("\t\tDist: %1%") % dist);
     _minutesLeft = _nextWorkStart.time - currentTime.time;
     _minutesNeedToTravel = dist / _humanComponent->humanMotion->getSpeed();
     _minutesToHitTheRoad = _minutesLeft - _minutesNeedToTravel;
     
+    _dayTime->showOutputNextFrame();
     LOGF(F("Work starts in %1% minutes") % _minutesLeft);
 }
 
@@ -161,6 +167,7 @@ void HumanAIWorkNeedComponent::updatePriority()
     _priority = (1.0 - (_minutesToHitTheRoad / 30.0)) * 100.0;
     
     
+    _dayTime->showOutputNextFrame();
     LOG("Debugging shit:");
     LOGF(F("\tTravel mins %1%") % _minutesNeedToTravel);
     LOGF(F("\tMins left %1%") % _minutesLeft);

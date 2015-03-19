@@ -20,7 +20,7 @@ void BuildingManagerEntity::onStart()
 
 void BuildingManagerEntity::onUpdate()
 {
-	LOG("BuildingManager sie kurwa update'uje!!!!!!!!!!");
+//	LOG("BuildingManager sie kurwa update'uje!!!!!!!!!!");
     
 }
 
