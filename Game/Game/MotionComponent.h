@@ -5,47 +5,41 @@
 class DayTimeEntity;
 
 class MotionComponent
-  : public GameObjectComponent
+    : public GameObjectComponent
 {
 public:
     MotionComponent();
 
-    void onStart();
     void onBeforeFirstUpdate();
     void onUpdate();
     void onAttachToParent();
-    void onDetachFromParent();
-    void onDelete();
-    void onEnabled();
-    void onDisabled();
 
     void setTargetPosition(const Vector3 &targetPosition);
     const Vector3& getTargetPosition() const;
+
+    bool isAtTargetPosition();
+
     void setSpeed(const float speed);
     float getSpeed() const;
-    
+
     void setThreshold(const float threshold);
     float getThreshold() const;
-    
-    bool isAtTargetPosition();
-    
+
 private:
+    bool _shouldMove();
     void _computeDistanceVector();
     void _alignForwardVectorWithDistanceVector();
     bool _shouldAlignForwardVector();
-    void _move();
 
+    void _move();
     Vector3 _targetPosition;
     Vector3 _distanceVector;
-    
     bool _isMoving;
-
     //! Distance units / game time minute.
     float _speed;
-    
-    //! Distance in which the position will be accepted as target reached
+    //! Distance in which the position will be accepted as target reached.
     float _threshold;
-
     DayTimeEntity *_dayTime;
+
     Transform *_parentTransform;
 };

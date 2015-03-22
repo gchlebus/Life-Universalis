@@ -3,14 +3,12 @@
 
 MotionComponent::MotionComponent()
     : GameObjectComponent("MotionComponent")
+      , _targetPosition(0.f, 0.f, 0.f)
+      , _isMoving(false)
+      , _speed(1.f)
+      , _threshold(1e-5)
     , _dayTime(nullptr)
-{
-    _isMoving = false;
-    _speed = 1.0f;
-    _threshold = 2.0f;
-}
-
-void MotionComponent::onStart()
+      , _parentTransform(nullptr)
 {
 }
 
@@ -21,36 +19,28 @@ void MotionComponent::onBeforeFirstUpdate()
 
 void MotionComponent::onUpdate()
 {
-    if ((_speed > 0) && _isMoving)
+    if (!_shouldMove())
+        return;
+
+    if (isAtTargetPosition())
     {
-        _computeDistanceVector();
+        _isMoving = false;
+    }
+    else {
         _alignForwardVectorWithDistanceVector();
         _move();
     }
+}
+
+bool MotionComponent::_shouldMove()
+{
+    return (_speed > 0) && _isMoving;
 }
 
 void MotionComponent::onAttachToParent()
 {
     _parentTransform = &_parent->getTransform();
     _targetPosition = _parentTransform->getWorldPosition();
-}
-
-void MotionComponent::onDetachFromParent()
-{
-  
-}
-
-void MotionComponent::onDelete()
-{
-  
-}
-void MotionComponent::onEnabled()
-{
-    
-}
-void MotionComponent::onDisabled()
-{
-    
 }
 
 void MotionComponent::setTargetPosition(const Vector3 &targetPosition)
@@ -86,6 +76,7 @@ float MotionComponent::getThreshold() const
 
 bool MotionComponent::isAtTargetPosition()
 {
+    _computeDistanceVector();
     return _distanceVector.norm() <= _threshold;
 }
 
@@ -96,29 +87,27 @@ void MotionComponent::_computeDistanceVector()
 
 void MotionComponent::_alignForwardVectorWithDistanceVector()
 {
-    if (_shouldAlignForwardVector())
-    {
-        Vector3 forward = _parentTransform->getForwardVersor();
-        Vector3 newForward = _distanceVector.normalized();
-        float angle = acos(forward.dot(newForward));
-        Vector3 axis = forward.cross(newForward).normalized();
-        _parentTransform->rotate(axis, angle);
-    }
+    if (!_shouldAlignForwardVector())
+        return;
+
+    Vector3 forward = _parentTransform->getForwardVersor();
+    Vector3 newForward = _distanceVector.normalized();
+    float angle = acos(forward.dot(newForward));
+    Vector3 axis = forward.cross(newForward).normalized();
+    _parentTransform->rotate(axis, angle);
 }
 
 bool MotionComponent::_shouldAlignForwardVector()
 {
-    if(_distanceVector.norm() > 0.0)
-        return _distanceVector.normalized().dot(_parentTransform->getForwardVersor()) < 0.999;
-    return false;
+    return _distanceVector.normalized().dot(_parentTransform->getForwardVersor()) < 0.999;
 }
 
 void MotionComponent::_move()
 {
     float deltaTime = (float)_dayTime->getLastDelta().time;
     Vector3 motionVector = _speed * deltaTime * _distanceVector.normalized();
-    
-    if (_distanceVector.norm() <= 0.0001f || _distanceVector.norm() < motionVector.norm())
+
+    if (_distanceVector.norm() < motionVector.norm())
     {
         _parentTransform->setWorldPosition(_targetPosition);
         _isMoving = false;
