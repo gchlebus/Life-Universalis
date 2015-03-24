@@ -32,6 +32,7 @@ TEST_F(GameObjectTest, StartTest)
 TEST_F(GameObjectTest, UpdateTest)
 {
 	GameObjectComponentMock *component = new GameObjectComponentMock();
+    EXPECT_CALL(*component, onBeforeFirstUpdate()).Times(1);
 	EXPECT_CALL(*component, onUpdate()).Times(1);
 	gameObject.addComponent(component);
 	gameObject.update();
