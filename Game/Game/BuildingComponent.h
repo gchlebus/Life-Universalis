@@ -12,6 +12,7 @@
 
 class Workplace;
 class Service;
+class Queue;
 
 class BuildingComponent : public GameObjectComponent
 {
@@ -30,5 +31,5 @@ public:
     
     std::vector<Workplace*> workplaces;
     Service *service;
-    
+    Queue *queue;
 };

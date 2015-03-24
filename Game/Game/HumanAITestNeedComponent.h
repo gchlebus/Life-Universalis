@@ -11,7 +11,17 @@
 #include <GameEngine.h>
 #include "HumanAINeedComponent.h"
 
+enum HAITState
+{
+    HAIT_IDLE,
+    HAIT_GOING,
+    HAIT_WAITING_IN_QUEUE,
+    HAIT_CONSUMING,
+};
+
 class HumanComponent;
+class Service;
+class BuildingManagerEntity;
 
 class HumanAITestNeedComponent : public HumanAINeedComponent
 {
@@ -19,19 +29,21 @@ public:
     HumanAITestNeedComponent();
     ~HumanAITestNeedComponent();
     
-    void onStart();
-    void onBeforeFirstUpdate();
     void onUpdate();
-    void onAttachToParent();
-    void onDetachFromParent();
-    void onDelete();
     void onEnabled();
     void onDisabled();
     
     std::string getNeedName();
     
 protected:
+    void computeBestService();
     virtual void updateFulfillment() override;
 
     virtual void updatePriority() override;
+    
+    HAITState state;
+    Service* bestService;
+    int myQueueIndex;
+    
+    BuildingManagerEntity* buildingManager;
 };

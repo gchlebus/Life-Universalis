@@ -11,31 +11,72 @@
 #include "BuildingManagerEntity.h"
 #include "BuildingComponent.h"
 #include "Service.h"
+#include "HumanIncludes.h"
+#include "Queue.h"
 
 
 HumanAITestNeedComponent::HumanAITestNeedComponent()
 : HumanAINeedComponent("Test")
 {
     _fulfillment = 1.0;
+    buildingManager = (BuildingManagerEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_BUILDING_MGR);
+    state = HAIT_IDLE;
 }
 
 HumanAITestNeedComponent::~HumanAITestNeedComponent()
 {
 }
 
-void HumanAITestNeedComponent::onStart()
-{
-}
-
-void HumanAITestNeedComponent::onBeforeFirstUpdate()
-{
-}
-
 void HumanAITestNeedComponent::onUpdate()
 {
-    BuildingManagerEntity* bm = (BuildingManagerEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_BUILDING_MGR);
-    
-    std::vector<GameObject*> buildings = bm->getBuildings();
+    if(state == HAIT_IDLE)
+    {
+        computeBestService();
+        if(bestService != nullptr)
+        {
+            state = HAIT_GOING;
+            _humanComponent->humanMotion->setTargetPosition(bestService->getParent()->getParent()->getTransform().getWorldPosition());
+        }
+    }
+    else if(state == HAIT_GOING)
+    {
+        if(_humanComponent->humanMotion->isAtTargetPosition())
+        {
+            if(bestService->getParent()->queue->enter(myQueueIndex, true))
+            {
+                state = HAIT_WAITING_IN_QUEUE;
+            }
+        }
+    }
+    else if(state == HAIT_WAITING_IN_QUEUE)
+    {
+        
+    }
+    //Just for tests
+//    for(auto e : services)
+//        std::cout <<"Found service!\n\tRating: " << e.second << "\n";
+}
+
+void HumanAITestNeedComponent::onEnabled()
+{
+    LOG("Test is turned on!");
+    state = HAIT_IDLE;
+}
+
+void HumanAITestNeedComponent::onDisabled()
+{
+    LOG("Test is turned off!");
+}
+
+std::string HumanAITestNeedComponent::getNeedName()
+{
+    return "Test";
+}
+
+void HumanAITestNeedComponent::computeBestService()
+{
+    bestService = nullptr;
+    std::vector<GameObject*> buildings = buildingManager->getBuildings();
     std::list<std::pair<Service*, float>> services;
     
     Transform* t = &_parent->getTransform();
@@ -59,36 +100,9 @@ void HumanAITestNeedComponent::onUpdate()
                   {
                       return first.second >= second.second;
                   });
-    
-    //Just for tests
-//    for(auto e : services)
-//        std::cout <<"Found service!\n\tRating: " << e.second << "\n";
-}
 
-void HumanAITestNeedComponent::onAttachToParent()
-{
-}
-
-void HumanAITestNeedComponent::onDetachFromParent()
-{
-}
-
-void HumanAITestNeedComponent::onDelete()
-{
-}
-void HumanAITestNeedComponent::onEnabled()
-{
-    LOG("Test is turned on!");
-}
-
-void HumanAITestNeedComponent::onDisabled()
-{
-    LOG("Test is turned off!");
-}
-
-std::string HumanAITestNeedComponent::getNeedName()
-{
-    return "Test";
+    if(services.size() != 0)
+        bestService = services.front().first;
 }
 
 void HumanAITestNeedComponent::updateFulfillment()
