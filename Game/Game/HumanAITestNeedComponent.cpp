@@ -29,29 +29,29 @@ HumanAITestNeedComponent::~HumanAITestNeedComponent()
 
 void HumanAITestNeedComponent::onUpdate()
 {
-    if(state == HAIT_IDLE)
-    {
-        computeBestService();
-        if(bestService != nullptr)
-        {
-            state = HAIT_GOING;
-            _humanComponent->humanMotion->setTargetPosition(bestService->getParent()->getParent()->getTransform().getWorldPosition());
-        }
-    }
-    else if(state == HAIT_GOING)
-    {
-        if(_humanComponent->humanMotion->isAtTargetPosition())
-        {
-            if(bestService->getParent()->queue->enter(myQueueIndex, true))
-            {
-                state = HAIT_WAITING_IN_QUEUE;
-            }
-        }
-    }
-    else if(state == HAIT_WAITING_IN_QUEUE)
-    {
-        
-    }
+//    if(state == HAIT_IDLE)
+//    {
+//        computeBestService();
+//        if(bestService != nullptr)
+//        {
+//            state = HAIT_GOING;
+//            _humanComponent->humanMotion->setTargetPosition(bestService->getParent()->getParent()->getTransform().getWorldPosition());
+//        }
+//    }
+//    else if(state == HAIT_GOING)
+//    {
+//        if(_humanComponent->humanMotion->isAtTargetPosition())
+//        {
+//            if(bestService->getParent()->queue->enter(myQueueIndex, true))
+//            {
+//                state = HAIT_WAITING_IN_QUEUE;
+//            }
+//        }
+//    }
+//    else if(state == HAIT_WAITING_IN_QUEUE)
+//    {
+//        
+//    }
     //Just for tests
 //    for(auto e : services)
 //        std::cout <<"Found service!\n\tRating: " << e.second << "\n";

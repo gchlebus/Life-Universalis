@@ -7,26 +7,50 @@
 //
 
 #pragma once
+#include <GameEngine.h>
+#include "GlobalHeaders.h"
+
+class HumanComponent;
+
+//class Queue
+//{
+//public:
+//    Queue(int sizeMax);
+//    ~Queue();
+//    
+//    bool enter(int &index, bool aquireIndex = false);
+//    void leave();
+//    
+//    int getQueueSize();
+//    int getQueueMaxSize();
+//    
+//protected:
+//    int getCurrentIndex();
+//    int peekNextIndex();
+//    int getNextIndex();
+//    
+//    int _sizeMax;
+//    int _currentIndex;
+//    int _lastIndex;
+//private:
+//};
 
 class Queue
 {
 public:
-    Queue(int sizeMax);
-    ~Queue();
+    Queue(int maxSize);
     
-    bool enter(int &index, bool aquireIndex = false);
-    void leave();
+    int getSize();
+    int getMaxSize();
     
-    int getQueueSize();
-    int getQueueMaxSize();
+    void setUnitDuration(float duration);
+    float getUnitDuration();
+    
+    bool enter(HumanComponent* human);
+    void leave(HumanComponent* human);
     
 protected:
-    int getCurrentIndex();
-    int peekNextIndex();
-    int getNextIndex();
-    
-    int _sizeMax;
-    int _currentIndex;
-    int _lastIndex;
-private:
+    std::list<HumanComponent*> _humans;
+    int _maxSize;
+    float _duration;
 };

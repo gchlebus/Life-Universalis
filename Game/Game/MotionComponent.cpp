@@ -10,10 +10,6 @@ MotionComponent::MotionComponent()
     _threshold = 2.0f;
 }
 
-void MotionComponent::onStart()
-{
-}
-
 void MotionComponent::onBeforeFirstUpdate()
 {
     _dayTime = (DayTimeEntity*)(GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME));
@@ -35,28 +31,20 @@ void MotionComponent::onAttachToParent()
     _targetPosition = _parentTransform->getWorldPosition();
 }
 
-void MotionComponent::onDetachFromParent()
+void MotionComponent::abort(unsigned int priority)
 {
-  
+    if(priority >= _lastPriority)
+        _isMoving = false;
 }
 
-void MotionComponent::onDelete()
+void MotionComponent::setTargetPosition(const Vector3 &targetPosition, unsigned int priority)
 {
-  
-}
-void MotionComponent::onEnabled()
-{
-    
-}
-void MotionComponent::onDisabled()
-{
-    
-}
-
-void MotionComponent::setTargetPosition(const Vector3 &targetPosition)
-{
-    _isMoving = true;
-    _targetPosition = targetPosition;
+    if((_isMoving && priority >= _lastPriority) || !_isMoving)
+    {
+        _isMoving = true;
+        _targetPosition = targetPosition;
+        _lastPriority = priority;
+    }
 }
 
 const Vector3& MotionComponent::getTargetPosition() const

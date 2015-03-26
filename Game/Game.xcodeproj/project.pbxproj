@@ -229,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				D570076D1AAE299D00A270D5 /* HumanIncludes.h */,
+				D55B9F9F1AC4CE77008739F2 /* Interactions */,
 				088759D11A940AE2008786DA /* Motion */,
 				D551EAAC1A92ABC20058B9A2 /* AI */,
 				087655CB1A9D336E00A9222B /* HumanComponent.cpp */,
@@ -273,6 +274,13 @@
 				08129F081A91466000849B4E /* HumanAISeekJobComponent.h */,
 			);
 			name = SeekJob;
+			sourceTree = "<group>";
+		};
+		D55B9F9F1AC4CE77008739F2 /* Interactions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Interactions;
 			sourceTree = "<group>";
 		};
 		D58A0EE41A967BC400700467 /* HumanNeed */ = {

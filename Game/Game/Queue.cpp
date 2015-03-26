@@ -10,52 +10,89 @@
 
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 
-Queue::Queue(int sizeMax)
+
+Queue::Queue(int maxSize)
 {
-    _sizeMax = sizeMax;
-    _currentIndex = 0;
-    _lastIndex = 0;
+    _maxSize = maxSize;
 }
 
-int Queue::getCurrentIndex()
+int Queue::getSize()
 {
-    return _currentIndex;
+    return (int)_humans.size();
+}
+int Queue::getMaxSize()
+{
+    return _maxSize;
 }
 
-int Queue::peekNextIndex()
+void Queue::setUnitDuration(float duration)
 {
-    return _lastIndex + 1;
+    _duration = duration;
+}
+float Queue::getUnitDuration()
+{
+    return _duration;
 }
 
-int Queue::getNextIndex()
+bool Queue::enter(HumanComponent* human)
 {
-    return _lastIndex++;
+    if(_humans.size() >= _maxSize)
+        return false;
+    _humans.push_back(human);
+    return false;
+}
+void Queue::leave(HumanComponent* human)
+{
+    _humans.remove(human);
 }
 
-int Queue::getQueueSize()
-{
-    return ABS(_lastIndex - _currentIndex) % _sizeMax;
-}
 
-int Queue::getQueueMaxSize()
-{
-    return _sizeMax;
-}
-
-bool Queue::enter(int &index, bool aquireIndex)
-{
-    if(aquireIndex)
-    {
-        index = getNextIndex();
-    }
-    
-    return _currentIndex == index;
-}
-
-void Queue::leave()
-{
-    if(_currentIndex < _lastIndex)
-    {
-        _currentIndex++;
-    }
-}
+//Queue::Queue(int sizeMax)
+//{
+//    _sizeMax = sizeMax;
+//    _currentIndex = 0;
+//    _lastIndex = 0;
+//}
+//
+//int Queue::getCurrentIndex()
+//{
+//    return _currentIndex;
+//}
+//
+//int Queue::peekNextIndex()
+//{
+//    return _lastIndex + 1;
+//}
+//
+//int Queue::getNextIndex()
+//{
+//    return _lastIndex++;
+//}
+//
+//int Queue::getQueueSize()
+//{
+//    return ABS(_lastIndex - _currentIndex) % _sizeMax;
+//}
+//
+//int Queue::getQueueMaxSize()
+//{
+//    return _sizeMax;
+//}
+//
+//bool Queue::enter(int &index, bool aquireIndex)
+//{
+//    if(aquireIndex)
+//    {
+//        index = getNextIndex();
+//    }
+//    
+//    return _currentIndex == index;
+//}
+//
+//void Queue::leave()
+//{
+//    if(_currentIndex < _lastIndex)
+//    {
+//        _currentIndex++;
+//    }
+//}
