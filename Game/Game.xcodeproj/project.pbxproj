@@ -43,6 +43,7 @@
 		088759CE1A940ACD008786DA /* MotionComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759CC1A940ACD008786DA /* MotionComponent.cpp */; };
 		088759D01A940ADE008786DA /* MotionComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 088759CF1A940ADE008786DA /* MotionComponent.h */; };
 		66238EE41AB57C2F0080E53B /* Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66238EE21AB57C2F0080E53B /* Queue.cpp */; };
+		D50B91AC1AC64B23006ECA05 /* GoToHumanTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D50B91AA1AC64B23006ECA05 /* GoToHumanTask.cpp */; };
 		D55B9FA21AC4D250008739F2 /* HumanTaskQueueComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D55B9FA01AC4D250008739F2 /* HumanTaskQueueComponent.cpp */; };
 		D55B9FA61AC4D322008739F2 /* HumanTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D55B9FA41AC4D322008739F2 /* HumanTask.cpp */; };
 		D58A0EE71A967BF900700467 /* HumanAINeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D58A0EE51A967BF900700467 /* HumanAINeedComponent.cpp */; };
@@ -91,6 +92,8 @@
 		088759CF1A940ADE008786DA /* MotionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionComponent.h; sourceTree = "<group>"; };
 		66238EE21AB57C2F0080E53B /* Queue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Queue.cpp; sourceTree = "<group>"; };
 		66238EE31AB57C2F0080E53B /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		D50B91AA1AC64B23006ECA05 /* GoToHumanTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GoToHumanTask.cpp; sourceTree = "<group>"; };
+		D50B91AB1AC64B23006ECA05 /* GoToHumanTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoToHumanTask.h; sourceTree = "<group>"; };
 		D55B9FA01AC4D250008739F2 /* HumanTaskQueueComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanTaskQueueComponent.cpp; sourceTree = "<group>"; };
 		D55B9FA11AC4D250008739F2 /* HumanTaskQueueComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanTaskQueueComponent.h; sourceTree = "<group>"; };
 		D55B9FA41AC4D322008739F2 /* HumanTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanTask.cpp; sourceTree = "<group>"; };
@@ -177,6 +180,15 @@
 				66238EE31AB57C2F0080E53B /* Queue.h */,
 			);
 			name = Queue;
+			sourceTree = "<group>";
+		};
+		D50B91A91AC64AA6006ECA05 /* GoTo */ = {
+			isa = PBXGroup;
+			children = (
+				D50B91AA1AC64B23006ECA05 /* GoToHumanTask.cpp */,
+				D50B91AB1AC64B23006ECA05 /* GoToHumanTask.h */,
+			);
+			name = GoTo;
 			sourceTree = "<group>";
 		};
 		D551EAA61A92A78B0058B9A2 /* Components */ = {
@@ -295,6 +307,7 @@
 		D55B9FA31AC4D2D0008739F2 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				D50B91A91AC64AA6006ECA05 /* GoTo */,
 				D55B9FA41AC4D322008739F2 /* HumanTask.cpp */,
 				D55B9FA51AC4D322008739F2 /* HumanTask.h */,
 			);
@@ -438,6 +451,7 @@
 				D55B9FA21AC4D250008739F2 /* HumanTaskQueueComponent.cpp in Sources */,
 				08129F141A91466000849B4E /* BuildingTestComponent.cpp in Sources */,
 				66238EE41AB57C2F0080E53B /* Queue.cpp in Sources */,
+				D50B91AC1AC64B23006ECA05 /* GoToHumanTask.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

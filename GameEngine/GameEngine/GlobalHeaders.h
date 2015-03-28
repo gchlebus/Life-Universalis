@@ -7,6 +7,7 @@
 #include <map>
 #include <set>
 #include <algorithm>
+#include <queue>
 #include <boost/thread.hpp>
 #include <boost/algorithm/clamp.hpp>
 #include <boost/format.hpp>

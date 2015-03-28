@@ -16,6 +16,9 @@
 #include "HumanAIMasterComponent.h"
 #include "HumanAIWorkNeedComponent.h"
 
+#include "HumanTaskQueueComponent.h"
+#include "GoToHumanTask.h"
+
 
 
 

@@ -17,17 +17,27 @@ enum HumanTaskState
     HTS_GOING,
     HTS_EXECUTING,
     HTS_FINISHING,
-    HTS_ABORTING,
+    HTS_DONE
 };
 
 class HumanTask
 {
 public:
-    virtual void onTaskUpdate() = 0;
+    HumanTask();
+    virtual ~HumanTask();
     virtual std::string getTaskName() = 0;
+    virtual void update() = 0;
+    
+    void execute();
+    void finish();
+    void forceAbort();
     
     HumanTaskState getState();
+    HumanComponent *_humanComponent;
 protected:
     HumanTaskState _state;
-    HumanComponent *_humanComponent;
+    
+    virtual void onExecute();
+    virtual void onFinish();
+    virtual void onForceAbort();
 };

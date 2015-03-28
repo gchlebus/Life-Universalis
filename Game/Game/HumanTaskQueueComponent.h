@@ -8,10 +8,25 @@
 
 #pragma once
 #include <GameEngine.h>
+#include "GlobalHeaders.h"
+
+class HumanTask;
+class HumanComponent;
 
 class HumanTaskQueueComponent : public GameObjectComponent
 {
 public:
+    HumanTaskQueueComponent();
+    
+    void addTask(HumanTask *task);
+    HumanTask* getCurrentTask();
+    
+    void abortAllTasks();
+    
+    void onUpdate();
+    void onAttachToParent();
     
 protected:
+    HumanComponent* _humanComponent;
+    std::queue<HumanTask*> _tasks;
 };
