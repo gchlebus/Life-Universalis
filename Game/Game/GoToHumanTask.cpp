@@ -20,7 +20,7 @@ GoToHumanTask::~GoToHumanTask()
 }
 std::string GoToHumanTask::getTaskName()
 {
-    return "GoToHumanTask";
+    return "GoTo";
 }
 void GoToHumanTask::update()
 {

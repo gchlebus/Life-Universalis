@@ -49,6 +49,7 @@
 		D58A0EE71A967BF900700467 /* HumanAINeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D58A0EE51A967BF900700467 /* HumanAINeedComponent.cpp */; };
 		D58A0EEB1A967D0600700467 /* HumanAITestNeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D58A0EE91A967D0600700467 /* HumanAITestNeedComponent.cpp */; };
 		D5B69CAB1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5B69CA91AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp */; };
+		D5D91EBE1AC7296100EB6FD4 /* UseServiceHumanTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5D91EBD1AC7296100EB6FD4 /* UseServiceHumanTask.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,6 +107,8 @@
 		D58A0EEA1A967D0600700467 /* HumanAITestNeedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanAITestNeedComponent.h; sourceTree = "<group>"; };
 		D5B69CA91AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanAIWorkNeedComponent.cpp; sourceTree = "<group>"; };
 		D5B69CAA1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanAIWorkNeedComponent.h; sourceTree = "<group>"; };
+		D5D91EBC1AC728FD00EB6FD4 /* UseServiceHumanTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UseServiceHumanTask.h; sourceTree = "<group>"; };
+		D5D91EBD1AC7296100EB6FD4 /* UseServiceHumanTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UseServiceHumanTask.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +310,8 @@
 		D55B9FA31AC4D2D0008739F2 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				D5D91EBB1AC728DF00EB6FD4 /* UseService */,
+				D5D91EBA1AC7287000EB6FD4 /* Work */,
 				D50B91A91AC64AA6006ECA05 /* GoTo */,
 				D55B9FA41AC4D322008739F2 /* HumanTask.cpp */,
 				D55B9FA51AC4D322008739F2 /* HumanTask.h */,
@@ -341,6 +346,22 @@
 				D5B69CAA1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.h */,
 			);
 			name = WorkNeed;
+			sourceTree = "<group>";
+		};
+		D5D91EBA1AC7287000EB6FD4 /* Work */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Work;
+			sourceTree = "<group>";
+		};
+		D5D91EBB1AC728DF00EB6FD4 /* UseService */ = {
+			isa = PBXGroup;
+			children = (
+				D5D91EBD1AC7296100EB6FD4 /* UseServiceHumanTask.cpp */,
+				D5D91EBC1AC728FD00EB6FD4 /* UseServiceHumanTask.h */,
+			);
+			name = UseService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,6 +460,7 @@
 				087655CD1A9D336E00A9222B /* HumanComponent.cpp in Sources */,
 				D5B69CAB1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp in Sources */,
 				08129F171A91466000849B4E /* HumanAISeekJobComponent.cpp in Sources */,
+				D5D91EBE1AC7296100EB6FD4 /* UseServiceHumanTask.cpp in Sources */,
 				08129F1C1A91466000849B4E /* Workplace.cpp in Sources */,
 				087655AD1A9BE5E400A9222B /* Service.cpp in Sources */,
 				D58A0EEB1A967D0600700467 /* HumanAITestNeedComponent.cpp in Sources */,
