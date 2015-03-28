@@ -46,6 +46,12 @@
 		D58A0EE71A967BF900700467 /* HumanAINeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D58A0EE51A967BF900700467 /* HumanAINeedComponent.cpp */; };
 		D58A0EEB1A967D0600700467 /* HumanAITestNeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D58A0EE91A967D0600700467 /* HumanAITestNeedComponent.cpp */; };
 		D5B69CAB1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5B69CA91AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp */; };
+		F83B41F8DDCC77B2581C430C /* HumanAINeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D58A0EE51A967BF900700467 /* HumanAINeedComponent.cpp */; };
+		F83B42DE8312AFB2658D9582 /* HumanAIRestNeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F83B4966274C9A0295EA3473 /* HumanAIRestNeedComponent.cpp */; };
+		F83B45A73267815FB3AAEC2E /* HumanAIRestNeedComponent.h in Sources */ = {isa = PBXBuildFile; fileRef = F83B46B22023A8B9A1C8E5A2 /* HumanAIRestNeedComponent.h */; };
+		F83B467E28D194A1306F2086 /* HumanAIRestNeedComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = F83B46B22023A8B9A1C8E5A2 /* HumanAIRestNeedComponent.h */; };
+		F83B46F4DDC2D942E92EC53E /* HumanAINeedComponent.h in Sources */ = {isa = PBXBuildFile; fileRef = D58A0EE61A967BF900700467 /* HumanAINeedComponent.h */; };
+		F83B4F7C831BD4308266C895 /* HumanAIRestNeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F83B4966274C9A0295EA3473 /* HumanAIRestNeedComponent.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,6 +103,8 @@
 		D58A0EEA1A967D0600700467 /* HumanAITestNeedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanAITestNeedComponent.h; sourceTree = "<group>"; };
 		D5B69CA91AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanAIWorkNeedComponent.cpp; sourceTree = "<group>"; };
 		D5B69CAA1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanAIWorkNeedComponent.h; sourceTree = "<group>"; };
+		F83B46B22023A8B9A1C8E5A2 /* HumanAIRestNeedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanAIRestNeedComponent.h; sourceTree = "<group>"; };
+		F83B4966274C9A0295EA3473 /* HumanAIRestNeedComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanAIRestNeedComponent.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +290,7 @@
 				D58A0EE81A967CE900700467 /* TestNeed */,
 				D58A0EE51A967BF900700467 /* HumanAINeedComponent.cpp */,
 				D58A0EE61A967BF900700467 /* HumanAINeedComponent.h */,
+				F83B4C32F08200C8182B48B0 /* RestNeed */,
 			);
 			name = HumanNeed;
 			sourceTree = "<group>";
@@ -304,6 +313,15 @@
 			name = WorkNeed;
 			sourceTree = "<group>";
 		};
+		F83B4C32F08200C8182B48B0 /* RestNeed */ = {
+			isa = PBXGroup;
+			children = (
+				F83B4966274C9A0295EA3473 /* HumanAIRestNeedComponent.cpp */,
+				F83B46B22023A8B9A1C8E5A2 /* HumanAIRestNeedComponent.h */,
+			);
+			name = RestNeed;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -314,6 +332,7 @@
 				087655AF1A9BE5E400A9222B /* Service.h in Headers */,
 				087655CF1A9D336E00A9222B /* HumanComponent.h in Headers */,
 				088759D01A940ADE008786DA /* MotionComponent.h in Headers */,
+				F83B467E28D194A1306F2086 /* HumanAIRestNeedComponent.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +429,7 @@
 				08129F121A91466000849B4E /* BuildingComponent.cpp in Sources */,
 				08129F141A91466000849B4E /* BuildingTestComponent.cpp in Sources */,
 				66238EE41AB57C2F0080E53B /* Queue.cpp in Sources */,
+				F83B4F7C831BD4308266C895 /* HumanAIRestNeedComponent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +456,10 @@
 				088759921A9290C1008786DA /* HumanManagerEntity.h in Sources */,
 				088759951A9290C1008786DA /* Workplace.cpp in Sources */,
 				088759961A9290C1008786DA /* Workplace.h in Sources */,
+				F83B42DE8312AFB2658D9582 /* HumanAIRestNeedComponent.cpp in Sources */,
+				F83B45A73267815FB3AAEC2E /* HumanAIRestNeedComponent.h in Sources */,
+				F83B41F8DDCC77B2581C430C /* HumanAINeedComponent.cpp in Sources */,
+				F83B46F4DDC2D942E92EC53E /* HumanAINeedComponent.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,9 +500,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
+					"\"$(inherited)\"",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../GameEngine/GameEngine,
+					/usr/local/include,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -527,9 +552,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
+					"\"$(inherited)\"",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../GameEngine/GameEngine,
+					/usr/local/include,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
