@@ -105,9 +105,10 @@ TEST_F(HumanTiredRestNeedTest, WhenHumanAtHome_AfterOnUpdateFulfillmentIncreases
     home.getTransform().setWorldPosition(Vector3(0, 0, 0));
     float prevFulfillment = restNeedComponent->getFulfillment();
 
+    engine.setLastDelta(2.5);
     restNeedComponent->onUpdate();
 
-    ASSERT_LT(prevFulfillment, restNeedComponent->getFulfillment());
+    ASSERT_FLOAT_EQ(prevFulfillment + 0.25, restNeedComponent->getFulfillment());
 }
 
 TEST_F(HumanTiredRestNeedTest, WhenHumanAtHome_AfterUpdateStatsFulfillmentIsNotChanged)

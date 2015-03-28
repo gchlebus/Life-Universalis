@@ -33,6 +33,8 @@ private:
 
     float _getTimeSinceLastUpdateInHours();
 
+    float _getHumanNeedRestTime();
+
     DayTimeEntity* _dayTime;
     State _state;
 };

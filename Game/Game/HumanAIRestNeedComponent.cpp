@@ -43,7 +43,8 @@ void HumanAIRestNeedComponent::onUpdate()
                 break;
         }
         case RESTING:
-            _fulfillment += 0.1;
+            double lastDeltaInHours = _dayTime->getLastDelta().time / 60;
+            _fulfillment += lastDeltaInHours / (_getHumanNeedRestTime() / 6);
             _fulfillment = boost::algorithm::clamp(_fulfillment, 0.f, 1.f);
     }
 }
@@ -65,10 +66,7 @@ void HumanAIRestNeedComponent::updatePriority()
 void HumanAIRestNeedComponent::updateFulfillment()
 {
     if (_state != RESTING)
-    {
-        const Settings* s = GameEngine::engine()->kernel->settings;
-        _fulfillment -= _getTimeSinceLastUpdateInHours() / s->humanNeedRestTime;
-    }
+        _fulfillment -= _getTimeSinceLastUpdateInHours() / _getHumanNeedRestTime();
 }
 
 float HumanAIRestNeedComponent::_getTimeSinceLastUpdateInHours()
@@ -82,4 +80,10 @@ void HumanAIRestNeedComponent::_getDayTimeEntity()
     GameEnvironmentEntity* e = GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
     assert(e != nullptr);
     _dayTime = static_cast<DayTimeEntity*>(e);
+}
+
+float HumanAIRestNeedComponent::_getHumanNeedRestTime()
+{
+    const Settings* s = GameEngine::engine()->kernel->settings;
+    return s->humanNeedRestTime;
 }
