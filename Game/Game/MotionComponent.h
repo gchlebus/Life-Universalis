@@ -10,7 +10,6 @@ class MotionComponent
 public:
     MotionComponent();
 
-    void onBeforeFirstUpdate();
     void onUpdate();
     void onAttachToParent();
 

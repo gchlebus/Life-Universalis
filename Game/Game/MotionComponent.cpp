@@ -10,11 +10,7 @@ MotionComponent::MotionComponent()
     , _dayTime(nullptr)
       , _parentTransform(nullptr)
 {
-}
-
-void MotionComponent::onBeforeFirstUpdate()
-{
-    _dayTime = (DayTimeEntity*)(GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME));
+    _dayTime = (DayTimeEntity*) (GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME));
 }
 
 void MotionComponent::onUpdate()
