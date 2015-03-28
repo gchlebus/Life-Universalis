@@ -13,8 +13,9 @@
 		0887596F1A928D81008786DA /* TransformUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0887596B1A928D81008786DA /* TransformUnitTest.cpp */; };
 		088759711A928DDF008786DA /* libGameEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 088759701A928DDF008786DA /* libGameEngine.a */; };
 		088759981A929238008786DA /* libGameLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 088759971A929238008786DA /* libGameLib.a */; };
-		0887599A1A92925A008786DA /* MotionComponentUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759991A92925A008786DA /* MotionComponentUnitTest.cpp */; };
 		088759AA1A93FBE2008786DA /* TestGameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759A91A93FBE2008786DA /* TestGameEngine.cpp */; };
+		F83B429E96A2A8E109E19AE6 /* MotionComponentUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759991A92925A008786DA /* MotionComponentUnitTest.cpp */; };
+		F83B4A4ECDFC357E32F9DFE7 /* HumanAIRestNeedComponentUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F83B4DEBC90C2FBFCA42B35D /* HumanAIRestNeedComponentUnitTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,7 @@
 		088759991A92925A008786DA /* MotionComponentUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MotionComponentUnitTest.cpp; sourceTree = "<group>"; };
 		088759A81A93F916008786DA /* TestGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGameEngine.h; sourceTree = "<group>"; };
 		088759A91A93FBE2008786DA /* TestGameEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestGameEngine.cpp; sourceTree = "<group>"; };
+		F83B4DEBC90C2FBFCA42B35D /* HumanAIRestNeedComponentUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanAIRestNeedComponentUnitTest.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				0887596B1A928D81008786DA /* TransformUnitTest.cpp */,
 				088759991A92925A008786DA /* MotionComponentUnitTest.cpp */,
 				087655B11A9BEF2600A9222B /* ServiceUnitTest.cpp */,
+				F83B4DEBC90C2FBFCA42B35D /* HumanAIRestNeedComponentUnitTest.cpp */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -166,7 +169,8 @@
 				0887596F1A928D81008786DA /* TransformUnitTest.cpp in Sources */,
 				088759AA1A93FBE2008786DA /* TestGameEngine.cpp in Sources */,
 				0887596C1A928D81008786DA /* main.cpp in Sources */,
-				0887599A1A92925A008786DA /* MotionComponentUnitTest.cpp in Sources */,
+				F83B4A4ECDFC357E32F9DFE7 /* HumanAIRestNeedComponentUnitTest.cpp in Sources */,
+				F83B429E96A2A8E109E19AE6 /* MotionComponentUnitTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
