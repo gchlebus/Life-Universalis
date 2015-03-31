@@ -11,16 +11,17 @@
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 
 
-Queue::Queue(int maxSize)
+Queue::Queue(size_t maxSize)
 {
     _maxSize = maxSize;
 }
 
-int Queue::getSize()
+size_t Queue::getSize()
 {
-    return (int)_humans.size();
+    return _humans.size();
 }
-int Queue::getMaxSize()
+
+size_t Queue::getMaxSize()
 {
     return _maxSize;
 }

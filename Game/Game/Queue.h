@@ -38,10 +38,11 @@ class HumanComponent;
 class Queue
 {
 public:
-    Queue(int maxSize);
-    
-    int getSize();
-    int getMaxSize();
+    Queue(size_t maxSize);
+
+    size_t getSize();
+
+    size_t getMaxSize();
     
     void setUnitDuration(float duration);
     float getUnitDuration();
@@ -51,6 +52,6 @@ public:
     
 protected:
     std::list<HumanComponent*> _humans;
-    int _maxSize;
+    size_t _maxSize;
     float _duration;
 };
