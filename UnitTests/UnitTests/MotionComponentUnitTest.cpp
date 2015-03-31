@@ -2,90 +2,113 @@
 
 #include <gtest/gtest.h>
 #include <MotionComponent.h>
-#include <GameEngine.h>
-#include <DayTimeEntity.h>
 
-class MotionComponentTest : public ::testing::Test
+class MotionComponentTest
+    : public ::testing::Test
 {
 protected:
-  void SetUp()
-  {
-    dayTimeEntity = new DayTimeEntity();
-    object = new GameObject();
-    motion = new MotionComponent();
-    
-    engine.engine->currentEnvironment->addEntity(dayTimeEntity);
-    object->addComponent(motion);
-    engine.engine->currentScene->addObject(object);
-    
-    engine.run();
-  }
-  
-  void TearDown()
-  {
-    engine.stop();
-    
-    delete dayTimeEntity;
-    delete object;
-  }
-  
-  void msWait(unsigned int ms)
-  {
-    boost::this_thread::sleep(boost::posix_time::milliseconds(ms));
-  }
-  
-  TestGameEngine engine;
-  DayTimeEntity *dayTimeEntity;
-  GameObject *object;
-  MotionComponent *motion;
+    MotionComponentTest()
+    {
+        motionComponent = new MotionComponent();
+        motionComponent->setSpeed(1.f);
+        gameObject.addComponent(motionComponent);
+    }
+
+    Vector3 getGameObjectForwardVersor()
+    {
+        return gameObject.getTransform().getForwardVersor();
+    }
+
+    Vector3 getGameObjectWorldPosition()
+    {
+        return gameObject.getTransform().getWorldPosition();
+    }
+
+    TestGameEngine engine;
+    GameObject gameObject;
+    MotionComponent* motionComponent;
 };
 
-TEST_F(MotionComponentTest, OnSetTargetAndNonZeroSpeed_FwdVectorPointsAtTargetPosition)
+TEST_F(MotionComponentTest, OnNoTargetSetAndGameObjectPositionChange_GameObjectDoesNotMove)
 {
-  Vector3 target(1.f, 1.f, 1.f);
-  motion->setSpeed(1);
-  motion->setTargetPosition(target);
-  
-  msWait(10);
-  
-  Vector3 fwd = object->getTransform().getForwardVersor();
-  ASSERT_FLOAT_EQ(1.0f, fwd.dot(target.normalized()));
+    Vector3 pos(1.f, 1.f, 1.f);
+    gameObject.getTransform().setWorldPosition(pos);
+
+    engine.setLastDelta(1);
+    motionComponent->onUpdate();
+
+    ASSERT_FLOAT_EQ(0.f, (getGameObjectWorldPosition() - pos).norm());
 }
 
-TEST_F(MotionComponentTest, OnSetTargetAndZeroSpeed_FwdVectorIsNotRotated)
+TEST_F(MotionComponentTest, OnTargetPositionEqualToCurrentPosition_GameObjectDoesNotMove)
 {
-  Vector3 target(1.f, 1.f, 1.f);
-  Vector3 oldFwd = object->getTransform().getForwardVersor();
-  motion->setSpeed(0);
-  motion->setTargetPosition(target);
-  
-  msWait(10);
-  
-  Vector3 newFwd = object->getTransform().getForwardVersor();
-  ASSERT_FLOAT_EQ(1.f, oldFwd.dot(newFwd));
+    Vector3 pos = getGameObjectWorldPosition();
+    motionComponent->setTargetPosition(pos);
+
+    engine.setLastDelta(1);
+    motionComponent->onUpdate();
+
+    ASSERT_FLOAT_EQ(0.f, (pos - getGameObjectWorldPosition()).norm());
 }
 
-TEST_F(MotionComponentTest, OnSetTargetAndNonZeroSpeed_GameObjectArrivesAtTarget)
+TEST_F(MotionComponentTest, OnTargetPositionEqualToCurrentPosition_GameObjectDoesNotRotate)
 {
-  Vector3 target(1.f, 1.f, 1.f);
-  motion->setSpeed(1);
-  motion->setTargetPosition(target);
-  
-  msWait(10);
-  
-  Vector3 pos = object->getTransform().getWorldPosition();
-  ASSERT_FLOAT_EQ(0.f, (target - pos).norm());
+    Vector3 fwd = getGameObjectForwardVersor();
+    motionComponent->setTargetPosition(getGameObjectWorldPosition());
+
+    motionComponent->onUpdate();
+
+    ASSERT_FLOAT_EQ(0.f, (getGameObjectForwardVersor() - fwd).norm());
 }
 
-TEST_F(MotionComponentTest, OnSetTargetAndZeroSpeed_GameObjectDoesNotMove)
+
+class SetTargetMotionComponentTest
+    : public MotionComponentTest
 {
-  Vector3 target(1.f, 1.f, 1.f);
-  Vector3 oldPos = object->getTransform().getWorldPosition();
-  motion->setSpeed(0);
-  motion->setTargetPosition(target);
-  
-  msWait(10);
-  
-  Vector3 newPos = object->getTransform().getWorldPosition();
-  ASSERT_FLOAT_EQ(0.f, (oldPos - newPos).norm());
+protected:
+    SetTargetMotionComponentTest()
+    {
+        // with speed=1 target should be reached in 5 min
+        target = Vector3(3.f, 4.f, 0.f);
+        motionComponent->setTargetPosition(target);
+    }
+
+    Vector3 target;
+};
+
+TEST_F(SetTargetMotionComponentTest, FwdVectorPointsAtTargetPosition)
+{
+    motionComponent->onUpdate();
+
+    ASSERT_FLOAT_EQ(1.0f, getGameObjectForwardVersor().dot(target.normalized()));
+}
+
+TEST_F(SetTargetMotionComponentTest, WhenGivenEnoughTime_GameObjectArrivesAtTarget)
+{
+    engine.setLastDelta(5);
+    motionComponent->onUpdate();
+
+    Vector3 pos = getGameObjectWorldPosition();
+    ASSERT_FLOAT_EQ(0.f, (target - pos).norm());
+}
+
+TEST_F(SetTargetMotionComponentTest, WhenZeroSpeed_FwdVectorIsNotRotated)
+{
+    Vector3 oldFwd = getGameObjectForwardVersor();
+    motionComponent->setSpeed(0);
+
+    motionComponent->onUpdate();
+
+    ASSERT_FLOAT_EQ(1.f, oldFwd.dot(getGameObjectForwardVersor()));
+}
+
+TEST_F(SetTargetMotionComponentTest, WhenZeroSpeed_GameObjectDoesNotMove)
+{
+    Vector3 oldPos = getGameObjectWorldPosition();
+    motionComponent->setSpeed(0);
+
+    engine.setLastDelta(1);
+    motionComponent->onUpdate();
+
+    ASSERT_FLOAT_EQ(0.f, (oldPos - getGameObjectWorldPosition()).norm());
 }
