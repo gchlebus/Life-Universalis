@@ -6,20 +6,12 @@ class ServiceTest
 {
 protected:
     ServiceTest()
-        : service("", nullptr)
+        : service(nullptr)
     {
     }
 
     Service service;
 };
-
-TEST_F(ServiceTest, ServiceName)
-{
-    std::string name = "Name";
-    Service s(name, nullptr);
-
-    ASSERT_EQ(name, s.getName());
-}
 
 TEST_F(ServiceTest, OnGetNotPresentAttribute_ReturnsZero)
 {

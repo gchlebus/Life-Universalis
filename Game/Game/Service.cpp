@@ -1,14 +1,8 @@
 #include "Service.h"
 
-Service::Service(const std::string& name, BuildingComponent* parent)
-: _name(name)
+Service::Service(BuildingComponent* parent)
 {
     _parent = parent;
-}
-
-const std::string& Service::getName() const
-{
-    return _name;
 }
 
 void Service::addAttribute(const std::string& attrName, float value)

@@ -9,10 +9,7 @@ class BuildingComponent;
 class Service
 {
 public:
-    //! \param name - Name of the service to be used for easy identification of the service.
-    Service(const std::string& name, BuildingComponent* parent);
-
-    const std::string& getName() const;
+    Service(BuildingComponent* parent);
 
     BuildingComponent* getParent();
 
@@ -28,5 +25,4 @@ private:
     
     BuildingComponent* _parent;
     AttributeMap _attributeMap;
-    std::string _name;
 };
