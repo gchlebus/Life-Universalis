@@ -25,8 +25,7 @@ class HumanTaskQueueComponent;
 
 
 //This class inherits from HumanTaskObserver class to implement mechanics of secific task.
-//It contains a pointer to this class too for external notifications (AI components).
-//This mechanism is fully automated.
+//This mechanism is semi-automatic.
 class HumanTask : public HumanTaskObserver
 {
 public:
