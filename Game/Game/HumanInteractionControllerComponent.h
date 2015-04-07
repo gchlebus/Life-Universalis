@@ -19,8 +19,6 @@ public:
     ~HumanInteractionControllerComponent();
     
     int executeInteraction(HumanInteraction* interaction); // 1 - OK 0 - Busy -1 - invalid interaction
-    void stopCurrentInteraction();
-    void forceAbortCurrentInteraction();
     
     HumanInteraction* getCurrentInteraction();
     

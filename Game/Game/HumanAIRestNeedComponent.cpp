@@ -32,7 +32,7 @@ void HumanAIRestNeedComponent::onUpdate()
         case IDLE:
         {
             const GameObject& home = *_humanComponent->getHome();
-            _humanComponent->humanMotion->setTargetPosition(home.getTransform().getWorldPosition(), MC_PRIORITY_INTERACTION);
+            _humanComponent->humanMotion->setTargetPosition(home.getTransform().getWorldPosition(), MC_PRIORITY_TASK);
             _state = GOING_HOME;
         }
         case GOING_HOME:

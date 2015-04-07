@@ -21,11 +21,11 @@ void HumanInteraction::onUpdate()
 {
     
 }
-void HumanInteraction::onStop()
+void HumanInteraction::onTerminateGracefully()
 {
     
 }
-void HumanInteraction::onForceAbort()
+void HumanInteraction::onTerminateImmediately()
 {
     
 }
@@ -40,15 +40,15 @@ void HumanInteraction::update()
 {
     onUpdate();
 }
-void HumanInteraction::stop()
+void HumanInteraction::terminateGracefully()
 {
-    _state = HIS_FINISHING;
-    onStop();
+    _state = HIS_TERMINATING;
+    onTerminateGracefully();
 }
-void HumanInteraction::forceAbort()
+void HumanInteraction::terminateImmediately()
 {
     _state = HIS_DONE;
-    onForceAbort();
+    onTerminateImmediately();
 }
 
 HumanInteractionState HumanInteraction::getState()

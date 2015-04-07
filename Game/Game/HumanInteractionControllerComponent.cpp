@@ -27,7 +27,6 @@ void HumanInteractionControllerComponent::onUpdate()
     }
 }
 
-
 int HumanInteractionControllerComponent::executeInteraction(HumanInteraction* interaction)
 {
     if(interaction == nullptr)
@@ -37,22 +36,6 @@ int HumanInteractionControllerComponent::executeInteraction(HumanInteraction* in
     _currentInteraction = interaction;
     _currentInteraction->execute(this);
     return 1;
-}
-
-void HumanInteractionControllerComponent::stopCurrentInteraction()
-{
-    if(_currentInteraction != nullptr)
-    {
-        _currentInteraction->stop();
-    }
-}
-
-void HumanInteractionControllerComponent::forceAbortCurrentInteraction()
-{
-    if(_currentInteraction != nullptr)
-    {
-        _currentInteraction->forceAbort();
-    }
 }
 
 HumanInteraction* HumanInteractionControllerComponent::getCurrentInteraction()

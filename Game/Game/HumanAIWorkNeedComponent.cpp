@@ -46,7 +46,7 @@ void HumanAIWorkNeedComponent::onUpdate()
         if(_minutesToHitTheRoad <= 15.0f) //15 minutes for margin. It is better to wait than to be late
         {
             _canBeCancelled = false;
-            _humanComponent->humanMotion->setTargetPosition(_humanComponent->getWorkplace()->parent->getParent()->getTransform().getWorldPosition(), MC_PRIORITY_INTERACTION);
+            _humanComponent->humanMotion->setTargetPosition(_humanComponent->getWorkplace()->parent->getParent()->getTransform().getWorldPosition(), MC_PRIORITY_TASK);
             _currentState = HAIW_GOING_TO_WORKPLACE;
             LOGF(F("Ide do pracy! Mam jeszcze %1%") % _minutesToHitTheRoad);
             LOGF(F("Computed priority: %1%") % getPriority());

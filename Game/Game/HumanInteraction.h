@@ -14,7 +14,7 @@ enum HumanInteractionState
 {
     HIS_IDLE,
     HIS_EXECUTING,
-    HIS_FINISHING,
+    HIS_TERMINATING,
     HIS_DONE
 };
 
@@ -25,18 +25,19 @@ public:
     HumanInteraction();
     
     virtual std::string getInteractionName() = 0;
+    void terminateGracefully();
+    void terminateImmediately();
     
-    virtual void onExecute();
-    virtual void onUpdate();
-    virtual void onStop();
-    virtual void onForceAbort();
     
     HumanInteractionState getState();
 protected:
     void execute(HumanInteractionControllerComponent *parent);
     void update();
-    void stop();
-    void forceAbort();
+    
+    virtual void onExecute();
+    virtual void onUpdate();
+    virtual void onTerminateGracefully();
+    virtual void onTerminateImmediately();
     
     HumanInteractionState _state;
     HumanInteractionControllerComponent *_parent;

@@ -22,7 +22,7 @@ std::string GoToHumanTask::getTaskName()
 {
     return "GoTo";
 }
-void GoToHumanTask::update()
+void GoToHumanTask::onUpdate()
 {
     
 }
@@ -32,11 +32,11 @@ void GoToHumanTask::onExecute()
 {
     
 }
-void GoToHumanTask::onFinish()
+void GoToHumanTask::onTerminateGracefully()
 {
     
 }
-void GoToHumanTask::onForceAbort()
+void GoToHumanTask::onTerminateImmediately()
 {
     
 }

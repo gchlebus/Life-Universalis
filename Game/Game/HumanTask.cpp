@@ -7,10 +7,12 @@
 //
 
 #include "HumanTask.h"
+#include "HumanIncludes.h"
 
 HumanTask::HumanTask()
 {
     _state = HTS_IDLE;
+//    observer = nullptr;
 }
 
 HumanTask::~HumanTask()
@@ -25,33 +27,75 @@ HumanTaskState HumanTask::getState()
 
 void HumanTask::execute()
 {
-    _state = HTS_EXECUTING;
-    this->onExecute();
+    goToTarget();
+    humanTaskDidExecute(this);
+}
+
+void HumanTask::update()
+{
+    if(_state == HTS_IDLE)
+    {
+        goToTarget();
+    }
+    else if(_state == HTS_GOING)
+    {
+        if(_humanComponent->humanMotion->isAtTargetPosition())
+        {
+            humanTaskDidReachTarget(this);
+            interact();
+        }
+    }
+    onUpdate();
+}
+
+void HumanTask::pause()
+{
+    if(_paused)
+        return;
+    _paused = true;
+    humanTaskDidPause(this);
+}
+
+void HumanTask::resume()
+{
+    if(!_paused)
+        return;
+    _paused = false;
+    humanTaskDidResume(this);
+    _state = HTS_IDLE;
 }
 
 void HumanTask::finish()
 {
-    _state = HTS_FINISHING;
-    this->onFinish();
-}
-
-void HumanTask::forceAbort()
-{
     _state = HTS_DONE;
-    this->onForceAbort();
+    humanTaskDidTerminate(this);
 }
 
-void HumanTask::onForceAbort()
+void HumanTask::terminateGracefully()
 {
-    
+    if(_state == HTS_EXECUTING)
+        humanTaskDidInteract(this);
+    _state = HTS_TERMINATING;
+    humanTaskWillTerminateGracefully(this);
 }
 
-void HumanTask::onFinish()
+void HumanTask::terminateImmediately()
 {
-    
+    if(_state == HTS_EXECUTING)
+        humanTaskDidInteract(this);
+    humanTaskWillTerminateImmediately(this);
+    finish();
 }
 
-void HumanTask::onExecute()
+void HumanTask::goToTarget()
 {
-    
+    _humanComponent->humanMotion->setTargetPosition(goTarget(), MC_PRIORITY_TASK);
+    _state = HTS_GOING;
+    humanTaskWillGoToTarget(this);
+}
+
+void HumanTask::interact()
+{
+    _state = HTS_EXECUTING;
+    humanTaskWillInteract(this);
 }

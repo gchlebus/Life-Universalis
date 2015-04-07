@@ -23,7 +23,7 @@ HumanTask* HumanTaskQueueComponent::getCurrentTask()
     return _tasks.front();
 }
 
-void HumanTaskQueueComponent::abortAllTasks()
+void HumanTaskQueueComponent::terminateAllTasks()
 {
     while(_tasks.size() != 0)
     {
@@ -54,7 +54,7 @@ void HumanTaskQueueComponent::onUpdate()
     {
         
     }
-    else if(current->getState() == HTS_FINISHING)
+    else if(current->getState() == HTS_TERMINATING)
     {
         
     }

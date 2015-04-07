@@ -18,10 +18,13 @@ class HumanTaskQueueComponent : public GameObjectComponent
 public:
     HumanTaskQueueComponent();
     
+    //HumanTaskQueueComponent takes ownership over HumanTask
+    //HumanTask will be deleted after completion
     void addTask(HumanTask *task);
+    
     HumanTask* getCurrentTask();
     
-    void abortAllTasks();
+    void terminateAllTasks();
     
     void onUpdate();
     void onAttachToParent();
