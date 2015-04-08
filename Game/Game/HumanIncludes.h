@@ -9,6 +9,8 @@
 #ifndef Game_HumanIncludes_h
 #define Game_HumanIncludes_h
 
+#include "HumanComponentNames.h"
+
 #include "HumanComponent.h"
 #include "MotionComponent.h"
 #include "HumanAINeedComponent.h"
@@ -16,8 +18,10 @@
 #include "HumanAIMasterComponent.h"
 #include "HumanAIWorkNeedComponent.h"
 
-#include "HumanTaskQueueComponent.h"
-#include "GoToHumanTask.h"
+#include "HumanInteractionControllerComponent.h"
+
+//#include "HumanTaskQueueComponent.h"
+//#include "GoToHumanTask.h"
 
 
 

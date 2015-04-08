@@ -36,6 +36,7 @@ class HumanInteraction
 public:
     friend HumanInteractionControllerComponent;
     HumanInteraction();
+    virtual ~HumanInteraction();
     
     virtual std::string getInteractionName() = 0;
     void terminateGracefully();
@@ -44,8 +45,9 @@ public:
     
     HumanInteractionState getState();
 protected:
-    HumanInteractionResult execute(HumanInteractionControllerComponent *parent); //1 - OK; 0 - Invalid; -1 - Too far away
+    HumanInteractionResult execute(HumanInteractionControllerComponent *parent);
     void update();
+    void finish();
     
     virtual void onBeforeExecute() = 0;
     virtual HumanInteractionResult onExecute() = 0;

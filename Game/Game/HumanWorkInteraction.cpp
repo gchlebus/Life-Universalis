@@ -10,6 +10,7 @@
 #include "HumanIncludes.h"
 #include "BuildingComponent.h"
 #include "Workplace.h"
+#include "EnvironmentEntitiesNames.h"
 
 HumanWorkInteraction::HumanWorkInteraction()
 {
@@ -24,22 +25,47 @@ std::string HumanWorkInteraction::getInteractionName()
 void HumanWorkInteraction::onBeforeExecute()
 {
     _workplace = _humanComponent->getWorkplace();
+    _dayTime = (DayTimeEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
 }
 
 HumanInteractionResult HumanWorkInteraction::onExecute()
 {
     if(_workplace == nullptr)
         return HIR_INTERACTION_INVALID;
+    
+    _workBegin = _workplace->nextWorkBegin();
+    _workEnd = _workplace->nextWorkEnd();
+    
+    GameDate currentDayTime = _dayTime->getCurrentGameDate();
+    
+    double timeDiff = _workBegin.time - currentDayTime.time;
+    
+    if(timeDiff > 15.0 && !(_workBegin.time > _workEnd.time))
+        return HIR_ACCESS_DENIED;
+    
     _workplace->startWork();
     return HIR_OK;
 }
 
 void HumanWorkInteraction::onUpdate()
 {
-    //if(work is ended)
-    //terminateGracefully
-    //if(terminating)
-    //wait for end
+    GameDate currentDayTime = _dayTime->getCurrentGameDate();
+    
+    if(getState() == HIS_EXECUTING)
+    {
+        if(currentDayTime.time >= _workEnd.time)
+        {
+            terminateGracefully(); //It could be terminateImmediate too.
+        }
+    }
+    if(getState() == HIS_TERMINATING)
+    {
+        if(currentDayTime.time >= _workEnd.time)
+        {
+            _workplace->endWork();
+            finish();
+        }
+    }
 }
 
 void HumanWorkInteraction::onTerminateGracefully()

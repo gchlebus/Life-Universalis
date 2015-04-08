@@ -13,6 +13,10 @@ HumanInteraction::HumanInteraction()
 {
     _state = HIS_IDLE;
 }
+HumanInteraction::~HumanInteraction()
+{
+    
+}
 
 void HumanInteraction::onUpdate()
 {
@@ -53,8 +57,12 @@ void HumanInteraction::terminateGracefully()
 }
 void HumanInteraction::terminateImmediately()
 {
-    _state = HIS_DONE;
     onTerminateImmediately();
+    finish();
+}
+void HumanInteraction::finish()
+{
+    _state = HIS_DONE;
 }
 
 HumanInteractionState HumanInteraction::getState()

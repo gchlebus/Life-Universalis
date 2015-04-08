@@ -23,6 +23,11 @@ void HumanInteractionControllerComponent::onUpdate()
     if(_currentInteraction != nullptr)
     {
         _currentInteraction->update();
+        if(_currentInteraction->getState() == HIS_DONE)
+        {
+            delete _currentInteraction;
+            _currentInteraction = nullptr;
+        }
     }
 }
 
@@ -37,6 +42,8 @@ HumanInteractionResult HumanInteractionControllerComponent::executeInteraction(H
     HumanInteractionResult retVal = interaction->execute(this);
     if(retVal == HIR_OK)
         _currentInteraction = interaction;
+    else
+        delete interaction;
     return retVal;
 }
 
