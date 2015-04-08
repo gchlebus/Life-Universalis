@@ -1,6 +1,7 @@
 #pragma once
 
 #include <GameEngine.h>
+#include "HumanComponentNames.h"
 
 #define MC_PRIORITY_TASK                1000
 #define MC_PRIORITY_NAVIGATION_AGENT    900

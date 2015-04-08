@@ -7,9 +7,8 @@
 //
 
 #include "HumanInteractionControllerComponent.h"
-#include "HumanInteraction.h"
 
-HumanInteractionControllerComponent::HumanInteractionControllerComponent() : GameObjectComponent("HumanInteractionControllerComponent")
+HumanInteractionControllerComponent::HumanInteractionControllerComponent() : GameObjectComponent(HC_INTERACTION_CONTROLLER)
 {
     _currentInteraction = nullptr;
 }
@@ -27,15 +26,18 @@ void HumanInteractionControllerComponent::onUpdate()
     }
 }
 
-int HumanInteractionControllerComponent::executeInteraction(HumanInteraction* interaction)
+HumanInteractionResult HumanInteractionControllerComponent::executeInteraction(HumanInteraction* interaction)
 {
     if(interaction == nullptr)
-        return -1;
+        return HIR_INTERACTION_INVALID;
     if(_currentInteraction != nullptr)
-        return 0;
-    _currentInteraction = interaction;
-    _currentInteraction->execute(this);
-    return 1;
+        return HIR_HUMAN_IS_BUSY;
+    
+    interaction->_humanComponent = (HumanComponent*)_parent->findComponent(HC_MAIN);
+    HumanInteractionResult retVal = interaction->execute(this);
+    if(retVal == HIR_OK)
+        _currentInteraction = interaction;
+    return retVal;
 }
 
 HumanInteraction* HumanInteractionControllerComponent::getCurrentInteraction()

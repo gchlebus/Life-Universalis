@@ -8,7 +8,10 @@
 
 #pragma once
 #include "GlobalHeaders.h"
-#include "HumanInteractionControllerComponent.h"
+//#include "HumanInteractionControllerComponent.h"
+
+class HumanInteractionControllerComponent;
+class HumanComponent;
 
 enum HumanInteractionState
 {
@@ -16,6 +19,16 @@ enum HumanInteractionState
     HIS_EXECUTING,
     HIS_TERMINATING,
     HIS_DONE
+};
+
+enum HumanInteractionResult
+{
+    HIR_OK,
+    HIR_HUMAN_IS_BUSY,
+    HIR_INTERACTION_INVALID,
+    HIR_OUT_OF_RANGE,
+    HIR_ACCESS_DENIED,
+    HIR_NO_EQUIPMENT
 };
 
 class HumanInteraction
@@ -31,14 +44,20 @@ public:
     
     HumanInteractionState getState();
 protected:
-    void execute(HumanInteractionControllerComponent *parent);
+    HumanInteractionResult execute(HumanInteractionControllerComponent *parent); //1 - OK; 0 - Invalid; -1 - Too far away
     void update();
     
-    virtual void onExecute();
+    virtual void onBeforeExecute() = 0;
+    virtual HumanInteractionResult onExecute() = 0;
     virtual void onUpdate();
     virtual void onTerminateGracefully();
     virtual void onTerminateImmediately();
     
-    HumanInteractionState _state;
+    virtual Vector3 getTarget() = 0;
+    virtual float getDistanceThreshold() = 0;
+    
     HumanInteractionControllerComponent *_parent;
+    HumanComponent *_humanComponent;
+private:
+    HumanInteractionState _state;
 };

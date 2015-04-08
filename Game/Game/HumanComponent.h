@@ -1,6 +1,7 @@
 #pragma once
 
 #include <GameEngine.h>
+#include "HumanComponentNames.h"
 
 class Workplace;
 class HumanAIMasterComponent;

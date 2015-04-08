@@ -1,7 +1,7 @@
 #include "HumanComponent.h"
 
 HumanComponent::HumanComponent(const std::string& name, unsigned int age)
-: GameObjectComponent("HumanComponent")
+: GameObjectComponent(HC_MAIN)
 , _name(name)
 , _age(age)
 , _money(0)

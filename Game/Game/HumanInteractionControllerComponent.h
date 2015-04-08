@@ -7,10 +7,11 @@
 //
 
 #pragma once
+#include <GameEngine.h>
 #include "GlobalHeaders.h"
-#include "GameObjectComponent.h"
+#include "HumanComponentNames.h"
+#include "HumanInteraction.h"
 
-class HumanInteraction;
 
 class HumanInteractionControllerComponent : public GameObjectComponent
 {
@@ -18,7 +19,7 @@ public:
     HumanInteractionControllerComponent();
     ~HumanInteractionControllerComponent();
     
-    int executeInteraction(HumanInteraction* interaction); // 1 - OK 0 - Busy -1 - invalid interaction
+    HumanInteractionResult executeInteraction(HumanInteraction* interaction);
     
     HumanInteraction* getCurrentInteraction();
     

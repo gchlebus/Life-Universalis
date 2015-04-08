@@ -128,6 +128,7 @@
 		D5C106EE1AD48CFC00C1BEE7 /* WorkHumanTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkHumanTask.h; sourceTree = "<group>"; };
 		D5D91EBC1AC728FD00EB6FD4 /* UseServiceHumanTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UseServiceHumanTask.h; sourceTree = "<group>"; };
 		D5D91EBD1AC7296100EB6FD4 /* UseServiceHumanTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UseServiceHumanTask.cpp; sourceTree = "<group>"; };
+		E5BAD7D01AD5804A005962F2 /* HumanComponentNames.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HumanComponentNames.h; sourceTree = "<group>"; };
 		F83B46B22023A8B9A1C8E5A2 /* HumanAIRestNeedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanAIRestNeedComponent.h; sourceTree = "<group>"; };
 		F83B4966274C9A0295EA3473 /* HumanAIRestNeedComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanAIRestNeedComponent.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,6 +273,7 @@
 		D551EAAB1A92ABB50058B9A2 /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				E5BAD7D01AD5804A005962F2 /* HumanComponentNames.h */,
 				D570076D1AAE299D00A270D5 /* HumanIncludes.h */,
 				D58C3CD01AC8BC05000A5FC3 /* InteractionControllerComponent */,
 				088759D11A940AE2008786DA /* Motion */,
@@ -378,20 +380,20 @@
 		D58C3CD41AC8BCC6000A5FC3 /* Interactions */ = {
 			isa = PBXGroup;
 			children = (
-				D58C3CD51AC8BCD8000A5FC3 /* WorkInteraction */,
+				D58C3CD51AC8BCD8000A5FC3 /* Work */,
 				D58C3CD61AC8BDB3000A5FC3 /* HumanInteraction.cpp */,
 				D58C3CD71AC8BDB3000A5FC3 /* HumanInteraction.h */,
 			);
 			name = Interactions;
 			sourceTree = "<group>";
 		};
-		D58C3CD51AC8BCD8000A5FC3 /* WorkInteraction */ = {
+		D58C3CD51AC8BCD8000A5FC3 /* Work */ = {
 			isa = PBXGroup;
 			children = (
 				D5581B3D1ACB16C200682D3A /* HumanWorkInteraction.cpp */,
 				D5581B3E1ACB16C200682D3A /* HumanWorkInteraction.h */,
 			);
-			name = WorkInteraction;
+			name = Work;
 			sourceTree = "<group>";
 		};
 		D5B69CA81AAF877F009E5F7B /* WorkNeed */ = {
