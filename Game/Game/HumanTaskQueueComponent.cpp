@@ -21,6 +21,8 @@ void HumanTaskQueueComponent::addTask(HumanTask *task)
 }
 HumanTask* HumanTaskQueueComponent::getCurrentTask()
 {
+    if(_tasks.empty())
+        return nullptr;
     return _tasks.front();
 }
 

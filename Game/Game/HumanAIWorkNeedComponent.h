@@ -12,13 +12,6 @@
 #include "HumanAINeedComponent.h"
 #include "DayTimeEntity.h"
 
-enum HAIWState
-{
-    HAIW_IDLE = 0,
-    HAIW_GOING_TO_WORKPLACE = 1,
-    HAIW_WAITING_FOR_WORK = 2,
-    HAIW_WORKING = 3,
-};
 
 class HumanAIWorkNeedComponent : public HumanAINeedComponent
 {
@@ -36,19 +29,12 @@ public:
     
 protected:
     virtual void updateFulfillment() override;
-
     virtual void updatePriority() override;
-    void _estimateWorkingDates();
-    void _estimateTravelScheduling();
+    void estimateTravelTiming();
 
-//    GameDate estimateNextWorkStart();
-    HAIWState _currentState;
     float _minutesLeft;
     float _minutesNeedToTravel;
-
     float _minutesToHitTheRoad;
+    
     DayTimeEntity* _dayTime;
-    GameDate _nextWorkStart;
-
-    GameDate _nextWorkEnd;
 };

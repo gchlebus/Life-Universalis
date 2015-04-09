@@ -17,8 +17,6 @@
 
 void WorkHumanTask::onUpdate()
 {
-    LOG("Executing WorkHumanTask.");
-    LOGF(F("\tCurrent state is: %1%") % getState());
     HumanInteraction *currentInteraction = _humanComponent->humanInteraction->getCurrentInteraction();
     if(getState() == HTS_EXECUTING)
     {
@@ -68,6 +66,7 @@ void WorkHumanTask::humanTaskWillTerminateImmediately(HumanTask* task)
 }
 void WorkHumanTask::humanTaskDidTerminate(HumanTask* task)
 {
+    ((DayTimeEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME))->showOutputNextFrame();
     LOG("WORK HAS BEEN TERMINATED!");
 }
 
@@ -75,6 +74,11 @@ void WorkHumanTask::humanTaskDidExecute(HumanTask *task)
 {
     if(_humanComponent->getWorkplace() == nullptr)
         terminateImmediately();
+    else
+    {
+        LOG("WorkHumanTask executed.");
+        LOGF(F("\tCurrent state is: %1%") % getState());
+    }
 }
 
 void WorkHumanTask::humanTaskWillInteract(HumanTask *task)

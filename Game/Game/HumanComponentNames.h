@@ -12,6 +12,9 @@
 #define HC_MAIN                     "HumanComponent"
 #define HC_MOTION                   "MotionComponent"
 
+//AI stuff
+#define HC_AI_MASTER                "HumanAIMasterComponent"
+
 //Interaction controller stuff
 #define HC_INTERACTION_CONTROLLER   "HumanInteractionControllerComponent"
 #define HI_WORK                     "WorkInteraction"

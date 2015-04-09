@@ -15,11 +15,11 @@ class HumanComponent;
 
 enum HumanTaskState
 {
-    HTS_IDLE,
-    HTS_GOING,
-    HTS_EXECUTING,
-    HTS_TERMINATING,
-    HTS_DONE
+    HTS_IDLE = 0,
+    HTS_GOING = 1,
+    HTS_EXECUTING = 2,
+    HTS_TERMINATING = 3,
+    HTS_DONE = 4
 };
 
 class HumanTaskQueueComponent;

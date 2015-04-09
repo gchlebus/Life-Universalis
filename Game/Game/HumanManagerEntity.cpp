@@ -67,7 +67,7 @@ GameObject* HumanManagerEntity::create()
     
     //Settings
     ((MotionComponent*)retVal->findComponent(HC_MOTION))->setSpeed(20.0f);
-    ((MotionComponent*)retVal->findComponent(HC_MOTION))->setThreshold(50.0f);
+    ((MotionComponent*)retVal->findComponent(HC_MOTION))->setThreshold(1.0f);
     
 	return retVal;
 }

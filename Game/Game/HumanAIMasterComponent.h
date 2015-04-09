@@ -13,6 +13,7 @@
 class HumanComponent;
 class HumanAINeedComponent;
 class HumanAISeekJobComponent;
+class HumanTaskQueueComponent;
 
 class HumanAIMasterComponent : public GameObjectComponent
 {
@@ -29,6 +30,8 @@ public:
     void onEnabled();
     void onDisabled();
     void onParentChangedComponents();
+    
+    HumanTaskQueueComponent *humanTaskQueue;
     
 protected:
 

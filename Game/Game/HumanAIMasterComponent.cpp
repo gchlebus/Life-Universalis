@@ -11,10 +11,11 @@
 #include "HumanAINeedComponent.h"
 #include "HumanAISeekJobComponent.h"
 #include "HumanComponent.h"
+#include "HumanComponentNames.h"
 
 
 HumanAIMasterComponent::HumanAIMasterComponent()
-  : GameObjectComponent("HumanAIMasterComponent")
+  : GameObjectComponent(HC_AI_MASTER)
 {
     _currentNeed = nullptr;
 }
@@ -76,7 +77,8 @@ void HumanAIMasterComponent::onParentChangedComponents()
         _needs.push_back(need);
     }
     _seekJob = (HumanAISeekJobComponent*)_parent->findComponent("HumanAISeekJobComponent");
-    _human = (HumanComponent*)_parent->findComponent("HumanComponent");
+    _human = (HumanComponent*)_parent->findComponent(HC_MAIN);
+    humanTaskQueue = (HumanTaskQueueComponent*)_parent->findComponent(HC_TASK_QUEUE);
 }
 
 void HumanAIMasterComponent::onAttachToParent()
