@@ -8,6 +8,7 @@
 
 #pragma once
 #include <GameEngine.h>
+#include "HumanComponent.h"
 #include "HumanTaskObserver.h"
 
 class HumanComponent;

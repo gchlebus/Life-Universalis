@@ -15,20 +15,20 @@ class HumanComponent;
 
 enum HumanInteractionState
 {
-    HIS_IDLE,
-    HIS_EXECUTING,
-    HIS_TERMINATING,
-    HIS_DONE
+    HIS_IDLE = 0,
+    HIS_EXECUTING = 1,
+    HIS_TERMINATING = 2,
+    HIS_DONE = 3
 };
 
 enum HumanInteractionResult
 {
-    HIR_OK,
-    HIR_HUMAN_IS_BUSY,
-    HIR_INTERACTION_INVALID,
-    HIR_OUT_OF_RANGE,
-    HIR_ACCESS_DENIED,
-    HIR_NO_EQUIPMENT
+    HIR_OK = 0,
+    HIR_HUMAN_IS_BUSY = 1,
+    HIR_INTERACTION_INVALID = 2,
+    HIR_OUT_OF_RANGE = 3,
+    HIR_ACCESS_DENIED = 4,
+    HIR_NO_EQUIPMENT = 5
 };
 
 class HumanInteraction
