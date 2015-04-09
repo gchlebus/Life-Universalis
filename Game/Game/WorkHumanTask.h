@@ -15,6 +15,7 @@ class HumanWorkInteraction;
 class WorkHumanTask : public HumanTask
 {
 public:
+    std::string getTaskName();
 protected:
     void onUpdate();
     Vector3 goTarget();

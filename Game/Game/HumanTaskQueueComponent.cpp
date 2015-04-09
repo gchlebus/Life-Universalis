@@ -7,9 +7,10 @@
 //
 
 #include "HumanTaskQueueComponent.h"
+#include "HumanComponentNames.h"
 #include "HumanTask.h"
 
-HumanTaskQueueComponent::HumanTaskQueueComponent() : GameObjectComponent("HumanTaskQueueComponent")
+HumanTaskQueueComponent::HumanTaskQueueComponent() : GameObjectComponent(HC_TASK_QUEUE)
 {
     
 }
@@ -40,10 +41,11 @@ void HumanTaskQueueComponent::onAttachToParent()
 
 void HumanTaskQueueComponent::onUpdate()
 {
-    HumanTask *current = _tasks.front();
-    
-    if(current == nullptr)
+    if(_tasks.empty())
         return;
+    
+    HumanTask *current = _tasks.front();
+
     current->update();
     if(current->getState() == HTS_DONE)
     {

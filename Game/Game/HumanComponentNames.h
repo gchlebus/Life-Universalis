@@ -8,7 +8,14 @@
 
 #pragma once
 
-#define HC_MAIN "HumanComponent"
-#define HC_MOTION "MotionComponent"
-#define HI_WORK "WorkInteraction"
-#define HC_INTERACTION_CONTROLLER "HumanInteractionControllerComponent"
+//General components
+#define HC_MAIN                     "HumanComponent"
+#define HC_MOTION                   "MotionComponent"
+
+//Interaction controller stuff
+#define HC_INTERACTION_CONTROLLER   "HumanInteractionControllerComponent"
+#define HI_WORK                     "WorkInteraction"
+
+//Tasks stuff
+#define HC_TASK_QUEUE               "HumanTaskQueueComponent"
+#define HT_WORK                     "WorkHumanTask"

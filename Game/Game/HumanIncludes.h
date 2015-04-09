@@ -19,9 +19,10 @@
 #include "HumanAIWorkNeedComponent.h"
 
 #include "HumanInteractionControllerComponent.h"
+#include "HumanWorkInteraction.h"
 
-//#include "HumanTaskQueueComponent.h"
-//#include "GoToHumanTask.h"
+#include "HumanTaskQueueComponent.h"
+#include "WorkHumanTask.h"
 
 
 

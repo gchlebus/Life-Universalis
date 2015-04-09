@@ -11,6 +11,7 @@
 #include "BuildingComponent.h"
 #include "HumanInteractionControllerComponent.h"
 #include "HumanWorkInteraction.h"
+#include "HumanComponentNames.h"
 
 
 
@@ -40,7 +41,10 @@ Vector3 WorkHumanTask::goTarget()
     return _humanComponent->getWorkplace()->parent->getParent()->getTransform().getWorldPosition();
 }
 
-
+std::string WorkHumanTask::getTaskName()
+{
+    return HT_WORK;
+}
 
 //void humanTaskDidExecute(HumanTask* task);
 //
