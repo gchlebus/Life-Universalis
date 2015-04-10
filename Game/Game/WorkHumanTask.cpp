@@ -14,6 +14,9 @@
 #include "HumanComponentNames.h"
 
 
+WorkHumanTask::~WorkHumanTask()
+{
+}
 
 void WorkHumanTask::onUpdate()
 {

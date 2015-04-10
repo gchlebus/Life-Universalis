@@ -15,6 +15,7 @@ class HumanWorkInteraction;
 class WorkHumanTask : public HumanTask
 {
 public:
+    ~WorkHumanTask();
     std::string getTaskName();
 protected:
     void onUpdate();

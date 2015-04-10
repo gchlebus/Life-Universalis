@@ -17,6 +17,7 @@
 HumanAIWorkNeedComponent::HumanAIWorkNeedComponent() : HumanAINeedComponent("Work")
 {
     _dayTime = (DayTimeEntity*) GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
+    _currentTask = nullptr;
 }
 
 void HumanAIWorkNeedComponent::onEnabled()
@@ -40,20 +41,25 @@ void HumanAIWorkNeedComponent::onUpdate()
     if(_humanComponent->getWorkplace() == nullptr) //It can be that I'm unemployed and this need is the biggest one among others
         return;
     
-//    std::shared_ptr<HumanTask> currentTask = _humanComponent->humanAIMaster->humanTaskQueue->getCurrentTask();
-    if(currentTask == nullptr)
+    if(_currentTask == nullptr)
     {
         estimateTravelTiming();
         if(_minutesToHitTheRoad <= 5.0)
         {
             _dayTime->showOutputNextFrame();
-            _humanComponent->humanAIMaster->humanTaskQueue->addTask(std::shared_ptr<HumanTask>(new WorkHumanTask()));
+            _currentTask = std::shared_ptr<HumanTask>(new WorkHumanTask());
+            _humanComponent->humanAIMaster->humanTaskQueue->addTask(_currentTask);
             _canBeCancelled = false;
             LOG("Human sent to work!!!");
         }
     }
     else
     {
+        if(_currentTask->getState() == HTS_DONE)
+        {
+            _canBeCancelled = true;
+            _currentTask = nullptr;
+        }
     }
 }
 
