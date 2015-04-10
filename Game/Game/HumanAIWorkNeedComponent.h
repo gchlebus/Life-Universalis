@@ -11,6 +11,7 @@
 #include <GameEngine.h>
 #include "HumanAINeedComponent.h"
 #include "DayTimeEntity.h"
+#include "WorkHumanTask.h"
 
 
 class HumanAIWorkNeedComponent : public HumanAINeedComponent
@@ -35,6 +36,8 @@ protected:
     float _minutesLeft;
     float _minutesNeedToTravel;
     float _minutesToHitTheRoad;
+    
+    std::shared_ptr<HumanTask> _currentTask;
     
     DayTimeEntity* _dayTime;
 };

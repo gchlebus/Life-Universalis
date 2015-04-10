@@ -20,9 +20,9 @@ public:
     
     //HumanTaskQueueComponent takes ownership over HumanTask
     //HumanTask will be deleted after completion
-    void addTask(HumanTask *task);
+    void addTask(std::shared_ptr<HumanTask> task);
     
-    HumanTask* getCurrentTask();
+    std::shared_ptr<HumanTask> getCurrentTask();
     
     void terminateAllTasks();
     
@@ -31,5 +31,5 @@ public:
     
 protected:
     HumanComponent* _humanComponent;
-    std::queue<HumanTask*> _tasks;
+    std::queue<std::shared_ptr<HumanTask>> _tasks;
 };

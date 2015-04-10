@@ -14,12 +14,12 @@ HumanTaskQueueComponent::HumanTaskQueueComponent() : GameObjectComponent(HC_TASK
 {
     
 }
-void HumanTaskQueueComponent::addTask(HumanTask *task)
+void HumanTaskQueueComponent::addTask(std::shared_ptr<HumanTask> task)
 {
     task->_humanComponent = _humanComponent;
     _tasks.push(task);
 }
-HumanTask* HumanTaskQueueComponent::getCurrentTask()
+std::shared_ptr<HumanTask> HumanTaskQueueComponent::getCurrentTask()
 {
     if(_tasks.empty())
         return nullptr;
@@ -30,9 +30,8 @@ void HumanTaskQueueComponent::terminateAllTasks()
 {
     while(_tasks.size() != 0)
     {
-        HumanTask* task = _tasks.front();
+        std::shared_ptr<HumanTask> task = _tasks.front();
         _tasks.pop();
-        delete task;
     }
 }
 
@@ -46,13 +45,12 @@ void HumanTaskQueueComponent::onUpdate()
     if(_tasks.empty())
         return;
     
-    HumanTask *current = _tasks.front();
+    std::shared_ptr<HumanTask> current = _tasks.front();
 
     current->update();
     if(current->getState() == HTS_DONE)
     {
         _tasks.pop();
-        delete current;
     }
     else if(current->getState() == HTS_EXECUTING)
     {

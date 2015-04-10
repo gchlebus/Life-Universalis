@@ -40,14 +40,14 @@ void HumanAIWorkNeedComponent::onUpdate()
     if(_humanComponent->getWorkplace() == nullptr) //It can be that I'm unemployed and this need is the biggest one among others
         return;
     
-    HumanTask *currentTask = _humanComponent->humanAIMaster->humanTaskQueue->getCurrentTask();
+//    std::shared_ptr<HumanTask> currentTask = _humanComponent->humanAIMaster->humanTaskQueue->getCurrentTask();
     if(currentTask == nullptr)
     {
         estimateTravelTiming();
         if(_minutesToHitTheRoad <= 5.0)
         {
             _dayTime->showOutputNextFrame();
-            _humanComponent->humanAIMaster->humanTaskQueue->addTask(new WorkHumanTask());
+            _humanComponent->humanAIMaster->humanTaskQueue->addTask(std::shared_ptr<HumanTask>(new WorkHumanTask()));
             _canBeCancelled = false;
             LOG("Human sent to work!!!");
         }
