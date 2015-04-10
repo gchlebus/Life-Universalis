@@ -60,6 +60,12 @@ void HumanAIWorkNeedComponent::onUpdate()
             _canBeCancelled = true;
             _currentTask = nullptr;
         }
+        //Testing whether all mechanisms (AI->Task->Interaction) actually work
+//        if(_dayTime->getCurrentGameDate().time >= 60.0 * 4.0 + 5.0 && _dayTime->getCurrentGameDate().time <= 60.0 * 4.0 + 8.0)
+//        {
+//            _currentTask->terminateImmediately();
+//            _currentTask = nullptr;
+//        }
     }
 }
 

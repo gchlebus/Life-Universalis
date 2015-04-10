@@ -37,6 +37,8 @@ HumanInteractionResult HumanInteractionControllerComponent::executeInteraction(H
         return HIR_INTERACTION_INVALID;
     if(_currentInteraction != nullptr)
         return HIR_HUMAN_IS_BUSY;
+    if(interaction->getState() != HIS_IDLE)
+        return HIR_INTERACTION_INVALID;
     
     interaction->_humanComponent = (HumanComponent*)_parent->findComponent(HC_MAIN);
     HumanInteractionResult retVal = interaction->execute(this);
