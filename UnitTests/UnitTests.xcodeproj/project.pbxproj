@@ -15,6 +15,7 @@
 		088759981A929238008786DA /* libGameLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 088759971A929238008786DA /* libGameLib.a */; };
 		088759AA1A93FBE2008786DA /* TestGameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759A91A93FBE2008786DA /* TestGameEngine.cpp */; };
 		F83B429E96A2A8E109E19AE6 /* MotionComponentUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759991A92925A008786DA /* MotionComponentUnitTest.cpp */; };
+		F83B43D08077DD38EEC87438 /* MachineUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F83B40CC6042263B0DF9E3BA /* MachineUnitTest.cpp */; };
 		F83B4A4ECDFC357E32F9DFE7 /* HumanAIRestNeedComponentUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F83B4DEBC90C2FBFCA42B35D /* HumanAIRestNeedComponentUnitTest.cpp */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		088759991A92925A008786DA /* MotionComponentUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MotionComponentUnitTest.cpp; sourceTree = "<group>"; };
 		088759A81A93F916008786DA /* TestGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGameEngine.h; sourceTree = "<group>"; };
 		088759A91A93FBE2008786DA /* TestGameEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestGameEngine.cpp; sourceTree = "<group>"; };
+		F83B40CC6042263B0DF9E3BA /* MachineUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MachineUnitTest.cpp; sourceTree = "<group>"; };
 		F83B4DEBC90C2FBFCA42B35D /* HumanAIRestNeedComponentUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HumanAIRestNeedComponentUnitTest.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				088759991A92925A008786DA /* MotionComponentUnitTest.cpp */,
 				087655B11A9BEF2600A9222B /* ServiceUnitTest.cpp */,
 				F83B4DEBC90C2FBFCA42B35D /* HumanAIRestNeedComponentUnitTest.cpp */,
+				F83B40CC6042263B0DF9E3BA /* MachineUnitTest.cpp */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				0887596C1A928D81008786DA /* main.cpp in Sources */,
 				F83B4A4ECDFC357E32F9DFE7 /* HumanAIRestNeedComponentUnitTest.cpp in Sources */,
 				F83B429E96A2A8E109E19AE6 /* MotionComponentUnitTest.cpp in Sources */,
+				F83B43D08077DD38EEC87438 /* MachineUnitTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

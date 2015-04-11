@@ -5,11 +5,6 @@ class ServiceTest
     : public testing::Test
 {
 protected:
-    ServiceTest()
-        : service(nullptr)
-    {
-    }
-
     Service service;
 };
 

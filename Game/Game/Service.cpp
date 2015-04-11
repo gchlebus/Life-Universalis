@@ -1,6 +1,7 @@
 #include "Service.h"
+#include "Machine.h"
 
-Service::Service(BuildingComponent* parent)
+Service::Service(Machine* parent)
 {
     _parent = parent;
 }
@@ -39,7 +40,7 @@ bool Service::_isAttributePresent(const std::string& attrName) const
     return _attributeMap.find(attrName) != _attributeMap.end();
 }
 
-BuildingComponent* Service::getParent()
+Machine* Service::getParent()
 {
     return _parent;
 }

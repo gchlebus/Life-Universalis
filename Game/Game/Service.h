@@ -4,14 +4,15 @@
 #include <map>
 
 typedef std::map<std::string, float> AttributeMap;
-class BuildingComponent;
+
+class Machine;
 
 class Service
 {
 public:
-    Service(BuildingComponent* parent);
+    Service(Machine* parent = nullptr);
 
-    BuildingComponent* getParent();
+    Machine* getParent();
 
     void addAttribute(const std::string& attrName, float value);
 
@@ -22,7 +23,7 @@ public:
 
 private:
     bool _isAttributePresent(const std::string& attrName) const;
-    
-    BuildingComponent* _parent;
+
+    Machine* _parent;
     AttributeMap _attributeMap;
 };
