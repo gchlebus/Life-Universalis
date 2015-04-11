@@ -52,14 +52,23 @@ GameObject* HumanManagerEntity::create()
 {
 	GameObject* retVal = new GameObject();
 	retVal->setName("Human");
+    
+    //General components
     retVal->addComponent(new HumanComponent("Ryszard", 18));
     retVal->addComponent(new MotionComponent());
+    retVal->addComponent(new HumanInteractionControllerComponent());
+    
+    //AI Stuff
+    retVal->addComponent(new HumanTaskQueueComponent());
     retVal->addComponent(new HumanAIMasterComponent());
     retVal->addComponent(new HumanAISeekJobComponent());
     retVal->addComponent(new HumanAITestNeedComponent());
     retVal->addComponent(new HumanAIWorkNeedComponent());
-    ((MotionComponent*)retVal->findComponent("MotionComponent"))->setSpeed(20.0f);
-    ((MotionComponent*)retVal->findComponent("MotionComponent"))->setThreshold(50.0f);
+    
+    //Settings
+    ((MotionComponent*)retVal->findComponent(HC_MOTION))->setSpeed(20.0f);
+    ((MotionComponent*)retVal->findComponent(HC_MOTION))->setThreshold(1.0f);
+    
 	return retVal;
 }
 

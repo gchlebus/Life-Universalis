@@ -1,9 +1,11 @@
 #pragma once
 
 #include <GameEngine.h>
+#include "HumanComponentNames.h"
 
 class Workplace;
 class HumanAIMasterComponent;
+class HumanInteractionControllerComponent;
 class MotionComponent;
 
 class HumanComponent : public GameObjectComponent
@@ -29,6 +31,7 @@ public:
     void onParentChangedComponents();
     
     HumanAIMasterComponent* humanAIMaster;
+    HumanInteractionControllerComponent* humanInteraction;
     MotionComponent* humanMotion;
 
 private:

@@ -10,19 +10,21 @@
 #include <GameEngine.h>
 #include "HumanTask.h"
 
-class GoToHumanTask
+class GoToHumanTask : public HumanTask
 {
 public:
     GoToHumanTask(Vector3 targetPosition);
     ~GoToHumanTask();
     std::string getTaskName();
-    void update();
     
 protected:
     
     Vector3 _targetPosition;
     
+    void update();
+    
+    void onUpdate();
     void onExecute();
-    void onFinish();
-    void onForceAbort();
+    void onTerminateGracefully();
+    void onTerminateImmediately();
 };

@@ -18,15 +18,18 @@ class HumanTaskQueueComponent : public GameObjectComponent
 public:
     HumanTaskQueueComponent();
     
-    void addTask(HumanTask *task);
-    HumanTask* getCurrentTask();
+    //HumanTaskQueueComponent takes ownership over HumanTask
+    //HumanTask will be deleted after completion
+    void addTask(std::shared_ptr<HumanTask> task);
     
-    void abortAllTasks();
+    std::shared_ptr<HumanTask> getCurrentTask();
+    
+    void terminateAllTasks();
     
     void onUpdate();
     void onAttachToParent();
     
 protected:
     HumanComponent* _humanComponent;
-    std::queue<HumanTask*> _tasks;
+    std::queue<std::shared_ptr<HumanTask>> _tasks;
 };

@@ -7,6 +7,7 @@
 //
 
 #pragma once
+#include "DayTimeEntity.h"
 
 class BuildingComponent;
 class HumanComponent;
@@ -32,5 +33,8 @@ public:
     //It is probably better to implement an extra interface for employees only for this interaction, but it is not necessary now.
     void startWork();
     void endWork();
+    
+    GameDate nextWorkBegin();
+    GameDate nextWorkEnd();
 protected:
 };

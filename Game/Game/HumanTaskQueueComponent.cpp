@@ -7,29 +7,31 @@
 //
 
 #include "HumanTaskQueueComponent.h"
+#include "HumanComponentNames.h"
 #include "HumanTask.h"
 
-HumanTaskQueueComponent::HumanTaskQueueComponent() : GameObjectComponent("HumanTaskQueueComponent")
+HumanTaskQueueComponent::HumanTaskQueueComponent() : GameObjectComponent(HC_TASK_QUEUE)
 {
     
 }
-void HumanTaskQueueComponent::addTask(HumanTask *task)
+void HumanTaskQueueComponent::addTask(std::shared_ptr<HumanTask> task)
 {
     task->_humanComponent = _humanComponent;
     _tasks.push(task);
 }
-HumanTask* HumanTaskQueueComponent::getCurrentTask()
+std::shared_ptr<HumanTask> HumanTaskQueueComponent::getCurrentTask()
 {
+    if(_tasks.empty())
+        return nullptr;
     return _tasks.front();
 }
 
-void HumanTaskQueueComponent::abortAllTasks()
+void HumanTaskQueueComponent::terminateAllTasks()
 {
     while(_tasks.size() != 0)
     {
-        HumanTask* task = _tasks.front();
+        std::shared_ptr<HumanTask> task = _tasks.front();
         _tasks.pop();
-        delete task;
     }
 }
 
@@ -40,26 +42,26 @@ void HumanTaskQueueComponent::onAttachToParent()
 
 void HumanTaskQueueComponent::onUpdate()
 {
-    HumanTask *current = _tasks.front();
-    
-    if(current == nullptr)
+    if(_tasks.empty())
         return;
-    current->update();
+    
+    std::shared_ptr<HumanTask> current = _tasks.front();
+
     if(current->getState() == HTS_DONE)
     {
         _tasks.pop();
-        delete current;
     }
     else if(current->getState() == HTS_EXECUTING)
     {
         
     }
-    else if(current->getState() == HTS_FINISHING)
+    else if(current->getState() == HTS_TERMINATING)
     {
         
     }
     else if(current->getState() == HTS_IDLE)
     {
-        
+        current->execute();
     }
+    current->update();
 }

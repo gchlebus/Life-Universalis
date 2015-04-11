@@ -8,17 +8,31 @@
 
 #pragma once
 #include "GlobalHeaders.h"
+#include "HumanComponentNames.h"
 #include "HumanInteraction.h"
+#include "DayTimeEntity.h"
+
+class Workplace;
+class DayTimeEntity;
 
 class HumanWorkInteraction : public HumanInteraction
 {
 public:
-    
+    HumanWorkInteraction();
     std::string getInteractionName();
-    
-    void onExecute();
-    void onUpdate();
-    void onStop();
-    void onForceAbort();
 protected:
+    
+    void onBeforeExecute();
+    HumanInteractionResult onExecute();
+    void onUpdate();
+    void onTerminateGracefully();
+    void onTerminateImmediately();
+    
+    Vector3 getTarget();
+    float getDistanceThreshold();
+    Workplace *_workplace;
+    GameDate _workBegin;
+    GameDate _workEnd;
+    
+    DayTimeEntity *_dayTime;
 };

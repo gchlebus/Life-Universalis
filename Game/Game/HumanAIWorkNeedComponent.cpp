@@ -11,10 +11,13 @@
 #include "HumanIncludes.h"
 #include "Workplace.h"
 
+#include "HumanTaskQueueComponent.h"
+#include "WorkHumanTask.h"
+
 HumanAIWorkNeedComponent::HumanAIWorkNeedComponent() : HumanAINeedComponent("Work")
 {
-    _currentState = HAIW_IDLE;
     _dayTime = (DayTimeEntity*) GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
+    _currentTask = nullptr;
 }
 
 void HumanAIWorkNeedComponent::onEnabled()
@@ -38,56 +41,31 @@ void HumanAIWorkNeedComponent::onUpdate()
     if(_humanComponent->getWorkplace() == nullptr) //It can be that I'm unemployed and this need is the biggest one among others
         return;
     
-    if(_currentState == HAIW_IDLE)
+    if(_currentTask == nullptr)
     {
-        _estimateTravelScheduling();
-        _dayTime->showOutputNextFrame();
-        LOGF(F("Mam jeszcze tyle minut: %1%") % _minutesToHitTheRoad);
-        if(_minutesToHitTheRoad <= 15.0f) //15 minutes for margin. It is better to wait than to be late
+        estimateTravelTiming();
+        if(_minutesToHitTheRoad <= 5.0)
         {
+            _dayTime->showOutputNextFrame();
+            _currentTask = std::shared_ptr<HumanTask>(new WorkHumanTask());
+            _humanComponent->humanAIMaster->humanTaskQueue->addTask(_currentTask);
             _canBeCancelled = false;
-            _humanComponent->humanMotion->setTargetPosition(_humanComponent->getWorkplace()->parent->getParent()->getTransform().getWorldPosition(), MC_PRIORITY_INTERACTION);
-            _currentState = HAIW_GOING_TO_WORKPLACE;
-            LOGF(F("Ide do pracy! Mam jeszcze %1%") % _minutesToHitTheRoad);
-            LOGF(F("Computed priority: %1%") % getPriority());
+            LOG("Human sent to work!!!");
         }
     }
-    else if(_currentState == HAIW_GOING_TO_WORKPLACE)
+    else
     {
-        _estimateTravelScheduling();
-        if(_humanComponent->humanMotion->isAtTargetPosition())
+        if(_currentTask->getState() == HTS_DONE)
         {
-            _currentState = HAIW_WAITING_FOR_WORK;
-            _dayTime->showOutputNextFrame();
-            LOGF(F("Czekam na prace! Zaczynam za %1%")%_minutesLeft);
-            LOGF(F("Computed priority: %1%") % getPriority());
-        }
-    }
-    else if(_currentState == HAIW_WAITING_FOR_WORK)
-    {
-        _estimateTravelScheduling();
-        if(_minutesLeft <= 2.0)
-        {
-            _currentState = HAIW_WORKING;
-            _humanComponent->getWorkplace()->startWork();
-            _dayTime->showOutputNextFrame();
-            LOG("ZACZALEM PRACE!!!");
-            LOGF(F("Computed priority: %1%") % getPriority());
-        }
-    }
-    else if(_currentState == HAIW_WORKING)
-    {
-        GameDate current = _dayTime->getCurrentGameDate();
-        if(current >= _nextWorkEnd)
-        {
-            _humanComponent->getWorkplace()->endWork();
-            _currentState = HAIW_IDLE;
             _canBeCancelled = true;
-            _estimateWorkingDates(); //This is for determining new working dates. It has to be computed to set new priority
-            _dayTime->showOutputNextFrame();
-            LOG("Skonczylem prace!!!");
-            LOGF(F("Computed priority: %1%") % getPriority());
+            _currentTask = nullptr;
         }
+        //Testing whether all mechanisms (AI->Task->Interaction) actually work
+//        if(_dayTime->getCurrentGameDate().time >= 60.0 * 4.0 + 5.0 && _dayTime->getCurrentGameDate().time <= 60.0 * 4.0 + 8.0)
+//        {
+//            _currentTask->terminateImmediately();
+//            _currentTask = nullptr;
+//        }
     }
 }
 
@@ -96,28 +74,10 @@ std::string HumanAIWorkNeedComponent::getNeedName()
     return "Work";
 }
 
-void HumanAIWorkNeedComponent::_estimateWorkingDates()
-{
-    GameDate current = _dayTime->getCurrentGameDate();
-    
-    
-    double workStart = _humanComponent->getWorkplace()->startHour;  //THIS IS IN HOURS!!!
-    double diff = workStart - current.getDayHour();
-    double nextWorkTime = current.time + diff * GD_HOUR;
-    
-    
-    if(diff >= 0)
-        _nextWorkStart = GameDate(nextWorkTime); //AND THOSE ARE IN MINUTES!!!
-    else
-        _nextWorkStart = GameDate(nextWorkTime + 1.0 * GD_DAY); //THOSE TOO!!!
-    
-    _nextWorkEnd = GameDate(_nextWorkStart.time + 8.0 * GD_HOUR);
-    
-}
-
-void HumanAIWorkNeedComponent::_estimateTravelScheduling()
+void HumanAIWorkNeedComponent::estimateTravelTiming()
 {
     GameDate currentTime = _dayTime->getCurrentGameDate();
+    GameDate workBegin = _humanComponent->getWorkplace()->nextWorkBegin();
     
     Vector3 pos = _parent->getTransform().getWorldPosition();
     Vector3 building = _humanComponent->getWorkplace()->parent->getParent()->getTransform().getWorldPosition();
@@ -125,7 +85,7 @@ void HumanAIWorkNeedComponent::_estimateTravelScheduling()
     float dist = (pos - building).norm();
     _dayTime->showOutputNextFrame();
     LOGF(F("\t\tDist: %1%") % dist);
-    _minutesLeft = _nextWorkStart.time - currentTime.time;
+    _minutesLeft = workBegin.time - currentTime.time;
     _minutesNeedToTravel = dist / _humanComponent->humanMotion->getSpeed();
     _minutesToHitTheRoad = _minutesLeft - _minutesNeedToTravel;
     
@@ -145,8 +105,7 @@ void HumanAIWorkNeedComponent::updatePriority()
         _priority = 0.0;
         return;
     }
-    _estimateWorkingDates();
-    _estimateTravelScheduling();
+    estimateTravelTiming();
 
 //    if(timeDiff >= 0.0 && timeDiff <= 30.0)
 //    {

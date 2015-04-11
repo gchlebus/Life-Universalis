@@ -7,48 +7,62 @@
 //
 
 #include "HumanInteraction.h"
+#include "HumanInteractionControllerComponent.h"
 
 HumanInteraction::HumanInteraction()
 {
     _state = HIS_IDLE;
 }
-
-void HumanInteraction::onExecute()
+HumanInteraction::~HumanInteraction()
 {
     
 }
+
 void HumanInteraction::onUpdate()
 {
     
 }
-void HumanInteraction::onStop()
+void HumanInteraction::onTerminateGracefully()
 {
     
 }
-void HumanInteraction::onForceAbort()
+void HumanInteraction::onTerminateImmediately()
 {
     
 }
 
-void HumanInteraction::execute(HumanInteractionControllerComponent *parent)
+HumanInteractionResult HumanInteraction::execute(HumanInteractionControllerComponent *parent)
 {
-    _state = HIS_EXECUTING;
+    HumanInteractionResult retVal = HIR_OK;
     _parent = parent;
-    onExecute();
+    
+    onBeforeExecute();
+    
+    Vector3 dist = parent->getParent()->getTransform().getWorldPosition() - getTarget();
+    if(dist.norm() > getDistanceThreshold())
+        return HIR_OUT_OF_RANGE;
+    retVal = onExecute();
+    if(retVal == HIR_OK)
+        _state = HIS_EXECUTING;
+    return retVal;
 }
 void HumanInteraction::update()
 {
     onUpdate();
 }
-void HumanInteraction::stop()
+void HumanInteraction::terminateGracefully()
 {
-    _state = HIS_FINISHING;
-    onStop();
+    _state = HIS_TERMINATING;
+    onTerminateGracefully();
 }
-void HumanInteraction::forceAbort()
+void HumanInteraction::terminateImmediately()
+{
+    onTerminateImmediately();
+    finish();
+}
+void HumanInteraction::finish()
 {
     _state = HIS_DONE;
-    onForceAbort();
 }
 
 HumanInteractionState HumanInteraction::getState()

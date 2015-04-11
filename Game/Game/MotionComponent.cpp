@@ -2,7 +2,7 @@
 #include "DayTimeEntity.h"
 
 MotionComponent::MotionComponent()
-    : GameObjectComponent("MotionComponent")
+    : GameObjectComponent(HC_MOTION)
       , _targetPosition(0.f, 0.f, 0.f)
       , _isMoving(false)
       , _speed(1.f)

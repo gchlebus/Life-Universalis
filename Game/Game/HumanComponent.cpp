@@ -1,7 +1,8 @@
 #include "HumanComponent.h"
+#include "HumanComponentNames.h"
 
 HumanComponent::HumanComponent(const std::string& name, unsigned int age)
-: GameObjectComponent("HumanComponent")
+: GameObjectComponent(HC_MAIN)
 , _name(name)
 , _age(age)
 , _money(0)
@@ -58,5 +59,6 @@ void HumanComponent::setWorkplace(Workplace* workplace)
 void HumanComponent::onParentChangedComponents()
 {
     humanAIMaster = (HumanAIMasterComponent*)_parent->findComponent("HumanAIMasterComponent");
-    humanMotion = (MotionComponent*)_parent->findComponent("MotionComponent");
+    humanMotion = (MotionComponent*)_parent->findComponent(HC_MOTION);
+    humanInteraction = (HumanInteractionControllerComponent*)_parent->findComponent(HC_INTERACTION_CONTROLLER);
 }
