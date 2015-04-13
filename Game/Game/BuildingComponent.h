@@ -30,6 +30,6 @@ public:
     void onDisabled();
     
     std::vector<Workplace*> workplaces;
-    Service *service;
+//    Service *service;
     Queue *queue;
 };

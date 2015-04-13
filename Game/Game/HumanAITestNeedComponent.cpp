@@ -76,33 +76,33 @@ std::string HumanAITestNeedComponent::getNeedName()
 void HumanAITestNeedComponent::computeBestService()
 {
     bestService = nullptr;
-    std::vector<GameObject*> buildings = buildingManager->getBuildings();
-    std::list<std::pair<Service*, float>> services;
-    
-    Transform* t = &_parent->getTransform();
-    for(auto building : buildings)
-    {
-        BuildingComponent* comp = (BuildingComponent*)building->findComponent("BuildingComponent");
-        float serviceValue = comp->service->getAttributeValue(this->getNeedName());
-        if(serviceValue > 0.0)
-        {
-            float distance = 0.0;
-            Vector3 pos = t->getWorldPosition();
-            Vector3 buildingPos = comp->getParent()->getTransform().getWorldPosition();
-            Vector3 dist = pos - buildingPos;
-            distance = dist.norm();
-            
-            float rating = serviceValue * 100.0 - (distance*distance)*0.0001;
-            services.insert(services.end(), std::make_pair(comp->service, rating));
-        }
-    }
-    services.sort([&](std::pair<Service*, float> &first, std::pair<Service*, float> &second)
-                  {
-                      return first.second >= second.second;
-                  });
-
-    if(services.size() != 0)
-        bestService = services.front().first;
+//    std::vector<GameObject*> buildings = buildingManager->getBuildings();
+//    std::list<std::pair<Service*, float>> services;
+//    
+//    Transform* t = &_parent->getTransform();
+//    for(auto building : buildings)
+//    {
+//        BuildingComponent* comp = (BuildingComponent*)building->findComponent("BuildingComponent");
+//        float serviceValue = comp->service->getAttributeValue(this->getNeedName());
+//        if(serviceValue > 0.0)
+//        {
+//            float distance = 0.0;
+//            Vector3 pos = t->getWorldPosition();
+//            Vector3 buildingPos = comp->getParent()->getTransform().getWorldPosition();
+//            Vector3 dist = pos - buildingPos;
+//            distance = dist.norm();
+//            
+//            float rating = serviceValue * 100.0 - (distance*distance)*0.0001;
+//            services.insert(services.end(), std::make_pair(comp->service, rating));
+//        }
+//    }
+//    services.sort([&](std::pair<Service*, float> &first, std::pair<Service*, float> &second)
+//                  {
+//                      return first.second >= second.second;
+//                  });
+//
+//    if(services.size() != 0)
+//        bestService = services.front().first;
 }
 
 void HumanAITestNeedComponent::updateFulfillment()

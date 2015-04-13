@@ -12,7 +12,7 @@
 
 BuildingComponent::BuildingComponent() : GameObjectComponent("BuildingComponent")
 {
-    service = new Service("ServiceName", this);
+//    service = new Service("ServiceName", this);
     queue = new Queue(10);
 }
 BuildingComponent::~BuildingComponent()

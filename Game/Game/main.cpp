@@ -43,7 +43,7 @@ int main()
         GameObject* building = buildingMgr->create();
         building->getTransform().setWorldPosition(Vector3((float)i * 10.0, 0.0, 0.0));
         BuildingComponent* buildingComp = (BuildingComponent*)building->findComponent("BuildingComponent");
-        buildingComp->service->addAttribute("Test", (float)i);
+//        buildingComp->service->addAttribute("Test", (float)i);
         for(int w = 0; w < 10; w++)
         {
             Workplace* workplace = new Workplace();

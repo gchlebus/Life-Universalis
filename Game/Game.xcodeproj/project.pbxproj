@@ -54,6 +54,7 @@
 		D5B69CAB1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5B69CA91AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp */; };
 		D5C106EF1AD48CFC00C1BEE7 /* WorkHumanTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5C106ED1AD48CFC00C1BEE7 /* WorkHumanTask.cpp */; };
 		D5D91EBE1AC7296100EB6FD4 /* UseServiceHumanTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D5D91EBD1AC7296100EB6FD4 /* UseServiceHumanTask.cpp */; };
+		E5ED6BA61ADBB7B0000133D6 /* PaymentAgentComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E5ED6BA41ADBB7B0000133D6 /* PaymentAgentComponent.cpp */; };
 		F83B4023FA6A3C3D94094BB7 /* Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66238EE21AB57C2F0080E53B /* Queue.cpp */; };
 		F83B41F8DDCC77B2581C430C /* HumanAINeedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D58A0EE51A967BF900700467 /* HumanAINeedComponent.cpp */; };
 		F83B4253ECDAC94A1F2C73AC /* Machine.h in Headers */ = {isa = PBXBuildFile; fileRef = F83B443E06C3FFD093009DA8 /* Machine.h */; };
@@ -134,6 +135,8 @@
 		D5D91EBC1AC728FD00EB6FD4 /* UseServiceHumanTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UseServiceHumanTask.h; sourceTree = "<group>"; };
 		D5D91EBD1AC7296100EB6FD4 /* UseServiceHumanTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UseServiceHumanTask.cpp; sourceTree = "<group>"; };
 		E5BAD7D01AD5804A005962F2 /* HumanComponentNames.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HumanComponentNames.h; sourceTree = "<group>"; };
+		E5ED6BA41ADBB7B0000133D6 /* PaymentAgentComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PaymentAgentComponent.cpp; sourceTree = "<group>"; };
+		E5ED6BA51ADBB7B0000133D6 /* PaymentAgentComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentAgentComponent.h; sourceTree = "<group>"; };
 		F83B443E06C3FFD093009DA8 /* Machine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Machine.h; sourceTree = "<group>"; };
 		F83B46B22023A8B9A1C8E5A2 /* HumanAIRestNeedComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanAIRestNeedComponent.h; sourceTree = "<group>"; };
 		F83B4799AE378CDBABF4DC7C /* Machine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Machine.cpp; sourceTree = "<group>"; };
@@ -228,6 +231,7 @@
 		D551EAA61A92A78B0058B9A2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E5ED6BA31ADBB70D000133D6 /* PaymentAgent */,
 				D551EAAB1A92ABB50058B9A2 /* Human */,
 				D551EAA81A92A7A10058B9A2 /* Building */,
 			);
@@ -445,6 +449,15 @@
 			name = OperatorInterface;
 			sourceTree = "<group>";
 		};
+		E5ED6BA31ADBB70D000133D6 /* PaymentAgent */ = {
+			isa = PBXGroup;
+			children = (
+				E5ED6BA41ADBB7B0000133D6 /* PaymentAgentComponent.cpp */,
+				E5ED6BA51ADBB7B0000133D6 /* PaymentAgentComponent.h */,
+			);
+			name = PaymentAgent;
+			sourceTree = "<group>";
+		};
 		F83B4C32F08200C8182B48B0 /* RestNeed */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +577,7 @@
 				087655CD1A9D336E00A9222B /* HumanComponent.cpp in Sources */,
 				D5B69CAB1AAF87BE009E5F7B /* HumanAIWorkNeedComponent.cpp in Sources */,
 				08129F171A91466000849B4E /* HumanAISeekJobComponent.cpp in Sources */,
+				E5ED6BA61ADBB7B0000133D6 /* PaymentAgentComponent.cpp in Sources */,
 				D5D91EBE1AC7296100EB6FD4 /* UseServiceHumanTask.cpp in Sources */,
 				08129F1C1A91466000849B4E /* Workplace.cpp in Sources */,
 				087655AD1A9BE5E400A9222B /* Service.cpp in Sources */,
