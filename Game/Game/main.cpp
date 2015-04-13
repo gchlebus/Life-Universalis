@@ -2,9 +2,15 @@
 #include "HumanManagerEntity.h"
 #include "BuildingManagerEntity.h"
 
+#include "HumanComponent.h"
+#include "PaymentAgentComponent.h"
+
 #include "Workplace.h"
 #include "BuildingComponent.h"
 #include "Service.h"
+
+
+#include "HumanComponentNames.h"
 
 #include <GameEngine.h>
 
@@ -38,6 +44,12 @@ int main()
             humanMgr->add(human);
         }
     }
+    
+    HumanComponent *hc0 = (HumanComponent*)humanMgr->getHumans()[0]->findComponent(HC_MAIN);
+    
+    for(int i = 0; i < 10; i++)
+        hc0->paymentAgent->bookPayment(50 + i, hc0->paymentAgent, "Test payment");
+    
     for(int i = 0; i < 10; i++)
     {
         GameObject* building = buildingMgr->create();

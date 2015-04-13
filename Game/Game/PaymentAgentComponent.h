@@ -16,11 +16,18 @@ struct PaymentAction
 {
     friend PaymentAgentComponent;
 protected:
-    PaymentAction(std::string description, unsigned int cashAmount, PaymentAgentComponent *targetAgent);
+    PaymentAction(std::string description, unsigned int cashAmount, PaymentAgentComponent *sourceAgent);
     std::string desc;
     unsigned int amount;
-    PaymentAgentComponent *target;
+    PaymentAgentComponent *source;
     GameDate date;
+};
+
+enum PaymentResult
+{
+    OK,
+    InsufficientFinancialResources,
+    InvalidTarget
 };
 
 class PaymentAgentComponent : public GameObjectComponent
@@ -28,11 +35,13 @@ class PaymentAgentComponent : public GameObjectComponent
 public:
     PaymentAgentComponent();
     
-    void addPayment(PaymentAction* payment);
+    PaymentResult bookPayment(unsigned int amount, PaymentAgentComponent *target, std::string description);
     
     void onUpdate();
 protected:
+    void addPayment(PaymentAction* payment);
+private:
     int _cash;
-    std::list<PaymentAction*> _addedActions;
+    std::list<PaymentAction*> _addedPayments;
     std::list<PaymentAction*> _history;
 };

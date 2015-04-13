@@ -61,4 +61,5 @@ void HumanComponent::onParentChangedComponents()
     humanAIMaster = (HumanAIMasterComponent*)_parent->findComponent("HumanAIMasterComponent");
     humanMotion = (MotionComponent*)_parent->findComponent(HC_MOTION);
     humanInteraction = (HumanInteractionControllerComponent*)_parent->findComponent(HC_INTERACTION_CONTROLLER);
+    paymentAgent = (PaymentAgentComponent*)_parent->findComponent("PaymentAgentComponent");
 }

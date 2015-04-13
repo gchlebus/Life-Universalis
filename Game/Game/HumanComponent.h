@@ -7,6 +7,7 @@ class Workplace;
 class HumanAIMasterComponent;
 class HumanInteractionControllerComponent;
 class MotionComponent;
+class PaymentAgentComponent;
 
 class HumanComponent : public GameObjectComponent
 {
@@ -33,6 +34,7 @@ public:
     HumanAIMasterComponent* humanAIMaster;
     HumanInteractionControllerComponent* humanInteraction;
     MotionComponent* humanMotion;
+    PaymentAgentComponent* paymentAgent;
 
 private:
     std::string _name;

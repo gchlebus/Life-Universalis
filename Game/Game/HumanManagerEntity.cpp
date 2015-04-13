@@ -3,6 +3,8 @@
 
 #include "HumanIncludes.h"
 
+#include "PaymentAgentComponent.h"
+
 
 #include "DayTimeEntity.h"
 
@@ -57,6 +59,7 @@ GameObject* HumanManagerEntity::create()
     retVal->addComponent(new HumanComponent("Ryszard", 18));
     retVal->addComponent(new MotionComponent());
     retVal->addComponent(new HumanInteractionControllerComponent());
+    retVal->addComponent(new PaymentAgentComponent());
     
     //AI Stuff
     retVal->addComponent(new HumanTaskQueueComponent());
