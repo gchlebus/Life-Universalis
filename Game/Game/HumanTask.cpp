@@ -11,7 +11,7 @@
 
 HumanTask::HumanTask()
 {
-    _state = HTS_IDLE;
+    _state = IDLE;
 //    observer = nullptr;
 }
 
@@ -20,7 +20,7 @@ HumanTask::~HumanTask()
     
 }
 
-HumanTaskState HumanTask::getState()
+HumanTask::State HumanTask::getState()
 {
     return _state;
 }
@@ -33,11 +33,11 @@ void HumanTask::execute()
 
 void HumanTask::update()
 {
-    if(_state == HTS_IDLE)
+    if(_state == IDLE)
     {
         goToTarget();
     }
-    else if(_state == HTS_GOING)
+    else if(_state == GOING)
     {
         if(_humanComponent->humanMotion->isAtTargetPosition())
         {
@@ -62,26 +62,26 @@ void HumanTask::resume()
         return;
     _paused = false;
     humanTaskDidResume(this);
-    _state = HTS_IDLE;
+    _state = IDLE;
 }
 
 void HumanTask::finish()
 {
-    _state = HTS_DONE;
+    _state = DONE;
     humanTaskDidTerminate(this);
 }
 
 void HumanTask::terminateGracefully()
 {
-    if(_state == HTS_EXECUTING)
+    if(_state == EXECUTING)
         humanTaskDidInteract(this);
-    _state = HTS_TERMINATING;
+    _state = TERMINATING;
     humanTaskWillTerminateGracefully(this);
 }
 
 void HumanTask::terminateImmediately()
 {
-    if(_state == HTS_EXECUTING)
+    if(_state == EXECUTING)
         humanTaskDidInteract(this);
     humanTaskWillTerminateImmediately(this);
     finish();
@@ -90,12 +90,12 @@ void HumanTask::terminateImmediately()
 void HumanTask::goToTarget()
 {
     _humanComponent->humanMotion->setTargetPosition(goTarget(), MC_PRIORITY_TASK);
-    _state = HTS_GOING;
+    _state = GOING;
     humanTaskWillGoToTarget(this);
 }
 
 void HumanTask::interact()
 {
-    _state = HTS_EXECUTING;
+    _state = EXECUTING;
     humanTaskWillInteract(this);
 }

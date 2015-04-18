@@ -21,14 +21,14 @@ WorkHumanTask::~WorkHumanTask()
 void WorkHumanTask::onUpdate()
 {
     HumanInteraction *currentInteraction = _humanComponent->humanInteraction->getCurrentInteraction();
-    if(getState() == HTS_EXECUTING)
+    if(getState() == EXECUTING)
     {
         if(currentInteraction == nullptr)
         {
             terminateGracefully();
         }
     }
-    if(getState() == HTS_TERMINATING)
+    if(getState() == TERMINATING)
     {
         if(currentInteraction == nullptr)
             finish();

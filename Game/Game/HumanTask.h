@@ -13,15 +13,6 @@
 
 class HumanComponent;
 
-enum HumanTaskState
-{
-    HTS_IDLE = 0,
-    HTS_GOING = 1,
-    HTS_EXECUTING = 2,
-    HTS_TERMINATING = 3,
-    HTS_DONE = 4
-};
-
 class HumanTaskQueueComponent;
 
 
@@ -30,6 +21,8 @@ class HumanTaskQueueComponent;
 class HumanTask : public HumanTaskObserver
 {
 public:
+    enum State { IDLE, GOING, EXECUTING, TERMINATING, DONE };
+
     friend HumanTaskQueueComponent;
     HumanTask();
     virtual ~HumanTask();
@@ -51,7 +44,7 @@ public:
     bool isPaused();
     
     
-    HumanTaskState getState();
+    State getState();
     HumanComponent *_humanComponent;
 protected:
     
@@ -75,5 +68,5 @@ protected:
     virtual void onUpdate() = 0;
     virtual Vector3 goTarget() = 0;
 private:
-    HumanTaskState _state;
+    State _state;
 };

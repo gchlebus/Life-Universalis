@@ -23,7 +23,7 @@ public:
 protected:
     
     void onBeforeExecute();
-    HumanInteractionResult onExecute();
+    HumanInteraction::Result onExecute();
     void onUpdate();
     void onTerminateGracefully();
     void onTerminateImmediately();

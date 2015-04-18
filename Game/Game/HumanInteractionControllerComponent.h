@@ -19,7 +19,7 @@ public:
     HumanInteractionControllerComponent();
     ~HumanInteractionControllerComponent();
     
-    HumanInteractionResult executeInteraction(HumanInteraction* interaction);
+    HumanInteraction::Result executeInteraction(HumanInteraction* interaction);
     
     HumanInteraction* getCurrentInteraction();
     

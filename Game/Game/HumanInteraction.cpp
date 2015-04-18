@@ -11,7 +11,7 @@
 
 HumanInteraction::HumanInteraction()
 {
-    _state = HIS_IDLE;
+    _state = IDLE;
 }
 HumanInteraction::~HumanInteraction()
 {
@@ -31,19 +31,19 @@ void HumanInteraction::onTerminateImmediately()
     
 }
 
-HumanInteractionResult HumanInteraction::execute(HumanInteractionControllerComponent *parent)
+HumanInteraction::Result HumanInteraction::execute(HumanInteractionControllerComponent *parent)
 {
-    HumanInteractionResult retVal = HIR_OK;
+    Result retVal = OK;
     _parent = parent;
     
     onBeforeExecute();
     
     Vector3 dist = parent->getParent()->getTransform().getWorldPosition() - getTarget();
     if(dist.norm() > getDistanceThreshold())
-        return HIR_OUT_OF_RANGE;
+        return OUT_OF_RANGE;
     retVal = onExecute();
-    if(retVal == HIR_OK)
-        _state = HIS_EXECUTING;
+    if(retVal == OK)
+        _state = EXECUTING;
     return retVal;
 }
 void HumanInteraction::update()
@@ -52,7 +52,7 @@ void HumanInteraction::update()
 }
 void HumanInteraction::terminateGracefully()
 {
-    _state = HIS_TERMINATING;
+    _state = TERMINATING;
     onTerminateGracefully();
 }
 void HumanInteraction::terminateImmediately()
@@ -62,10 +62,10 @@ void HumanInteraction::terminateImmediately()
 }
 void HumanInteraction::finish()
 {
-    _state = HIS_DONE;
+    _state = DONE;
 }
 
-HumanInteractionState HumanInteraction::getState()
+HumanInteraction::State HumanInteraction::getState()
 {
     return _state;
 }

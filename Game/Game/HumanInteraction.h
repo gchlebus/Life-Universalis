@@ -7,59 +7,65 @@
 //
 
 #pragma once
+
 #include "GlobalHeaders.h"
 //#include "HumanInteractionControllerComponent.h"
 
 class HumanInteractionControllerComponent;
+
 class HumanComponent;
-
-enum HumanInteractionState
-{
-    HIS_IDLE = 0,
-    HIS_EXECUTING = 1,
-    HIS_TERMINATING = 2,
-    HIS_DONE = 3
-};
-
-enum HumanInteractionResult
-{
-    HIR_OK = 0,
-    HIR_HUMAN_IS_BUSY = 1,
-    HIR_INTERACTION_INVALID = 2,
-    HIR_OUT_OF_RANGE = 3,
-    HIR_ACCESS_DENIED = 4,
-    HIR_NO_EQUIPMENT = 5
-};
 
 class HumanInteraction
 {
 public:
     friend HumanInteractionControllerComponent;
+
+    enum State
+    {
+        IDLE, EXECUTING, TERMINATING, DONE
+    };
+
+    enum Result
+    {
+        OK, HUMAN_IS_BUSY, INTERACTION_INVALID, OUT_OF_RANGE, ACCESS_DENIED, NO_EQUIPMENT
+    };
+
     HumanInteraction();
+
     virtual ~HumanInteraction();
-    
+
     virtual std::string getInteractionName() = 0;
+
     void terminateGracefully();
+
     void terminateImmediately();
-    
-    
-    HumanInteractionState getState();
+
+
+    State getState();
+
 protected:
-    HumanInteractionResult execute(HumanInteractionControllerComponent *parent);
+    Result execute(HumanInteractionControllerComponent* parent);
+
     void update();
+
     void finish();
-    
+
     virtual void onBeforeExecute() = 0;
-    virtual HumanInteractionResult onExecute() = 0;
+
+    virtual Result onExecute() = 0;
+
     virtual void onUpdate();
+
     virtual void onTerminateGracefully();
+
     virtual void onTerminateImmediately();
-    
+
     virtual Vector3 getTarget() = 0;
+
     virtual float getDistanceThreshold() = 0;
-    
-    HumanInteractionControllerComponent *_parent;
-    HumanComponent *_humanComponent;
+
+    HumanInteractionControllerComponent* _parent;
+    HumanComponent* _humanComponent;
 private:
-    HumanInteractionState _state;
+    State _state;
 };

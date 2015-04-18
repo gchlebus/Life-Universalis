@@ -28,10 +28,10 @@ void HumanWorkInteraction::onBeforeExecute()
     _dayTime = (DayTimeEntity*)GameEngine::engine()->currentEnvironment->findEntity(EN_DAYTIME);
 }
 
-HumanInteractionResult HumanWorkInteraction::onExecute()
+HumanInteraction::Result HumanWorkInteraction::onExecute()
 {
     if(_workplace == nullptr)
-        return HIR_INTERACTION_INVALID;
+        return HumanInteraction::INTERACTION_INVALID;
     
     _workBegin = _workplace->nextWorkBegin();
     _workEnd = _workplace->nextWorkEnd();
@@ -41,24 +41,24 @@ HumanInteractionResult HumanWorkInteraction::onExecute()
     double timeDiff = _workBegin.time - currentDayTime.time;
     
     if(timeDiff > 15.0 && !(_workBegin.time > _workEnd.time))
-        return HIR_ACCESS_DENIED;
+        return HumanInteraction::ACCESS_DENIED;
     
     _workplace->startWork();
-    return HIR_OK;
+    return HumanInteraction::OK;
 }
 
 void HumanWorkInteraction::onUpdate()
 {
     GameDate currentDayTime = _dayTime->getCurrentGameDate();
     
-    if(getState() == HIS_EXECUTING)
+    if(getState() == HumanInteraction::EXECUTING)
     {
         if(currentDayTime.time >= _workEnd.time)
         {
             terminateGracefully(); //It could be terminateImmediate too.
         }
     }
-    if(getState() == HIS_TERMINATING)
+    if(getState() == HumanInteraction::TERMINATING)
     {
         if(currentDayTime.time >= _workEnd.time)
         {
