@@ -19,8 +19,8 @@ public:
     
     
 protected:
-    HumanTaskState _state;
-    
+    HumanTask::State _state;
+
     void onExecute();
     void onFinish();
     void onForceAbort();

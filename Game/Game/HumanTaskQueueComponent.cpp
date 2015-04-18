@@ -47,19 +47,19 @@ void HumanTaskQueueComponent::onUpdate()
     
     std::shared_ptr<HumanTask> current = _tasks.front();
 
-    if(current->getState() == HTS_DONE)
+    if(current->getState() == HumanTask::DONE)
     {
         _tasks.pop();
     }
-    else if(current->getState() == HTS_EXECUTING)
+    else if(current->getState() == HumanTask::EXECUTING)
     {
         
     }
-    else if(current->getState() == HTS_TERMINATING)
+    else if(current->getState() == HumanTask::TERMINATING)
     {
         
     }
-    else if(current->getState() == HTS_IDLE)
+    else if(current->getState() == HumanTask::IDLE)
     {
         current->execute();
     }

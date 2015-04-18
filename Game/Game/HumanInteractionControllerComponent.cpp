@@ -23,7 +23,7 @@ void HumanInteractionControllerComponent::onUpdate()
     if(_currentInteraction != nullptr)
     {
         _currentInteraction->update();
-        if(_currentInteraction->getState() == HIS_DONE)
+        if(_currentInteraction->getState() == HumanInteraction::DONE)
         {
             delete _currentInteraction;
             _currentInteraction = nullptr;
@@ -31,18 +31,18 @@ void HumanInteractionControllerComponent::onUpdate()
     }
 }
 
-HumanInteractionResult HumanInteractionControllerComponent::executeInteraction(HumanInteraction* interaction)
+HumanInteraction::Result HumanInteractionControllerComponent::executeInteraction(HumanInteraction* interaction)
 {
     if(interaction == nullptr)
-        return HIR_INTERACTION_INVALID;
+        return HumanInteraction::INTERACTION_INVALID;
     if(_currentInteraction != nullptr)
-        return HIR_HUMAN_IS_BUSY;
-    if(interaction->getState() != HIS_IDLE)
-        return HIR_INTERACTION_INVALID;
+        return HumanInteraction::HUMAN_IS_BUSY;
+    if(interaction->getState() != HumanInteraction::IDLE)
+        return HumanInteraction::INTERACTION_INVALID;
     
     interaction->_humanComponent = (HumanComponent*)_parent->findComponent(HC_MAIN);
-    HumanInteractionResult retVal = interaction->execute(this);
-    if(retVal == HIR_OK)
+    HumanInteraction::Result retVal = interaction->execute(this);
+    if(retVal == HumanInteraction::OK)
         _currentInteraction = interaction;
     else
         delete interaction;

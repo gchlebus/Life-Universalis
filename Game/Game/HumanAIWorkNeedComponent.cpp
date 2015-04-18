@@ -55,7 +55,7 @@ void HumanAIWorkNeedComponent::onUpdate()
     }
     else
     {
-        if(_currentTask->getState() == HTS_DONE)
+        if(_currentTask->getState() == HumanTask::DONE)
         {
             _canBeCancelled = true;
             _currentTask = nullptr;
