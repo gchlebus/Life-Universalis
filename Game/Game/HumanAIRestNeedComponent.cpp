@@ -38,7 +38,7 @@ void HumanAIRestNeedComponent::onUpdate()
         _currentTask.reset(new RestHumanTask());
         _humanComponent->humanAIMaster->humanTaskQueue->addTask(_currentTask);
     }
-    else if(_currentTask->getState() == HumanTask::EXECUTING)
+    if(_currentTask->getState() == HumanTask::EXECUTING)
     {
         double lastDeltaInHours = _dayTime->getLastDelta().time / 60;
         _fulfillment += lastDeltaInHours / (_getHumanNeedRestTime() / 6);

@@ -44,7 +44,7 @@ public:
     bool isPaused();
     
     
-    State getState();
+    virtual State getState();
     HumanComponent *_humanComponent;
 protected:
     

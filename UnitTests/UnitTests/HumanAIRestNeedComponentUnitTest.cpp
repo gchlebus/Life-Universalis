@@ -1,8 +1,26 @@
 #include <gtest/gtest.h>
 #include "HumanAIRestNeedComponent.h"
 #include "TestGameEngine.h"
-#include "HumanComponent.h"
-#include "MotionComponent.h"
+#include "HumanAIMasterComponent.h"
+#include "HumanTaskQueueComponent.h"
+
+class HumanAIRestNeedComponentTestMock
+    : public HumanAIRestNeedComponent
+{
+public:
+    void setFulfillment(float value) { _fulfillment = value; }
+    void setCurrentTask(std::shared_ptr<HumanTask> task) { _currentTask = task; }
+};
+
+class HumanTaskMock
+: public HumanTask
+{
+public:
+    virtual std::string getTaskName() { return ""; }
+    virtual Vector3 getTarget() { return Vector3(0, 0, 0); }
+    virtual void onUpdate() {}
+    State getState() { return HumanTask::EXECUTING; }
+};
 
 class RestNeedTest
     : public ::testing::Test
@@ -12,7 +30,7 @@ protected:
     {
         shouldDeleteRestNeedComponent = true;
         engine.engine->kernel->settings->humanNeedRestTime = 1;
-        restNeedComponent = new HumanAIRestNeedComponent();
+        restNeedComponent = new HumanAIRestNeedComponentTestMock();
     }
 
     virtual ~RestNeedTest()
@@ -22,7 +40,7 @@ protected:
     }
 
     TestGameEngine engine;
-    HumanAIRestNeedComponent* restNeedComponent;
+    HumanAIRestNeedComponentTestMock* restNeedComponent;
     bool shouldDeleteRestNeedComponent;
 };
 
@@ -47,79 +65,44 @@ TEST_F(RestNeedTest, ParameterValuesDropAfterHalfHour)
     ASSERT_FLOAT_EQ(25.f, restNeedComponent->getPriority());
 }
 
-class HumanTiredRestNeedTest
+class RestNeedInHumanContextTest
     : public RestNeedTest
 {
 protected:
-    HumanTiredRestNeedTest()
+    RestNeedInHumanContextTest()
     {
         shouldDeleteRestNeedComponent = false;
-        engine.setTime(30);
-        restNeedComponent->updateStats();
         createHuman();
     }
 
     void createHuman()
     {
-        motionComponent = new MotionComponent();
-        humanComponent = new HumanComponent("Marian", 40);
-        humanComponent->setHome(&home);
-
         human.addComponent(restNeedComponent);
-        human.addComponent(motionComponent);
-        human.addComponent(humanComponent);
+        human.addComponent(new HumanComponent("Marian", 40));
+        human.addComponent(new HumanAIMasterComponent());
+        taskQueue = new HumanTaskQueueComponent();
+        human.addComponent(taskQueue);
+
     }
 
     GameObject human;
-    GameObject home;
-    MotionComponent* motionComponent;
-    HumanComponent* humanComponent;
+    HumanTaskQueueComponent* taskQueue;
 };
 
-TEST_F(HumanTiredRestNeedTest, WhenHumanNotAtHome_AfterOnUpdateHomeIsSetAsTarget)
+TEST_F(RestNeedInHumanContextTest, OnUpdate_TaskIsAddedToQueue)
 {
-    Vector3 humanPosition = Vector3(0, 0, 0);
-    Vector3 homePosition = Vector3(1, 1, 1);
-    human.getTransform().setWorldPosition(humanPosition);
-    home.getTransform().setWorldPosition(homePosition);
-
     restNeedComponent->onUpdate();
-
-    ASSERT_FLOAT_EQ(0.f, (homePosition - motionComponent->getTargetPosition()).norm());
+    ASSERT_NE(nullptr, taskQueue->getCurrentTask());
 }
 
-TEST_F(HumanTiredRestNeedTest, WhenHumanNotAtHome_AfterOnUpdateFulfillmentIsNotChanged)
+TEST_F(RestNeedInHumanContextTest, WhenTaskIsExecuting_AfterOnUpdateFulfillmentIncreases)
 {
-    human.getTransform().setWorldPosition(Vector3(0, 0, 0));
-    home.getTransform().setWorldPosition(Vector3(1, 1, 1));
-    float prevFulfillment = restNeedComponent->getFulfillment();
-
-    restNeedComponent->onUpdate();
-
-    ASSERT_FLOAT_EQ(prevFulfillment, restNeedComponent->getFulfillment());
-}
-
-TEST_F(HumanTiredRestNeedTest, WhenHumanAtHome_AfterOnUpdateFulfillmentIncreases)
-{
-    human.getTransform().setWorldPosition(Vector3(0, 0, 0));
-    home.getTransform().setWorldPosition(Vector3(0, 0, 0));
-    float prevFulfillment = restNeedComponent->getFulfillment();
+    std::shared_ptr<HumanTask> task(new HumanTaskMock());
+    restNeedComponent->setCurrentTask(task);
+    restNeedComponent->setFulfillment(0.5f);
 
     engine.setLastDelta(2.5);
     restNeedComponent->onUpdate();
 
-    ASSERT_FLOAT_EQ(prevFulfillment + 0.25, restNeedComponent->getFulfillment());
-}
-
-TEST_F(HumanTiredRestNeedTest, WhenHumanAtHome_AfterUpdateStatsFulfillmentIsNotChanged)
-{
-    human.getTransform().setWorldPosition(Vector3(0, 0, 0));
-    home.getTransform().setWorldPosition(Vector3(0, 0, 0));
-    restNeedComponent->onUpdate();
-    float prevFulfillment = restNeedComponent->getFulfillment();
-
-    engine.setTime(30);
-    restNeedComponent->updateStats();
-
-    ASSERT_EQ(prevFulfillment, restNeedComponent->getFulfillment());
+    ASSERT_FLOAT_EQ(0.5 + 0.25, restNeedComponent->getFulfillment());
 }

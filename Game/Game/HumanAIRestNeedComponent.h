@@ -14,6 +14,8 @@ HumanAIRestNeedComponent
 public:
     HumanAIRestNeedComponent();
 
+    virtual void onDisabled() override;
+
     virtual void onUpdate() override;
 
     virtual std::string getNeedName() override;
@@ -23,6 +25,8 @@ protected:
 
     virtual void updatePriority() override;
 
+    std::shared_ptr<HumanTask> _currentTask;
+
 private:
     void _getDayTimeEntity();
 
@@ -30,9 +34,5 @@ private:
 
     float _getHumanNeedRestTime();
 
-    std::shared_ptr<HumanTask> _currentTask;
-
     DayTimeEntity* _dayTime;
-public:
-    virtual void onDisabled() override;
 };
