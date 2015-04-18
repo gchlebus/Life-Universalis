@@ -43,7 +43,7 @@ TEST_F(MotionComponentTest, OnNoTargetSetAndGameObjectPositionChange_GameObjectD
 TEST_F(MotionComponentTest, OnTargetPositionEqualToCurrentPosition_GameObjectDoesNotMove)
 {
     Vector3 pos = getGameObjectWorldPosition();
-    motionComponent->setTargetPosition(pos, MC_PRIORITY_INTERACTION);
+    motionComponent->setTargetPosition(pos, MC_PRIORITY_TASK);
 
     engine.setLastDelta(1);
     motionComponent->onUpdate();
@@ -54,7 +54,7 @@ TEST_F(MotionComponentTest, OnTargetPositionEqualToCurrentPosition_GameObjectDoe
 TEST_F(MotionComponentTest, OnTargetPositionEqualToCurrentPosition_GameObjectDoesNotRotate)
 {
     Vector3 fwd = getGameObjectForwardVersor();
-    motionComponent->setTargetPosition(getGameObjectWorldPosition(), MC_PRIORITY_INTERACTION);
+    motionComponent->setTargetPosition(getGameObjectWorldPosition(), MC_PRIORITY_TASK);
 
     motionComponent->onUpdate();
 
@@ -70,7 +70,7 @@ protected:
     {
         // with speed=1 target should be reached in 5 min
         target = Vector3(3.f, 4.f, 0.f);
-        motionComponent->setTargetPosition(target, MC_PRIORITY_INTERACTION);
+        motionComponent->setTargetPosition(target, MC_PRIORITY_TASK);
     }
 
     Vector3 target;
