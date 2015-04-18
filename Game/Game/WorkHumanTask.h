@@ -23,7 +23,7 @@ public:
 protected:
     void onUpdate();
 
-    Vector3 goTarget();
+    Vector3 getTarget();
 
     void humanTaskDidExecute(HumanTask* task);
 

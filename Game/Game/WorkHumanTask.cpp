@@ -36,7 +36,7 @@ void WorkHumanTask::onUpdate()
     }
 }
 
-Vector3 WorkHumanTask::goTarget()
+Vector3 WorkHumanTask::getTarget()
 {
     if (_humanComponent->getWorkplace() == nullptr)
         return Vector3(0, 0, 0);

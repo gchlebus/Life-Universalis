@@ -66,7 +66,7 @@ protected:
     void finish();
     
     virtual void onUpdate() = 0;
-    virtual Vector3 goTarget() = 0;
+    virtual Vector3 getTarget() = 0;
 private:
     State _state;
 };

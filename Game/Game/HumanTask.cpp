@@ -89,7 +89,7 @@ void HumanTask::terminateImmediately()
 
 void HumanTask::goToTarget()
 {
-    _humanComponent->humanMotion->setTargetPosition(goTarget(), MC_PRIORITY_TASK);
+    _humanComponent->humanMotion->setTargetPosition(getTarget(), MC_PRIORITY_TASK);
     _state = GOING;
     humanTaskWillGoToTarget(this);
 }
