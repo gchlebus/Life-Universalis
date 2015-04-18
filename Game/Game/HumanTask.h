@@ -56,7 +56,7 @@ protected:
     //This method forces human to go to the target
     void goToTarget();
     
-    //This method forces human to do the appriopriate activity
+    //This method forces human to do the appropriate activity
     void interact();
     
     //This method is called every frame

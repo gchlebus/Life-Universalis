@@ -5,19 +5,14 @@
 #pragma once
 
 #include "HumanAINeedComponent.h"
+#include "HumanTask.h"
 
-class HumanAIRestNeedComponent
+class
+HumanAIRestNeedComponent
     : public HumanAINeedComponent
 {
 public:
-    enum State
-    {
-        IDLE, GOING_HOME, RESTING
-    };
-
     HumanAIRestNeedComponent();
-
-    virtual void onEnabled() override;
 
     virtual void onUpdate() override;
 
@@ -35,6 +30,9 @@ private:
 
     float _getHumanNeedRestTime();
 
+    std::shared_ptr<HumanTask> _currentTask;
+
     DayTimeEntity* _dayTime;
-    State _state;
+public:
+    virtual void onDisabled() override;
 };

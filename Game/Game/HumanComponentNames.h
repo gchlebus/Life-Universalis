@@ -22,3 +22,4 @@
 //Tasks stuff
 #define HC_TASK_QUEUE               "HumanTaskQueueComponent"
 #define HT_WORK                     "WorkHumanTask"
+#define HT_REST                     "RestHumanTask"

@@ -5,10 +5,12 @@
 #include "HumanAIRestNeedComponent.h"
 #include "HumanComponent.h"
 #include "MotionComponent.h"
+#include "RestHumanTask.h"
+#include "HumanAIMasterComponent.h"
+#include "HumanTaskQueueComponent.h"
 
 HumanAIRestNeedComponent::HumanAIRestNeedComponent()
     : HumanAINeedComponent("Rest")
-      , _state(IDLE)
 {
     _fulfillment = 1.f;
     _priority = 0.f;
@@ -20,32 +22,27 @@ std::string HumanAIRestNeedComponent::getNeedName()
     return "Rest";
 }
 
-void HumanAIRestNeedComponent::onEnabled()
+void HumanAIRestNeedComponent::onDisabled()
 {
-    _state = IDLE;
+    if (_currentTask)
+    {
+        _currentTask->terminateImmediately();
+        _currentTask.reset();
+    }
 }
 
 void HumanAIRestNeedComponent::onUpdate()
 {
-    switch (_state)
+    if (_currentTask == nullptr)
     {
-        case IDLE:
-        {
-            const GameObject& home = *_humanComponent->getHome();
-            _humanComponent->humanMotion->setTargetPosition(home.getTransform().getWorldPosition(), MC_PRIORITY_TASK);
-            _state = GOING_HOME;
-        }
-        case GOING_HOME:
-        {
-            if (_humanComponent->humanMotion->isAtTargetPosition())
-                _state = RESTING;
-            else
-                break;
-        }
-        case RESTING:
-            double lastDeltaInHours = _dayTime->getLastDelta().time / 60;
-            _fulfillment += lastDeltaInHours / (_getHumanNeedRestTime() / 6);
-            _fulfillment = boost::algorithm::clamp(_fulfillment, 0.f, 1.f);
+        _currentTask.reset(new RestHumanTask());
+        _humanComponent->humanAIMaster->humanTaskQueue->addTask(_currentTask);
+    }
+    else if(_currentTask->getState() == HumanTask::EXECUTING)
+    {
+        double lastDeltaInHours = _dayTime->getLastDelta().time / 60;
+        _fulfillment += lastDeltaInHours / (_getHumanNeedRestTime() / 6);
+        _fulfillment = boost::algorithm::clamp(_fulfillment, 0.f, 1.f);
     }
 }
 
@@ -65,7 +62,7 @@ void HumanAIRestNeedComponent::updatePriority()
 
 void HumanAIRestNeedComponent::updateFulfillment()
 {
-    if (_state != RESTING)
+    if (_currentTask == nullptr || _currentTask->getState() != HumanTask::EXECUTING)
         _fulfillment -= _getTimeSinceLastUpdateInHours() / _getHumanNeedRestTime();
 }
 
