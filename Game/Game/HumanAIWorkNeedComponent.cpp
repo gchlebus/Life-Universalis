@@ -47,7 +47,7 @@ void HumanAIWorkNeedComponent::onUpdate()
         if(_minutesToHitTheRoad <= 5.0)
         {
             _dayTime->showOutputNextFrame();
-            _currentTask = std::shared_ptr<HumanTask>(new WorkHumanTask());
+            _currentTask.reset(new WorkHumanTask());
             _humanComponent->humanAIMaster->humanTaskQueue->addTask(_currentTask);
             _canBeCancelled = false;
             LOG("Human sent to work!!!");
@@ -58,7 +58,7 @@ void HumanAIWorkNeedComponent::onUpdate()
         if(_currentTask->getState() == HumanTask::DONE)
         {
             _canBeCancelled = true;
-            _currentTask = nullptr;
+            _currentTask.reset();
         }
         //Testing whether all mechanisms (AI->Task->Interaction) actually work
 //        if(_dayTime->getCurrentGameDate().time >= 60.0 * 4.0 + 5.0 && _dayTime->getCurrentGameDate().time <= 60.0 * 4.0 + 8.0)

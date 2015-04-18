@@ -25,7 +25,7 @@ protected:
 
     virtual void updatePriority() override;
 
-    std::shared_ptr<HumanTask> _currentTask;
+    HumanTaskPtr _currentTask;
 
 private:
     void _getDayTimeEntity();

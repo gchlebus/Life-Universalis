@@ -37,7 +37,7 @@ protected:
     float _minutesNeedToTravel;
     float _minutesToHitTheRoad;
     
-    std::shared_ptr<HumanTask> _currentTask;
+    HumanTaskPtr _currentTask;
     
     DayTimeEntity* _dayTime;
 };

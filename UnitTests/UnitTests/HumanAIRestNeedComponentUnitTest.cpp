@@ -9,7 +9,7 @@ class HumanAIRestNeedComponentTestMock
 {
 public:
     void setFulfillment(float value) { _fulfillment = value; }
-    void setCurrentTask(std::shared_ptr<HumanTask> task) { _currentTask = task; }
+    void setCurrentTask(HumanTaskPtr task) { _currentTask = task; }
 };
 
 class HumanTaskMock
@@ -97,7 +97,7 @@ TEST_F(RestNeedInHumanContextTest, OnUpdate_TaskIsAddedToQueue)
 
 TEST_F(RestNeedInHumanContextTest, WhenTaskIsExecuting_AfterOnUpdateFulfillmentIncreases)
 {
-    std::shared_ptr<HumanTask> task(new HumanTaskMock());
+    HumanTaskPtr task(new HumanTaskMock());
     restNeedComponent->setCurrentTask(task);
     restNeedComponent->setFulfillment(0.5f);
 

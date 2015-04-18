@@ -7,27 +7,30 @@
 //
 
 #pragma once
+
 #include <GameEngine.h>
 #include "GlobalHeaders.h"
+#include "HumanTask.h"
 
-class HumanTask;
 class HumanComponent;
 
-class HumanTaskQueueComponent : public GameObjectComponent
+class HumanTaskQueueComponent
+    : public GameObjectComponent
 {
 public:
     HumanTaskQueueComponent();
-    
-    void addTask(std::shared_ptr<HumanTask> task);
-    
-    std::shared_ptr<HumanTask> getCurrentTask();
-    
+
+    void addTask(HumanTaskPtr task);
+
+    HumanTaskPtr getCurrentTask();
+
     void terminateAllTasks();
-    
+
     void onUpdate();
+
     void onAttachToParent();
-    
+
 protected:
     HumanComponent* _humanComponent;
-    std::queue<std::shared_ptr<HumanTask>> _tasks;
+    std::queue<HumanTaskPtr> _tasks;
 };
