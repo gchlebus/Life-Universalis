@@ -10,7 +10,7 @@
 
 Machine::Machine(size_t queueSize, BuildingComponent* parent)
     : _queue(queueSize)
-    , _service(nullptr)
+    , _service(this)
 {
 
 }

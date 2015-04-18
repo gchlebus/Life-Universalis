@@ -35,6 +35,16 @@ float Service::getAttributeValue(const std::string& attrName) const
     return val;
 }
 
+void Service::setServiceTime(float min)
+{
+    _serviceTime = min;
+}
+
+float Service::getServiceTime() const
+{
+    return _serviceTime;
+}
+
 bool Service::_isAttributePresent(const std::string& attrName) const
 {
     return _attributeMap.find(attrName) != _attributeMap.end();

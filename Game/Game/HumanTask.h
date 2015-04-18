@@ -25,7 +25,7 @@ enum HumanTaskState
 class HumanTaskQueueComponent;
 
 
-//This class inherits from HumanTaskObserver class to implement mechanics of secific task.
+//This class inherits from HumanTaskObserver class to implement mechanics of specific task.
 //This mechanism is semi-automatic.
 class HumanTask : public HumanTaskObserver
 {

@@ -33,3 +33,9 @@ TEST_F(ServiceTest, OnAddTwiceTheSameAttribute_ReturnsAccumulatedValue)
 
     ASSERT_FLOAT_EQ(2 * value, service.getAttributeValue(attrName));
 }
+
+TEST_F(ServiceTest, ServiceTimeAccessor)
+{
+    service.setServiceTime(10);
+    ASSERT_FLOAT_EQ(10, service.getServiceTime());
+}

@@ -21,9 +21,14 @@ public:
     //! Returns attribute's value if atttribute is present, 0 otherwise.
     float getAttributeValue(const std::string& attrName) const;
 
+    void setServiceTime(float min);
+
+    float getServiceTime() const;
+
 private:
     bool _isAttributePresent(const std::string& attrName) const;
 
     Machine* _parent;
     AttributeMap _attributeMap;
+    float _serviceTime;
 };

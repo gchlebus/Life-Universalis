@@ -18,8 +18,6 @@ class HumanTaskQueueComponent : public GameObjectComponent
 public:
     HumanTaskQueueComponent();
     
-    //HumanTaskQueueComponent takes ownership over HumanTask
-    //HumanTask will be deleted after completion
     void addTask(std::shared_ptr<HumanTask> task);
     
     std::shared_ptr<HumanTask> getCurrentTask();
