@@ -59,6 +59,8 @@ protected:
     virtual void onTerminateGracefully();
 
     virtual void onTerminateImmediately();
+    
+    virtual void onFinish();
 
     virtual Vector3 getTarget() = 0;
 

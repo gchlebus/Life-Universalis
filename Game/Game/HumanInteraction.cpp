@@ -30,6 +30,10 @@ void HumanInteraction::onTerminateImmediately()
 {
     
 }
+void HumanInteraction::onFinish()
+{
+    
+}
 
 HumanInteraction::Result HumanInteraction::execute(HumanInteractionControllerComponent *parent)
 {
@@ -63,6 +67,7 @@ void HumanInteraction::terminateImmediately()
 void HumanInteraction::finish()
 {
     _state = DONE;
+    onFinish();
 }
 
 HumanInteraction::State HumanInteraction::getState()
