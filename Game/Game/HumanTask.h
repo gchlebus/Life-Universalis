@@ -53,7 +53,7 @@ public:
 
     bool isPaused();
 
-    virtual State getState();
+    State getState();
 
     HumanComponent* _humanComponent;
 
