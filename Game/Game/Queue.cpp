@@ -1,99 +1,60 @@
 //
-//  Queue.cpp
-//  Game
-//
-//  Created by Adam Michałowski on 26/02/15.
-//  Copyright (c) 2015 LifeUniversalis. All rights reserved.
+// Created by Chlebus, Grzegorz on 25/04/15.
+// Copyright (c) 2015 LifeUniversalis. All rights reserved.
 //
 
 #include "Queue.h"
 
-#define ABS(x) ((x) < 0 ? -(x) : (x))
-
-
-Queue::Queue(size_t maxSize)
+bool Queue::enter(const HumanInteraction* interaction, IQueue::Callback callback)
 {
-    _maxSize = maxSize;
-}
-
-size_t Queue::getSize()
-{
-    return _humans.size();
-}
-
-size_t Queue::getMaxSize()
-{
-    return _maxSize;
-}
-
-void Queue::setUnitDuration(float duration)
-{
-    _duration = duration;
-}
-float Queue::getUnitDuration()
-{
-    return _duration;
-}
-
-bool Queue::enter(HumanComponent* human)
-{
-    if(_humans.size() >= _maxSize)
-        return false;
-    _humans.push_back(human);
+    if (_canAccept(interaction))
+    {
+        _queue.push_back(std::make_pair(interaction, callback));
+        return true;
+    }
     return false;
 }
-void Queue::leave(HumanComponent* human)
+
+void Queue::leave(const HumanInteraction* interaction)
 {
-    _humans.remove(human);
+    if (!_isInQueue(interaction))
+        return;
+
+    size_t i = 0;
+    for (i; i < _queue.size(); ++i)
+        if (_queue[i].first == interaction)
+            break;
+
+    _queue.erase(_queue.begin() + i);
 }
 
+void Queue::callNext()
+{
+    if (_queue.empty())
+        return;
 
-//Queue::Queue(int sizeMax)
-//{
-//    _sizeMax = sizeMax;
-//    _currentIndex = 0;
-//    _lastIndex = 0;
-//}
-//
-//int Queue::getCurrentIndex()
-//{
-//    return _currentIndex;
-//}
-//
-//int Queue::peekNextIndex()
-//{
-//    return _lastIndex + 1;
-//}
-//
-//int Queue::getNextIndex()
-//{
-//    return _lastIndex++;
-//}
-//
-//int Queue::getQueueSize()
-//{
-//    return ABS(_lastIndex - _currentIndex) % _sizeMax;
-//}
-//
-//int Queue::getQueueMaxSize()
-//{
-//    return _sizeMax;
-//}
-//
-//bool Queue::enter(int &index, bool aquireIndex)
-//{
-//    if(aquireIndex)
-//    {
-//        index = getNextIndex();
-//    }
-//    
-//    return _currentIndex == index;
-//}
-//
-//void Queue::leave()
-//{
-//    if(_currentIndex < _lastIndex)
-//    {
-//        _currentIndex++;
-//    }
-//}
+    Element e = _queue.front();
+    _queue.erase(_queue.begin());
+    e.second();
+}
+
+size_t Queue::getPosition(const HumanInteraction* interaction)
+{
+    for (size_t i = 0; i < _queue.size(); ++i)
+        if (_queue[i].first == interaction)
+            return i;
+    return SIZE_T_MAX;
+}
+
+bool Queue::_canAccept(HumanInteraction const* interaction)
+{
+    return !_isInQueue(interaction);
+}
+
+bool Queue::_isInQueue(HumanInteraction const* interaction)
+{
+    for (size_t i = 0; i < _queue.size(); ++i)
+        if (_queue[i].first == interaction)
+            return true;
+    return false;
+}

@@ -1,57 +1,32 @@
 //
-//  Queue.h
-//  Game
-//
-//  Created by Adam Michałowski on 26/02/15.
-//  Copyright (c) 2015 LifeUniversalis. All rights reserved.
+// Created by Chlebus, Grzegorz on 25/04/15.
+// Copyright (c) 2015 LifeUniversalis. All rights reserved.
 //
 
 #pragma once
-#include <GameEngine.h>
-#include "GlobalHeaders.h"
 
-class HumanComponent;
-
-//class Queue
-//{
-//public:
-//    Queue(int sizeMax);
-//    ~Queue();
-//    
-//    bool enter(int &index, bool aquireIndex = false);
-//    void leave();
-//    
-//    int getQueueSize();
-//    int getQueueMaxSize();
-//    
-//protected:
-//    int getCurrentIndex();
-//    int peekNextIndex();
-//    int getNextIndex();
-//    
-//    int _sizeMax;
-//    int _currentIndex;
-//    int _lastIndex;
-//private:
-//};
+#include "IQueue.h"
 
 class Queue
+    : public IQueue
 {
 public:
-    Queue(size_t maxSize);
+    typedef std::pair<const HumanInteraction*, Callback> Element;
 
-    size_t getSize();
+    virtual bool enter(const HumanInteraction* interaction, Callback callback) final;
 
-    size_t getMaxSize();
-    
-    void setUnitDuration(float duration);
-    float getUnitDuration();
-    
-    bool enter(HumanComponent* human);
-    void leave(HumanComponent* human);
-    
-protected:
-    std::list<HumanComponent*> _humans;
-    size_t _maxSize;
-    float _duration;
+    virtual void leave(const HumanInteraction* interaction) final;
+
+    virtual size_t getPosition(const HumanInteraction* interaction) final;
+
+    virtual void callNext() final;
+
+private:
+    bool _isInQueue(HumanInteraction const* interaction);
+
+    bool _isQueueFull();
+
+    bool _canAccept(HumanInteraction const* interaction);
+
+    std::vector<Element> _queue;
 };
