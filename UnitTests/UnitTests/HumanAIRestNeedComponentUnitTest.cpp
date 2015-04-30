@@ -16,10 +16,10 @@ class HumanTaskMock
 : public HumanTask
 {
 public:
+    HumanTaskMock() { interact(); }
     virtual std::string getTaskName() { return ""; }
     virtual Vector3 getTarget() { return Vector3(0, 0, 0); }
     virtual void onUpdate() {}
-    State getState() { return HumanTask::EXECUTING; }
 };
 
 class RestNeedTest
