@@ -86,6 +86,12 @@ void GameEngine::gameLoop()
 			//std::cout << "\n\n";
 		}
 
+        
+        
+        //TO DO-> Implement network entry point!!!
+        
+        
+        
 		double currentTime = kernel->timer->getCurrent() + accumulatedDeltaTime;
 		int timeToWait = T_uS(kernel->settings->fixedFrameTime - currentTime);
 		if(kernel->settings->fixedTimestep)
