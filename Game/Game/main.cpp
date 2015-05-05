@@ -11,6 +11,9 @@
 
 
 #include "HumanComponentNames.h"
+#include "ServicePoint.h"
+#include "Queue.h"
+#include "Machine.h"
 
 #include <GameEngine.h>
 
@@ -55,16 +58,27 @@ int main()
         GameObject* building = buildingMgr->create();
         building->getTransform().setWorldPosition(Vector3((float)i * 10.0, 0.0, 0.0));
         BuildingComponent* buildingComp = (BuildingComponent*)building->findComponent("BuildingComponent");
-//        buildingComp->service->addAttribute("Test", (float)i);
-        for(int w = 0; w < 10; w++)
+
+        Service* service = new Service("Kielbaska");
+        service->setMinimalWorkplaceOccupation(2);
+        service->setUsageTime(2, 30);
+        service->setUsageTime(3, 10);
+        service->setFulfillmentChange("Satiety", 0.3);
+        service->setPrice(20);
+
+        ServicePoint* servicePoint = new ServicePoint(service, new Queue(), 5);
+        for (int w = 0; w < 5; w++)
         {
-            Workplace* workplace = new Workplace();
+            Workplace* workplace = servicePoint->getWorkplaces()[w];
             workplace->parent = buildingComp;
-            workplace->isOffer = true;
             workplace->startHour = 0.5 + (float)w * 0.5;
             workplace->salary = 100.0 + (10 - w) * 100.0;
-            buildingComp->workplaces.push_back(workplace);
         }
+
+        Machine* machine = new Machine();
+        machine->addServicePoint(servicePoint);
+
+        buildingComp->addMachine(machine);
         buildingMgr->add(building);
     }
 
