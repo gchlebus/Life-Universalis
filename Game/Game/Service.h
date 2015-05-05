@@ -1,34 +1,52 @@
 #pragma once
 
-#include <string>
-#include <map>
+#include "GlobalHeaders.h"
+#include "IService.h"
 
-typedef std::map<std::string, float> AttributeMap;
+struct UsageTime
+{
+    size_t occupation;
+    double min;
 
-class Machine;
+    bool operator<(const UsageTime& other) const
+    {
+        return occupation < other.occupation;
+    }
+
+    bool operator==(const UsageTime& other) const
+    {
+        return occupation == other.occupation;
+    }
+};
 
 class Service
+    : public IService
 {
 public:
-    Service(Machine* parent = nullptr);
+    Service(const std::string& name);
 
-    Machine* getParent();
+    void setPrice(unsigned int price);
 
-    void addAttribute(const std::string& attrName, float value);
+    virtual unsigned int getPrice() override;
 
-    const AttributeMap& getAttributeMap() const;
+    virtual std::string getName();
 
-    //! Returns attribute's value if atttribute is present, 0 otherwise.
-    float getAttributeValue(const std::string& attrName) const;
+    void setUsageTime(size_t workplaceOccupation, double min);
 
-    void setServiceTime(float min);
+    virtual double getUsageTime(size_t workplaceOccupation);
 
-    float getServiceTime() const;
+    void setMinimalWorkplaceOccupation(size_t minimalOccupation);
 
-private:
-    bool _isAttributePresent(const std::string& attrName) const;
+    virtual size_t getMinimalWorkplaceOccupation();
 
-    Machine* _parent;
-    AttributeMap _attributeMap;
-    float _serviceTime;
+    void setFulfillmentChange(const std::string& needName, float value);
+
+    virtual float getFulfillmentChange(const std::string& needName);
+
+protected:
+    std::string _name;
+    unsigned int _price;
+    size_t _minimalWorkplaceOccupation;
+    std::map<std::string, float> _attributes;
+    std::vector<UsageTime> _usageTimes;
 };

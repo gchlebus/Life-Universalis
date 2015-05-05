@@ -1,56 +1,80 @@
 #include "Service.h"
-#include "Machine.h"
 
-Service::Service(Machine* parent)
+Service::Service(const std::string& name)
+    : _name(name)
+    , _price(0)
+    , _minimalWorkplaceOccupation(1)
 {
-    _parent = parent;
+
 }
 
-void Service::addAttribute(const std::string& attrName, float value)
+void Service::setPrice(unsigned int price)
 {
-    if (_isAttributePresent(attrName))
-    {
-        _attributeMap[attrName] += value;
-    }
+    _price = price;
+}
+
+unsigned int Service::getPrice()
+{
+    return _price;
+}
+
+void Service::setFulfillmentChange(const std::string& needName, float value)
+{
+    _attributes[needName] = value;
+}
+
+float Service::getFulfillmentChange(const std::string& needName)
+{
+    return _attributes[needName];
+}
+
+void Service::setMinimalWorkplaceOccupation(size_t minimalOccupation)
+{
+    _minimalWorkplaceOccupation = minimalOccupation;
+}
+
+size_t Service::getMinimalWorkplaceOccupation()
+{
+    return _minimalWorkplaceOccupation;
+}
+
+void Service::setUsageTime(size_t workplaceOccupation, double min)
+{
+    UsageTime usageTime = {workplaceOccupation, min};
+    auto it = std::find(_usageTimes.begin(), _usageTimes.end(), usageTime);
+
+    if (it == _usageTimes.end())
+        _usageTimes.push_back(usageTime);
     else
+        it->min = min;
+
+    std::sort(_usageTimes.begin(), _usageTimes.end());
+}
+
+double Service::getUsageTime(size_t workplaceOccupation)
+{
+    if (workplaceOccupation < _minimalWorkplaceOccupation)
+        return std::numeric_limits<double>::max();
+
+    UsageTime usageTime = {workplaceOccupation, 0};
+    auto it = std::lower_bound(_usageTimes.begin(), _usageTimes.end(), usageTime);
+
+    if (it == _usageTimes.end())
+        return _usageTimes.back().min;
+    else if (it == _usageTimes.begin())
+        return _usageTimes.front().min;
+
+    if (usageTime.occupation == it->occupation)
     {
-        _attributeMap[attrName] = value;
-    }
-}
-
-const AttributeMap& Service::getAttributeMap() const
-{
-    return _attributeMap;
-}
-
-float Service::getAttributeValue(const std::string& attrName) const
-{
-    float val = 0;
-
-    if (_isAttributePresent(attrName))
-    {
-        val = _attributeMap.at(attrName);
+        return it->min;
     }
 
-    return val;
+    double a = (it->min - (it-1)->min) / (it->occupation - (it-1)->occupation);
+    double b = it->min - a*it->occupation;
+    return a*usageTime.occupation + b;
 }
 
-void Service::setServiceTime(float min)
+std::string Service::getName()
 {
-    _serviceTime = min;
-}
-
-float Service::getServiceTime() const
-{
-    return _serviceTime;
-}
-
-bool Service::_isAttributePresent(const std::string& attrName) const
-{
-    return _attributeMap.find(attrName) != _attributeMap.end();
-}
-
-Machine* Service::getParent()
-{
-    return _parent;
+    return _name;
 }
