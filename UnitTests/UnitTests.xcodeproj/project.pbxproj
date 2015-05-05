@@ -17,7 +17,6 @@
 		F83B429E96A2A8E109E19AE6 /* MotionComponentUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 088759991A92925A008786DA /* MotionComponentUnitTest.cpp */; };
 		F83B43D08077DD38EEC87438 /* MachineUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F83B40CC6042263B0DF9E3BA /* MachineUnitTest.cpp */; };
 		F83B44E5006B794FFAF285EA /* ServicePointUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F83B4DE3E7B98B9145354E42 /* ServicePointUnitTest.cpp */; };
-		F83B458123DCBF31F1B38A2A /* UseServiceHumanTaskUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F83B48DC5F82E3FBE52E273D /* UseServiceHumanTaskUnitTest.cpp */; };
 		F83B49D47E0C54868D5F7226 /* QueueUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F83B4EBCD02A574DDDC291BF /* QueueUnitTest.cpp */; };
 		F83B4A4ECDFC357E32F9DFE7 /* HumanAIRestNeedComponentUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F83B4DEBC90C2FBFCA42B35D /* HumanAIRestNeedComponentUnitTest.cpp */; };
 		F83B4AF8B1285CCB72728495 /* UseServiceHumanInteractionUnitTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F83B4C858432F4A597507335 /* UseServiceHumanInteractionUnitTest.cpp */; };
@@ -48,14 +47,12 @@
 		088759991A92925A008786DA /* MotionComponentUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MotionComponentUnitTest.cpp; sourceTree = "<group>"; };
 		088759A81A93F916008786DA /* TestGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGameEngine.h; sourceTree = "<group>"; };
 		088759A91A93FBE2008786DA /* TestGameEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestGameEngine.cpp; sourceTree = "<group>"; };
-		F83B40BAA64C77FB70C4A9C2 /* UseServiceHumanTaskMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseServiceHumanTaskMock.h; sourceTree = "<group>"; };
 		F83B40CC6042263B0DF9E3BA /* MachineUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MachineUnitTest.cpp; sourceTree = "<group>"; };
 		F83B420AC75A8448C1CC1C7B /* HumanInteractionMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanInteractionMock.h; sourceTree = "<group>"; };
 		F83B4285271537B34276F9C9 /* ServicePointMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicePointMock.h; sourceTree = "<group>"; };
 		F83B45A9980CF54FA26F2E95 /* ServiceMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceMock.h; sourceTree = "<group>"; };
 		F83B470E306CCE2FA17488D2 /* QueueMock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QueueMock.cpp; sourceTree = "<group>"; };
 		F83B48AB726E7AE4C36A877D /* QueueMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueMock.h; sourceTree = "<group>"; };
-		F83B48DC5F82E3FBE52E273D /* UseServiceHumanTaskUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UseServiceHumanTaskUnitTest.cpp; sourceTree = "<group>"; };
 		F83B4C858432F4A597507335 /* UseServiceHumanInteractionUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UseServiceHumanInteractionUnitTest.cpp; sourceTree = "<group>"; };
 		F83B4CFF776C271AC0091D42 /* UseServiceHumanInteractionMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseServiceHumanInteractionMock.h; sourceTree = "<group>"; };
 		F83B4DE3E7B98B9145354E42 /* ServicePointUnitTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ServicePointUnitTest.cpp; sourceTree = "<group>"; };
@@ -106,7 +103,6 @@
 				F83B4285271537B34276F9C9 /* ServicePointMock.h */,
 				F83B45A9980CF54FA26F2E95 /* ServiceMock.h */,
 				F83B420AC75A8448C1CC1C7B /* HumanInteractionMock.h */,
-				F83B40BAA64C77FB70C4A9C2 /* UseServiceHumanTaskMock.h */,
 				F83B470E306CCE2FA17488D2 /* QueueMock.cpp */,
 			);
 			path = Mocks;
@@ -123,7 +119,6 @@
 				F83B40CC6042263B0DF9E3BA /* MachineUnitTest.cpp */,
 				F83B4C858432F4A597507335 /* UseServiceHumanInteractionUnitTest.cpp */,
 				F83B4EBCD02A574DDDC291BF /* QueueUnitTest.cpp */,
-				F83B48DC5F82E3FBE52E273D /* UseServiceHumanTaskUnitTest.cpp */,
 				F83B4DE3E7B98B9145354E42 /* ServicePointUnitTest.cpp */,
 			);
 			path = UnitTests;
@@ -204,7 +199,6 @@
 				F83B43D08077DD38EEC87438 /* MachineUnitTest.cpp in Sources */,
 				F83B4AF8B1285CCB72728495 /* UseServiceHumanInteractionUnitTest.cpp in Sources */,
 				F83B49D47E0C54868D5F7226 /* QueueUnitTest.cpp in Sources */,
-				F83B458123DCBF31F1B38A2A /* UseServiceHumanTaskUnitTest.cpp in Sources */,
 				F83B44E5006B794FFAF285EA /* ServicePointUnitTest.cpp in Sources */,
 				F83B4CA5164523F303648A9C /* QueueMock.cpp in Sources */,
 			);

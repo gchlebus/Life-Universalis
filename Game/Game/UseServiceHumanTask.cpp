@@ -7,38 +7,44 @@
 //
 
 #include "UseServiceHumanTask.h"
+#include "HumanInteractionControllerComponent.h"
+#include "UseServiceHumanInteraction.h"
+#include "HumanAIMasterComponent.h"
+#include "IServicePoint.h"
 
-UseServiceHumanTask::UseServiceHumanTask()
+UseServiceHumanTask::UseServiceHumanTask(IServicePoint& servicePoint)
+    : _servicePoint(servicePoint)
 {
-    
-}
 
-UseServiceHumanTask::~UseServiceHumanTask()
-{
-    
 }
 
 std::string UseServiceHumanTask::getTaskName()
 {
-    return "UseService";
+    return HT_USE_SERVICE;
 }
 
-void UseServiceHumanTask::update()
+void UseServiceHumanTask::onUpdate()
 {
-    
+    if (getState() == EXECUTING)
+    {
+        UseServiceHumanInteraction* interaction =
+            dynamic_cast<UseServiceHumanInteraction*>(_humanComponent->humanInteraction->getCurrentInteraction());
+
+        if (!interaction)
+            terminateImmediately();
+
+        float delta = interaction->getServiceUsageProgressDelta();
+        _humanComponent->humanAIMaster->applyService(*_servicePoint.getService(), delta);
+    }
 }
 
-void UseServiceHumanTask::onExecute()
+Vector3 UseServiceHumanTask::getTarget()
 {
-    
+    return _servicePoint.getWorldPosition();
 }
 
-void UseServiceHumanTask::onFinish()
+void UseServiceHumanTask::humanTaskWillInteract(HumanTask* task)
 {
-    
-}
-
-void UseServiceHumanTask::onForceAbort()
-{
-    
+    _humanComponent->humanInteraction->executeInteraction(
+        new UseServiceHumanInteraction(_servicePoint));
 }
