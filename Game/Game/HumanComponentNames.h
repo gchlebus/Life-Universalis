@@ -18,8 +18,10 @@
 //Interaction controller stuff
 #define HC_INTERACTION_CONTROLLER   "HumanInteractionControllerComponent"
 #define HI_WORK                     "WorkInteraction"
+#define HI_USE_SERVICE              "UseServiceInteraction"
 
 //Tasks stuff
 #define HC_TASK_QUEUE               "HumanTaskQueueComponent"
 #define HT_WORK                     "WorkHumanTask"
 #define HT_REST                     "RestHumanTask"
+#define HT_USE_SERVICE              "UseServiceTask"

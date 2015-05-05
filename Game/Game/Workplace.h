@@ -15,6 +15,8 @@ class HumanComponent;
 class Workplace
 {
 public:
+    typedef std::vector<Workplace*> PtrVector;
+
     Workplace();
     BuildingComponent* parent;
     HumanComponent* human;
