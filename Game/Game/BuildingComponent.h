@@ -9,27 +9,31 @@
 #pragma once
 
 #include <GameEngine.h>
+#include "IMachine.h"
 
-class Workplace;
-class Service;
-class Queue;
+class PaymentAgentComponent;
 
-class BuildingComponent : public GameObjectComponent
+class BuildingComponent
+    : public GameObjectComponent
 {
 public:
     BuildingComponent();
-    ~BuildingComponent();
-    
-    void onStart();
-    void onBeforeFirstUpdate();
-    void onUpdate();
-    void onAttachToParent();
-    void onDetachFromParent();
-    void onDelete();
-    void onEnabled();
-    void onDisabled();
-    
-    std::vector<Workplace*> workplaces;
-//    Service *service;
-    Queue *queue;
+
+    virtual ~BuildingComponent();
+
+    virtual void onParentChangedComponents() override;
+
+    virtual void onUpdate() override;
+
+    // Currently takes ownership of the machine.
+    void addMachine(IMachine* machine);
+
+    Workplace::PtrVector getWorkplaces();
+
+    PaymentAgentComponent* paymentAgent;
+
+protected:
+    bool _isMachinePresent(IMachine* machine);
+
+    IMachine::PtrVector _machines;
 };

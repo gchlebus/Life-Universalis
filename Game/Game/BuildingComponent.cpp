@@ -7,47 +7,54 @@
 //
 
 #include "BuildingComponent.h"
-#include "Service.h"
-#include "Queue.h"
+#include "IMachine.h"
 
-BuildingComponent::BuildingComponent() : GameObjectComponent("BuildingComponent")
+BuildingComponent::BuildingComponent()
+    : GameObjectComponent("BuildingComponent")
 {
-//    service = new Service("ServiceName", this);
-    queue = new Queue(10);
+
 }
+
 BuildingComponent::~BuildingComponent()
 {
-    
+    for (auto& m: _machines)
+        delete m;
 }
 
-void BuildingComponent::onStart()
+void BuildingComponent::onParentChangedComponents()
 {
-    
+    paymentAgent = (PaymentAgentComponent*)_parent->findComponent("PaymentAgentComponent");
 }
-void BuildingComponent::onBeforeFirstUpdate()
-{
-}
+
 void BuildingComponent::onUpdate()
 {
-    
+    for (auto& m: _machines)
+        m->update();
 }
-void BuildingComponent::onAttachToParent()
+
+void BuildingComponent::addMachine(IMachine* machine)
 {
-    
+    if (_isMachinePresent(machine))
+    {
+        machine->setParent(this);
+        _machines.push_back(machine);
+    }
 }
-void BuildingComponent::onDetachFromParent()
+
+Workplace::PtrVector BuildingComponent::getWorkplaces()
 {
-    
+    Workplace::PtrVector v;
+
+    for (auto& m: _machines)
+    {
+        Workplace::PtrVector tmp = m->getWorkplaces();
+        v.insert(v.end(), tmp.begin(), tmp.end());
+    }
+
+    return v;
 }
-void BuildingComponent::onDelete()
+
+bool BuildingComponent::_isMachinePresent(IMachine* machine)
 {
-    
-}
-void BuildingComponent::onEnabled()
-{
-    
-}
-void BuildingComponent::onDisabled()
-{
-    
+    return find(_machines.begin(), _machines.end(), machine) == _machines.end();
 }

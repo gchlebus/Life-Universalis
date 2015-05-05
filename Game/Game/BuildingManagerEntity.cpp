@@ -1,10 +1,9 @@
-
-
 #include "BuildingManagerEntity.h"
 #include "BuildingComponent.h"
 #include "Workplace.h"
 
-BuildingManagerEntity::BuildingManagerEntity() : GameEnvironmentEntity(EN_BUILDING_MGR)
+BuildingManagerEntity::BuildingManagerEntity()
+    : GameEnvironmentEntity(EN_BUILDING_MGR)
 {
 }
 
@@ -30,29 +29,29 @@ void BuildingManagerEntity::onStop()
 
 GameObject* BuildingManagerEntity::create()
 {
-	GameObject* retVal = new GameObject();
-	retVal->setName("TestBuilding");
-	retVal->addComponent(new BuildingComponent());
-	return retVal;
+    GameObject* retVal = new GameObject();
+    retVal->setName("TestBuilding");
+    retVal->addComponent(new BuildingComponent());
+    return retVal;
 }
 
 void BuildingManagerEntity::add(GameObject* building)
 {
-	GameEngine::engine()->currentScene->addObject(building);
-	_buildings.push_back(building);
+    GameEngine::engine()->currentScene->addObject(building);
+    _buildings.push_back(building);
 }
 
 void BuildingManagerEntity::remove(GameObject* building)
 {
-	GameEngine::engine()->currentScene->removeObject(building);
-	for(int i = 0; i < _buildings.size(); i++)
-	{
-		if(_buildings[i] == building)
-		{
-			_buildings.erase(_buildings.begin() + i);
-			return;
-		}
-	}
+    GameEngine::engine()->currentScene->removeObject(building);
+    for (int i = 0; i < _buildings.size(); i++)
+    {
+        if (_buildings[i] == building)
+        {
+            _buildings.erase(_buildings.begin() + i);
+            return;
+        }
+    }
 }
 
 std::vector<GameObject*> BuildingManagerEntity::getBuildings()
@@ -60,20 +59,26 @@ std::vector<GameObject*> BuildingManagerEntity::getBuildings()
     return _buildings;
 }
 
-std::vector<Workplace*> BuildingManagerEntity::getWorkplaces(bool onlyOffers)
+Workplace::PtrVector BuildingManagerEntity::getWorkplaces(bool onlyOffers)
 {
-    std::vector<Workplace*> retVal;
+    Workplace::PtrVector v;
+    
     for(auto building : _buildings)
     {
-        BuildingComponent *currComp = (BuildingComponent*)building->findComponent("BuildingComponent");
+        BuildingComponent* currComp = (BuildingComponent*)building->findComponent("BuildingComponent");
+        const Workplace::PtrVector workplaces = currComp->getWorkplaces();
+
         if(onlyOffers)
         {
-            for(auto workplace : currComp->workplaces)
+            for(auto workplace : workplaces)
                 if(workplace->isOffer)
-                    retVal.push_back(workplace);
+                    v.push_back(workplace);
         }
         else
-            retVal.insert(retVal.begin(), currComp->workplaces.begin(), currComp->workplaces.end());
+        {
+            v.insert(v.begin(), workplaces.begin(), workplaces.end());
+        }
     }
-    return retVal;
+    
+    return v;
 }

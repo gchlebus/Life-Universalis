@@ -2,26 +2,33 @@
 
 #include <GameEngine.h>
 #include "EnvironmentEntitiesNames.h"
+#include "Workplace.h"
 
-class Workplace;
-
-class BuildingManagerEntity : public GameEnvironmentEntity
+class BuildingManagerEntity
+    : public GameEnvironmentEntity
 {
 public:
-	BuildingManagerEntity();
-	~BuildingManagerEntity();
+    BuildingManagerEntity();
 
-	void onStart();
-	void onUpdate();
-	void onStop();
+    ~BuildingManagerEntity();
 
-	GameObject* create();
-	void add(GameObject* building);
-	void remove(GameObject* building);
+    void onStart();
 
-	std::vector<GameObject*> getBuildings();
-    std::vector<Workplace*> getWorkplaces(bool onlyOffers);
+    void onUpdate();
+
+    void onStop();
+
+    GameObject* create();
+
+    void add(GameObject* building);
+
+    void remove(GameObject* building);
+
+    std::vector<GameObject*> getBuildings();
+
+    Workplace::PtrVector getWorkplaces(bool onlyOffers);
+
 protected:
-	std::vector<GameObject*> _buildings;
+    std::vector<GameObject*> _buildings;
 };
 
