@@ -45,37 +45,14 @@ float HumanAINeedComponent::getFulfillment()
     return _fulfillment;
 }
 
-float HumanAINeedComponent::valueImpact(Service* product)
-{
-    if(product == nullptr)
-    {
-        return 0;
-    }
-    
-    const float majorWeight =  2, minorWeight = 1;
-    float sum = 0, weight = 0, currentWeight = minorWeight;
-    
-    HumanAINeedComponent *targetNeed = this;
-    
-    for(auto& attribute : product->getAttributeMap())
-    {
-        std::vector<GameObjectComponent*> affectedNeedComponents = _parent->findComponentsContainingString("HumanAINeed" + attribute.first);
-        
-        for(GameObjectComponent *comp : affectedNeedComponents)
-        {
-            HumanAINeedComponent *need  = (HumanAINeedComponent*)comp;
-            
-            currentWeight = (need->getComponentName() == targetNeed->getComponentName()) ? majorWeight : minorWeight;
-            
-            sum += attribute.second * currentWeight;
-            weight += currentWeight;
-        }
-    }
-    
-    return weight > 0 ? sum / weight : 0;
-}
-
 void HumanAINeedComponent::onParentChangedComponents()
 {
     _humanComponent = (HumanComponent*)_parent->findComponent("HumanComponent");
+}
+
+void HumanAINeedComponent::increaseFulfillment(float value)
+{
+    _fulfillment += value;
+    boost::algorithm::clamp(_fulfillment, 0.f, 1.f);
+
 }

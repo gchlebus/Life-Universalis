@@ -14,8 +14,10 @@ class HumanComponent;
 class HumanAINeedComponent;
 class HumanAISeekJobComponent;
 class HumanTaskQueueComponent;
+class IService;
 
-class HumanAIMasterComponent : public GameObjectComponent
+class
+HumanAIMasterComponent : public GameObjectComponent
 {
 public:
 	HumanAIMasterComponent();
@@ -30,6 +32,9 @@ public:
     void onEnabled();
     void onDisabled();
     void onParentChangedComponents();
+
+    void applyService(IService& service, float delta);
+    float rateService(IService& service, HumanAINeedComponent* need);
     
     HumanTaskQueueComponent *humanTaskQueue;
     

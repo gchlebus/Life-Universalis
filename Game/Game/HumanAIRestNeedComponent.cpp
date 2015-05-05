@@ -41,8 +41,7 @@ void HumanAIRestNeedComponent::onUpdate()
     if(_currentTask->getState() == HumanTask::EXECUTING)
     {
         double lastDeltaInHours = _dayTime->getLastDelta().time / 60;
-        _fulfillment += lastDeltaInHours / (_getHumanNeedRestTime() / 6);
-        _fulfillment = boost::algorithm::clamp(_fulfillment, 0.f, 1.f);
+        increaseFulfillment(lastDeltaInHours / (_getHumanNeedRestTime() / 6));
     }
 }
 

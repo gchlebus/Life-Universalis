@@ -12,6 +12,7 @@
 #include "HumanAISeekJobComponent.h"
 #include "HumanComponent.h"
 #include "HumanComponentNames.h"
+#include "IService.h"
 
 
 HumanAIMasterComponent::HumanAIMasterComponent()
@@ -97,4 +98,29 @@ void HumanAIMasterComponent::onEnabled()
 }
 void HumanAIMasterComponent::onDisabled()
 {
+}
+
+void HumanAIMasterComponent::applyService(IService& service, float delta)
+{
+    for (auto& need: _needs)
+    {
+        float change = service.getFulfillmentChange(need->getNeedName());
+        need->increaseFulfillment(delta * change);
+    }
+}
+
+
+float HumanAIMasterComponent::rateService(IService& service, HumanAINeedComponent* need)
+{
+    const float majorWeight =  2, minorWeight = 1;
+    float sum = 0, weight = 0, currentWeight = minorWeight;
+
+    for (auto& n: _needs)
+    {
+        currentWeight = (n == need) ? majorWeight : minorWeight;
+        sum += currentWeight + service.getFulfillmentChange(n->getNeedName());
+        weight += currentWeight;
+    }
+
+    return weight > 0 ? sum / weight : 0;
 }
