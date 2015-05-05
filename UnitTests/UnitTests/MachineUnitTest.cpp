@@ -1,30 +1,52 @@
 #include <gtest/gtest.h>
+#include <gmock/gmock.h>
 #include "Machine.h"
+#include "ServicePointMock.h"
 
-
-class MachineTest
+class GivenMachine
     : public ::testing::Test
 {
 protected:
     Machine machine;
 };
 
-TEST_F(MachineTest, AddNullptrAsWorkplace_NothingIsAdded)
+TEST_F(GivenMachine, WhenServicePointAdded_ThenServicePointsHaveSizeOfOne)
 {
-    machine.addWorkplace(nullptr);
-    ASSERT_EQ(0, machine.getWorkplaces().size());
+    ServicePointMock* servicePointMock = new ServicePointMock();
+    machine.addServicePoint(servicePointMock);
+    ASSERT_EQ(1, machine.getServicePoints().size());
 }
 
-TEST_F(MachineTest, AddWorkplace_WorkplaceIsAdded)
+TEST_F(GivenMachine, WhenServicePointAdded_ThenServicePointsParentSet)
 {
-    machine.addWorkplace(new Workplace());
-    ASSERT_EQ(1, machine.getWorkplaces().size());
+    ServicePointMock* servicePointMock = new ServicePointMock();
+    EXPECT_CALL(*servicePointMock, setParent(&machine));
+    machine.addServicePoint(servicePointMock);
 }
 
-TEST_F(MachineTest, AddSameWorkplaceTwice_WorkplaceIsAddedOnlyOnce)
+TEST_F(GivenMachine, WhenSameServicePointAddedTwice_ThenServicePointAddedOnlyOnce)
 {
-    Workplace* workplace = new Workplace();
-    machine.addWorkplace(workplace);
-    machine.addWorkplace(workplace);
-    ASSERT_EQ(1, machine.getWorkplaces().size());
+    ServicePointMock* servicePointMock = new ServicePointMock();
+    machine.addServicePoint(servicePointMock);
+    machine.addServicePoint(servicePointMock);
+    ASSERT_EQ(1, machine.getServicePoints().size());
+}
+
+class GivenMachineWithServicePoint
+    : public GivenMachine
+{
+protected:
+    GivenMachineWithServicePoint()
+    {
+        servicePointMock = new ServicePointMock();
+        machine.addServicePoint(servicePointMock);
+    }
+
+    ServicePointMock* servicePointMock;
+};
+
+TEST_F(GivenMachineWithServicePoint, WhenUpdateCalled_ThenServicePointUpdated)
+{
+    EXPECT_CALL(*servicePointMock, update());
+    machine.update();
 }

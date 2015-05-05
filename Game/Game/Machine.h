@@ -4,38 +4,37 @@
 //
 #pragma once
 
+#include "IMachine.h"
 
-#include "Service.h"
-#include "Queue.h"
-#include "Workplace.h"
-#include "BuildingComponent.h"
-
-typedef std::vector<Workplace*> WorkplaceVector;
+class IServicePoint;
 
 class Machine
+    : public IMachine
 {
 public:
-
-    Machine(size_t queueSize = 10, BuildingComponent* parent = nullptr);
+    Machine();
 
     virtual ~Machine();
 
-    const Service& getService() const;
+    virtual void setParent(BuildingComponent* parent) override;
 
-    const Queue& getQueue() const;
+    virtual PaymentAgentComponent* getPaymentAgent() override;
 
-    const WorkplaceVector& getWorkplaces() const;
+    virtual Vector3 getWorldPosition() override;
 
-    const BuildingComponent& getParent() const;
+    virtual IServicePoint::PtrVector& getServicePoints() override;
 
-    // Machine takes ownership of workplace.
-    void addWorkplace(Workplace* workplace);
+
+    virtual Workplace::PtrVector getWorkplaces() override;
+
+    virtual void update() override;
+
+    // Machine takes ownership of passed service point.
+    void addServicePoint(IServicePoint* servicePoint);
 
 protected:
-    bool const _isWorkplacePresent(Workplace* workplace);
+    bool _isServicePointPresent(IServicePoint* servicePoint);
 
-    Service _service;
-    Queue _queue;
-    WorkplaceVector _workplaces;
-    BuildingComponent* _parent;
+    BuildingComponent* _buildingComponent;
+    IServicePoint::PtrVector _servicePoints;
 };

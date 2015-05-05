@@ -2,55 +2,71 @@
 // Created by Chlebus, Grzegorz on 01/04/15.
 // Copyright (c) 2015 LifeUniversalis. All rights reserved.
 //
-
 #include "Machine.h"
-#include "Queue.h"
 #include "BuildingComponent.h"
+#include "IServicePoint.h"
 
-
-Machine::Machine(size_t queueSize, BuildingComponent* parent)
-    : _queue(queueSize)
-    , _service(this)
+Machine::Machine()
+    : _buildingComponent(nullptr)
 {
 
 }
 
 Machine::~Machine()
 {
-    for (Workplace* w : _workplaces)
-        delete w;
+    for (auto sp: _servicePoints)
+        delete sp;
 }
 
-const Service& Machine::getService() const
+void Machine::setParent(BuildingComponent* parent)
 {
-    return _service;
+    _buildingComponent = parent;
 }
 
-Queue const& Machine::getQueue() const
+PaymentAgentComponent* Machine::getPaymentAgent()
 {
-    return _queue;
+    return _buildingComponent->paymentAgent;
 }
 
-const WorkplaceVector& Machine::getWorkplaces() const
+Vector3 Machine::getWorldPosition()
 {
-    return _workplaces;
+    return _buildingComponent->getParent()->getTransform().getWorldPosition();
 }
 
-const BuildingComponent& Machine::getParent() const
+IServicePoint::PtrVector& Machine::getServicePoints()
 {
-    return *_parent;
+    return _servicePoints;
 }
 
-void Machine::addWorkplace(Workplace* workplace)
+void Machine::update()
 {
-    if (!workplace)
-        return;
-
-    if (_isWorkplacePresent(workplace))
-        _workplaces.push_back(workplace);
+    for (auto& sp: _servicePoints)
+        sp->update();
 }
 
-bool const Machine::_isWorkplacePresent(Workplace* workplace)
+Workplace::PtrVector Machine::getWorkplaces()
 {
-    return find(_workplaces.begin(), _workplaces.end(), workplace) == _workplaces.end();
+    Workplace::PtrVector v;
+
+    for (auto& sp: _servicePoints)
+    {
+        Workplace::PtrVector tmp = sp->getWorkplaces();
+        v.insert(v.end(), tmp.begin(), tmp.end());
+    }
+
+    return v;
+}
+
+void Machine::addServicePoint(IServicePoint* servicePoint)
+{
+    if (_isServicePointPresent(servicePoint))
+    {
+        servicePoint->setParent(this);
+        _servicePoints.push_back(servicePoint);
+    }
+}
+
+bool Machine::_isServicePointPresent(IServicePoint* servicePoint)
+{
+    return find(_servicePoints.begin(), _servicePoints.end(), servicePoint) == _servicePoints.end();
 }
